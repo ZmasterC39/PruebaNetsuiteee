@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|033|001|000002811|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|carlos.cachumba@ministeriodegobierno.gob.ec|
+IC|20/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MINISTERIO DE GOBIERNO|1760000660001|DOLAR||01|033-001-000018301|28/01/2026|289.80|C-EC-1768137410001 Ministerio de la Mujer y Derechos HumanosMinisterio de la Mujer y Derechos Humano FA033001000018301|||||||||||
+T|252.00|0.00|0|252.00|0.00|0|37.80|289.80|0|289.80|
+TI|2|4|15|252.00|37.80|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|40|6.3|0|252.00|
+IM|2|4|15|252.00|37.80|IVA|
+IA|DIRECCION|BENALCAZAR #N4-24 ENTRE ESPEJOJUNTO A LA PRESIDENCIA DE LA REPUBLICA.|
+IA|TELEFONO|+593222222222|
+IA|EMISION|Quito|
+IA|CORREO|carlos.cachumba@ministeriodegobierno.gob.ec,carlos.cachumba@ministeriodegobierno.gob.ec,alex.ponce@policia.gob.ec,alex14ponce@outlook.com,axel.ponce@policia.gob.ec|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|016|001|000045609|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|austrovelocuenca@gmail.com|
+IC|26/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||LUIS MANUEL MARTINEZ PEÑALOZA|0929329605001|DOLAR|||||0||||||||||||Monay Baguanchy- Av Americas|
+T|83.34|0.00|0|83.34|0.00|0|12.50|95.84|0|95.84|
+TI|2|4|83.34|15|12.50|IVA|
+DE|9203|9203|RENO HBLOCK HEAVY RENOVACIÓN|2|41.67|0|83.34|
+IM|2|4|15|83.34|12.50|IVA|
+IA|DIRECCION|Monay Baguanchy- Av Americas|
+IA|TELEFONO|+593995696419|
+IA|OBSERVACION|JUNIO|
+IA|VENCIMIENTO|25/09/2026|
+IA|EMISION|Cuenca|
+IA|CORREO|austrovelocuenca@gmail.com,austrovelocuenca@gmail.com,austrovelocuenca@gmail.com,austrovelocuenca@gmail.com,consorcioim3@gmail.com|
+IA|PLAZO|30 días|
+PA|20|95.84|30|días|

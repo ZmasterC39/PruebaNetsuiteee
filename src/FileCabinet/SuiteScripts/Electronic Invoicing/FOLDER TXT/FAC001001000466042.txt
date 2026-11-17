@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000466042|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|admin.mapriplastec@manuchar.coM|
+IC|27/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MAPRIPLASTEC DEL ECUADOR S.A.|1790980197001|DOLAR|||||0||||||||||||Calle Domingo Comn 511, 110|
+T|75.00|0.00|0|75.00|0.00|0|11.25|86.25|0|86.25|
+TI|2|4|75.00|15|11.25|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|1|75|0|75.00|
+IM|2|4|15|75.00|11.25|IVA|
+IA|DIRECCION|Calle Domingo Comn 511, 110|
+IA|TELEFONO|+593981657109|
+IA|OBSERVACION|GTN-4162|
+IA|VENCIMIENTO|26/06/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|admin.mapriplastec@manuchar.coM,admin.mapriplastec@manuchar.com,liliana.aguilar@manuchar.com,admin.mapriplastec@manuchar.com,liliana.aguilar@manuchar.com,admin.mapriplastec@manuchar.com|
+IA|PLAZO|30 días|
+PA|20|86.25|30|días|

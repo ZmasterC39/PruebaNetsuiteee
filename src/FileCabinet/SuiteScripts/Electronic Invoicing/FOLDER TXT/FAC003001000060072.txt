@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|003|001|000060072|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|rossibelll.10@gmail.com|
+IC|30/09/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||LESLIE ROSSIBEL CABANILLA ARROBO|0704623610|DOLAR|||||0||||||||||||Eugenio Cajamarca Entre El Callejo Marlene Nieto Casa Esquinera|
+T|0.00|42.00|0|42.00|0.00|0|0.00|42.00|0|42.00|
+TI|2|0|42.00|0|0.00|IVA|
+DE|12279|12279|VENT HUNTER MED PLAN INDIVIDUAL|1|42|0|42.00|
+IM|2|0|0|42.00|0.00|IVA|
+IA|DIRECCION|Eugenio Cajamarca Entre El Callejo Marlene Nieto Casa Esquinera|
+IA|CIUDAD|MACHALA|
+IA|TELEFONO|+593968411198|
+IA|VENCIMIENTO|30/09/2025|
+IA|EMISION|Machala|
+IA|CORREO|rossibelll.10@gmail.com,rossibelll.10@gmail.com,rossibelll.10@gmail.com,rossibelll.10@gmail.com|
+IA|PLAZO|0 días|
+PA|20|42.00|0|días|

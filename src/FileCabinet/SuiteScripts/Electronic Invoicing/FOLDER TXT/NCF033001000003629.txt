@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|033|001|000003629|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|coordinadorafacturas@alarmsystemsecuador.com.ec|
+IC|17/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ALARM SYSTEMS ECUADOR S.A.|1792115094001|DOLAR||01|033-001-000013407|22/10/2025|84.02|C-EC-1792115094001 ALARM SYSTEMS ECUADOR S.A.  FA033001000013407|||||||||||
+T|73.06|0.00|0|73.06|0.00|0|10.96|84.02|0|84.02|
+TI|2|4|15|73.06|10.96|IVA|
+DE|9621|9621|RENO GPS HMT RENOVACION|1|73.06|0|73.06|
+IM|2|4|15|73.06|10.96|IVA|
+IA|DIRECCION|ITALIA N32-74 Y MARIANA DE JESUS|
+IA|TELEFONO|+593991484068|
+IA|EMISION|Quito|
+IA|CORREO|coordinadorafacturas@alarmsystemsecuador.com.ec,coordinadorafacturas@alarmsystemsecuador.com.ec,frevelo@alarmsystemsecuador.com.ec,frevelo@alarmsystemsecuador.com.ec,frevelo@alarmsystemsecuador.com.ec,coordinadorafacturas@alarmsystemsecuador.com.ec|

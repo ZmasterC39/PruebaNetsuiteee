@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000014933|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|facturas@jhjalil.com|
+IC|20/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||JOSE JALIL & HIJOS REPRESENTACIONES Y COMERCIO CIA. LTDA.|1792150248001|DOLAR|||||0||||||||||||Avenida Naciones Unidas Y Nuez De Vela Edif. Metropolitan Ofi.809|
+T|200.00|0.00|0|200.00|0.00|0|30.00|230.00|0|230.00|
+TI|2|4|200.00|15|30.00|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|200|0|200.00|
+IM|2|4|15|200.00|30.00|IVA|
+IA|DIRECCION|Avenida Naciones Unidas Y Nuez De Vela Edif. Metropolitan Ofi.809|
+IA|TELEFONO|+59398465845|
+IA|VENCIMIENTO|27/11/2025|
+IA|EMISION|Quito|
+IA|CORREO|facturas@jhjalil.com,facturas@jhjalil.com,asistentecont@jhjalil.com.ec,contabilidad@jhjalil.com.ec,facturas@jhjalil.com|
+IA|PLAZO|7 días|
+PA|20|230.00|7|días|

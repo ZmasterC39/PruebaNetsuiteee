@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000439981|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|ingridmartinezleisker@hotmail.com|
+IC|07/08/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||INGRID FRANCISCA LEISKER MARTINEZ|0906597992|DOLAR|||||0||||||||||||Urbanizacin isla del Ro edificio Mocoli 360 apartamento 3 planta baja en la isla Mocoli.|
+T|25.00|0.00|0|25.00|0.00|0|3.75|28.75|0|28.75|
+TI|2|4|25.00|15|3.75|IVA|
+DE|11295|11295|DESI AMI BYHUNTER ENTREGA DIRECTA|1|25|0|25.00|
+IM|2|4|15|25.00|3.75|IVA|
+IA|DIRECCION|Urbanizacin isla del Ro edificio Mocoli 360 apartamento 3 planta baja en la isla Mocoli.|
+IA|TELEFONO|+593984683577|
+IA|VENCIMIENTO|07/08/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|ingridmartinezleisker@hotmail.com,ingridmartinezleiske@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|28.75|0|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000466750|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|denis.obando@starkist.com|
+IC|04/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||GALAPESCA S.A.|0992132078001|DOLAR|||||0||||||||||||KM 12.5 VIA A DAULE DETRAS DE ECUASAL -GALAPESCA S.A.|
+T|300.00|0.00|0|300.00|0.00|0|45.00|345.00|0|345.00|
+TI|2|4|300.00|15|45.00|IVA|
+DE|10324|10324|ALQU HUNTER PORTATIL TRANSMISION ALQUILER|20|15|0|300.00|
+IM|2|4|15|300.00|45.00|IVA|
+IA|DIRECCION|KM 12.5 VIA A DAULE DETRAS DE ECUASAL -GALAPESCA S.A.|
+IA|TELEFONO|+593967281158|
+IA|OBSERVACION|JUNIO 2026|
+IA|VENCIMIENTO|04/07/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|Mercedes.Alcivar@StarKist.com,denis.obando@starkist.com,Jose.Cedeno@starkist.com,facturas.galapesca@starkist.com,arturo.rios@starkist.com,Mercedes.Alcivar@StarKist.com,Diana.Pazan@StarKist.com,Ericka.Teresaca@StarKist.com,Katherine.Sanchez@StarKist.com,Electronica.Seguridad@StarKist.com|
+IA|PLAZO|30 días|
+PA|20|345.00|30|días|

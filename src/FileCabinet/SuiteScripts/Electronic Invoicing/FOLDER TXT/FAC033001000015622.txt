@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000015622|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|and.herr@hotmail.com|
+IC|30/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||ANDRES EDWIN HERRERA VELA|1720986304|DOLAR|||||0||||||||||||San Francisco. Lt2. Pasaje 1 Rendin Calderon|
+T|240.00|0.00|0|240.00|0.00|0|36.00|276.00|0|276.00|
+TI|2|4|240.00|15|36.00|IVA|
+DE|11257|11257|RENO HM AMI RENOVACION|1|240|0|240.00|
+IM|2|4|15|240.00|36.00|IVA|
+IA|DIRECCION|San Francisco. Lt2. Pasaje 1 Rendin Calderon|
+IA|TELEFONO|+593999940559|
+IA|VENCIMIENTO|07/12/2025|
+IA|EMISION|Quito|
+IA|CORREO|and.herr@hotmail.com,and.herr@hotmail.com,and.herr@hotmail.com,and.herr@hotmail.com,and.herr@hotmail.com,and.herr@hotmail.com|
+IA|PLAZO|7 días|
+PA|20|276.00|7|días|

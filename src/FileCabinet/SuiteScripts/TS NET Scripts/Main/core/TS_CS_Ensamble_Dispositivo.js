@@ -8,9 +8,12 @@ define([
     'N/runtime',
     'N/record',
     'N/ui/dialog',
+    'N/email',
     '../controller/TS_CM_Controller',
-    '../constant/TS_CM_Constant'
-], (url, runtime, record, dialog, _controller, _constant) => {
+    '../constant/TS_CM_Constant', 'N/log',
+    'SuiteScripts/IntegracionesHunter/HU_EC_LIB_TOOLKIT.js',
+    'N/query',
+], (url, runtime, record, dialog, email, _controller, _constant, log, _toolkit, query) => {
     const RENT_ASSEMBLY_BUILD_DEPLOYMENT_ID = "customdeploy_ts_ui_assembly_build_21";
     const RENT_ASSEMBLY_BUILD_SCRIPT_ID = "customscript_ts_ui_assembly_build_21";
     const CUSTODY_ASSEMBLY_BUILD_DEPLOYMENT_ID = "customdeploy_ts_ui_custody_assem_buil_21";
@@ -21,6 +24,7 @@ define([
     const IMPRESION_CERTIFICADO_DEPLOYMENT_ID = "customdeploy_ts_ui_ec_impresion_certi"
     const estadoChequeado = 2;
     const estadoDisponible = 5;
+
 
     const pageInit = (scriptContext) => { }
 
@@ -135,8 +139,19 @@ define([
 
     const chequearOrden = (internalid) => {
         let pideNumberBox = 0;
+        let response;
         try {
             let objRecord = record.load({ type: 'customrecord_ht_record_ordentrabajo', id: internalid });
+
+            // reinstalación de garantía bloqueada hasta chequear la desinstalación  20/07/2026 - Doas
+            if (bloqueaReinstalacionGarantia(objRecord)) {
+                dialog.alert({
+                    title: 'No se puede chequear la Reinstalación',
+                    message: 'Debe chequear primero la Orden de Trabajo de DESINSTALACIÓN (garantía) de esta Orden de Servicio.'
+                });
+                return; // detiene el chequeo, no guarda
+            }
+
             if (objRecord.getValue('custrecord_ht_ot_others_installs') == false) {
                 if (objRecord.getValue('custrecord_ht_ot_estadochaser').length > 0) {
                     if (objRecord.getValue('custrecord_ht_ot_taller').length > 0) {
@@ -187,10 +202,61 @@ define([
                 }
             }
 
+            log.audit("response SAVE", response)
         } catch (error) {
             console.log('Error', error);
         }
     }
+
+    // ============================================================================
+    // VALIDATION - Par garantía desinstalación (002) -> reinstalación (003)
+    // ============================================================================
+    const bloqueaReinstalacionGarantia = (objRecord) => {
+        try {
+
+            let userSubsidiaria = runtime.getCurrentUser().subsidiary;
+            if (userSubsidiaria != 2) return false;
+
+            let osId = objRecord.getValue('custrecord_ht_ot_orden_servicio');
+            let garantia = objRecord.getValue('custrecord_flujo_de_garantia');
+            let artRel = objRecord.getValue('custrecord_ht_ot_itemrelacionado');
+
+            if (!osId || !garantia || !artRel) return false;
+
+            let adpAct = _controller.getParameter(artRel, _constant.Parameter.ADP_ACCION_DEL_PRODUCTO);
+            if (adpAct != _constant.Valor.VALOR_003_REINSTALACION_DE_DISP) return false;
+
+            let sql =
+                "SELECT ot.custrecord_ht_ot_estado AS estado, " +
+                "       ot.custrecord_flujo_de_garantia AS garantia, " +
+                "       val.custrecord_ht_pp_codigo AS adp " +
+                "FROM customrecord_ht_record_ordentrabajo ot " +
+                "  INNER JOIN customrecord_ht_pp_main_param_prod mp " +
+                "          ON mp.custrecord_ht_pp_parametrizacionid = ot.custrecord_ht_ot_itemrelacionado " +
+                "  INNER JOIN customrecord_ht_cr_parametrizacion_produ rela " +
+                "          ON rela.id = mp.custrecord_ht_pp_parametrizacion_rela " +
+                "         AND rela.custrecord_ht_pp_code = 'ADP' " +
+                "  INNER JOIN customrecord_ht_cr_pp_valores val " +
+                "          ON val.id = mp.custrecord_ht_pp_parametrizacion_valor " +
+                "WHERE ot.custrecord_ht_ot_orden_servicio = ?";
+
+            let filas = query.runSuiteQL({ query: sql, params: [osId] }).asMappedResults();
+
+            let desinst = filas.filter(f => String(f.adp) === '002');
+            let reinst = filas.filter(f => String(f.adp) === '003' &&
+                (f.garantia === true || String(f.garantia) === 'T' || String(f.garantia) === 'true'));
+
+            let esParExacto = desinst.length === 1 && reinst.length === 1;
+            if (!esParExacto) return false;
+
+            let desinstChequeada = Number(desinst[0].estado) === estadoChequeado;
+            return !desinstChequeada; // bloquea si la desinstalación NO está chequeada
+
+        } catch (e) {
+            console.log('Error bloqueaReinstalacionGarantia:', e);
+            return false; // ante error, no bloquear
+        }
+    };
 
     const printCertificado = (workOrder, type) => {
         try {

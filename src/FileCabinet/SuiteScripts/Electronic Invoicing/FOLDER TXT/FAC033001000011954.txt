@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000011954|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|gabriel.valle@ec.lactalis.com|
+IC|24/09/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Lactalis del Ecuador S.A.|0590036951001|DOLAR|||||0||||||||||||Av. Amazonas y Naciones Unidas Edf La Previsora 5to piso 501.|
+T|150.00|0.00|0|150.00|0.00|0|22.50|172.50|0|172.50|
+TI|2|4|150.00|15|22.50|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|1|150|0|150.00|
+IM|2|4|15|150.00|22.50|IVA|
+IA|DIRECCION|Av. Amazonas y Naciones Unidas Edf La Previsora 5to piso 501.|
+IA|CIUDAD|QUITO|
+IA|TELEFONO|+5933945980|
+IA|OBSERVACION|PFM-2030|
+IA|VENCIMIENTO|23/12/2025|
+IA|EMISION|Quito|
+IA|CORREO|gabriel.valle@ec.lactalis.com,gabriel.valle@ec.lactalis.com,gabriel.valle@ec.lactalis.com|
+IA|PLAZO|90 días|
+PA|20|172.50|90|días|

@@ -1,0 +1,119 @@
+<customrecordtype scriptid="customrecord_ht_pe_bag_audit">
+    <accesstype>NONENEEDED</accesstype>
+    <allowinlineediting>F</allowinlineediting>
+    <allowuiaccess>F</allowuiaccess>
+    <description>Auditoria tecnica de validaciones y sincronizaciones BOM.</description>
+    <enableoptimisticlocking>T</enableoptimisticlocking>
+    <enablesystemnotes>T</enablesystemnotes>
+    <includeinsearchmenu>F</includeinsearchmenu>
+    <includename>T</includename>
+    <isinactive>F</isinactive>
+    <recordname>HT PE BAG - Auditoria</recordname>
+    <customrecordcustomfields>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_workorder">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>ID Orden de fabricacion</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_ot">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>ID Orden de trabajo</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_bomrev">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>ID Revision BOM</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_source">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Origen</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_status">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Estado</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_fingerprint">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Fingerprint</label>
+            <maxlength>64</maxlength>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_request">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>ID de solicitud</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_error">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>CLOBTEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Error</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_added">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Lineas agregadas</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_updated">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Lineas actualizadas</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_removed">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Lineas removidas</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_duration">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Duracion ms</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_a_detail">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>CLOBTEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Detalle</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+    </customrecordcustomfields>
+</customrecordtype>

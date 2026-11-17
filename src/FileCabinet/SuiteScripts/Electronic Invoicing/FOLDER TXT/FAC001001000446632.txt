@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000446632|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@farmagro.com|
+IC|18/10/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||FARMAGRO S.A.|0991054103001|DOLAR|||||0||||||||||||Cdla. Los Vergeles Calle 23a Dr. Carlos Julio Arosemena N. 1-6-7 Interseccion Av. 38c Mz. 263|
+T|210.00|0.00|0|210.00|0.00|0|31.50|241.50|0|241.50|
+TI|2|4|210.00|15|31.50|IVA|
+DE|956|956|CHEQ HUNTER RASTREO CHEQUEO|21|10|0|210.00|
+IM|2|4|15|210.00|31.50|IVA|
+IA|DIRECCION|Cdla. Los Vergeles Calle 23a Dr. Carlos Julio Arosemena N. 1-6-7 Interseccion Av. 38c Mz. 263|
+IA|TELEFONO|+593989602243|
+IA|VENCIMIENTO|17/11/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@farmagro.com,contabilidad@farmagro.com,eleon@farmagro.com,contabilidad@farmagro.com,contabilidad@farmagro.com|
+IA|PLAZO|30 días|
+PA|20|241.50|30|días|

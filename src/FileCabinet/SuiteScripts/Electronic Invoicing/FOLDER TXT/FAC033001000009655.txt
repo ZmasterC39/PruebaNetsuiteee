@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000009655|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|s.luzon@bomberosruminahui.gob.ec|
+IC|05/08/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Cuerpo de Bomberos de Rumiñahui|1798194700001|DOLAR|||||0||||||||||||Shyris y Altar, Sangolqu  Ecuador|
+T|130.20|0.00|0|130.20|0.00|0|19.53|149.73|0|149.73|
+TI|2|4|130.20|15|19.53|IVA|
+DE|11399|11399|SERVICIO MONITOREO GPS (AS)|21|6.2|0|130.20|
+IM|2|4|15|130.20|19.53|IVA|
+IA|DIRECCION|Shyris y Altar, Sangolqu  Ecuador|
+IA|TELEFONO|+593984383273|
+IA|OBSERVACION|SERVICIO DEL 1 AL 31 DE MAYO 2025|
+IA|VENCIMIENTO|04/09/2025|
+IA|EMISION|Quito|
+IA|CORREO|s.luzon@bomberosruminahui.gob.ec,s.luzon@bomberosruminahui.gob.ec,s.luzon@bomberosruminahui.gob.ec|
+IA|PLAZO|30 días|
+PA|20|149.73|30|días|

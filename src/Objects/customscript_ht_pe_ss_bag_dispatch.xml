@@ -1,0 +1,23 @@
+<scheduledscript scriptid="customscript_ht_pe_ss_bag_dispatch">
+    <description>Despacha el worker masivo y recupera elementos abandonados de la cola.</description>
+    <isinactive>F</isinactive>
+    <name>HT PE BAG - Dispatcher</name>
+    <notifyowner>F</notifyowner>
+    <scriptfile>[/SuiteScripts/Desarrollo_Hunter/Hunter_Peru/appHunter/modules/BOM Assembly Assurance/HT_PE_SS_BAG_DISPATCH.js]</scriptfile>
+    <scriptdeployments>
+        <scriptdeployment scriptid="customdeploy_ht_pe_ss_bag_dispatch">
+            <isdeployed>T</isdeployed>
+            <loglevel>AUDIT</loglevel>
+            <status>SCHEDULED</status>
+            <title>HT PE BAG - Dispatcher</title>
+            <recurrence>
+                <daily>
+                    <everyxdays>1</everyxdays>
+                    <startdate>2026-08-04</startdate>
+                    <starttime>00:00:00Z</starttime>
+                    <repeat>PT15M</repeat>
+                </daily>
+            </recurrence>
+        </scriptdeployment>
+    </scriptdeployments>
+</scheduledscript>

@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000011816|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|esteban_lopezl@hotmail.com|
+IC|19/09/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||ESTEBAN RENE LOPEZ LARA|1714556014|DOLAR|||||0||||||||||||Ricardo Saenz N45 y Coloma Silva|
+T|200.00|0.00|0|200.00|0.00|0|30.00|230.00|0|230.00|
+TI|2|4|200.00|15|30.00|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|1|200|0|200.00|
+IM|2|4|15|200.00|30.00|IVA|
+IA|DIRECCION|Ricardo Saenz N45 y Coloma Silva|
+IA|TELEFONO|+593998920774|
+IA|VENCIMIENTO|26/09/2025|
+IA|EMISION|Quito|
+IA|CORREO|esteban_lopezl@hotmail.com,esteban_lopezl@hotmail.com,esteban_lopezl@hotmail.com,esteban_lopezl@hotmail.com,esteban_lopezl@hotmail.com|
+IA|PLAZO|7 días|
+PA|20|230.00|7|días|

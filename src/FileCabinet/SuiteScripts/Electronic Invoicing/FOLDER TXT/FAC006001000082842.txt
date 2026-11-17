@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|006|001|000082842|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|seg_fisica@propemar.com.ec|
+IC|13/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PRODUCTOS PERECIBLES Y MARISCOS PROPEMAR S.A.|1391730845001|DOLAR|||||0||||||||||||Km 8 1/2 Via Manta Montecristi|
+T|59.50|0.00|0|59.50|0.00|0|8.93|68.43|0|68.43|
+TI|2|4|59.50|15|8.93|IVA|
+DE|8783|8783|MANT HBLOCK HEAVY MANTENIMIENTO|1|50|0|50.00|
+IM|2|4|15|50.00|7.50|IVA|
+DE|11430|11430|CAMB SIM CARD PRDCTO CARGA|1|9.5|0|9.50|
+IM|2|4|15|9.50|1.43|IVA|
+IA|DIRECCION|Km 8 1/2 Via Manta Montecristi|
+IA|TELEFONO|+593984890965|
+IA|OBSERVACION|mantenimiento candado 679|
+IA|VENCIMIENTO|12/08/2026|
+IA|EMISION|Manta|
+IA|CORREO|seg_fisica@propemar.com.ec,vivibonilla@propemar.com.ec,seg_fisica@propemar.com.ec,everamarchan@gmail.com,seg_fisica@propemar.com.ec,logistica@propemar.com.ec,eduardovera@propemar.com.ec|
+IA|PLAZO|30 días|
+PA|20|68.43|30|días|

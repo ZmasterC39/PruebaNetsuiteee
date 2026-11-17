@@ -1,0 +1,18 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|005|001|000075918|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|lorenvaldivieso123@icco-sa.com|
+IC|08/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||INDUSTRIAL Y COMERCIAL CASTRO OJEDA ICCO S.A.|1890089239001|DOLAR|||||0||||||||||||Ave Real Audiencia S/n Y 2da Constituyente En La Clda American Park Ref. Diagonal A Ales Empresa Icco S.a.|
+T|548.04|0.00|0|548.04|0.00|0|82.21|630.25|0|630.25|
+TI|2|4|548.04|15|82.21|IVA|
+DE|2320|2320|RENO HM CORPORATIVO RENOVACION|2|154|0|308.00|
+IM|2|4|15|308.00|46.20|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|2|120.02|0|240.04|
+IM|2|4|15|240.04|36.01|IVA|
+IA|DIRECCION|Ave Real Audiencia S/n Y 2da Constituyente En La Clda American Park Ref. Diagonal A Ales Empresa Icco S.a.|
+IA|CIUDAD|QUITO|
+IA|TELEFONO|+593998742238|
+IA|OBSERVACION|XBB-1516 HBC-8081|
+IA|VENCIMIENTO|08/07/2026|
+IA|EMISION|Ambato|
+IA|CORREO|lorenvaldivieso123@icco-sa.com,lorenvaldivieso123@icco-sa.com,lorenvaldivieso123@icco-sa.com,lorenvaldivieso123@icco-sa.com,lorenvaldivieso123@icco-sa.com|
+IA|PLAZO|30 días|
+PA|20|630.25|30|días|

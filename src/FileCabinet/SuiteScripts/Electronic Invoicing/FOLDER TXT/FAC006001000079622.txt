@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|006|001|000079622|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|villcarosa@ueptalentosm.edu.ec|
+IC|12/12/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Compañía Carofilis & Villegas "VILLCAROSA" Sociedad Anónima. VILLCAROSA SOCIEDAD AN|1391848560001|DOLAR|||||0||||||||||||Barrio Jesus de Nazareth, Sector Los Gavilanes Unidad Educativa Talentos Manta|
+T|256.52|0.00|0|256.52|0.00|0|38.48|295.00|0|295.00|
+TI|2|4|256.52|15|38.48|IVA|
+DE|11623|11623|RENO MARESA BY HUNTER (CINASCAR) RENOVACION|1|256.52|0|256.52|
+IM|2|4|15|256.52|38.48|IVA|
+IA|DIRECCION|Barrio Jesus de Nazareth, Sector Los Gavilanes Unidad Educativa Talentos Manta|
+IA|TELEFONO|+593997935101|
+IA|VENCIMIENTO|12/12/2025|
+IA|EMISION|Manta|
+IA|CORREO|villcarosa@ueptalentosm.edu.ec,villcarosa@ueptalentosm.edu.ec,villcarosa@ueptalentosm.edu.ec,villcarosa@ueptalentosm.edu.ec|
+IA|PLAZO|0 días|
+PA|20|295.00|0|días|

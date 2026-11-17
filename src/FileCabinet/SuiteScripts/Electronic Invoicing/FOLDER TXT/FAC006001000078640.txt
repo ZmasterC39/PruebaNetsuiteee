@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|006|001|000078640|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|valenciajo1991@gmail.com|
+IC|16/10/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||JONATHAN LINO VALENCIA OCHOA|1315360949|DOLAR|||||0||||||||||||los ranchos -sector Mar bella casa con serramiento blanco portón promo frente a la cancha múltiple color naranja|
+T|1876.52|0.00|0|1876.52|0.00|0|281.48|2158.00|0|2158.00|
+TI|2|4|1876.52|15|281.48|IVA|
+DE|6220|6220|VENT HUNTER SATELITAL DIRNEA|1|1176.52|0|1176.52|
+IM|2|4|15|1176.52|176.48|IVA|
+DE|9766|9766|VENT PLAN SATELITAL MARITIMO C/1 H-720 REPORT|1|700|0|700.00|
+IM|2|4|15|700.00|105.00|IVA|
+IA|DIRECCION|los ranchos -sector Mar bella casa con serramiento blanco portón promo frente a la cancha múltiple color naranja|
+IA|CIUDAD|CRUCITA|
+IA|TELEFONO|+593993769411|
+IA|VENCIMIENTO|16/10/2025|
+IA|EMISION|Manta|
+IA|CORREO|valenciajo1991@gmail.com|
+IA|PLAZO|0 días|
+PA|20|2158.00|0|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000457231|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|vicente.arbaiza@servientrega.com.ec|
+IC|09/02/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||SERVIENTREGA ECUADOR S.A.|0991285679001|DOLAR|||||0||||||||||||Av. Juan Tanca Marengo y Dr. Camilo Ponce Enrique |
+T|90.00|0.00|0|90.00|0.00|0|13.50|103.50|0|103.50|
+TI|2|4|90.00|15|13.50|IVA|
+DE|7781|7781|ALQU HUNTER RASTREO TRANSMISION ALQUILER|1|90|0|90.00|
+IM|2|4|15|90.00|13.50|IVA|
+IA|DIRECCION|Av. Juan Tanca Marengo y Dr. Camilo Ponce Enrique |
+IA|TELEFONO|+593991355841|
+IA|OBSERVACION|GTS-3015 OC 27638|
+IA|VENCIMIENTO|11/03/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|vicente.arbaiza@servientrega.com.ec,vicente.arbaiza@servientrega.com.ec,ingrid.coello@servientrega.com.ec,control-gestion@servientrega.com.ec,maria.ibarra@servientrega.com.ec|
+IA|PLAZO|30 días|
+PA|20|103.50|30|días|

@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000451775|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad.perugachi2@gmail.com|
+IC|09/12/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ELIAS TOCAGON PERUGACHI|1001736592001|DOLAR|||||0||||||||||||Manglaralto, calle principal Ruta del spondylus DIAGONAL a la Comision de Transito local amarillo|
+T|40.00|0.00|0|40.00|0.00|0|6.00|46.00|0|46.00|
+TI|2|4|40.00|15|6.00|IVA|
+DE|5129|5129|SERV ATENCION EN SITIO|1|40|0|40.00|
+IM|2|4|15|40.00|6.00|IVA|
+IA|DIRECCION|Manglaralto, calle principal Ruta del spondylus DIAGONAL a la Comision de Transito local amarillo|
+IA|TELEFONO|+593980772958|
+IA|VENCIMIENTO|09/12/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad.perugachi2@gmail.com,contabilidad.perugachi2@gmail.com,contabilidad.perugachi2@gmail.com,contabilidad.perugachi2@gmail.com|
+IA|PLAZO|0 días|
+PA|20|46.00|0|días|

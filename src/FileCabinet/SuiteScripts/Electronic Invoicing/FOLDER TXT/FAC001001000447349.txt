@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000447349|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|rodriguezalcivar@hotmail.com|
+IC|29/10/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||ANTONIO HERIBERTO RODRIGUEZ ALCIVAR|0906900535|DOLAR|||||0||||||||||||Clda montebello, 4ta etapa, manzana 2A, villa 35|
+T|233.93|0.00|0|233.93|0.00|0|35.09|269.02|0|269.02|
+TI|2|4|233.93|15|35.09|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|233.93|0|233.93|
+IM|2|4|15|233.93|35.09|IVA|
+IA|DIRECCION|Clda montebello, 4ta etapa, manzana 2A, villa 35|
+IA|TELEFONO|+593986465354|
+IA|OBSERVACION|PLACA GTQ-7225|
+IA|VENCIMIENTO|29/10/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|rodriguezalcivar@hotmail.com,rodriguezalcivar@hotmail.com,rodriguezalcivar@hotmail.com,rodriguezalcivar@hotmail.com,rodriguezalcivar@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|269.02|0|días|

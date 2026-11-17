@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000028568|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|themacandina@themac.ec|
+IC|26/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||THEMAC ANDINA S.A|1791988450001|DOLAR|||||0||||||||||||Panamerica Norte sector San Miguel del Comn Calle S4A y Calle E1C (junto a Servitruck 1km antes del peaje de Oyacoto)|
+T|32.00|0.00|0|32.00|0.00|0|4.80|36.80|0|36.80|
+TI|2|4|32.00|15|4.80|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|1|32|0|32.00|
+IM|2|4|15|32.00|4.80|IVA|
+IA|DIRECCION|Panamerica Norte sector San Miguel del Comn Calle S4A y Calle E1C (junto a Servitruck 1km antes del peaje de Oyacoto)|
+IA|TELEFONO|+593998563214|
+IA|OBSERVACION|PCY-1085|
+IA|VENCIMIENTO|25/09/2026|
+IA|EMISION|Quito|
+IA|CORREO|themacandina@themac.ec,themacandina@themac.ec,themacandina@themac.ec|
+IA|PLAZO|30 días|
+PA|20|36.80|30|días|

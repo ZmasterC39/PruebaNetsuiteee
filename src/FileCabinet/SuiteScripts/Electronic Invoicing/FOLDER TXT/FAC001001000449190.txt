@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000449190|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|fernando.castro.1@effem.com|
+IC|14/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MARS LA CHOLA MLCH C.L.|0992961031001|DOLAR|||||0||||||||||||km 9 via cerecita safando.|
+T|319.00|0.00|0|319.00|0.00|0|47.85|366.85|0|366.85|
+TI|2|4|319.00|15|47.85|IVA|
+DE|9621|9621|RENO GPS HMT RENOVACION|1|319|0|319.00|
+IM|2|4|15|319.00|47.85|IVA|
+IA|DIRECCION|km 9 via cerecita safando.|
+IA|TELEFONO|+593993796957|
+IA|OBSERVACION|GTM-3520 OC1008361621|
+IA|VENCIMIENTO|14/12/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|solange.cirino@effem.com,paulo.escobar@effem.com,fernando.castro.1@effem.com,fernando.castro.1@effem.com,yannine.jairala@effem.com,paulo.escobar@effem.com|
+IA|PLAZO|30 días|
+PA|20|366.85|30|días|

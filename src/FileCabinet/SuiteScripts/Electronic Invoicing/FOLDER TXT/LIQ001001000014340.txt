@@ -1,0 +1,10 @@
+VE|03|LIQUIDACIONDECOMPRA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||03|001|001|000014340|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|feedback@slack.com|
+IC|31/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|06||Slack Technologies Limited|IE3336483DH|DOLAR|||||0||08/2026|||||||||||
+T|0|0|0|105.00|0|0|0|105|0|105|
+TI|2|4|105|15|15.75|IVA|
+DE|1125||P-EC-IE3336483DH Slack Technologies Limited - Canal oficial de coordinación técnica con Toyota Perú (FMS). - Irlanda - CCarpio|1|105.00|0|105.00|
+IM|2|4|15|105.00|15.75|IVA|
+IA|TELEFONO|.|
+IA|EMISION|Guayaquil|
+PA|20|78.75|||

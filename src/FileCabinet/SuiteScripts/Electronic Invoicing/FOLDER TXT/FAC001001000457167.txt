@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000457167|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|sanvalentinsa2012@gmail.com|
+IC|05/02/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||SAN VALENTIN S.A VALENTINSAN|0992772832001|DOLAR|||||0||||||||||||Urdesa CENTRAL aV. Victor Emilo Estrada 400 y Dtiles Bloque A-2 Edificio centro C.C. Urdesa piso 1 local 3 y 4|
+T|263.39|0.00|0|263.39|0.00|0|39.51|302.90|0|302.90|
+TI|2|4|263.39|15|39.51|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|263.39|0|263.39|
+IM|2|4|15|263.39|39.51|IVA|
+IA|DIRECCION|Urdesa CENTRAL aV. Victor Emilo Estrada 400 y Dtiles Bloque A-2 Edificio centro C.C. Urdesa piso 1 local 3 y 4|
+IA|TELEFONO|+59346055070|
+IA|OBSERVACION|GTE-4699|
+IA|VENCIMIENTO|07/03/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|sanvalentinsa2012@gmail.com,sanvalentinsa2012@gmail.com,sanvalentinsa2012@gmail.com,sanvalentinsa2012@gmail.com|
+IA|PLAZO|30 días|
+PA|20|302.90|30|días|

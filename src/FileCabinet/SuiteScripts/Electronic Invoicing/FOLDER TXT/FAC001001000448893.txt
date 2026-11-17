@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000448893|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|logiran-fact@ransa.net|
+IC|10/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||LOGIRAN S.A|0992327642001|DOLAR|||||0||||||||||||Km 22 Via Daule frente a pingino|
+T|30.00|0.00|0|30.00|0.00|0|4.50|34.50|0|34.50|
+TI|2|4|30.00|15|4.50|IVA|
+DE|10554|10554|CHEQ HCAM PLUS CHEQUEO|1|30|0|30.00|
+IM|2|4|15|30.00|4.50|IVA|
+IA|DIRECCION|Km 22 Via Daule frente a pingino|
+IA|TELEFONO|+593997410389|
+IA|OBSERVACION|GTN-6824|
+IA|VENCIMIENTO|10/12/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|logiran-fact@ransa.net,logiran-fact@ransa.net,logiran-fact@ransa.net,ccanarm@ransa.net,dverat@ransa.net|
+IA|PLAZO|30 días|
+PA|20|34.50|30|días|

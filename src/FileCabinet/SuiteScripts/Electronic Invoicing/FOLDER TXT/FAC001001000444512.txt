@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000444512|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|angelvivas@hotmail.com|
+IC|29/09/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ANGEL MARCELO VIVAS AULESTIA|1711761724001|DOLAR|||||0||||||||||||Calle Zumbagua Conjunto Altos De Hierba Buena Casa F23 Y Balzar|
+T|150.00|0.00|0|150.00|0.00|0|22.50|172.50|0|172.50|
+TI|2|4|150.00|15|22.50|IVA|
+DE|13398|13398|HUNTER SERVICIO DE RASTREO|1|150|0|150.00|
+IM|2|4|15|150.00|22.50|IVA|
+IA|DIRECCION|Calle Zumbagua Conjunto Altos De Hierba Buena Casa F23 Y Balzar|
+IA|TELEFONO|+593994223717|
+IA|VENCIMIENTO|01/10/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|angelvivas@hotmail.com,angelvivas@hotmail.com,angelvivas@hotmail.com,angelvivas@hotmail.com|
+IA|PLAZO|2 días|
+PA|20|172.50|2|días|

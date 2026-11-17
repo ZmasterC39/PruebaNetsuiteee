@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000024471|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|merly.arce@ambienteyenergia.gob.ec|
+IC|29/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Ministerio del Ambiente Agua y Transición Ecológica|1768192860001|DOLAR|||||0||||||||||||Madrid E12-102 y Andalucía|
+T|529.20|0.00|0|529.20|0.00|0|79.38|608.58|0|608.58|
+TI|2|4|529.20|15|79.38|IVA|
+DE|15002|15002|SERVICIO MONITOREO GPS (AS) RENOVACION|3|176.4|0|529.20|
+IM|2|4|15|529.20|79.38|IVA|
+IA|DIRECCION|Av. Republica de El Salvador y Suecia|
+IA|CIUDAD|QUITO|
+IA|TELEFONO|+59323987600|
+IA|OBSERVACION|PEI-4871/PEI-7580/PEA-7222|
+IA|VENCIMIENTO|27/08/2026|
+IA|EMISION|Quito|
+IA|CORREO|merly.arce@ambienteyenergia.gob.ec,merly.arce@ambienteyenergia.gob.ec,a@gmail.com,merly.arce@ambienteyenergia.gob.ec,merly.arce@ambienteyenergia.gob.ec|
+IA|PLAZO|90 días|
+PA|20|608.58|90|días|

@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|002|001|000387367|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|rafael.grandes@cosede.gob.ec|
+IC|04/12/2024|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Corporacion del Seguro de Depositos|1768150270001|DOLAR|||||0||||||||||||Av. Amazonas entre Unin Nacional de Periodistas y Alfonso Pereira Plataforma Gubernamental de Gestin Financiera Bloque 6|
+T|296.00|0.00|0|296.00|0.00|0|44.40|340.40|0|340.40|
+TI|2|4|296.00|15|44.40|IVA|
+DE|11399|11399|SERVICIO MONITOREO GPS (AS)|4|74|0|296.00|
+IM|2|4|15|296.00|44.40|IVA|
+IA|DIRECCION|Av. Amazonas entre Unin Nacional de Periodistas y Alfonso Pereira Plataforma Gubernamental de Gestin Financiera Bloque 6|
+IA|TELEFONO|+593994672766|
+IA|VENCIMIENTO|03/01/2025|
+IA|EMISION|Quito|
+IA|CORREO|rafael.grandes@cosede.gob.ec,rafael.grandes@cosede.gob.ec,rafael.grandes@cosede.gob.ec|
+IA|PLAZO|30 días|
+PA|20|340.40|30|días|

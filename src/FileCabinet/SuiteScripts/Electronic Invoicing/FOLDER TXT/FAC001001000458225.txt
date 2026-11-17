@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000458225|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|coronelvicky1@gmail.com|
+IC|27/02/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ESCAMDUS S.A.|0992109203001|DOLAR|||||0||||||||||||Av.Carlos Julio Arosemena Km 2,5 atras de bodegas Alm.Juan Eljuri Galpón 7|
+T|294.00|0.00|0|294.00|0.00|0|44.10|338.10|0|338.10|
+TI|2|4|294.00|15|44.10|IVA|
+DE|2320|2320|RENO HM CORPORATIVO RENOVACION|1|294|0|294.00|
+IM|2|4|15|294.00|44.10|IVA|
+IA|DIRECCION|Av.Carlos Julio Arosemena Km 2,5 atras de bodegas Alm.Juan Eljuri Galpón 7|
+IA|TELEFONO|+593998081697|
+IA|OBSERVACION|GTE-4731|
+IA|VENCIMIENTO|14/03/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|coronelvicky1@gmail.com,escamduscontabilidad@gmail.com,malenarobalino@gmail.com,coronelvicky1@gmail.com,malenarobalino@gmail.com|
+IA|PLAZO|15 días|
+PA|20|338.10|15|días|

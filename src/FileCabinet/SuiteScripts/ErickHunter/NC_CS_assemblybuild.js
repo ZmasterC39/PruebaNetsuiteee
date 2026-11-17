@@ -5,7 +5,7 @@
 define([
    'N/ui/dialog',
    '../TS NET Scripts/Main/controller/TS_CM_Controller',
-   '../TS NET Scripts/Main/constant/TS_CM_Constant'
+   '../TS NET Scripts/Main/constant/TS_CM_Constant',
 ], (dialog, _controller, _constant) => {
 
    const pageInit = (scriptContext) => {
@@ -13,7 +13,7 @@ define([
       currentRecord.setValue('quantity', 1);
    }
 
-   const saveRecord = (scriptContext) => {     
+   const saveRecord = (scriptContext) => {
       let currentRecord = scriptContext.currentRecord;
       if (currentRecord.getValue('custbody_ht_ce_ordentrabajo').length > 0) {
          let pro = _controller.getParameter(currentRecord.getValue('item'), _constant.Parameter.PRO_ITEM_COMERCIAL_DE_PRODUCCION);

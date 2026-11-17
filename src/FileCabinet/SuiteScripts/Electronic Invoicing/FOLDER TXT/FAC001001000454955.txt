@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000454955|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|factura@aerofaq.com|
+IC|20/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||QUEVEDO AEROFUMIGADORA AEROFAQ CIA LTDA|1791409248001|DOLAR|||||0||||||||||||Exportadora Manobanda Viaa Valencia Km 1.5 Diagonal A La Academia Naval Gye|
+T|16.67|0.00|0|16.67|0.00|0|2.50|19.17|0|19.17|
+TI|2|4|16.67|15|2.50|IVA|
+DE|9979|9979|RENO HUNTER PORTATIL RENOVACIÓN|1|16.67|0|16.67|
+IM|2|4|15|16.67|2.50|IVA|
+IA|DIRECCION|Exportadora Manobanda Viaa Valencia Km 1.5 Diagonal A La Academia Naval Gye|
+IA|TELEFONO|+593985164217|
+IA|OBSERVACION|ID. 1031327 AEROFAQ02|
+IA|VENCIMIENTO|19/02/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|factura@aerofaq.com,factura@aerofaq.com,gcarpio@grupomanobanda.com,gchichay@grupomanobanda.com,torre@grupomanobanda.com|
+IA|PLAZO|30 días|
+PA|20|19.17|30|días|

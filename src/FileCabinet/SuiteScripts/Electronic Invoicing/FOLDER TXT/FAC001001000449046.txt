@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000449046|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@corpelsa.com|
+IC|12/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CORPORACION ELECTRICA S.A. CORPELSA|0991411844001|DOLAR|||||0||||||||||||km 1 va Samborondn Paseo Comercial Bocca Bloque C 1er Piso Ofic. #106|
+T|263.39|0.00|0|263.39|0.00|0|39.51|302.90|0|302.90|
+TI|2|4|263.39|15|39.51|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|263.39|0|263.39|
+IM|2|4|15|263.39|39.51|IVA|
+IA|DIRECCION|km 1 va Samborondn Paseo Comercial Bocca Bloque C 1er Piso Ofic. #106|
+IA|TELEFONO|+593998885313|
+IA|OBSERVACION|:GCB-1949|
+IA|VENCIMIENTO|12/12/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@corpelsa.com,contabilidad@corpelsa.com,pvillacis@corpelsa.com,contabilidad@corpelsa.com,pvillacis@corpelsa.com|
+IA|PLAZO|30 días|
+PA|20|302.90|30|días|

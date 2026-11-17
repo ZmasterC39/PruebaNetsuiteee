@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000450704|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|geo_03d@hotmail.com|
+IC|04/12/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||UNIVERCORPSA S.A.|0992593024001|DOLAR|||||0||||||||||||Urb. Alban Borja junto al autobanco del pacifico edifico Classic Piso 3 oficina 31|
+T|330.00|0.00|0|330.00|0.00|0|49.50|379.50|0|379.50|
+TI|2|4|330.00|15|49.50|IVA|
+DE|11623|11623|RENO MARESA BY HUNTER (CINASCAR) RENOVACION|1|330|0|330.00|
+IM|2|4|15|330.00|49.50|IVA|
+IA|DIRECCION|Urb. Alban Borja junto al autobanco del pacifico edifico Classic Piso 3 oficina 31|
+IA|TELEFONO|+593999999999|
+IA|VENCIMIENTO|19/12/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|geo_03d@hotmail.com,geo_03d@hotmail.com,geo_03d@hotmail.com|
+IA|PLAZO|15 días|
+PA|20|379.50|15|días|

@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000018382|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Rodijacomeh5@hotmail.com|
+IC|29/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||EDGAR RODRIGO JACOME HARB|1702635457|DOLAR|||||0||||||||||||Bossano 732 Y 6 De Diciembre Edificio Bossano Dpto 201 Ref. Cerca Al Tribunal Supremo Electoral, 732, 732|
+T|212.00|0.00|0|212.00|0.00|0|31.80|243.80|0|243.80|
+TI|2|4|212.00|15|31.80|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|212|0|212.00|
+IM|2|4|15|212.00|31.80|IVA|
+IA|DIRECCION|Bossano 732 Y 6 De Diciembre Edificio Bossano Dpto 201 Ref. Cerca Al Tribunal Supremo Electoral, 732, 732|
+IA|TELEFONO|+593993506299|
+IA|VENCIMIENTO|05/02/2026|
+IA|EMISION|Quito|
+IA|CORREO|Rodijacomeh5@hotmail.com,rodijacomeh5@hotmail.com,rodijacomeh5@hotmail.com,rodijacomeh5@hotmail.com|
+IA|PLAZO|7 días|
+PA|20|243.80|7|días|

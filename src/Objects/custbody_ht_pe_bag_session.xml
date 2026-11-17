@@ -1,0 +1,12 @@
+<transactionbodycustomfield scriptid="custbody_ht_pe_bag_session">
+    <accesslevel>2</accesslevel>
+    <displaytype>HIDDEN</displaytype>
+    <fieldtype>SELECT</fieldtype>
+    <ismandatory>F</ismandatory>
+    <label>HT PE BAG - Sesion de ensamble</label>
+    <searchlevel>2</searchlevel>
+    <selectrecordtype>[scriptid=customrecord_ht_pe_bag_session]</selectrecordtype>
+    <showinlist>F</showinlist>
+    <storevalue>T</storevalue>
+    <bodyassemblybuild>T</bodyassemblybuild>
+</transactionbodycustomfield>

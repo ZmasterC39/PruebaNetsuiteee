@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000018112|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|franciscoeb@hotmail.com|
+IC|26/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||FRANCISCO XAVIER ESTUPIÑAN BARRANTES|1707833172|DOLAR|||||0||||||||||||Calle de los Reyes, Conjunto El Quinde, Casa 32, Urb. Santa Rosa de Nayon, Nayn|
+T|257.00|0.00|0|257.00|0.00|0|38.55|295.55|0|295.55|
+TI|2|4|257.00|15|38.55|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|128.5|0|128.50|
+IM|2|4|15|128.50|19.28|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|128.5|0|128.50|
+IM|2|4|15|128.50|19.27|IVA|
+IA|DIRECCION|Calle de los Reyes, Conjunto El Quinde, Casa 32, Urb. Santa Rosa de Nayon, Nayn|
+IA|TELEFONO|+593988505963|
+IA|VENCIMIENTO|28/01/2026|
+IA|EMISION|Quito|
+IA|CORREO|anthony.gualli@fextor.net,jguillen@carsegsa.com,francisco.estupinan@fexlaw.com,francisco.estupinan@fexlaw.com,francisco.estupinan@fexlaw.com|
+IA|PLAZO|2 días|
+PA|20|295.55|2|días|

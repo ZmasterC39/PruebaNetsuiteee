@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000001392|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|carlos.cachumba@derechoshumanos.gob.ec|
+IC|12/03/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Ministerio de la Mujer y Derechos HumanosMinisterio de la Mujer y Derechos Humano|1768137410001|DOLAR|||||0||||||||||||General Robles E3-33 entre Ulpiano Paez y 9 de Octubre|
+T|94.71|0.00|0|94.71|0.00|0|14.21|108.92|0|108.92|
+TI|2|4|94.71|15|14.21|IVA|
+DE|10485|10485|ALQU HM CORPORATIVO SERVICIO ALQUILER|41|2.31|0|94.71|
+IM|2|4|15|94.71|14.21|IVA|
+IA|DIRECCION|General Robles E3-33 entre Ulpiano Paez y 9 de Octubre|
+IA|TELEFONO|+59323955840|
+IA|OBSERVACION|SERVICIO FEBRERO 2025|
+IA|VENCIMIENTO|11/04/2025|
+IA|EMISION|Quito|
+IA|CORREO|carlos.cachumba@derechoshumanos.gob.ec|
+IA|PLAZO|30 días|
+PA|20|108.92|30|días|

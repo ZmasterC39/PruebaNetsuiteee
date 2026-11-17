@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000463249|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@farmagro.com|
+IC|23/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||FARMAGRO S.A.|0991054103001|DOLAR|||||0||||||||||||Cdla. Los Vergeles Calle 23a Dr. Carlos Julio Arosemena N. 1-6-7 Interseccion Av. 38c Mz. 263|
+T|80.00|0.00|0|80.00|0.00|0|12.00|92.00|0|92.00|
+TI|2|4|80.00|15|12.00|IVA|
+DE|8745|8745|MANT CERR. ELECTRONICA MANTENIMIENTO|1|80|0|80.00|
+IM|2|4|15|80.00|12.00|IVA|
+IA|DIRECCION|Cdla. Los Vergeles Calle 23a Dr. Carlos Julio Arosemena N. 1-6-7 Interseccion Av. 38c Mz. 263|
+IA|TELEFONO|+593989602243|
+IA|OBSERVACION|GTP-3285|
+IA|VENCIMIENTO|23/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@farmagro.com,contabilidad@farmagro.com,eleon@farmagro.com,contabilidad@farmagro.com,contabilidad@farmagro.com|
+IA|PLAZO|30 días|
+PA|20|92.00|30|días|

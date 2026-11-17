@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|033|001|000002881|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|karina.ayala@emseguridad-q.gob.ec|
+IC|06/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||EP EMSEGURIDAD Empresa Pública Metropolitana de Logística para la Seguridad y la Co|1768156390001|DOLAR||01|033-001-000020916|20/03/2026|280.14|C-EC-1768156390001 EP EMSEGURIDAD Empresa Pública Metropolitana de Logística para la Seguridad y la CoFA033001000020916|||||||||||
+T|243.60|0.00|0|243.60|0.00|0|36.54|280.14|0|280.14|
+TI|2|4|15|243.60|36.54|IVA|
+DE|15002|15002|SERVICIO MONITOREO GPS (AS) RENOVACION|28|8.7|0|243.60|
+IM|2|4|15|243.60|36.54|IVA|
+IA|DIRECCION|Pasaje Espejo OE-240 Entre Guayaquil y Flores, Frente al Teatro Bolvar|
+IA|TELEFONO|+593996577299|
+IA|EMISION|Quito|
+IA|CORREO|karina.ayala@emseguridad-q.gob.ec,karina.ayala@emseguridad-q.gob.ec,karina.ayala@emseguridad-q.gob.ec|

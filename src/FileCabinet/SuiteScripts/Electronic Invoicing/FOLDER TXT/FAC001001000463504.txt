@@ -1,0 +1,19 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000463504|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|mchoez@grupominerobonanza.com|
+IC|27/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||EXPORTADORA AURIFERA S.A. EXPAUSA|0992305312001|DOLAR|||||0||||||||||||Bahia Norte Mz 57 Sola 1-2 Edificio Sky building piso 11 of 1101-1102|
+T|1065.00|0.00|0|1065.00|0.00|0|159.75|1224.75|0|1224.75|
+TI|2|4|1065.00|15|159.75|IVA|
+DE|2320|2320|RENO HM CORPORATIVO RENOVACION|1|243|0|243.00|
+IM|2|4|15|243.00|36.45|IVA|
+DE|15032|15032|RENO PLAN SATELITAL TERRESTE C/1 H-720 REPORT|1|600|0|600.00|
+IM|2|4|15|600.00|90.00|IVA|
+DE|13016|13016|RENO HUNTER CAM EAGLE RENOVACION|1|222|0|222.00|
+IM|2|4|15|222.00|33.30|IVA|
+IA|DIRECCION|Bahia Norte Mz 57 Sola 1-2 Edificio Sky building piso 11 of 1101-1102|
+IA|TELEFONO|+59344605900|
+IA|OBSERVACION|GTS-8482|
+IA|VENCIMIENTO|27/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|mchoez@grupominerobonanza.com,llarrea@grupominerobonanza.com,avallejo@grupominerobonanza.com,mchoez@grupominerobonanza.com,llarrea@grupominerobonanza.com,comprobanteselectronicos.expa@gmail.com,llarrea@grupominerobonanza.com|
+IA|PLAZO|30 días|
+PA|20|1224.75|30|días|

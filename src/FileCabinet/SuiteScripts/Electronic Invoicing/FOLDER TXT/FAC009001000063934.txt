@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|009|001|000063934|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|lmauricio24@hotmail.com|
+IC|13/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||COBERSERVICIOS SOCIEDAD CIVIL Y COMERCIAL|2390005701001|DOLAR|||||0||||||||||||Esmeraldas, sector centro, calle libertad y Luis Vargas Torres.|
+T|10.00|0.00|0|10.00|0.00|0|1.50|11.50|0|11.50|
+TI|2|4|10.00|15|1.50|IVA|
+DE|8091|8091|CHEQ HCAM CHEQUEO|1|10|0|10.00|
+IM|2|4|15|10.00|1.50|IVA|
+IA|DIRECCION|Esmeraldas, sector centro, calle libertad y Luis Vargas Torres.|
+IA|TELEFONO|+593989535634|
+IA|OBSERVACION|PXI-0303|
+IA|VENCIMIENTO|13/12/2025|
+IA|EMISION|Santo Domingo|
+IA|CORREO|lmauricio24@hotmail.com,lmauricio24@hotmail.com,lmauricio24@hotmail.com,lmauricio24@hotmail.com|
+IA|PLAZO|30 días|
+PA|20|11.50|30|días|

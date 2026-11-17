@@ -15,10 +15,12 @@ define([
     const RENT_ASSEMBLY_BUILD_SCRIPT_ID = "customscript_ts_ui_assembly_build_21_pe";
     const CUSTODY_ASSEMBLY_BUILD_DEPLOYMENT_ID = "customdeploy_ts_ui_custody_assem_buil_pe";
     const CUSTODY_ASSEMBLY_BUILD_SCRIPT_ID = "customscript_ts_ui_custody_assem_buil_pe";
-    const WARRANT_ASSEMBLY_BUILD_DEPLOYMENT_ID = "customdeploy_ts_ui_warrant_assem_buil_21";
-    const WARRANT_ASSEMBLY_BUILD_SCRIPT_ID = "customscript_ts_ui_warrant_assem_buil_21";
+    const WARRANT_ASSEMBLY_BUILD_DEPLOYMENT_ID = "customdeploy_ts_ui_warrant_assem_buil_pe";
+    const WARRANT_ASSEMBLY_BUILD_SCRIPT_ID = "customscript_ts_ui_warrant_assem_buil_pe";
     const IMPRESION_CERTIFICADO_SCRIPT_ID = "customscript_ts_ui_ec_impresion_certi";
     const IMPRESION_CERTIFICADO_DEPLOYMENT_ID = "customdeploy_ts_ui_ec_impresion_certi"
+    const BOMREV_SYNC_SCRIPT_ID = "customscript_ht_pe_sl_wo_bomrev_sync";
+    const BOMREV_SYNC_DEPLOYMENT_ID = "customdeploy_ht_pe_sl_wo_bomrev_sync";
     const estadoChequeado = 2;
     const estadoDisponible = 5;
 
@@ -26,12 +28,11 @@ define([
 
     const ensambleDispositivo = (internalid) => {
         try {
-            var host = url.resolveDomain({
-                hostType: url.HostType.APPLICATION,
-                accountId: runtime.accountId
-            });
-            console.log('host', host);
-            window.open('https://' + host + '/app/accounting/transactions/build.nl?id=' + internalid + '&e=T&transform=workord&memdoc=0&whence=', '_blank');
+            let params = { custparam_woid: internalid, custparam_ht_bomrev_open_build: 'T' };
+            let host = getHostDomain();
+            let suiteletUrl = getSuiteletUrl(BOMREV_SYNC_SCRIPT_ID, BOMREV_SYNC_DEPLOYMENT_ID);
+            let fullUrl = addParametersToUrl(`https://${host}${suiteletUrl}`, params);
+            window.open(fullUrl, '_blank');
         } catch (err) {
             console.log("Error", "[ ensambleDispositivo ] " + err);
         }
@@ -114,11 +115,13 @@ define([
                             }
 
                             if (pideNumberBox == 0) {
+                                objRecord.setValue({ fieldId: 'custrecord_ht_ot_fechatrabajoasignacion', value: new Date() });
                                 objRecord.setValue({ fieldId: 'custrecord_ht_ot_estado', value: estadoChequeado });
                                 response = objRecord.save();
                                 location.reload();
                             } else {
                                 if (objRecord.getValue('custrecord_ht_ot_boxserie').length > 0) {
+                                    objRecord.setValue({ fieldId: 'custrecord_ht_ot_fechatrabajoasignacion', value: new Date() });
                                     objRecord.setValue({ fieldId: 'custrecord_ht_ot_estado', value: estadoChequeado });
                                     response = objRecord.save();
                                     location.reload();
@@ -145,6 +148,7 @@ define([
                         message: 'Está realizando otras instalaciones, el campo SERIE PRODUCTO no debe contener ningun valor.'
                     });
                 } else {
+                    objRecord.setValue({ fieldId: 'custrecord_ht_ot_fechatrabajoasignacion', value: new Date() });
                     objRecord.setValue({ fieldId: 'custrecord_ht_ot_estado', value: estadoChequeado });
                     response = objRecord.save();
                     location.reload();

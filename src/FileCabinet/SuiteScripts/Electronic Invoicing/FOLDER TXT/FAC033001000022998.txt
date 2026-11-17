@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000022998|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|mediavillaramiro20@gmail.com|
+IC|29/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||LUIS RAMIRO MEDIAVILLA YEPEZ|2100433958|DOLAR|||||0||||||||||||barrio Julio Marin calle Junin y Chongon de la ciudad Nueva Laja|
+T|190.00|0.00|0|190.00|0.00|0|28.50|218.50|0|218.50|
+TI|2|4|190.00|15|28.50|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|190|0|190.00|
+IM|2|4|15|190.00|28.50|IVA|
+IA|DIRECCION|barrio Julio Marin calle Junin y Chongon de la ciudad Nueva Laja|
+IA|TELEFONO|+593991968133|
+IA|VENCIMIENTO|06/05/2026|
+IA|EMISION|Quito|
+IA|CORREO|mediavillaramiro20@gmail.com,mediavillaramiro20@gmail.com,mediavillaramiro20@gmail.com,mediavillaramiro20@gmail.com|
+IA|PLAZO|7 días|
+PA|20|218.50|7|días|

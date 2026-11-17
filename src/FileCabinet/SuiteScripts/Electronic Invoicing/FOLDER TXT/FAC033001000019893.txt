@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000019893|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|LEAS_ANDINO1@YAHOO.ES|
+IC|28/02/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||LUIS ERNESTO ANDINO SALGADO|1700805961|DOLAR|||||0||||||||||||Urb. Los Chillos calle Crisantemos 629 y Fucsia, dentro de la urbanizacin caso de color blanca con techo y cerramiento negro.|
+T|600.00|0.00|0|600.00|0.00|0|90.00|690.00|0|690.00|
+TI|2|4|600.00|15|90.00|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|3|200|0|600.00|
+IM|2|4|15|600.00|90.00|IVA|
+IA|DIRECCION|Urb. Los Chillos calle Crisantemos 629 y Fucsia, dentro de la urbanizacin caso de color blanca con techo y cerramiento negro.|
+IA|TELEFONO|+593991994204|
+IA|VENCIMIENTO|05/03/2026|
+IA|EMISION|Quito|
+IA|CORREO|LEAS_ANDINO1@YAHOO.ES,andres_andino1@hotmail.com,andres_andino1@hotmail.com,andres_andino1@hotmail.com|
+IA|PLAZO|5 días|
+PA|20|690.00|5|días|

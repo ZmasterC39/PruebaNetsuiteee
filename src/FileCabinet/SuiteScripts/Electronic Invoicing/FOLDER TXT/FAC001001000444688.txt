@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000444688|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|administracion@borleti.com.ec|
+IC|30/09/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||BORLETI S.A.|0991403973001|DOLAR|||||0||||||||||||Coop. Valle de los Geranios Mz. 1386 V14|
+T|263.39|0.00|0|263.39|0.00|0|39.51|302.90|0|302.90|
+TI|2|4|263.39|15|39.51|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|263.39|0|263.39|
+IM|2|4|15|263.39|39.51|IVA|
+IA|DIRECCION|Coop. Valle de los Geranios Mz. 1386 V14|
+IA|TELEFONO|+593993818341|
+IA|OBSERVACION|GTT-6567|
+IA|VENCIMIENTO|15/10/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|administracion@borleti.com.ec,insueco@yahoo.com,administracion@borleti.com.ec,insueco@yahoo.com,administracion@borleti.com.ec|
+IA|PLAZO|15 días|
+PA|20|302.90|15|días|

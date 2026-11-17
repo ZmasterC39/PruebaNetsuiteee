@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000018356|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|hector.almendariz@inmobiliar.gob.ec|
+IC|29/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||SECRETARÍA TÉCNICA DE GESTIÓN INMOBILIARIA DEL SECTOR PÚBLICO|1768146750001|DOLAR|||||0||||||||||||Av. Amazonas y José Villalengua, Plataforma Gubernamental Financiera Norte|
+T|185.31|0.00|0|185.31|0.00|0|27.80|213.11|0|213.11|
+TI|2|4|185.31|15|27.80|IVA|
+DE|15002|15002|SERVICIO MONITOREO GPS (AS) RENOVACION|29|6.39|0|185.31|
+IM|2|4|15|185.31|27.80|IVA|
+IA|DIRECCION|Av. Amazonas y José Villalengua, Plataforma Gubernamental Financiera Norte|
+IA|CIUDAD|QUITO|
+IA|TELEFONO|+59323958700|
+IA|OBSERVACION|SERVICIO DICIEMBRE 2025|
+IA|VENCIMIENTO|28/02/2026|
+IA|EMISION|Quito|
+IA|CORREO|hector.almendariz@inmobiliar.gob.ec,hector.almendariz@inmobiliar.gob.ec,hector.almendariz@inmobiliar.gob.ec|
+IA|PLAZO|30 días|
+PA|20|213.11|30|días|

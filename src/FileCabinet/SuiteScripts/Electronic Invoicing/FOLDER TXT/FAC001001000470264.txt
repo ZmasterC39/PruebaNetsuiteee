@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000470264|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|karina_mendoza@unicomer.com|
+IC|06/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||UNICOMER DE ECUADOR S.A.|1790895548001|DOLAR|||||0||||||||||||CIUDAD COLON 3era. ETAPA Mz. 275 SOLAR 6 y 7 Edif. Pacfica Center, Piso 5, 6 y 7, Av. Rodrigo Chvez, CORPORATIVO 4 PB, Av. Rodrigo|
+T|502.20|0.00|0|502.20|0.00|0|75.33|577.53|0|577.53|
+TI|2|4|502.20|15|75.33|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|2|167.4|0|334.80|
+IM|2|4|15|334.80|50.22|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|167.4|0|167.40|
+IM|2|4|15|167.40|25.11|IVA|
+IA|DIRECCION|CIUDAD COLON 3era. ETAPA Mz. 275 SOLAR 6 y 7 Edif. Pacfica Center, Piso 5, 6 y 7, Av. Rodrigo Chvez, CORPORATIVO 4 PB, Av. Rodrigo|
+IA|TELEFONO|+593984867354|
+IA|OBSERVACION|GTC-2766  GTO-8410  GCT-1085|
+IA|VENCIMIENTO|05/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|karina_mendoza@unicomer.com,karina_mendoza@unicomer.com,karina_mendoza@unicomer.com,karina_mendoza@unicomer.com,karina_mendoza@unicomer.com,karina_mendoza@unicomer.com,Xavier_serrano@unicomer.com|
+IA|PLAZO|30 días|
+PA|20|577.53|30|días|

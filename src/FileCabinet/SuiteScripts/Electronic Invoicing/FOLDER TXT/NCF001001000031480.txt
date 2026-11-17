@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|001|001|000031480|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|alertasgps@prolado.com.ec|
+IC|09/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CORPROLADO S.A.|0992981539001|DOLAR||01|001-001-000469211|01/07/2026|362.25|Julio 2026|||||||||||
+T|315.00|0.00|0|315.00|0.00|0|47.25|362.25|0|362.25|
+TI|2|4|15|315.00|47.25|IVA|
+DE|9559|9559|ALQU HBLOCK S SERVICIO ALQUILER|7|45|0|315.00|
+IM|2|4|15|315.00|47.25|IVA|
+IA|DIRECCION|Km 23.5 Via Perimetral Mz 71 Sl 1, Parque Ind Inmaconsa|
+IA|TELEFONO|+593995496049|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@prolado.com.ec,alertasgps@prolado.com.ec,alertasgps@prolado.com.ec,kandrade@prolado.com.ec,monitoreo@prolado.com.ec|

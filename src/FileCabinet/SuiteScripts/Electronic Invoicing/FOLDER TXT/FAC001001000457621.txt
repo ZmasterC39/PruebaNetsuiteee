@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000457621|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|carstreetsa@hotmail.com|
+IC|18/02/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CARSTREET S.A|0992464631001|DOLAR|||||0||||||||||||Ismael Perez Pazmio 814 - 816 e/ Ayacucho y Huancavilca.|
+T|433.93|0.00|0|433.93|0.00|0|65.09|499.02|0|499.02|
+TI|2|4|433.93|15|65.09|IVA|
+DE|9621|9621|RENO GPS HMT RENOVACION|1|233.93|0|233.93|
+IM|2|4|15|233.93|35.09|IVA|
+DE|9710|9710|VENT HMT SERVICIO ANTICIPADO 2DO AÑO|1|200|0|200.00|
+IM|2|4|15|200.00|30.00|IVA|
+IA|DIRECCION|Ismael Perez Pazmio 814 - 816 e/ Ayacucho y Huancavilca.|
+IA|TELEFONO|+593997960237|
+IA|OBSERVACION|GSX-1320|
+IA|VENCIMIENTO|20/03/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|carstreetsa@hotmail.com,carstreetsa@hotmail.com,carstreetsa@hotmail.com,carstreetsa@hotmail.com,carstreetsa@hotmail.com,homar@carstreetsa.com|
+IA|PLAZO|30 días|
+PA|20|499.02|30|días|

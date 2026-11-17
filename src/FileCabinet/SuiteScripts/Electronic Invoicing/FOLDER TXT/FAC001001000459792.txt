@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000459792|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|jose-molina-59@hotmail.com|
+IC|09/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||JOSE GREGORIO MOLINA ULLOA|0931890685|DOLAR|||||0||||||||||||Calle J entre la 26 y la 27 Batallon del Suburbio|
+T|120.00|0.00|0|120.00|0.00|0|18.00|138.00|0|138.00|
+TI|2|4|120.00|15|18.00|IVA|
+DE|5118|5118|VENT HMONITOREO REPUESTO|1|120|0|120.00|
+IM|2|4|15|120.00|18.00|IVA|
+IA|DIRECCION|Calle J entre la 26 y la 27 Batallon del Suburbio|
+IA|TELEFONO|+593962162353|
+IA|VENCIMIENTO|09/03/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|jose-molina-59@hotmail.com,jose-molina-59@hotmail.com,jose-molina-59@hotmail.com,jose-molina-59@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|138.00|0|días|

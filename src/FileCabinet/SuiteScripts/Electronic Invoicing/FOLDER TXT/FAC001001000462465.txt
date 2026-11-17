@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000462465|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Edgar.pinzon@trovarek.com|
+IC|09/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||TROVAREK S.A.S.|0992745444001|DOLAR|||||0||||||||||||Av.de las Americas solar 26|
+T|263.40|0.00|0|263.40|0.00|0|39.51|302.91|0|302.91|
+TI|2|4|263.40|15|39.51|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|2|131.7|0|263.40|
+IM|2|4|15|263.40|39.51|IVA|
+IA|DIRECCION|Av.de las Americas solar 26|
+IA|TELEFONO|+593987468254|
+IA|OBSERVACION|GTK-9136 / GSG-2698|
+IA|VENCIMIENTO|09/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|Edgar.pinzon@trovarek.com,sandrajchacon@hotmail.com,edgar.pinzon@trovarek.com,edgar.pinzon@trovarek.com,sandrajchacon@hotmail.com|
+IA|PLAZO|30 días|
+PA|20|302.91|30|días|

@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000423108|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Angelica_perez_urrestro@cargill.com|
+IC|19/02/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CARGILL DEL ECUADOR CARGILLECUADOR CIA. LTDA|1792548861001|DOLAR|||||0||||||||||||Lotizacin Las Brisas va Durn Tambo manzana D4 Solar 1 referencia ingresando por la Asociacin de ganaderos del litoral|
+T|263.39|0.00|0|263.39|0.00|0|39.51|302.90|0|302.90|
+TI|2|4|263.39|15|39.51|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|263.39|0|263.39|
+IM|2|4|15|263.39|39.51|IVA|
+IA|DIRECCION|Lotizacin Las Brisas va Durn Tambo manzana D4 Solar 1 referencia ingresando por la Asociacin de ganaderos del litoral|
+IA|TELEFONO|+593983373417|
+IA|OBSERVACION|GTC-3928|
+IA|VENCIMIENTO|21/03/2025|
+IA|EMISION|Guayaquil|
+IA|PLAZO|30 días|
+PA|20|302.90|30|días|

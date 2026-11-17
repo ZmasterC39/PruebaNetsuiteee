@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000018048|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|markitojopalo@gmail.com|
+IC|26/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||MARCO HERNAN AGUILAR BARRERA|1708215692|DOLAR|||||0||||||||||||Mariana De Jesus Y Manuela De Garaicoa (urb. Roble Antiguo) Valle De Los Chillos|
+T|203.48|0.00|0|203.48|0.00|0|30.52|234.00|0|234.00|
+TI|2|4|203.48|15|30.52|IVA|
+DE|5915|5915|VENT HMONITOREO DISPOSITIVO|1|101.74|0|101.74|
+IM|2|4|15|101.74|15.26|IVA|
+DE|9107|9107|VENT HMONITOREO TRANSMISION|1|101.74|0|101.74|
+IM|2|4|15|101.74|15.26|IVA|
+IA|DIRECCION|Mariana De Jesus Y Manuela De Garaicoa (urb. Roble Antiguo) Valle De Los Chillos|
+IA|CIUDAD|VALLE|
+IA|TELEFONO|+593997118445|
+IA|VENCIMIENTO|26/01/2026|
+IA|EMISION|Quito|
+IA|CORREO|markitojopalo@gmail.com,markitojopalo@gmail.com,markitojopalo@hotmail.es,markitojopalo@hotmail.es,markitojopalo@hotmail.es|
+IA|PLAZO| días|
+PA|20|234.00|0|días|

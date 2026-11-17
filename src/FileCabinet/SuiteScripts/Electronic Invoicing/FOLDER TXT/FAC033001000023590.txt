@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000023590|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|danny.pucuna@educacionbilingue.gob.ec|
+IC|11/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Secretaria de Educación Intercultural Bilingüe y la Etnoeducación|1768190730001|DOLAR|||||0||||||||||||Av.Amazonas y Av. Atahualpa|
+T|28.61|0.00|0|28.61|0.00|0|4.29|32.90|0|32.90|
+TI|2|4|28.61|15|4.29|IVA|
+DE|15002|15002|SERVICIO MONITOREO GPS (AS) RENOVACION|4|7.15|0|28.61|
+IM|2|4|15|28.61|4.29|IVA|
+IA|DIRECCION|Av.Amazonas y Av. Atahualpa|
+IA|TELEFONO|+593997618251|
+IA|OBSERVACION|SERVICIO DE ABRIL 2026|
+IA|VENCIMIENTO|10/06/2026|
+IA|EMISION|Quito|
+IA|CORREO|danny.pucuna@educacionbilingue.gob.ec,danny.pucuna@educacionbilingue.gob.ec,danny.pucuna@educacionbilingue.gob.ec|
+IA|PLAZO|30 días|
+PA|20|32.90|30|días|

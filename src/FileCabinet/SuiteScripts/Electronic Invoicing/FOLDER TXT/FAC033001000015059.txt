@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000015059|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|edwin.hinojosa@vicepresidencia.gob.ec|
+IC|24/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||VICEPRESIDENCIA DE LA REPUBLICA DEL ECUADOR|1760000580001|DOLAR|||||0||||||||||||Benalcazar 440 y Chile|
+T|36.75|0.00|0|36.75|0.00|0|5.51|42.26|0|42.26|
+TI|2|4|36.75|15|5.51|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|16|2.3|0|36.75|
+IM|2|4|15|36.75|5.51|IVA|
+IA|DIRECCION|Benalcazar 440 y Chile|
+IA|CIUDAD|QUITO|
+IA|TELEFONO|+59323931300|
+IA|OBSERVACION|Servicio de 01 al 13 de Noviembre del 2025.|
+IA|VENCIMIENTO|24/12/2025|
+IA|EMISION|Quito|
+IA|CORREO|edwin.hinojosa@vicepresidencia.gob.ec,edwin.hinojosa@vicepresidencia.gob.ec,edwin.hinojosa@vicepresidencia.gob.ec,raquel.merino@vicepresidencia.gob.ec,raquel.merino@vicepresidencia.gob.ec|
+IA|PLAZO|30 días|
+PA|20|42.26|30|días|

@@ -29,6 +29,7 @@ define([
     const CHEQUEADO = 2;
     const PROCESANDO = 4;
     const PX_MODIFICACION_DATOS_DISPOSITIVOS = 1
+    const ESTADO_001_INSTALADO_PE = 12
 
     const _get = (scriptContext) => {
         try {
@@ -46,7 +47,7 @@ define([
     const _post = (scriptContext) => {
         log.debug('ConextPost', scriptContext);
         try {
-            if (scriptContext.estado == 1) {
+            if (scriptContext.estado == ESTADO_001_INSTALADO_PE) {    
                 let response;
                 let historial;
                 if (scriptContext.cobertura == 0) {
@@ -84,7 +85,7 @@ define([
                             objRecord.setValue({ fieldId: 'custrecord_ht_co_estado_cobertura', value: scriptContext.estadoCobertura });
                             scriptContext.start = objRecord.getValue('custrecord_ht_co_coberturainicial');
                             scriptContext.end = objRecord.getValue('custrecord_ht_co_coberturafinal');
-                            objRecord.setValue({ fieldId: 'custrecord_ht_co_impulso_plataforma', value: PX_MODIFICACION_DATOS_DISPOSITIVOS });
+                            //objRecord.setValue({ fieldId: 'custrecord_ht_co_impulso_plataforma', value: PX_MODIFICACION_DATOS_DISPOSITIVOS });
                         } else {
                             objRecord.setValue({ fieldId: 'custrecord_ht_co_estado_cobertura', value: scriptContext.estadoCobertura });
                             objRecord.setValue({ fieldId: 'custrecord_ht_co_coberturainicial', value: new Date(scriptContext.start) });

@@ -31,6 +31,7 @@ define(['N/log',
         const OPERACION_ORDEN_ACTUALIZACION_ESTADOS = "017"; //
         const OPERACION_ORDEN_REGISTRAR_CANAL = "018";
         const OPERACION_ORDEN_INSTALACION_COMPONENTES = "019";
+        const OPERACION_ORDEN_INSTALACION_COMPONENTES_NUEVO = "999";
         // const TELEMATIC_OPERACION_INSTALACION_NUEVA = "001";
         // const TELEMATIC_OPERACION_DESINSTALACION_DISPOSITIVO = "002";
         // const TELEMATIC_OPERACION_CAMBIO_PROPIETARIO = "003";
@@ -50,20 +51,109 @@ define(['N/log',
 
         const usuario = "NetSuite";
         const clave = "NS*25#01@%j?i";
+        //prod
+        var URLPX2 = 'https://tristan.24hm.net/API_PX_LATAM/WSPX.asmx';
+        //desa
+        //var URLPX2 = 'https://tyr.24hm.net/API_PX/WSPX.asmx'; 
+
+
+        const envioPXcliente = (clienteid, subsidiaria) => {
+            let NACIONALIDAD = obtenerNacionalidad(subsidiaria);
+            let Propietario = obtenerPropietario(clienteid, subsidiaria);
+            if (Propietario && Propietario != "") {
+                let PxAdmin = {};
+                let sql6 = 'SELECT firstname, lastname, subsidiary FROM employee WHERE id = ? and  subsidiary = ? '
+                let resultSet6 = query.runSuiteQL({ query: sql6, params: [Propietario["salesrep"], subsidiaria] });
+                let results6 = resultSet6.asMappedResults();
+                if (results6.length > 0) {
+                    Ejecutiva = results6[0]['firstname'] + ' ' + results6[0]['lastname'];
+                } else {
+                    Ejecutiva = "";
+                }
+                //log.debug('employee......................', results6); 
+                setAuthenticationValues(PxAdmin);
+                setEmptyFields(PxAdmin);      
+                setCommandsValues(PxAdmin, "", OPERACION_ORDEN_ACTUALIZACION_DATOS_PROPIETARIOS, "",subsidiaria);
+                setPropietarioValues(PxAdmin, Propietario, OPERACION_ORDEN_ACTUALIZACION_DATOS_PROPIETARIOS,subsidiaria);
+                // //TODO: BLOQUE DE LLENADOS DE DATOS           
+                PxAdmin["OperacionOrden"] = OPERACION_ORDEN_ACTUALIZACION_DATOS_PROPIETARIOS;
+                PxAdmin["URLPX"] = URLPX2;
+                PxAdmin["NumeroOrden"] = "0";
+                PxAdmin["FileName"] = clienteid;
+                PxAdmin["NACIONALIDAD"] = NACIONALIDAD;
+                PxAdmin["UsuarioIngreso"] = "OPERAD" + "_" + NACIONALIDAD;
+                PxAdmin["EstadoCartera"] = "";
+                PxAdmin["NombreEjecutiva"] = Ejecutiva || "";
+                PxAdmin["Sucursal"] = Propietario["oficina"] || "";;
+                PxAdmin["Ciudad"] = Propietario["oficina"] || "";;
+                PxAdmin["FechaInicioCobertura"] = "";
+                PxAdmin["FechaFinCobertura"] = "";       
+                log.debug("Body PX Actualizacion Datos Propietario", PxAdmin);
+                let response = sendPXServer(PxAdmin);
+                PxAdmin["Respuesta"] = response.body;
+                log.debug("Response PX Actualizacion Datos Propietario", response.body);
+                return true;
+            } else {
+                log.debug("..envioPXcliente...........................", "No existe Informacion del Cliente en la Subsidiaria");
+                return false;
+            }        
+        }
+
+        const envioPXvehiculo = (vehiculoId, subsidiaria) => {
+            let NACIONALIDAD = obtenerNacionalidad(subsidiaria);
+            let { vehiculo, Aseguradora, Concesionario, Financiera, Convenio } = obtenerCamposVehiculo(vehiculoId, subsidiaria)      
+            log.debug('vehiculo........................', vehiculo)
+            if (vehiculo && vehiculo != "") {
+                //log.debug('Aseguradora........................', Aseguradora);
+                //log.debug('Concesionario........................', Concesionario);
+                //log.debug('Financiera........................', Financiera)
+                //log.debug('Convenio........................', Convenio)
+                let PxAdmin = {};
+                setAuthenticationValues(PxAdmin);
+                setEmptyFields(PxAdmin);
+                setCommandsValues(PxAdmin, "", OPERACION_ORDEN_REGISTRAR_CANAL, "",subsidiaria);
+                setVehiculoValues(PxAdmin, vehiculo, OPERACION_ORDEN_REGISTRAR_CANAL, subsidiaria);
+                setAseguradoraValues(PxAdmin, Aseguradora, OPERACION_ORDEN_REGISTRAR_CANAL, subsidiaria);
+                setConcesionarioValues(PxAdmin, Concesionario, OPERACION_ORDEN_REGISTRAR_CANAL, subsidiaria);
+                setFinancieraValues(PxAdmin, Financiera, OPERACION_ORDEN_REGISTRAR_CANAL, subsidiaria);
+                setConvenioValues(PxAdmin, Convenio, OPERACION_ORDEN_REGISTRAR_CANAL, subsidiaria);
+                // //TODO: BLOQUE DE LLENADOS DE DATOS
+                PxAdmin["OperacionOrden"] = OPERACION_ORDEN_REGISTRAR_CANAL;
+                PxAdmin["URLPX"] = URLPX2;
+                PxAdmin["NumeroOrden"] = "0";
+                PxAdmin["FileName"] = vehiculoId;
+                PxAdmin["NACIONALIDAD"] = NACIONALIDAD;
+                PxAdmin["UsuarioIngreso"] = "OPERAD" + "_" + NACIONALIDAD;
+                PxAdmin["EstadoCartera"] = vehiculo["custrecord_ht_bn_estadobien"][0].text || "";
+                PxAdmin["NombreEjecutiva"] = "";
+                PxAdmin["Sucursal"] = vehiculo["custrecord_ht_bien_oficina"][0]?.text || "";;
+                PxAdmin["Ciudad"] = vehiculo["custrecord_ht_bien_oficina"][0]?.text || "";;
+                PxAdmin["FechaInicioCobertura"] = "";
+                PxAdmin["FechaFinCobertura"] = "";       
+                log.debug("Body PX Actualizacion Datos Propietario", PxAdmin);
+                let response = sendPXServer(PxAdmin);
+                PxAdmin["Respuesta"] = response.body;
+                log.debug("Response PX Actualizacion Datos Propietario", response.body);
+                return true;
+            } else {
+                log.debug("..envioPXvehiculo...........................", "No existe Informacion del vehiculo en la Subsidiaria");
+                return false;
+            }
+        }
 
         const envioPXInstalacionDispositivo = (ordenTrabajoId, subsidiaria, URLPX) => {
             let NACIONALIDAD = obtenerNacionalidad(subsidiaria);
             let { Dispositivo, vehiculo, Propietario, PropietarioMonitoreo, Cobertura, pxadminfinalizacion, Aseguradora, Concesionario, Financiera, Convenio, Commands, Servicios, salesOrderId, Location, Ejecutiva } = obtenerCamposOrdenTrabajo(ordenTrabajoId, subsidiaria);
-            log.debug("pxadminfinalizacion........................", pxadminfinalizacion);
+            //log.debug("pxadminfinalizacion........................", pxadminfinalizacion);
             log.debug("vehiculo........................", vehiculo);
             if (vehiculo && vehiculo != "") {
                 if (!pxadminfinalizacion) {
-                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "enviado", "PX");
+                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "Enviado", "PX");
                     let PxAdmin = {};
                     setAuthenticationValues(PxAdmin);
                     setEmptyFields(PxAdmin);
-                    log.debug("Servicios........................", Servicios);
-                    log.debug("Commands........................", Commands);
+                    //log.debug("Servicios........................", Servicios);
+                    //log.debug("Commands........................", Commands);
                     setSalesOrderValues(PxAdmin, salesOrderId, vehiculo, Cobertura, Location, Ejecutiva, NACIONALIDAD);
                     PxAdmin["OperacionOrden"] = OPERACION_ORDEN_INSTALACION;
                     PxAdmin["URLPX"] = URLPX;
@@ -89,9 +179,9 @@ define(['N/log',
                         updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
                         updatePxadmin.save();
                         pxadminfinalizacion = true;
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "enviado", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                     } else {
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "error", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
                     }
                 }
                 if (!pxadminfinalizacion) {
@@ -110,47 +200,66 @@ define(['N/log',
         const envioPXInstalacionDispositivoPeru = (ordenTrabajoId, subsidiaria, URLPX) => {
             let NACIONALIDAD = obtenerNacionalidad(subsidiaria);
             let { Dispositivo, vehiculo, Propietario, PropietarioMonitoreo, Cobertura, pxadminfinalizacion, Aseguradora, Concesionario, Financiera, Convenio, Commands, Servicios, salesOrderId, Location, Ejecutiva } = obtenerCamposOrdenTrabajo(ordenTrabajoId, subsidiaria);
-            log.debug("pxadminfinalizacion........................", pxadminfinalizacion);
+            //log.debug("pxadminfinalizacion........................", pxadminfinalizacion);
             log.debug("vehiculo........................", vehiculo);
             if (vehiculo && vehiculo != "") {
-                //if (!pxadminfinalizacion) {
-                let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "enviado", "PX");
-                let PxAdmin = {};
-                setAuthenticationValues(PxAdmin);
-                setEmptyFields(PxAdmin);
-                log.debug("Servicios........................", Servicios);
-                log.debug("Commands........................", Commands);
-                setSalesOrderValues(PxAdmin, salesOrderId, vehiculo, Cobertura, Location, Ejecutiva, NACIONALIDAD);
-                PxAdmin["OperacionOrden"] = OPERACION_ORDEN_INSTALACION;
-                PxAdmin["URLPX"] = URLPX;
-                setVehiculoValues(PxAdmin, vehiculo, OPERACION_ORDEN_INSTALACION,subsidiaria);
-                setDispositivoValues(PxAdmin, Dispositivo, OPERACION_ORDEN_INSTALACION,subsidiaria);
-                setPropietarioValues(PxAdmin, Propietario, OPERACION_ORDEN_INSTALACION,subsidiaria);
-                setAseguradoraValues(PxAdmin, Aseguradora, OPERACION_ORDEN_INSTALACION,subsidiaria);
-                setConcesionarioValues(PxAdmin, Concesionario, OPERACION_ORDEN_INSTALACION,subsidiaria);
-                setFinancieraValues(PxAdmin, Financiera, OPERACION_ORDEN_INSTALACION,subsidiaria);
-                setConvenioValues(PxAdmin, Convenio, OPERACION_ORDEN_INSTALACION,subsidiaria);
-                setMonitoreoValues(PxAdmin, PropietarioMonitoreo, OPERACION_ORDEN_INSTALACION,subsidiaria);
-                setCommandsValues(PxAdmin, Servicios, OPERACION_ORDEN_INSTALACION, Cobertura,subsidiaria);
-                //setCoberturaValues(PxAdmin, Cobertura);
-                // PxAdmin["ServiciosInstalados"] = Servicios.join("/");
-                log.debug("Body PX Instalacion Dispositivo", PxAdmin);
-                let response = sendPXServer(PxAdmin);
-                //galvar se comento por pedido de Peru 14-03-2025
-                PxAdmin["Respuesta"] = response.body;
-                log.debug("Response PX Instalacion Dispositivo", response.body);
-                //galvar se comento por pedido de Peru 14-03-2025
-                if (NACIONALIDAD == "PE") {
-                    //let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "enviado", "PX");
-                    if (response.body == 1) {
+                if (!pxadminfinalizacion) {
+                  let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "Enviado", "PX");
+                  let PxAdmin = {};
+                  setAuthenticationValues(PxAdmin);
+                  setEmptyFields(PxAdmin);
+                  log.debug("Servicios........................", Servicios);
+                  log.debug("Commands........................", Commands);
+                  setSalesOrderValues(PxAdmin, salesOrderId, vehiculo, Cobertura, Location, Ejecutiva, NACIONALIDAD);
+                  PxAdmin["OperacionOrden"] = OPERACION_ORDEN_INSTALACION;
+                  PxAdmin["URLPX"] = URLPX;
+                  setVehiculoValues(PxAdmin, vehiculo, OPERACION_ORDEN_INSTALACION,subsidiaria);
+                  setDispositivoValues(PxAdmin, Dispositivo, OPERACION_ORDEN_INSTALACION,subsidiaria);
+                  setPropietarioValues(PxAdmin, Propietario, OPERACION_ORDEN_INSTALACION,subsidiaria);
+                  setAseguradoraValues(PxAdmin, Aseguradora, OPERACION_ORDEN_INSTALACION,subsidiaria);
+                  setConcesionarioValues(PxAdmin, Concesionario, OPERACION_ORDEN_INSTALACION,subsidiaria);
+                  setFinancieraValues(PxAdmin, Financiera, OPERACION_ORDEN_INSTALACION,subsidiaria);
+                  setConvenioValues(PxAdmin, Convenio, OPERACION_ORDEN_INSTALACION,subsidiaria);
+                  setMonitoreoValues(PxAdmin, PropietarioMonitoreo, OPERACION_ORDEN_INSTALACION,subsidiaria);
+                  setCommandsValues(PxAdmin, Servicios, OPERACION_ORDEN_INSTALACION, Cobertura,subsidiaria);
+                  //setCoberturaValues(PxAdmin, Cobertura);
+                  // PxAdmin["ServiciosInstalados"] = Servicios.join("/");
+                  log.debug("Body PX Instalacion Dispositivo", PxAdmin);
+                  let response = sendPXServer(PxAdmin);
+                  //galvar se comento por pedido de Peru 14-03-2025
+                  PxAdmin["Respuesta"] = response.body;
+                  log.debug("Response PX Instalacion Dispositivo", response.body);
+                  //galvar se comento por pedido de Peru 14-03-2025
+                //if (NACIONALIDAD == "PE") {
+                    //let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "Enviado", "PX");
+                //    if (response.body == 1) {
+                //        pxadminfinalizacion = true;
+                //       actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
+                //    } else {
+                //        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
+                //    }
+                //    return {PxAdmin, response};
+                //}
+                  if (response.body == 1) {
+                        //TODO: cambiar a false para pruebas, solo para validación
+                        let updatePxadmin = record.load({ type: 'customrecord_ht_record_ordentrabajo', id: ordenTrabajoId });
+                        updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
+                        updatePxadmin.save();
                         pxadminfinalizacion = true;
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "enviado", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                     } else {
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "error", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
                     }
-                    return {PxAdmin, response};
+                } 
+                if (!pxadminfinalizacion) {
+                    let updatePxadmin = record.load({ type: 'customrecord_ht_record_ordentrabajo', id: ordenTrabajoId });
+                    updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_estado', value: 4 })
+                    updatePxadmin.save();
+                    return false;
+                    //return {PxAdmin, response};
                 }
-                //} 
+                return true;
+                //return {PxAdmin, response};
             } else {
                 log.debug("..subsidiaria...........................", "No existe en la Subsidiaria");
                 return false;
@@ -163,7 +272,7 @@ define(['N/log',
             log.debug("vehiculo........................", vehiculo);
             if (vehiculo && vehiculo != "") {
                 if (!pxadminfinalizacion) {
-                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "enviado", "PX");
+                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "Enviado", "PX");
                     let PxAdmin = {};
                     setAuthenticationValues(PxAdmin);
                     setEmptyFields(PxAdmin);
@@ -187,9 +296,9 @@ define(['N/log',
                         updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
                         updatePxadmin.save();
                         pxadminfinalizacion = true;
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "enviado", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                     } else {
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "error", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
                     }
                 }
                 if (!pxadminfinalizacion) {
@@ -198,11 +307,11 @@ define(['N/log',
                     updatePxadmin.save();
                     return false;
                 }
-                if (NACIONALIDAD == "PE") {
-                    return {PxAdmin, response};
-                } else {
+                //if (NACIONALIDAD == "PE") {
+                //    return {PxAdmin, response};
+               //} else {
                     return true;
-                }
+                //}
             } else {
                 log.debug("..subsidiaria...........................", "No existe en la Subsidiaria");
                 return false;
@@ -214,7 +323,7 @@ define(['N/log',
             let { Dispositivo, vehiculo, Propietario,  Cobertura, Location, Ejecutiva, Servicios } = obtenerCamposOrdenServicioNuevo(ordenServicioId, subsidiaria, familia);
             //let { Dispositivo, vehiculo, pxadminfinalizacion, salesOrderId, Cobertura, Location, Ejecutiva } = obtenerCamposOrdenTrabajo(ordenTrabajoId, subsidiaria);
             log.debug("vehiculo........................", vehiculo);
-            log.debug("Dispositivo........................", Dispositivo);
+            //log.debug("Dispositivo........................", Dispositivo);
             //log.debug("Cobertura........................", Cobertura);
             if (vehiculo && vehiculo != "") {
                 //if (!pxadminfinalizacion) {
@@ -241,11 +350,11 @@ define(['N/log',
                     log.debug("Response PX Renovacion Dispositivo", response.body);
                     if (response.body == 1) {
                         log.debug("PxAdmin-Reno", PxAdmin);
-                        //return true;
-                        return {PxAdmin, response};
+                        return true;
+                        //return {PxAdmin, response};
                     } else {
-                    //return false;
-                        return {PxAdmin, response};
+                       return false;
+                        //return {PxAdmin, response};
                     } 
                 } else  {
                     log.debug("Data...........................", "No existe Datos para Renovar");
@@ -284,19 +393,16 @@ define(['N/log',
                 PxAdmin["Respuesta"] = response.body;
                 log.debug("Response PX Actualizacion Datos Propietario", response.body);
                 if (response.body == 1) {
-                    // let updatePxadmin = record.load({ type: 'customrecord_ht_record_ordentrabajo', id: ordenTrabajoId });
-                    // updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
-                    // updatePxadmin.save();
-                    //pxadminfinalizacion = true;
-                     return {PxAdmin, response};
+                    //return {PxAdmin, response};
+                    return true;
                 } else {
-                    return {PxAdmin, response};
+                    //return {PxAdmin, response};
+                    return false;
                 }          
             } else {
                 log.debug("..subsidiaria...........................", "No existe en la Subsidiaria");
                 return false;
             }
-
         }
 
         const envioPXCambioPropietario = (ordenServicioId, subsidiaria, URLPX) => {
@@ -327,11 +433,11 @@ define(['N/log',
                 let response = sendPXServer(PxAdmin);
                 PxAdmin["Respuesta"] = response.body;
                 log.debug("Response PX Cambio Propietario", response.body);
-                if (NACIONALIDAD == "PE") {
-                    return PxAdmin;
-                } else {
+                //if (NACIONALIDAD == "PE") {
+                //    return PxAdmin;
+                //} else {
                     return true;
-                }
+                //}
                 //return PxAdmin;
             } else {
                 log.debug("..subsidiaria...........................", "No existe en la Subsidiaria");
@@ -341,15 +447,17 @@ define(['N/log',
 
         const envioPXMantenimientoChequeoDispositivo = (ordenTrabajoId, subsidiaria, URLPX, activofijoId) => {
             let NACIONALIDAD = obtenerNacionalidad(subsidiaria);
-            let { Dispositivo, vehiculo, Cobertura, salesOrderId, Location, Ejecutiva } = obtenerCamposOrdenTrabajo(ordenTrabajoId, subsidiaria);
-            log.debug("vehiculo........................", vehiculo);
+            //let { Dispositivo, vehiculo, Cobertura, salesOrderId, Location, Ejecutiva } = obtenerCamposOrdenTrabajo(ordenTrabajoId, subsidiaria);
+            let { Dispositivo, vehiculo, Cobertura, salesOrderId, Location, Ejecutiva } = obtenerCamposOrdenTrabajoChequeo(ordenTrabajoId, subsidiaria);       
+            log.debug("vehiculo..........1..............", vehiculo);
             if (vehiculo && vehiculo != "") {
-                let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, activofijoId, "enviado", "PX");
+                let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, activofijoId, "Enviado", "PX");
                 let PxAdmin = {};
                 setAuthenticationValues(PxAdmin);
                 setEmptyFields(PxAdmin);
                 setSalesOrderValues(PxAdmin, salesOrderId, vehiculo, Cobertura, Location, Ejecutiva, NACIONALIDAD);
                 PxAdmin["OperacionOrden"] = OPERACION_ORDEN_MANTENIMIENTO_CHEQUEO;
+              //log.debug("vehiculo..........OPERAD..............", OPERACION_ORDEN_MANTENIMIENTO_CHEQUEO);
                 //PxAdmin["NACIONALIDAD"] = NACIONALIDAD;
                 PxAdmin["URLPX"] = URLPX;
                 //PxAdmin["UsuarioIngreso"] ="OPERAD"+ "_"+NACIONALIDAD;
@@ -361,18 +469,18 @@ define(['N/log',
                 let response = sendPXServer(PxAdmin);
                 PxAdmin["Respuesta"] = response.body;
                 log.debug("Response PX Mantenimiento Chequeo Dispositivo", response.body);
-                if (NACIONALIDAD == "PE") {
-                    return PxAdmin;
-                }
-                else {
+                //if (NACIONALIDAD == "PE") {
+                //    return PxAdmin;
+                //}
+                //else {
                     if (response.body == 1) {
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "enviado", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                         return true;
                     } else {
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "error", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
                         return false;
                     }
-                }
+                //}
             } else {
                 log.debug("..subsidiaria...........................", "No existe en la Subsidiaria");
                 return false;
@@ -383,14 +491,14 @@ define(['N/log',
             try {
                 let NACIONALIDAD = obtenerNacionalidad(subsidiaria);
                 let Dispositivo = obtenerDispositivo(dispositivoId, subsidiaria);
-                let vehiculo = obtenerVehiculo(vehiculoId);
+                let vehiculo = obtenerVehiculo(vehiculoId, subsidiaria);
                 let Servicios = "";
                 let Cobertura = "";
                 let PxAdmin = {};
                 setAuthenticationValues(PxAdmin);
                 setEmptyFields(PxAdmin);
                 Dispositivo.producto = familia;
-                log.debug("............Dispositivo...................", Dispositivo);
+                //log.debug("............Dispositivo...................", Dispositivo);
                 PxAdmin["NumeroOrden"] = '0';
                 PxAdmin["NACIONALIDAD"] = NACIONALIDAD;
                 PxAdmin["URLPX"] = URLPX;
@@ -402,11 +510,11 @@ define(['N/log',
                 const formato = fecha.getFullYear().toString() + String(fecha.getMonth() + 1).padStart(2, '0') + String(fecha.getDate()).padStart(2, '0');
                 PxAdmin["UsuarioIngreso"] = "OPERAD" + "_" + NACIONALIDAD;
                 PxAdmin["FileName"] = vehiculoId + "_" + formato;
-                //-PxAdmin["EstadoSim"] = estado;
+                //PxAdmin["EstadoSim"] = estado;
                 if (respuesta == "1") {
                     PxAdmin["EstadoSim"] = estadocobertura;
                 }
-                //--PxAdmin["EstadoSim"] = estadoSim;
+                //PxAdmin["EstadoSim"] = estadoSim;
                 log.debug("Body PX Actualizacion Estado", PxAdmin);
                 let response = sendPXServer(PxAdmin);
                 PxAdmin["Respuesta"] = response.body;
@@ -424,11 +532,11 @@ define(['N/log',
 
         const envioPXModificacionDispositivo = (ordenTrabajoId, subsidiaria, URLPX) => {
             let NACIONALIDAD = obtenerNacionalidad(subsidiaria);
-            let { Dispositivo, vehiculo, Cobertura, pxadminfinalizacion, salesOrderId, Location, Ejecutiva } = obtenerCamposOrdenTrabajo(ordenTrabajoId, subsidiaria);
+            let { Dispositivo, vehiculo, Cobertura, pxadminfinalizacion, salesOrderId, Location, Ejecutiva, vidAnterior, vidNuevo } = obtenerCamposOrdenTrabajoChequeo(ordenTrabajoId, subsidiaria);
             log.debug("vehiculo........................", vehiculo);
             if (vehiculo && vehiculo != "") {
                 if (!pxadminfinalizacion) {
-                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "enviado", "PX");
+                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "Enviado", "PX");
                     let PxAdmin = {};
                     setAuthenticationValues(PxAdmin);
                     setEmptyFields(PxAdmin);
@@ -440,8 +548,12 @@ define(['N/log',
                     //PxAdmin["UsuarioIngreso"] ="OPERAD"+ "_"+NACIONALIDAD;
                     setVehiculoValues(PxAdmin, vehiculo, OPERACION_ORDEN_MODIFICACION,subsidiaria);
                     setDispositivoValues(PxAdmin, Dispositivo, OPERACION_ORDEN_MODIFICACION,subsidiaria);
-                    setCommandsValues(PxAdmin, Servicios = "", OPERACION_ORDEN_MODIFICACION, Cobertura = "",subsidiaria);
+                    //setCommandsValues(PxAdmin, Servicios = "", OPERACION_ORDEN_MODIFICACION, Cobertura = "",subsidiaria);
+                    setCommandsValues(PxAdmin, "", OPERACION_ORDEN_MODIFICACION, "",subsidiaria);
                     //setCoberturaValues(PxAdmin, Cobertura);
+                    //PxAdmin["VidAnterior"] = vidAnterior;
+                    PxAdmin["Vid"] = vidNuevo;
+                    PxAdmin["VidAnterior"] = vidAnterior === vidNuevo ? "" : vidAnterior;
                     log.debug("Body PX Modificacion Dispositivo", PxAdmin);
                     let response = sendPXServer(PxAdmin);
                     PxAdmin["Respuesta"] = response.body;
@@ -451,11 +563,11 @@ define(['N/log',
                         updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
                         updatePxadmin.save();
                         pxadminfinalizacion = true;
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "enviado", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                     // return {PxAdmin, response};
                     } else  {
                         //return {PxAdmin, response};
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "error", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
                     }
                 }
                 if (!pxadminfinalizacion) {
@@ -475,7 +587,7 @@ define(['N/log',
             let NACIONALIDAD = obtenerNacionalidad(subsidiaria);
             let Cobertura = "";
             //let { Dispositivo, vehiculo, pxadminfinalizacion, salesOrderId, Cobertura,  Location, Ejecutiva } = obtenerCamposOrdenTrabajo(ordenTrabajoId);
-            let { vehiculo, Propietario, Aseguradora, Concesionario, Financiera, Convenio } = obtenerCamposVehiculo(vehioculoId)
+            let { vehiculo, Propietario, Aseguradora, Concesionario, Financiera, Convenio } = obtenerCamposVehiculo(vehioculoId, subsidiaria)
             if (vehiculo && vehiculo != "") {
                 // if (!pxadminfinalizacion) {
                 let PxAdmin = {};
@@ -504,9 +616,11 @@ define(['N/log',
                 PxAdmin["Respuesta"] = response.body;
                 log.debug("Body PX Registrar Canal", PxAdmin);
                 if (response.body == 1) {
-                    return {PxAdmin, response};
+                    //return {PxAdmin, response};
+                    return true;
                 } else  {
-                    return {PxAdmin, response};
+                    //return {PxAdmin, response};
+                    return false;
                 }
             } else {
                 log.debug("..subsidiaria...........................", "No existe en la Subsidiaria");
@@ -521,6 +635,7 @@ define(['N/log',
             if (vehiculo && vehiculo != "") { 
                 if (!pxadminfinalizacion) {
                     let PxAdmin = {};
+                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "Enviado", "PX");
                     setAuthenticationValues(PxAdmin);
                     setEmptyFields(PxAdmin);
                     //setSalesOrderValues(PxAdmin, salesOrderId);
@@ -543,8 +658,9 @@ define(['N/log',
                         updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
                         updatePxadmin.save();
                         pxadminfinalizacion = true;
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                     } else {
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "error", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
                     }
                 }
                 if (!pxadminfinalizacion) {
@@ -587,9 +703,11 @@ define(['N/log',
                 PxAdmin["Respuesta"] = response.body;
                 log.debug("Response PX Venta Seguros", response.body);
                 if (response.body == 1) {
-                    return {PxAdmin, response};
+                    //return {PxAdmin, response};
+                    return true;
                 } else  {
-                    return {PxAdmin, response};
+                    //return {PxAdmin, response};
+                    return false;
                 }
             } else {
                 log.debug("..subsidiaria...........................", "No existe en la Subsidiaria");
@@ -603,7 +721,7 @@ define(['N/log',
             log.debug("vehiculo........................", vehiculo);
             if (vehiculo && vehiculo != "") {
                 if (!pxadminfinalizacion) {
-                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "enviado", "PX");
+                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "Enviado", "PX");
                     let PxAdmin = {};
                     setAuthenticationValues(PxAdmin);
                     setEmptyFields(PxAdmin);
@@ -627,10 +745,10 @@ define(['N/log',
                         updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
                         updatePxadmin.save();
                         pxadminfinalizacion = true;
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "enviado", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                     } else  {
                         //return {PxAdmin, response};
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "error", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
                     }
                 }
                 if (!pxadminfinalizacion) {
@@ -674,6 +792,53 @@ define(['N/log',
                         updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
                         updatePxadmin.save();
                         pxadminfinalizacion = true;
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
+                    } else {
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
+                    }
+                }
+                if (!pxadminfinalizacion) {
+                    let updatePxadmin = record.load({ type: 'customrecord_ht_record_ordentrabajo', id: ordenTrabajoId });
+                    updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_estado', value: 4 })
+                    updatePxadmin.save();
+                    return false;
+                }
+                return true;
+            } else {
+                log.debug("..subsidiaria...........................", "No existe en la Subsidiaria");
+                return false;
+            }       
+        }
+
+        const envioPXInstalacionComponentesNuevo = (ordenTrabajoId, subsidiaria, URLPX) => {
+            let NACIONALIDAD = obtenerNacionalidad(subsidiaria);
+            let { Dispositivo, vehiculo, Cobertura, pxadminfinalizacion, salesOrderId,  Location, Ejecutiva, Servicios } = obtenerCamposOrdenTrabajo(ordenTrabajoId, subsidiaria);
+            log.debug("vehiculo........................", vehiculo);       
+            if (vehiculo && vehiculo != "") { 
+                if (!pxadminfinalizacion) {
+                    let PxAdmin = {};
+                    setAuthenticationValues(PxAdmin);
+                    setEmptyFields(PxAdmin);
+                    //setSalesOrderValues(PxAdmin, salesOrderId);
+                    setSalesOrderValues(PxAdmin, salesOrderId, vehiculo, Cobertura, Location, Ejecutiva, NACIONALIDAD);
+                    PxAdmin["OperacionOrden"] = OPERACION_ORDEN_INSTALACION_COMPONENTES_NUEVO;
+                    //PxAdmin["NACIONALIDAD"] = NACIONALIDAD;
+                    PxAdmin["URLPX"] = URLPX;
+                    //PxAdmin["UsuarioIngreso"] ="OPERAD"+ "_"+NACIONALIDAD;
+                    setVehiculoValues(PxAdmin, vehiculo, OPERACION_ORDEN_INSTALACION_COMPONENTES_NUEVO,subsidiaria);
+                    setDispositivoValues(PxAdmin, Dispositivo, OPERACION_ORDEN_INSTALACION_COMPONENTES_NUEVO,subsidiaria);                   
+                    setCommandsValues(PxAdmin, Servicios, OPERACION_ORDEN_INSTALACION_COMPONENTES_NUEVO, Cobertura="",subsidiaria);
+                    //setCoberturaValues(PxAdmin, Cobertura);
+                    log.debug("Body PX Instalacion Componentes Nuevo", PxAdmin);
+                    let response = sendPXServer(PxAdmin);
+                    PxAdmin["Respuesta"]=response.body;
+                    log.debug("Response PX Instalacion Componentes Nuevo", response.body);
+                    if (response.body == 1) {
+                        let updatePxadmin = record.load({ type: 'customrecord_ht_record_ordentrabajo', id: ordenTrabajoId });
+                        updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
+                        updatePxadmin.save();
+                        pxadminfinalizacion = true;
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                     }
                 }
                 if (!pxadminfinalizacion) {
@@ -695,7 +860,7 @@ define(['N/log',
             log.debug("vehiculo........................", vehiculo);
             if (vehiculo && vehiculo != "") {
                 if (!pxadminfinalizacion) {
-                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "enviado", "PX");
+                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "Enviado", "PX");
                     let PxAdmin = {};
                     setAuthenticationValues(PxAdmin);
                     setEmptyFields(PxAdmin);
@@ -719,10 +884,10 @@ define(['N/log',
                         updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
                         updatePxadmin.save();
                         pxadminfinalizacion = true;
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "enviado", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                     } else  {
                         //return {PxAdmin, response};
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "error", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
                     }
                 }
                 if (!pxadminfinalizacion) {
@@ -743,12 +908,12 @@ define(['N/log',
             let { Dispositivo, vehiculo, Cobertura, pxadminfinalizacion, salesOrderId, Location, Servicios, Ejecutiva } = obtenerCamposOrdenTrabajoDisp(ordenTrabajoId, subsidiaria);
             // log.error("vehiculo........................", vehiculo);    
             log.debug("Servicios........................", Servicios);
-            // log.error("Dispositivo........................", Dispositivo);  
-            // log.error("Cobertura........................", Cobertura);                                
+            log.debug("Dispositivo........................", Dispositivo);  
+            log.debug("Cobertura........................", Cobertura);                                
             if (vehiculo && vehiculo != "") {
-                if (!pxadminfinalizacion) {
+                //if (!pxadminfinalizacion) {
                     let PxAdmin = {};
-                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "enviado", "PX");
+                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "Enviado", "PX");
                     setAuthenticationValues(PxAdmin);
                     setEmptyFields(PxAdmin);
                     //setSalesOrderValues(PxAdmin, salesOrderId);
@@ -775,12 +940,12 @@ define(['N/log',
                         updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
                         updatePxadmin.save();
                         pxadminfinalizacion = true;
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "enviado", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                     } else  {
                         //return {PxAdmin, response};
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "error", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
                     }
-                }
+                //}
                 if (!pxadminfinalizacion) {
                     let updatePxadmin = record.load({ type: 'customrecord_ht_record_ordentrabajo', id: ordenTrabajoId });
                     updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_estado', value: 4 })
@@ -801,7 +966,7 @@ define(['N/log',
             log.debug("vehiculo........................", vehiculo);
             if (vehiculo && vehiculo != "") {
                 if (!pxadminfinalizacion) {
-                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "enviado", "PX");
+                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "Enviado", "PX");
                     let PxAdmin = {};
                     setAuthenticationValues(PxAdmin);
                     setEmptyFields(PxAdmin);
@@ -825,10 +990,10 @@ define(['N/log',
                         updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
                         updatePxadmin.save();
                         pxadminfinalizacion = true;
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "enviado", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                     } else  {
                         //return {PxAdmin, response};
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "error", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
                     }
                 }
                 if (!pxadminfinalizacion) {
@@ -850,7 +1015,7 @@ define(['N/log',
             log.debug("vehiculo........................", vehiculo);
             if (vehiculo && vehiculo != "") {
                 if (!pxadminfinalizacion) {
-                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "enviado", "PX");
+                    let registroImpulsoPlataforma = crearRegistroImpulsoPlataforma(ordenTrabajoId, null, "Enviado", "PX");
                     let PxAdmin = {};
                     setAuthenticationValues(PxAdmin);
                     setEmptyFields(PxAdmin);
@@ -874,10 +1039,10 @@ define(['N/log',
                         updatePxadmin.setValue({ fieldId: 'custrecord_ht_ot_pxadminfinalizacion', value: true })
                         updatePxadmin.save();
                         pxadminfinalizacion = true;
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "enviado", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Enviado", response.body);
                     } else  {
                         //return {PxAdmin, response};
-                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "error", response.body);
+                        actualizarRegistroImpulsoPlataforma(registroImpulsoPlataforma, "Error", response.body);
                     }
                 }
                 if (!pxadminfinalizacion) {
@@ -940,7 +1105,7 @@ define(['N/log',
             };    
             if (!coberturaSearchResult.length) return result;
             let columns = coberturaSearchResult[0].columns;    
-            log.debug("coberturaSearchResult........................", coberturaSearchResult[0]);
+           // log.debug("coberturaSearchResult........................", coberturaSearchResult[0]);
             return {
                 id: coberturaSearchResult[0].getValue("internalid"),
                 clientemonitoreo: coberturaSearchResult[0].getValue("custrecord_ht_co_clientemonitoreo"),
@@ -964,13 +1129,13 @@ define(['N/log',
             if (ordenVenta.getValue('subsidiary') != String(subsidiaria)) {
                 return { vehiculo: "", Propietario: "", PropietarioMonitoreo: "", NuevoPropietario: "", Location: "", Ejecutiva: "" };
             }
-            log.debug('ordenVenta...............', ordenVenta);
-            let Propietario = obtenerPropietario(ordenVenta.getValue('entity'));
-            let PropietarioMonitoreo = obtenerPropietarioMonitoreo(ordenVenta, null);
+            //log.debug('ordenVenta...............', ordenVenta);
+            let Propietario = obtenerPropietario(ordenVenta.getValue('entity'), subsidiaria);
+            let PropietarioMonitoreo = obtenerPropietarioMonitoreo(ordenVenta, null, subsidiaria);
             let vehiculo = obtenerVehiculo(ordenVenta.getValue('custbody_ht_so_bien'), subsidiaria);
-            log.debug('vehiculo.............................', vehiculo);
+            //log.debug('vehiculo.............................', vehiculo);
             let order = record.load({ type: 'salesorder', id: ordenServicioId });
-            log.debug('order...............', order);
+            //log.debug('order...............', order);
             let clienteNew = order.getSublistValue({ sublistId: 'item', fieldId: 'custcol_ht_os_cliente', line: 0 });
             let NuevoPropietario = obtenerNewPropietario(clienteNew, subsidiaria);
             //obtenerNuevoPropietario(ordenVenta, null);
@@ -982,7 +1147,7 @@ define(['N/log',
             } else {
                 Ejecutiva = "";
             }
-            log.debug('RESULTTTTT......................', results6);
+            //log.debug('RESULTTTTT......................', results6);
             //
             let sql5 = 'SELECT Location.name, Location.subsidiary FROM Location JOIN locationSubsidiaryMap ON location.id = locationSubsidiaryMap.location JOIN Subsidiary ON locationSubsidiaryMap.subsidiary = Subsidiary.id WHERE  location.id = ? and Subsidiary.id = ? '
             let resultSet5 = query.runSuiteQL({ query: sql5, params: [ordenVenta.getValue('location'), subsidiaria] });
@@ -992,7 +1157,7 @@ define(['N/log',
             } else {
                 Location = "";
             }
-            log.debug('RESULTTTTT......................', results5);
+            //log.debug('RESULTTTTT......................', results5);
             return { vehiculo, Propietario, PropietarioMonitoreo, NuevoPropietario, Location, Ejecutiva };
         }
 
@@ -1001,22 +1166,22 @@ define(['N/log',
             if (ordenVenta.getValue('subsidiary') != String(subsidiaria)) {
                 return { vehiculo: "", Propietario: "", PropietarioMonitoreo: "", NuevoPropietario: "", Location: "", Ejecutiva: "" };
             }
-            log.debug('ordenVenta...............', ordenVenta);
-            let Propietario = obtenerPropietario(ordenVenta.getValue('entity'));
-            let PropietarioMonitoreo = obtenerPropietarioMonitoreo(ordenVenta, null);
+           // log.debug('ordenVenta...............', ordenVenta);
+            let Propietario = obtenerPropietario(ordenVenta.getValue('entity'), subsidiaria);
+            let PropietarioMonitoreo = obtenerPropietarioMonitoreo(ordenVenta, null, subsidiaria);
             let vehiculo = obtenerVehiculo(ordenVenta.getValue('custbody_ht_so_bien'), subsidiaria);
-            log.debug('vehiculo.............................', vehiculo);
+            //log.debug('vehiculo.............................', vehiculo);
             let familiaConsulta = obtenerFamilia(familia, subsidiaria)
-            log.debug('familiaConsulta...............', familiaConsulta);
+            //log.debug('familiaConsulta...............', familiaConsulta);
             let Cobertura = consultaCobertura(ordenVenta.getValue('custbody_ht_so_bien'), familiaConsulta.id, subsidiaria);
-            log.debug('Cobertura...............', Cobertura);
+            //log.debug('Cobertura...............', Cobertura);
             let Servicios = getVehiculoServiciosGeneral(ordenVenta.getValue('custbody_ht_so_bien'),  subsidiaria);
-            log.debug('Commands..................', Servicios)
+            //log.debug('Commands..................', Servicios)
             //let Dispositivo = obtenerInformacionDispositivo(coberturaConsulta.numeroserieproducto);
             let Dispositivo = obtenerDispositivo(Cobertura.numeroserieproducto, subsidiaria);
             // log.debug('Dispositivo...............', Dispositivo);
             let order = record.load({ type: 'salesorder', id: ordenServicioId });
-            log.debug('order...............', order);
+            //log.debug('order...............', order);
             let clienteNew = order.getSublistValue({ sublistId: 'item', fieldId: 'custcol_ht_os_cliente', line: 0 });
             //let NuevoPropietario = obtenerNewPropietario(clienteNew);
             //obtenerNuevoPropietario(ordenVenta, null);
@@ -1028,7 +1193,7 @@ define(['N/log',
             } else {
                 Ejecutiva = "";
             }
-            log.debug('RESULTTTTT......................', results6);
+            //log.debug('RESULTTTTT......................', results6);
             //
             let sql5 = 'SELECT Location.name, Location.subsidiary FROM Location JOIN locationSubsidiaryMap ON location.id = locationSubsidiaryMap.location JOIN Subsidiary ON locationSubsidiaryMap.subsidiary = Subsidiary.id WHERE  location.id = ? and Subsidiary.id = ? '
             let resultSet5 = query.runSuiteQL({ query: sql5, params: [ordenVenta.getValue('location'), subsidiaria] });
@@ -1038,7 +1203,7 @@ define(['N/log',
             } else {
                 Location = "";
             }
-            log.debug('RESULTTTTT......................', results5);
+            //log.debug('RESULTTTTT......................', results5);
             return { Dispositivo, vehiculo, Propietario, PropietarioMonitoreo, Cobertura, Location, Ejecutiva, Servicios };
         }
 
@@ -1050,15 +1215,14 @@ define(['N/log',
             if (ordenTrabajo.getValue('custrecord_ht_ot_subsidiary') != String(subsidiaria)) {
                 return { Dispositivo: "", vehiculo: "", Propietario: "", PropietarioMonitoreo: "", Cobertura: "", Subsidiaria: "", Aseguradora: "", Concesionario: "", Financiera: "", Convenio: "", Commands: "", Servicios: "", pxadminfinalizacion: "", confirmaciontelamatic: "", salesOrderId: "", numPuertas: "", Location: "", Ejecutiva: "" };
             }
-            log.debug('ordenTrabajo......................', ordenTrabajo);
+            //log.debug('ordenTrabajo......................', ordenTrabajo);
             let numPuertas = ordenTrabajo.getValue('custrecord_ht_ot_numero_puertas');
             let salesOrderId = ordenTrabajo.getValue('custrecord_ht_ot_orden_servicio');
             let ordenVenta = record.load({ type: record.Type.SALES_ORDER, id: salesOrderId });
             if (ordenVenta.getValue('subsidiary') != String(subsidiaria)) {
                 return { Dispositivo: "", vehiculo: "", Propietario: "", PropietarioMonitoreo: "", Cobertura: "", Subsidiaria: "", Aseguradora: "", Concesionario: "", Financiera: "", Convenio: "", Commands: "", Servicios: "", pxadminfinalizacion: "", confirmaciontelamatic: "", salesOrderId: "", numPuertas: "", Location: "", Ejecutiva: "" };
             }
-            log.debug('ordenVenta...............', ordenVenta);
-            //
+            //log.debug('ordenVenta...............', ordenVenta);
             let sql5 = 'SELECT Location.name, Location.subsidiary FROM Location JOIN locationSubsidiaryMap ON location.id = locationSubsidiaryMap.location JOIN Subsidiary ON locationSubsidiaryMap.subsidiary = Subsidiary.id WHERE  location.id = ? and Subsidiary.id = ? '
             let resultSet5 = query.runSuiteQL({ query: sql5, params: [ordenVenta.getValue('location'), subsidiaria] });
             let results5 = resultSet5.asMappedResults();
@@ -1067,7 +1231,7 @@ define(['N/log',
             } else {
                 Location = "";
             }
-            log.debug('Location......................', results5);
+            //log.debug('Location......................', results5);
             let sql6 = 'SELECT firstname, lastname, subsidiary FROM employee WHERE id = ? and  subsidiary = ? '
             let resultSet6 = query.runSuiteQL({ query: sql6, params: [ordenVenta.getValue('custbody_ht_os_ejecutivareferencia'), subsidiaria] });
             let results6 = resultSet6.asMappedResults();
@@ -1076,34 +1240,34 @@ define(['N/log',
             } else {
                 Ejecutiva = "";
             }
-            log.debug('employee......................', results6);
+            //log.debug('employee......................', results6);
             //let bien = ordenVenta.getValue('custbody_ht_so_bien');
             let sql4 = 'SELECT custrecord_ht_bien_conveniovehiculo FROM customrecord_ht_record_bienes WHERE id = ? and custrecord_bn_subsidiaria = ? '
             let resultSet4 = query.runSuiteQL({ query: sql4, params: [ordenVenta.getValue('custbody_ht_so_bien'), subsidiaria] });
             let results4 = resultSet4.asMappedResults();
-            log.debug('customrecord_ht_record_bienes', results4);
+            //log.debug('customrecord_ht_record_bienes', results4);
             let periodoCobertura = obtenerPeriodoCobertura(ordenVenta);
-            log.debug('periodoCobertura..................', periodoCobertura);
+            //log.debug('periodoCobertura..................', periodoCobertura);
             let fechaChequeo = ordenTrabajo.getValue('custrecord_ht_ot_fechatrabajoasignacion');
-            log.debug('fechaChequeo.length', fechaChequeo);
+            //log.debug('fechaChequeo.length', fechaChequeo);
             if (!fechaChequeo) {
                 log.debug('Campo Fecha', 'Vacío')
                 fechaChequeo = getFechaChequeo();
-                log.debug('dateChequeo', fechaChequeo);
+                //log.debug('dateChequeo', fechaChequeo);
             }
             let fechaCoberturaOrden = getCobertura(periodoCobertura, UNIDAD_TIEMPO.MESES, fechaChequeo);//*GENERAR COBERTURA PARA EL REGISTRO DE COBERTURA ========================
-            log.debug('COBERTURA ========================', fechaCoberturaOrden)
-            log.debug('custrecord_ht_ot_serieproductoasignacion..................', ordenTrabajo.getValue('custrecord_ht_ot_serieproductoasignacion'));
+            //log.debug('COBERTURA ========================2', fechaCoberturaOrden)
+            //log.debug('custrecord_ht_ot_serieproductoasignacion..................', ordenTrabajo.getValue('custrecord_ht_ot_serieproductoasignacion'));
             let Dispositivo = []
             Dispositivo = obtenerDispositivo(ordenTrabajo.getValue('custrecord_ht_ot_serieproductoasignacion'), subsidiaria);
-            log.debug('Dispositivo..................', Dispositivo);
-            log.debug('ordenTrabajo.getText..................', ordenTrabajo.getText('custrecord_ht_ot_producto'));
+            //log.debug('Dispositivo..................', Dispositivo);
+            //log.debug('ordenTrabajo.getText..................', ordenTrabajo.getText('custrecord_ht_ot_producto'));
             if (Dispositivo !== undefined) {
                 Dispositivo.producto = ordenTrabajo.getText('custrecord_ht_ot_producto') || "";
             }
             //log.debug('Dispositivo.producto..................', Dispositivo.producto );           
             let vehiculo = obtenerVehiculo(ordenTrabajo.getValue('custrecord_ht_ot_vehiculo'), subsidiaria);
-            log.debug('vehiculo.............................', vehiculo);
+            //log.debug('vehiculo.............................', vehiculo);
             let productCadena = ordenTrabajo.getText('custrecord_ht_ot_producto')
             if (productCadena.includes("-")) {
                 productCadena = productCadena.split('-')[1]/*.replace(/\s+/g, '')*/
@@ -1114,26 +1278,26 @@ define(['N/log',
             vehiculo.producto = productCadena || "";
             vehiculo.fechaInicioCobertura = ordenVenta.getValue('trandate');
             vehiculo.fechaFinCobertura = new Date(vehiculo.fechaInicioCobertura.getFullYear(), vehiculo.fechaInicioCobertura.getMonth() + periodoCobertura, vehiculo.fechaInicioCobertura.getDate());
-            let Propietario = obtenerPropietario(ordenTrabajo.getValue('custrecord_ht_ot_cliente_id'));
-            let PropietarioMonitoreo = obtenerPropietarioMonitoreo(ordenVenta, ordenTrabajo.getValue('custrecord_ht_ot_item'));
+            let Propietario = obtenerPropietario(ordenTrabajo.getValue('custrecord_ht_ot_cliente_id'), subsidiaria);
+            let PropietarioMonitoreo = obtenerPropietarioMonitoreo(ordenVenta, ordenTrabajo.getValue('custrecord_ht_ot_item'), subsidiaria);
             let Cobertura = obtenerCobertura(ordenTrabajo, subsidiaria);
-            log.debug("Cobertura........................", Cobertura);
+            //log.debug("Cobertura........................", Cobertura);
             Cobertura.custrecord_ht_co_coberturainicial = Cobertura?.custrecord_ht_co_coberturainicial ? Cobertura.custrecord_ht_co_coberturainicial : fechaCoberturaOrden?.coberturaInicial;
             Cobertura.custrecord_ht_co_coberturafinal = Cobertura?.custrecord_ht_co_coberturafinal ? Cobertura.custrecord_ht_co_coberturafinal : fechaCoberturaOrden?.coberturaFinal;
             Cobertura.custrecord_ht_co_coberturainicialtext = Cobertura?.custrecord_ht_co_coberturainicialtext ? Cobertura.custrecord_ht_co_coberturainicialtext : fechaCoberturaOrden?.coberturaInicial;
             Cobertura.custrecord_ht_co_coberturafinaltext = Cobertura?.custrecord_ht_co_coberturafinaltext ? Cobertura.custrecord_ht_co_coberturafinaltext : fechaCoberturaOrden?.coberturaFinal;
-            log.debug("Cobertura............2............", Cobertura);
+            //log.debug("Cobertura............2............", Cobertura);
             let pxadminfinalizacion = ordenTrabajo.getValue('custrecord_ht_ot_pxadminfinalizacion');
             let confirmaciontelamatic = ordenTrabajo.getValue('custrecord_ht_ot_confirmaciontelamatic');
             let Subsidiaria = obtenerSubsidiaria(ordenVenta.getValue('subsidiary'));
-            log.debug("Subsidiaria........................", Subsidiaria);
+            //log.debug("Subsidiaria........................", Subsidiaria);
             //log.error("pxadminfinalizacion........................", pxadminfinalizacion);
             let Aseguradora = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_companiaseguros'), subsidiaria);
-            log.debug('Aseguradora........................', Aseguradora);
+            //log.debug('Aseguradora........................', Aseguradora);
             let Concesionario = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_concesionario'), subsidiaria);
-            log.debug('Concesionario........................', Concesionario);
+            //log.debug('Concesionario........................', Concesionario);
             let Financiera = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_bancofinanciera'), subsidiaria);
-            log.debug('Financiera........................', Financiera)
+            //log.debug('Financiera........................', Financiera)
             if (results4.length > 0) {
                 Convenio = obtenerConvenio(results4[0]['custrecord_ht_bien_conveniovehiculo']);
             } else {
@@ -1147,28 +1311,28 @@ define(['N/log',
             //let Producto = ordenTrabajo.getText('custrecord_ht_ot_producto');
             // log.debug('CONVENIOOOO', Convenio)
             //log.debug('Subsidiaria', Subsidiaria)
-            log.debug('Servicios..................', Servicios)
+            //log.debug('Servicios..................', Servicios)
             // log.debug('PROPIETARIOMON', PropietarioMonitoreo)
+            
             return { Dispositivo, vehiculo, Propietario, PropietarioMonitoreo, Cobertura, Subsidiaria, Aseguradora, Concesionario, Financiera, Convenio, Commands, Servicios, pxadminfinalizacion, confirmaciontelamatic, salesOrderId, numPuertas, Location, Ejecutiva };
         }
 
-          const obtenerCamposOrdenComponente= (ordenTrabajoId, subsidiaria) => {
+        const obtenerCamposOrdenTrabajoChequeo = (ordenTrabajoId, subsidiaria) => {
             let Convenio = {};
-            var Location="";
-            var Ejecutiva="";           
+            var Location = "";
+            var Ejecutiva = "";
             let ordenTrabajo = record.load({ type: 'customrecord_ht_record_ordentrabajo', id: ordenTrabajoId });
-            if (ordenTrabajo.getValue('custrecord_ht_ot_subsidiary') != String(subsidiaria)){
-                return { Dispositivo:"", vehiculo:"", Propietario:"", PropietarioMonitoreo:"", Cobertura:"", Subsidiaria:"", Aseguradora:"", Concesionario:"", Financiera:"", Convenio:"", Commands:"", Servicios:"", pxadminfinalizacion:"", confirmaciontelamatic:"", salesOrderId:"", numPuertas:"", Location:"", Ejecutiva:""};
+            if (ordenTrabajo.getValue('custrecord_ht_ot_subsidiary') != String(subsidiaria)) {
+                return { Dispositivo: "", vehiculo: "", Propietario: "", PropietarioMonitoreo: "", Cobertura: "", Subsidiaria: "", Aseguradora: "", Concesionario: "", Financiera: "", Convenio: "", Commands: "", Servicios: "", pxadminfinalizacion: "", confirmaciontelamatic: "", salesOrderId: "", numPuertas: "", Location: "", Ejecutiva: "" };
             }
-            log.debug('ordenTrabajo......................', ordenTrabajo);
+            //log.debug('ordenTrabajo......................', ordenTrabajo);
             let numPuertas = ordenTrabajo.getValue('custrecord_ht_ot_numero_puertas');
             let salesOrderId = ordenTrabajo.getValue('custrecord_ht_ot_orden_servicio');
-            let ordenVenta = record.load({ type: record.Type.SALES_ORDER, id: salesOrderId });           
-            if (ordenVenta.getValue('subsidiary') != String(subsidiaria)){
-                return { Dispositivo:"", vehiculo:"", Propietario:"", PropietarioMonitoreo:"", Cobertura:"", Subsidiaria:"", Aseguradora:"", Concesionario:"", Financiera:"", Convenio:"", Commands:"", Servicios:"", pxadminfinalizacion:"", confirmaciontelamatic:"", salesOrderId:"", numPuertas:"", Location:"", Ejecutiva:""};
+            let ordenVenta = record.load({ type: record.Type.SALES_ORDER, id: salesOrderId });
+            if (ordenVenta.getValue('subsidiary') != String(subsidiaria)) {
+                return { Dispositivo: "", vehiculo: "", Propietario: "", PropietarioMonitoreo: "", Cobertura: "", Subsidiaria: "", Aseguradora: "", Concesionario: "", Financiera: "", Convenio: "", Commands: "", Servicios: "", pxadminfinalizacion: "", confirmaciontelamatic: "", salesOrderId: "", numPuertas: "", Location: "", Ejecutiva: "" };
             }
-            log.debug('ordenVenta...............', ordenVenta); 
-            //
+            //log.debug('ordenVenta...............', ordenVenta);
             let sql5 = 'SELECT Location.name, Location.subsidiary FROM Location JOIN locationSubsidiaryMap ON location.id = locationSubsidiaryMap.location JOIN Subsidiary ON locationSubsidiaryMap.subsidiary = Subsidiary.id WHERE  location.id = ? and Subsidiary.id = ? '
             let resultSet5 = query.runSuiteQL({ query: sql5, params: [ordenVenta.getValue('location'), subsidiaria] });
             let results5 = resultSet5.asMappedResults();
@@ -1177,7 +1341,127 @@ define(['N/log',
             } else {
                 Location = "";
             }
-            log.debug('Location......................', results5); 
+            //log.debug('Location......................', results5);
+            let sql6 = 'SELECT firstname, lastname, subsidiary FROM employee WHERE id = ? and  subsidiary = ? '
+            let resultSet6 = query.runSuiteQL({ query: sql6, params: [ordenVenta.getValue('custbody_ht_os_ejecutivareferencia'), subsidiaria] });
+            let results6 = resultSet6.asMappedResults();
+            if (results6.length > 0) {
+                Ejecutiva = results6[0]['firstname'] + ' ' + results6[0]['lastname'];
+            } else {
+                Ejecutiva = "";
+            }
+            //log.debug('employee......................', results6);
+            //let bien = ordenVenta.getValue('custbody_ht_so_bien');
+            let sql4 = 'SELECT custrecord_ht_bien_conveniovehiculo FROM customrecord_ht_record_bienes WHERE id = ? and custrecord_bn_subsidiaria = ? '
+            let resultSet4 = query.runSuiteQL({ query: sql4, params: [ordenVenta.getValue('custbody_ht_so_bien'), subsidiaria] });
+            let results4 = resultSet4.asMappedResults();
+            //log.debug('customrecord_ht_record_bienes', results4);
+            let periodoCobertura = obtenerPeriodoCobertura(ordenVenta);
+            //log.debug('periodoCobertura..................', periodoCobertura);
+            let fechaChequeo = ordenTrabajo.getValue('custrecord_ht_ot_fechatrabajoasignacion');
+            //log.debug('fechaChequeo.length', fechaChequeo);
+            if (!fechaChequeo) {
+                log.debug('Campo Fecha', 'Vacío')
+                fechaChequeo = getFechaChequeo();
+                //log.debug('dateChequeo', fechaChequeo);
+            }
+            let fechaCoberturaOrden = getCobertura(periodoCobertura, UNIDAD_TIEMPO.MESES, fechaChequeo);//*GENERAR COBERTURA PARA EL REGISTRO DE COBERTURA ========================
+            //log.debug('COBERTURA ========================', fechaCoberturaOrden)
+            //log.debug('custrecord_ht_ot_serieproductoasignacion..................', ordenTrabajo.getValue('custrecord_ht_ot_serieproductoasignacion'));
+            let Dispositivo = []
+            Dispositivo = obtenerDispositivo(ordenTrabajo.getValue('custrecord_ht_ot_serieproductoasignacion'), subsidiaria);
+            //log.debug('Dispositivo..................', Dispositivo);
+            //log.debug('ordenTrabajo.getText..................', ordenTrabajo.getText('custrecord_ht_ot_producto'));
+            if (Dispositivo !== undefined) {
+                Dispositivo.producto = ordenTrabajo.getText('custrecord_ht_ot_producto') || "";
+            }
+            //log.debug('Dispositivo.producto..................', Dispositivo.producto );           
+            let vehiculo = obtenerVehiculo(ordenTrabajo.getValue('custrecord_ht_ot_vehiculo'), subsidiaria);
+            //log.debug('vehiculo.............................', vehiculo);
+            let productCadena = ordenTrabajo.getText('custrecord_ht_ot_producto')
+            if (productCadena.includes("-")) {
+                productCadena = productCadena.split('-')[1]/*.replace(/\s+/g, '')*/
+            }
+            //log.debug('EstadoBien', vehiculo.getValue('custrecord_ht_bn_estadobien'));
+            //log.debug('EstadoBien', vehiculo);
+            //vehiculo.EstadoCartera = vehiculo.getValue('custrecord_ht_bn_estadobien');
+            vehiculo.producto = productCadena || "";
+            vehiculo.fechaInicioCobertura = ordenVenta.getValue('trandate');
+            vehiculo.fechaFinCobertura = new Date(vehiculo.fechaInicioCobertura.getFullYear(), vehiculo.fechaInicioCobertura.getMonth() + periodoCobertura, vehiculo.fechaInicioCobertura.getDate());
+            let Propietario = obtenerPropietario(ordenTrabajo.getValue('custrecord_ht_ot_cliente_id'), subsidiaria);
+            let PropietarioMonitoreo = obtenerPropietarioMonitoreo(ordenVenta, ordenTrabajo.getValue('custrecord_ht_ot_item'), subsidiaria);
+            //let Cobertura = obtenerCobertura(ordenTrabajo, subsidiaria);
+            //log.debug("Cobertura........................", Cobertura);
+            // galvar 11-12-2025
+            let Cobertura = []
+            let familia = ordenTrabajo.getText('custrecord_ht_ot_producto').split(' - ');
+            //log.debug('familia...............', familia);
+            let idfamilia = familia.length ? familia[0] : '';
+            let familiaConsulta = obtenerFamilia(idfamilia, subsidiaria)
+            //log.debug('familiaConsulta...............', familiaConsulta);
+            Cobertura = obtenerCoberturaDisp(ordenVenta.getValue('custbody_ht_so_bien'), familiaConsulta.id, subsidiaria);
+            //log.debug('Cobertura.........111111......', Cobertura);
+            Cobertura.custrecord_ht_co_coberturainicial = Cobertura?.custrecord_ht_co_coberturainicial ? Cobertura.custrecord_ht_co_coberturainicial : fechaCoberturaOrden?.coberturaInicial;
+            Cobertura.custrecord_ht_co_coberturafinal = Cobertura?.custrecord_ht_co_coberturafinal ? Cobertura.custrecord_ht_co_coberturafinal : fechaCoberturaOrden?.coberturaFinal;
+            Cobertura.custrecord_ht_co_coberturainicialtext = Cobertura?.custrecord_ht_co_coberturainicialtext ? Cobertura.custrecord_ht_co_coberturainicialtext : fechaCoberturaOrden?.coberturaInicial;
+            Cobertura.custrecord_ht_co_coberturafinaltext = Cobertura?.custrecord_ht_co_coberturafinaltext ? Cobertura.custrecord_ht_co_coberturafinaltext : fechaCoberturaOrden?.coberturaFinal;
+            //log.debug("Cobertura............2............", Cobertura);
+            let pxadminfinalizacion = ordenTrabajo.getValue('custrecord_ht_ot_pxadminfinalizacion');
+            let confirmaciontelamatic = ordenTrabajo.getValue('custrecord_ht_ot_confirmaciontelamatic');
+            let Subsidiaria = obtenerSubsidiaria(ordenVenta.getValue('subsidiary'));
+            //log.debug("Subsidiaria........................", Subsidiaria);
+            //log.error("pxadminfinalizacion........................", pxadminfinalizacion);
+            let Aseguradora = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_companiaseguros'), subsidiaria);
+            //log.debug('Aseguradora........................', Aseguradora);
+            let Concesionario = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_concesionario'), subsidiaria);
+            //log.debug('Concesionario........................', Concesionario);
+            let Financiera = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_bancofinanciera'), subsidiaria);
+            //log.debug('Financiera........................', Financiera)
+            if (results4.length > 0) {
+                Convenio = obtenerConvenio(results4[0]['custrecord_ht_bien_conveniovehiculo']);
+            } else {
+                Convenio = obtenerConvenio(ordenVenta.getValue('custbody_ht_os_convenio'));
+            }
+            //let Commands = obtenerCommands(ordenTrabajo, ordenVenta);
+            //log.debug('salesOrderId........................', salesOrderId)
+            let Commands = getVehiculoServicios(ordenTrabajo.getValue('custrecord_ht_ot_vehiculo'), salesOrderId, subsidiaria);
+            //log.debug('Commands.........11.........', Commands)
+            let Servicios = ordenTrabajo.getText("custrecord_ht_ot_servicios_commands");
+            //let Producto = ordenTrabajo.getText('custrecord_ht_ot_producto');
+            // log.debug('CONVENIOOOO', Convenio)
+            //log.debug('Subsidiaria', Subsidiaria)
+            //log.debug('Servicios..................', Servicios)
+            // log.debug('PROPIETARIOMON', PropietarioMonitoreo)
+            let vidAnterior = ordenTrabajo.getValue('custrecord_ht_ot_vid_anterior');
+            let vidNuevo = ordenTrabajo.getValue('custrecord_ht_ot_vid_nuevo');
+            return { Dispositivo, vehiculo, Propietario, PropietarioMonitoreo, Cobertura, Subsidiaria, Aseguradora, Concesionario, Financiera, Convenio, Commands, Servicios, pxadminfinalizacion, confirmaciontelamatic, salesOrderId, numPuertas, Location, Ejecutiva, vidAnterior, vidNuevo };
+        }
+ 
+        const obtenerCamposOrdenComponente= (ordenTrabajoId, subsidiaria) => {
+            let Convenio = {};
+            var Location="";
+            var Ejecutiva="";           
+            let ordenTrabajo = record.load({ type: 'customrecord_ht_record_ordentrabajo', id: ordenTrabajoId });
+            if (ordenTrabajo.getValue('custrecord_ht_ot_subsidiary') != String(subsidiaria)){
+                return { Dispositivo:"", vehiculo:"", Propietario:"", PropietarioMonitoreo:"", Cobertura:"", Subsidiaria:"", Aseguradora:"", Concesionario:"", Financiera:"", Convenio:"", Commands:"", Servicios:"", pxadminfinalizacion:"", confirmaciontelamatic:"", salesOrderId:"", numPuertas:"", Location:"", Ejecutiva:""};
+            }
+            //log.debug('ordenTrabajo......................', ordenTrabajo);
+            let numPuertas = ordenTrabajo.getValue('custrecord_ht_ot_numero_puertas');
+            let salesOrderId = ordenTrabajo.getValue('custrecord_ht_ot_orden_servicio');
+            let ordenVenta = record.load({ type: record.Type.SALES_ORDER, id: salesOrderId });           
+            if (ordenVenta.getValue('subsidiary') != String(subsidiaria)){
+                return { Dispositivo:"", vehiculo:"", Propietario:"", PropietarioMonitoreo:"", Cobertura:"", Subsidiaria:"", Aseguradora:"", Concesionario:"", Financiera:"", Convenio:"", Commands:"", Servicios:"", pxadminfinalizacion:"", confirmaciontelamatic:"", salesOrderId:"", numPuertas:"", Location:"", Ejecutiva:""};
+            }
+            //log.debug('ordenVenta...............', ordenVenta); 
+            let sql5 = 'SELECT Location.name, Location.subsidiary FROM Location JOIN locationSubsidiaryMap ON location.id = locationSubsidiaryMap.location JOIN Subsidiary ON locationSubsidiaryMap.subsidiary = Subsidiary.id WHERE  location.id = ? and Subsidiary.id = ? '
+            let resultSet5 = query.runSuiteQL({ query: sql5, params: [ordenVenta.getValue('location'), subsidiaria] });
+            let results5 = resultSet5.asMappedResults();
+            if (results5.length > 0) {
+                Location = results5[0]['name'];
+            } else {
+                Location = "";
+            }
+            //log.debug('Location......................', results5); 
             let sql6 = 'SELECT firstname, lastname, subsidiary FROM employee WHERE id = ? and  subsidiary = ? '
             let resultSet6 = query.runSuiteQL({ query: sql6, params: [ordenVenta.getValue('custbody_ht_os_ejecutivareferencia'), subsidiaria ] });
             let results6 = resultSet6.asMappedResults();
@@ -1186,43 +1470,43 @@ define(['N/log',
             } else {
                 Ejecutiva = "";
             }
-            log.debug('employee......................', results6);
+            //log.debug('employee......................', results6);
             //let bien = ordenVenta.getValue('custbody_ht_so_bien');
             let sql4 = 'SELECT custrecord_ht_bien_conveniovehiculo FROM customrecord_ht_record_bienes WHERE id = ? and custrecord_bn_subsidiaria = ? '
             let resultSet4 = query.runSuiteQL({ query: sql4, params: [ordenVenta.getValue('custbody_ht_so_bien'), subsidiaria] });
             let results4 = resultSet4.asMappedResults();
-            log.debug('customrecord_ht_record_bienes', results4);
+            //log.debug('customrecord_ht_record_bienes', results4);
             let periodoCobertura = obtenerPeriodoCobertura(ordenVenta);
-            log.debug('periodoCobertura..................', periodoCobertura);       
+            //log.debug('periodoCobertura..................', periodoCobertura);       
             let fechaChequeo = ordenTrabajo.getValue('custrecord_ht_ot_fechatrabajoasignacion');
-            log.debug('fechaChequeo.length', fechaChequeo);
+            //log.debug('fechaChequeo.length', fechaChequeo);
             if (!fechaChequeo) {
                 log.debug('Campo Fecha', 'Vacío')
                 fechaChequeo = getFechaChequeo();
-                log.debug('dateChequeo', fechaChequeo);
+                //log.debug('dateChequeo', fechaChequeo);
             }
             let fechaCoberturaOrden = getCobertura(periodoCobertura, UNIDAD_TIEMPO.MESES, fechaChequeo);//*GENERAR COBERTURA PARA EL REGISTRO DE COBERTURA ========================
-            log.debug('COBERTURA ========================', fechaCoberturaOrden)
-            log.debug('custrecord_ht_ot_serieproductoasignacion..................', ordenTrabajo.getValue('custrecord_ht_ot_serieproductoasignacion'));
+            //log.debug('COBERTURA ========================2', fechaCoberturaOrden)
+            //log.debug('custrecord_ht_ot_serieproductoasignacion..................', ordenTrabajo.getValue('custrecord_ht_ot_serieproductoasignacion'));
             let Dispositivo =[]
             Dispositivo = obtenerDispositivo(ordenTrabajo.getValue('custrecord_ht_ot_serieproductoasignacion'), subsidiaria);
-            log.debug('Dispositivo..................', Dispositivo);
-            log.debug('ordenTrabajo.getText..................', ordenTrabajo.getText('custrecord_ht_ot_producto'));
+            //log.debug('Dispositivo..................', Dispositivo);
+            //og.debug('ordenTrabajo.getText..................', ordenTrabajo.getText('custrecord_ht_ot_producto'));
             if (  Dispositivo !== undefined) {
                 Dispositivo.producto = ordenTrabajo.getText('custrecord_ht_ot_producto') || "";
             }
            //log.debug('Dispositivo.producto..................', Dispositivo.producto );
             //verificar
             let familia = ordenTrabajo.getText('custrecord_ht_ot_producto').split(' - ');
-            log.debug('familia...............', familia);
+            //log.debug('familia...............', familia);
             let idfamilia = familia.length ? familia[0] : '';
             let familiaConsulta = obtenerFamilia(idfamilia, subsidiaria)
-            log.debug('familiaConsulta...............', familiaConsulta);
+            //log.debug('familiaConsulta...............', familiaConsulta);
             let CoberturaExiste = obtenerCoberturaDisp(ordenTrabajo.getValue('custrecord_ht_ot_vehiculo'), familiaConsulta.id, subsidiaria);
-            log.debug('CoberturaExiste...............', CoberturaExiste);
+            //log.debug('CoberturaExiste...............', CoberturaExiste);
             //fin
             let vehiculo = obtenerVehiculo(ordenTrabajo.getValue('custrecord_ht_ot_vehiculo'), subsidiaria);
-            log.debug('vehiculo.............................', vehiculo);
+            //log.debug('vehiculo.............................', vehiculo);
             let productCadena = ordenTrabajo.getText('custrecord_ht_ot_producto')
             if (productCadena.includes("-")) {
                 productCadena = productCadena.split('-')[1]/*.replace(/\s+/g, '')*/
@@ -1233,27 +1517,27 @@ define(['N/log',
             vehiculo.producto = productCadena || "";
             vehiculo.fechaInicioCobertura = ordenVenta.getValue('trandate');
             vehiculo.fechaFinCobertura = new Date(vehiculo.fechaInicioCobertura.getFullYear(), vehiculo.fechaInicioCobertura.getMonth() + periodoCobertura, vehiculo.fechaInicioCobertura.getDate());   
-            let Propietario = obtenerPropietario(ordenTrabajo.getValue('custrecord_ht_ot_cliente_id'));
-            let PropietarioMonitoreo = obtenerPropietarioMonitoreo(ordenVenta, ordenTrabajo.getValue('custrecord_ht_ot_item'));
+            let Propietario = obtenerPropietario(ordenTrabajo.getValue('custrecord_ht_ot_cliente_id'),subsidiaria);
+            let PropietarioMonitoreo = obtenerPropietarioMonitoreo(ordenVenta, ordenTrabajo.getValue('custrecord_ht_ot_item'), subsidiaria);
             //let Cobertura = obtenerCobertura(ordenTrabajo, subsidiaria);
             let Cobertura = obtenerCoberturaDisp(ordenTrabajo.getValue('custrecord_ht_ot_vehiculo'), familiaConsulta.id, subsidiaria);           
-            log.debug("Cobertura........................", Cobertura);
+            //log.debug("Cobertura........................", Cobertura);
             Cobertura.custrecord_ht_co_coberturainicial  = Cobertura?.custrecord_ht_co_coberturainicial ? Cobertura.custrecord_ht_co_coberturainicial : fechaCoberturaOrden?.coberturaInicial;
             Cobertura.custrecord_ht_co_coberturafinal  = Cobertura?.custrecord_ht_co_coberturafinal ? Cobertura.custrecord_ht_co_coberturafinal : fechaCoberturaOrden?.coberturaFinal;
             Cobertura.custrecord_ht_co_coberturainicialtext  = Cobertura?.custrecord_ht_co_coberturainicialtext ? Cobertura.custrecord_ht_co_coberturainicialtext : fechaCoberturaOrden?.coberturaInicial;
             Cobertura.custrecord_ht_co_coberturafinaltext  = Cobertura?.custrecord_ht_co_coberturafinaltext ? Cobertura.custrecord_ht_co_coberturafinaltext : fechaCoberturaOrden?.coberturaFinal;  
-            log.debug("Cobertura............2............", Cobertura);
+            //log.debug("Cobertura............2............", Cobertura);
             let pxadminfinalizacion = ordenTrabajo.getValue('custrecord_ht_ot_pxadminfinalizacion');
             let confirmaciontelamatic = ordenTrabajo.getValue('custrecord_ht_ot_confirmaciontelamatic');
             let Subsidiaria = obtenerSubsidiaria(ordenVenta.getValue('subsidiary'));
-            log.debug("Subsidiaria........................", Subsidiaria);   
+            //log.debug("Subsidiaria........................", Subsidiaria);   
             //log.error("pxadminfinalizacion........................", pxadminfinalizacion);  
             let Aseguradora = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_companiaseguros'), subsidiaria);
-            log.debug('Aseguradora........................', Aseguradora);
+            //log.debug('Aseguradora........................', Aseguradora);
             let Concesionario = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_concesionario'), subsidiaria);
-            log.debug('Concesionario........................', Concesionario);
+            //log.debug('Concesionario........................', Concesionario);
             let Financiera = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_bancofinanciera'), subsidiaria);
-            log.debug('Financiera........................', Financiera)
+            //log.debug('Financiera........................', Financiera)
             if (results4.length > 0) {
                 Convenio = obtenerConvenio(results4[0]['custrecord_ht_bien_conveniovehiculo']);
             } else {
@@ -1267,12 +1551,11 @@ define(['N/log',
             //let Producto = ordenTrabajo.getText('custrecord_ht_ot_producto');
             // log.debug('CONVENIOOOO', Convenio)
              //log.debug('Subsidiaria', Subsidiaria)
-            log.debug('Servicios..................', Servicios)
+            //log.debug('Servicios..................', Servicios)
             // log.debug('PROPIETARIOMON', PropietarioMonitoreo)
             return { Dispositivo, vehiculo, Propietario, PropietarioMonitoreo, Cobertura, Subsidiaria, Aseguradora, Concesionario, Financiera, Convenio, Commands, Servicios, pxadminfinalizacion, confirmaciontelamatic, salesOrderId, numPuertas, Location, Ejecutiva};
         }
-
-        
+       
         const obtenerCamposOrdenTrabajoDisp = (ordenTrabajoId, subsidiaria) => {
             let Convenio = {};
             var Location = "";
@@ -1281,14 +1564,14 @@ define(['N/log',
             if (ordenTrabajo.getValue('custrecord_ht_ot_subsidiary') != String(subsidiaria)) {
                 return { Dispositivo: "", vehiculo: "", Propietario: "", PropietarioMonitoreo: "", Cobertura: "", Subsidiaria: "", Aseguradora: "", Concesionario: "", Financiera: "", Convenio: "", Commands: "", Servicios: "", pxadminfinalizacion: "", confirmaciontelamatic: "", salesOrderId: "", numPuertas: "", Location: "", Ejecutiva: "" };
             }
-            log.debug('ordenTrabajo......................', ordenTrabajo);
+            //log.debug('ordenTrabajo......................', ordenTrabajo);
             let numPuertas = ordenTrabajo.getValue('custrecord_ht_ot_numero_puertas');
             let salesOrderId = ordenTrabajo.getValue('custrecord_ht_ot_orden_servicio');
             let ordenVenta = record.load({ type: record.Type.SALES_ORDER, id: salesOrderId });
             if (ordenVenta.getValue('subsidiary') != String(subsidiaria)) {
                 return { Dispositivo: "", vehiculo: "", Propietario: "", PropietarioMonitoreo: "", Cobertura: "", Subsidiaria: "", Aseguradora: "", Concesionario: "", Financiera: "", Convenio: "", Commands: "", Servicios: "", pxadminfinalizacion: "", confirmaciontelamatic: "", salesOrderId: "", numPuertas: "", Location: "", Ejecutiva: "" };
             }
-            log.debug('ordenVenta...............', ordenVenta);
+            //log.debug('ordenVenta...............', ordenVenta);
             let sql5 = 'SELECT Location.name, Location.subsidiary FROM Location JOIN locationSubsidiaryMap ON location.id = locationSubsidiaryMap.location JOIN Subsidiary ON locationSubsidiaryMap.subsidiary = Subsidiary.id WHERE  location.id = ? and Subsidiary.id = ? '
             let resultSet5 = query.runSuiteQL({ query: sql5, params: [ordenVenta.getValue('location'), subsidiaria] });
             let results5 = resultSet5.asMappedResults();
@@ -1297,7 +1580,7 @@ define(['N/log',
             } else {
                 Location = "";
             }
-            log.debug('Location......................', results5);
+            //log.debug('Location......................', results5);
             let sql6 = 'SELECT firstname, lastname, subsidiary FROM employee WHERE id = ? and  subsidiary = ? '
             let resultSet6 = query.runSuiteQL({ query: sql6, params: [ordenVenta.getValue('custbody_ht_os_ejecutivareferencia'), subsidiaria] });
             let results6 = resultSet6.asMappedResults();
@@ -1306,45 +1589,45 @@ define(['N/log',
             } else {
                 Ejecutiva = "";
             }
-            log.debug('employee......................', results6);
+            //log.debug('employee......................', results6);
             //let bien = ordenVenta.getValue('custbody_ht_so_bien');
             let sql4 = 'SELECT custrecord_ht_bien_conveniovehiculo FROM customrecord_ht_record_bienes WHERE id = ? and custrecord_bn_subsidiaria = ? '
             let resultSet4 = query.runSuiteQL({ query: sql4, params: [ordenVenta.getValue('custbody_ht_so_bien'), subsidiaria] });
             let results4 = resultSet4.asMappedResults();
-            log.debug('customrecord_ht_record_bienes', results4);
+            //log.debug('customrecord_ht_record_bienes', results4);
             let periodoCobertura = obtenerPeriodoCobertura(ordenVenta);
-            log.debug('periodoCobertura..................', periodoCobertura);
-            log.debug('custrecord_ht_ot_serieproductoasignacion..................', ordenTrabajo.getValue('custrecord_ht_ot_serieproductoasignacion'));
+            //log.debug('periodoCobertura..................', periodoCobertura);
+            //log.debug('custrecord_ht_ot_serieproductoasignacion..................', ordenTrabajo.getValue('custrecord_ht_ot_serieproductoasignacion'));
             let Dispositivo = []
             Dispositivo = obtenerDispositivo(ordenTrabajo.getValue('custrecord_ht_ot_serieproductoasignacion'), subsidiaria);
-            log.debug('Dispositivo..................', typeof (Dispositivo));
-            log.debug('ordenTrabajo.getText..................', ordenTrabajo.getText('custrecord_ht_ot_producto'));
+            //og.debug('Dispositivo..................', typeof (Dispositivo));
+            //log.debug('ordenTrabajo.getText..................', ordenTrabajo.getText('custrecord_ht_ot_producto'));
             let Cobertura = []
             if (Dispositivo !== undefined) {
-                log.debug('..aqui..........1......', '..aqui...........1.....');
+                //log.debug('..aqui..........1......', '..aqui...........1.....');
                 Dispositivo.producto = ordenTrabajo.getText('custrecord_ht_ot_producto') || "";
                 Cobertura = obtenerCobertura(ordenTrabajo, subsidiaria);
-                log.debug("Cobertura........................", Cobertura);
+                //log.debug("Cobertura........................", Cobertura);
             } else {
                 // log.debug('..aqui................', '..aqui................');
                 let familia = ordenTrabajo.getText('custrecord_ht_ot_producto').split(' - ');
-                log.debug('familia...............', familia);
+                //log.debug('familia...............', familia);
                 let idfamilia = familia.length ? familia[0] : '';
                 let familiaConsulta = obtenerFamilia(idfamilia, subsidiaria)
-                log.debug('familiaConsulta...............', familiaConsulta);
+                //log.debug('familiaConsulta...............', familiaConsulta);
                 // ConsultaCobertura = consultaCobertura(ordenVenta.getValue('custbody_ht_so_bien'), familiaConsulta.id);
                 // log.debug('Cobertura...............', ConsultaCobertura);
                 // log.debug('Cobertura.....2..........', ConsultaCobertura.numeroserieproducto);
                 Cobertura = obtenerCoberturaDisp(ordenVenta.getValue('custbody_ht_so_bien'), familiaConsulta.id, subsidiaria);
-                log.debug('Cobertura...............', Cobertura);
+                //log.debug('Cobertura...............', Cobertura);
                 //log.debug('Cobertura.....1..........', Cobertura.numeroserieproducto);
                 Dispositivo = obtenerDispositivo(Cobertura.numeroserieproducto, subsidiaria);
                 //Dispositivo.producto = ordenTrabajo.getText('custrecord_ht_ot_producto') || "";
-                log.debug('datosTecnicos...............', Dispositivo);
+                //log.debug('datosTecnicos...............', Dispositivo);
             }
             //log.debug('Dispositivo.producto..................', Dispositivo.producto );
             let vehiculo = obtenerVehiculo(ordenTrabajo.getValue('custrecord_ht_ot_vehiculo'), subsidiaria);
-            log.debug('vehiculo.............................', vehiculo);
+            //log.debug('vehiculo.............................', vehiculo);
             let productCadena = ordenTrabajo.getText('custrecord_ht_ot_producto')
             if (productCadena.includes("-")) {
                 productCadena = productCadena.split('-')[1]/*.replace(/\s+/g, '')*/
@@ -1355,33 +1638,33 @@ define(['N/log',
             vehiculo.producto = productCadena || "";
             vehiculo.fechaInicioCobertura = ordenVenta.getValue('trandate');
             vehiculo.fechaFinCobertura = new Date(vehiculo.fechaInicioCobertura.getFullYear(), vehiculo.fechaInicioCobertura.getMonth() + periodoCobertura, vehiculo.fechaInicioCobertura.getDate());
-            let Propietario = obtenerPropietario(ordenTrabajo.getValue('custrecord_ht_ot_cliente_id'));
-            let PropietarioMonitoreo = obtenerPropietarioMonitoreo(ordenVenta, ordenTrabajo.getValue('custrecord_ht_ot_item'));
+            let Propietario = obtenerPropietario(ordenTrabajo.getValue('custrecord_ht_ot_cliente_id'),subsidiaria);
+            let PropietarioMonitoreo = obtenerPropietarioMonitoreo(ordenVenta, ordenTrabajo.getValue('custrecord_ht_ot_item'), subsidiaria);
             let pxadminfinalizacion = ordenTrabajo.getValue('custrecord_ht_ot_pxadminfinalizacion');
             let confirmaciontelamatic = ordenTrabajo.getValue('custrecord_ht_ot_confirmaciontelamatic');
             let Subsidiaria = obtenerSubsidiaria(ordenVenta.getValue('subsidiary'));
-            log.debug("Subsidiaria........................", Subsidiaria);
+            //log.debug("Subsidiaria........................", Subsidiaria);
             //log.error("pxadminfinalizacion........................", pxadminfinalizacion);
             let Aseguradora = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_companiaseguros'), subsidiaria);
-            log.debug('Aseguradora........................', Aseguradora)
+            //log.debug('Aseguradora........................', Aseguradora)
             let Concesionario = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_concesionario'), subsidiaria);
-            log.debug('Concesionario........................', Concesionario)
+            //log.debug('Concesionario........................', Concesionario)
             let Financiera = obtenerCanalDistribucion(ordenVenta.getValue('custbody_ht_os_bancofinanciera'), subsidiaria);
-            log.debug('Financiera........................', Financiera)
+            //log.debug('Financiera........................', Financiera)
             if (results4.length > 0) {
                 Convenio = obtenerConvenio(results4[0]['custrecord_ht_bien_conveniovehiculo']);
             } else {
                 Convenio = obtenerConvenio(ordenVenta.getValue('custbody_ht_os_convenio'));
             }
             //let Commands = obtenerCommands(ordenTrabajo, ordenVenta);
-            log.debug('salesOrderId........................', salesOrderId)
+            //log.debug('salesOrderId........................', salesOrderId)
             let Commands = getVehiculoServicios(ordenTrabajo.getValue('custrecord_ht_ot_vehiculo'), salesOrderId, subsidiaria);
-            log.debug('Commands.........11.........', Commands)
+            //log.debug('Commands.........11.........', Commands)
             let Servicios = ordenTrabajo.getText("custrecord_ht_ot_servicios_commands");
             //let Producto = ordenTrabajo.getText('custrecord_ht_ot_producto');
             // log.debug('CONVENIOOOO', Convenio)
             //log.debug('Subsidiaria', Subsidiaria)
-            log.debug('Servicios..........11........', Servicios)
+            //log.debug('Servicios..........11........', Servicios)
             // log.debug('PROPIETARIOMON', PropietarioMonitoreo)
             return { Dispositivo, vehiculo, Propietario, PropietarioMonitoreo, Cobertura, Subsidiaria, Aseguradora, Concesionario, Financiera, Convenio, Commands, Servicios, pxadminfinalizacion, confirmaciontelamatic, salesOrderId, numPuertas, Location, Ejecutiva };
         }
@@ -1390,27 +1673,38 @@ define(['N/log',
             try {
                 // Dispositivo.producto = ordenTrabajo.getText('custrecord_ht_ot_producto') || "";
                 let vehiculo = obtenerVehiculo(vehiculoId, subsidiaria);
-                log.debug('vehiculo.............................', vehiculo);
+                //log.debug('vehiculo.............................', vehiculo);
                 let valorPropietario = vehiculo["custrecord_ht_bien_propietario"] || "";
-                //log.debug('Propietario........1................', valorPropietario)
                 let valorAseguradora = vehiculo["custrecord_ht_bien_companiaseguros"] || "";
-                //log.debug('Aseguradora........1................', valorAseguradora)
                 let valorFinanciera = vehiculo["custrecord_ht_bien_financiadovehiculo"] || "";
-                //log.debug('Financiera........1................', valorFinanciera)
                 let valorConcesionaria = vehiculo["custrecord_ht_bien_consesionarios"] || "";
-                //log.debug('Concesionaria........1................', valorConcesionaria)
                 let valorConvenio = vehiculo["custrecord_ht_bien_conveniovehiculo"] || "";
-                //log.debug('Convenio........1................', valorConvenio)
-                let Propietario = obtenerPropietario(valorPropietario[0].value);
-                log.debug('Propietario........................', Propietario)
-                let Aseguradora = obtenerCanalDistribucion(valorAseguradora[0].value, subsidiaria);
-                log.debug('Aseguradora........................', Aseguradora)
-                let Concesionario = obtenerCanalDistribucion(valorConcesionaria[0].value, subsidiaria);
-                log.debug('Concesionario........................', Concesionario)
-                let Financiera = obtenerCanalDistribucion(valorFinanciera[0].value, subsidiaria);
-                log.debug('Financiera........................', Financiera)
-                let Convenio = valorConvenio.length ? obtenerConvenio(valorConvenio[0].value) : '';
-                log.debug('Convenio........................', Convenio)
+                let Propietario = obtenerPropietario(valorPropietario[0].value, subsidiaria);
+                //log.debug('Propietario........................', Propietario)
+                //let Aseguradora = obtenerCanalDistribucion(valorAseguradora[0].value, subsidiaria);            
+                let Aseguradora = []
+                if (valorAseguradora?.[0]?.value?.length > 1) {
+                    Aseguradora = obtenerCanalDistribucion(valorAseguradora[0].value, subsidiaria);
+                }
+                //log.debug('Aseguradora........................', Aseguradora)
+                //let Concesionario = obtenerCanalDistribucion(valorConcesionaria[0].value, subsidiaria);
+                let Concesionario = []
+                if (valorConcesionaria?.[0]?.value?.length > 1) {
+                    Concesionario = obtenerCanalDistribucion(valorConcesionaria[0].value, subsidiaria);
+                }
+                //log.debug('Concesionario........................', Concesionario)
+                //let Financiera = obtenerCanalDistribucion(valorFinanciera[0].value, subsidiaria);
+                let Financiera = []
+                if (valorFinanciera?.[0]?.value?.length > 1) {
+                    Financiera = obtenerCanalDistribucion(valorFinanciera[0].value, subsidiaria);
+                }
+                //log.debug('Financiera........................', Financiera)
+                // let Convenio = valorConvenio.length ? obtenerConvenio(valorConvenio[0].value) : '';
+                let Convenio = []
+                if (valorConvenio?.[0]?.value?.length > 1) {
+                    Convenio = valorConvenio.length ? obtenerConvenio(valorConvenio[0].value) : '';
+                }
+                //log.debug('Convenio........................', Convenio)
                 return { vehiculo, Propietario, Aseguradora, Concesionario, Financiera, Convenio };
             } catch (error) {
                 log.debug("Error...", error.stack);
@@ -1425,24 +1719,41 @@ define(['N/log',
             let celular = '';
             let convencional = '';
             let city = '';
-            let sql = 'SELECT custrecord_ht_email_email as email FROM customrecord_ht_record_correoelectronico WHERE custrecord_ht_email_tipoemail = 1 AND custrecord_ht_ce_enlace = ?';
-            let resultSet = query.runSuiteQL({ query: sql, params: [id] });
+            let tipoEmail='';
+            let tipoCelular='';
+            let tipoConvencional='';
+            if (subsidiaria == 2) {  tipoCelular=4; tipoEmail=1; tipoConvencional=10; }
+            if (subsidiaria == 3) {  tipoCelular=4; tipoEmail=112; tipoConvencional=4;}
+            let sql = 'SELECT custrecord_ht_email_email as email FROM customrecord_ht_record_correoelectronico WHERE custrecord_ht_email_tipoemail = ? AND custrecord_ht_ce_enlace = ?';
+            let resultSet = query.runSuiteQL({ query: sql, params: [tipoEmail, id] });
             let results = resultSet.asMappedResults();
             correoEmail = results.length ? results[0]['email'] : correoEmail;
-            let sql2 = 'SELECT custrecord_ht_campo_txt_telefono as celular FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = 1 AND custrecord_ht_campo_lbl_entidad_telefono = ?'
-            let resultSet2 = query.runSuiteQL({ query: sql2, params: [id] });
+            let sql2 = 'SELECT custrecord_ht_campo_txt_telefono as celular FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = ? AND custrecord_ht_campo_lbl_entidad_telefono = ?'
+            let resultSet2 = query.runSuiteQL({ query: sql2, params: [tipoCelular, id] });
             let results2 = resultSet2.asMappedResults();
             //celular = results2.length ? results2[0]['celular'].replace('+593', '0') : celular;
-            if (subsidiaria == 2) {  celular = results2.length ? results2[0]['celular'].replace('+593', '0') : celular; }
-            if (subsidiaria == 3) {  celular = results2.length ? results2[0]['celular'] : celular; }
-           
-            let sql3 = 'SELECT custrecord_ht_campo_txt_telefono as convencional FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = 10 AND custrecord_ht_campo_lbl_entidad_telefono = ?'
-            let resultSet3 = query.runSuiteQL({ query: sql3, params: [id] });
+            if (subsidiaria == 2) {  
+              //celular = results2.length ? results2[0]['celular'].replace('+593', '0') : celular; 
+               if (results2.length) {
+                    celular = results2[0]['celular'].replace('+593', '0'); 
+               } else
+               {
+                    tipoCelular=1;
+                    let sqlcel = 'SELECT custrecord_ht_campo_txt_telefono as celular FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = ? AND custrecord_ht_campo_lbl_entidad_telefono = ?'
+                    let resultSetcel = query.runSuiteQL({ query: sqlcel, params: [tipoCelular,id] });
+                    let resultscel = resultSetcel.asMappedResults();
+                    if (resultscel.length) {
+                        celular = resultscel[0]['celular'].replace('+593', '0'); 
+                    }
+               }
+            }
+            if (subsidiaria == 3) {  celular = results2.length ? results2[0]['celular'].replace('+51', '0') : celular; }
+            let sql3 = 'SELECT custrecord_ht_campo_txt_telefono as convencional FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = ? AND custrecord_ht_campo_lbl_entidad_telefono = ?'
+            let resultSet3 = query.runSuiteQL({ query: sql3, params: [tipoConvencional,id] });
             let results3 = resultSet3.asMappedResults();
             //convencional = results3.length ? results3[0]['convencional'].replace('+593', '0') : convencional;
             if (subsidiaria == 2) { convencional = results3.length ? results3[0]['convencional'].replace('+593', '0') : convencional; }
-            if (subsidiaria == 3) { convencional = results3.length ? results3[0]['convencional'] : convencional; }
-
+            if (subsidiaria == 3) { convencional = results3.length ? results3[0]['convencional'].replace('+51', '0') : convencional; }
             let sql4 = 'SELECT addressbookaddress FROM customeraddressbook WHERE entity = ?'
             let resultSet4 = query.runSuiteQL({ query: sql4, params: [id] });
             let results4 = resultSet4.asMappedResults();
@@ -1477,7 +1788,7 @@ define(['N/log',
             //result.email = Propietario.email.length ? Propietario.email : '';
             try {   // Log Eliminar 21/08/2024
                 let generalCorreos = obtenerCorreosPropietario(id, subsidiaria);
-                log.debug('generalCorreos', generalCorreos);
+               // log.debug('generalCorreos', generalCorreos);
             } catch (error) {
                 log.debug('error Integracion', error);
             }
@@ -1493,7 +1804,8 @@ define(['N/log',
             result.companyname = Propietario.companyname || ""
             result.custentityts_ec_cod_tipo_doc_identidad = Propietario.custentityts_ec_cod_tipo_doc_identidad || "";
             // result.homephone = Propietario.homephone;
-            result.homephone = convencional;
+            //result.homephone = convencional;
+            result.homephone = convencional ? convencional : celular;
             if (result.isperson) {
                 result.custentity_ht_cl_primernombre = Propietario.custentity_ht_cl_primernombre.length ? Propietario.custentity_ht_cl_primernombre : '';
                 result.custentity_ht_cl_segundonombre = Propietario.custentity_ht_cl_segundonombre.length ? Propietario.custentity_ht_cl_segundonombre : '';
@@ -1501,6 +1813,7 @@ define(['N/log',
                 result.custentity_ht_cl_apellidomaterno = Propietario.custentity_ht_cl_apellidomaterno.length ? Propietario.custentity_ht_cl_apellidomaterno : '';
             } else {
                 result.custentity_ht_cl_primernombre = Propietario.companyname;
+                result.custentity_ht_cl_apellidopaterno = Propietario.companyname;
             }
             log.debug('result', result)
             return result;
@@ -1595,6 +1908,9 @@ define(['N/log',
             if (!id) return;
             let Dispositivo = search.lookupFields({
                 type: 'customrecord_ht_record_mantchaser', id: id,
+                //filters: [
+                //    ["custrecord_ht_mc_subsidiaria", "anyof", subsidiaria]
+                //],
                 columns: [
                     'custrecord_ht_mc_vid',
                     'custrecord_ht_mc_modelo',
@@ -1672,6 +1988,7 @@ define(['N/log',
                     'custrecord_ht_bien_id_telematic',
                     'internalid',
                     'custrecord_ht_bien_tipo',
+                    'custrecord_ht_bien_tipobien',
                     'custrecord_ht_bien_tipo.custrecord_ht_tv_codigo',
                     'custrecord_ht_bien_tipo.custrecord_ht_tv_descripcion',
                     'custrecord_ht_bien_numeropuertas',
@@ -1679,7 +1996,10 @@ define(['N/log',
                     'custrecord_ht_bien_max_peso',
                     'custrecord_ht_bien_largo',
                     'custrecord_ht_bien_telefono_emergencia',
-                    'altname'
+                    'altname',
+                     'custrecord_ht_bien_nom_embarcacion',
+                    'custrecord_ht_serie_pro',
+                    'custrecord_ht_bien_oficina'
                 ]
             });
             return vehiculo;
@@ -1692,22 +2012,41 @@ define(['N/log',
             let celular = '';
             let convencional = '';
             let city = '';
-            let sql = 'SELECT custrecord_ht_email_email as email FROM customrecord_ht_record_correoelectronico WHERE custrecord_ht_email_tipoemail = 1 AND custrecord_ht_ce_enlace = ?';
-            let resultSet = query.runSuiteQL({ query: sql, params: [id] });
+            let tipoEmail='';
+            let tipoCelular='';
+            let tipoConvencional='';
+            if (subsidiaria == 2) {  tipoCelular=4; tipoEmail=1; tipoConvencional=10; }
+            if (subsidiaria == 3) {  tipoCelular=4; tipoEmail=112; tipoConvencional=4;}
+            let sql = 'SELECT custrecord_ht_email_email as email FROM customrecord_ht_record_correoelectronico WHERE custrecord_ht_email_tipoemail = ? AND custrecord_ht_ce_enlace = ?';
+            let resultSet = query.runSuiteQL({ query: sql, params: [tipoEmail,id] });
             let results = resultSet.asMappedResults();
             correoEmail = results.length ? results[0]['email'] : correoEmail;
-            let sql2 = 'SELECT custrecord_ht_campo_txt_telefono as celular FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = 1 AND custrecord_ht_campo_lbl_entidad_telefono = ?'
-            let resultSet2 = query.runSuiteQL({ query: sql2, params: [id] });
+            let sql2 = 'SELECT custrecord_ht_campo_txt_telefono as celular FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = ? AND custrecord_ht_campo_lbl_entidad_telefono = ?'
+            let resultSet2 = query.runSuiteQL({ query: sql2, params: [tipoCelular, id] });
             let results2 = resultSet2.asMappedResults();
             //celular = results2.length ? results2[0]['celular'].replace('+593', '0') : celular;
-            if (subsidiaria == 2) { celular = results2.length ? results2[0]['celular'].replace('+593', '0') : celular; }
-            if (subsidiaria == 3) { celular = results2.length ? results2[0]['celular'] : celular; }
-            let sql3 = 'SELECT custrecord_ht_campo_txt_telefono as convencional FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = 10 AND custrecord_ht_campo_lbl_entidad_telefono = ?'
-            let resultSet3 = query.runSuiteQL({ query: sql3, params: [id] });
+            if (subsidiaria == 2) { 
+              //celular = results2.length ? results2[0]['celular'].replace('+593', '0') : celular; 
+              if (results2.length) {
+                  celular = results2[0]['celular'].replace('+593', '0'); 
+              } else
+              {
+                  tipoCelular=1;
+                  let sqlcel  = 'SELECT custrecord_ht_campo_txt_telefono as celular FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = ? AND custrecord_ht_campo_lbl_entidad_telefono = ?'
+                  let resultSetcel = query.runSuiteQL({ query: sqlcel, params: [tipoCelular,id] });
+                  let resultscel = resultSetcel.asMappedResults();
+                  if (resultscel.length) {
+                      celular = resultscel[0]['celular'].replace('+593', '0'); 
+                  }
+               }
+            }
+            if (subsidiaria == 3) { celular = results2.length ? results2[0]['celular'].replace('+51', '0') : celular; }
+            let sql3 = 'SELECT custrecord_ht_campo_txt_telefono as convencional FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = ? AND custrecord_ht_campo_lbl_entidad_telefono = ?'
+            let resultSet3 = query.runSuiteQL({ query: sql3, params: [tipoConvencional,id] });
             let results3 = resultSet3.asMappedResults();
             //convencional = results3.length ? results3[0]['convencional'].replace('+593', '0') : convencional;
             if (subsidiaria == 2) { convencional = results3.length ? results3[0]['convencional'].replace('+593', '0') : convencional; }
-            if (subsidiaria == 3) { convencional = results3.length ? results3[0]['convencional'] : convencional; }
+            if (subsidiaria == 3) { convencional = results3.length ? results3[0]['convencional'].replace('+51', '0') : convencional; }
             let sql4 = 'SELECT addressbookaddress FROM customeraddressbook WHERE entity = ?'
             let resultSet4 = query.runSuiteQL({ query: sql4, params: [id] });
             let results4 = resultSet4.asMappedResults();
@@ -1737,7 +2076,9 @@ define(['N/log',
                     'internalid',
                     'custentityts_ec_cod_tipo_doc_identidad',
                     'companyname',
-                    'isperson'
+                    'isperson',
+                    'salesrep',
+                    'custentity_ht_cl_oficinacliente'
                 ]
             });
             //let provincia = ObtenerProvincia(id);
@@ -1747,6 +2088,8 @@ define(['N/log',
             } catch (error) {
                 log.debug('error Integracion', error);
             }
+            log.debug('id...', id);
+            log.debug('Propietario...', Propietario);
             result.htEmail = obtenerCorreosPropietario(id, subsidiaria);
             result.entityid = Propietario.entityid.length ? Propietario.entityid : '';
             // result.phone = Propietario.phone.length ? Propietario.phone.replace('+593', '') : '';
@@ -1763,7 +2106,8 @@ define(['N/log',
             result.companyname = Propietario.companyname || ""
             result.custentityts_ec_cod_tipo_doc_identidad = Propietario.custentityts_ec_cod_tipo_doc_identidad || "";
             // result.homephone = Propietario.homephone;
-            result.homephone = convencional;
+            //result.homephone = convencional;
+            result.homephone = convencional ? convencional : celular;
             if (result.isperson) {
                 result.custentity_ht_cl_primernombre = Propietario.custentity_ht_cl_primernombre.length ? Propietario.custentity_ht_cl_primernombre : '';
                 result.custentity_ht_cl_segundonombre = Propietario.custentity_ht_cl_segundonombre.length ? Propietario.custentity_ht_cl_segundonombre : '';
@@ -1771,7 +2115,10 @@ define(['N/log',
                 result.custentity_ht_cl_apellidomaterno = Propietario.custentity_ht_cl_apellidomaterno.length ? Propietario.custentity_ht_cl_apellidomaterno : '';
             } else {
                 result.custentity_ht_cl_primernombre = Propietario.companyname;
+                result.custentity_ht_cl_apellidopaterno = Propietario.companyname;
             }
+            result.salesrep = Propietario.salesrep.length ? Propietario.salesrep[0].value : '';
+            result.oficina = Propietario.custentity_ht_cl_oficinacliente.length ? Propietario.custentity_ht_cl_oficinacliente[0].text : '';
             log.debug('result', result)
             return result;
         }
@@ -1809,10 +2156,20 @@ define(['N/log',
                     let emailType = resultSearch[i].getValue("custrecord_ht_email_tipoemail");
                     let mainEmail = resultSearch[i].getValue("custrecord_ht_email_emailprincipal");
                     if (mainEmail) result.mainEmail = email.toLowerCase();
-                    if (emailType == "1") result.email = email.toLowerCase();
-                    if (emailType == "2") result.amiEmail = email.toLowerCase();
-                    if (emailType == "3") result.convenioEmail = email.toLowerCase();
-                    if (emailType == "8") result.pxEmail = email.toLowerCase();
+                    if (subsidiaria == 2) {  
+                        if (emailType == "1") result.email = email.toLowerCase();
+                        if (emailType == "2") result.amiEmail = email.toLowerCase();
+                        if (emailType == "3") result.convenioEmail = email.toLowerCase();
+                        if (emailType == "8") result.pxEmail = email.toLowerCase();
+                    }
+                    if (subsidiaria == 3) {  
+                        if (emailType == "112"){ 
+                            result.email = email.toLowerCase();
+                            result.amiEmail = email.toLowerCase();
+                            result.convenioEmail = email.toLowerCase();
+                            result.pxEmail = email.toLowerCase();
+                        }
+                    }
                 }
             }
             return result;
@@ -1843,22 +2200,41 @@ define(['N/log',
                 let resultSet = query.runSuiteQL({ query: sql, params: [PropietarioMonitoreo] });
                 let results = resultSet.asMappedResults();
                 if (results.length > 0) {
-                    let sql1 = 'SELECT custrecord_ht_email_email as email FROM customrecord_ht_record_correoelectronico WHERE custrecord_ht_email_tipoemail = 1 AND custrecord_ht_ce_enlace = ?';
-                    let resultSet1 = query.runSuiteQL({ query: sql1, params: [PropietarioMonitoreo] });
+                    let tipoEmail='';
+                    let tipoCelular='';
+                    let tipoConvencional='';
+                    if (subsidiaria == 2) {  tipoCelular=4; tipoEmail=1; tipoConvencional=10; }
+                    if (subsidiaria == 3) {  tipoCelular=4; tipoEmail=112; tipoConvencional=4;}
+                    let sql1 = 'SELECT custrecord_ht_email_email as email FROM customrecord_ht_record_correoelectronico WHERE custrecord_ht_email_tipoemail = ? AND custrecord_ht_ce_enlace = ?';
+                    let resultSet1 = query.runSuiteQL({ query: sql1, params: [tipoEmail, PropietarioMonitoreo] });
                     let results1 = resultSet1.asMappedResults();
                     correoEmail = results1.length ? results1[0]['email'] : correoEmail;
-                    let sql2 = 'SELECT custrecord_ht_campo_txt_telefono as celular FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = 1 AND custrecord_ht_campo_lbl_entidad_telefono = ?'
-                    let resultSet2 = query.runSuiteQL({ query: sql2, params: [PropietarioMonitoreo] });
+                    let sql2 = 'SELECT custrecord_ht_campo_txt_telefono as celular FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = ? AND custrecord_ht_campo_lbl_entidad_telefono = ?'
+                    let resultSet2 = query.runSuiteQL({ query: sql2, params: [tipoCelular, PropietarioMonitoreo] });
                     let results2 = resultSet2.asMappedResults();
                     //
-                    if (subsidiaria == 2) { celular = results2.length ? results2[0]['celular'].replace('+593', '0') : celular; }
-                    if (subsidiaria == 3) { celular = results2.length ? results2[0]['celular'] : celular; }
-                    let sql3 = 'SELECT custrecord_ht_campo_txt_telefono as convencional FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = 10 AND custrecord_ht_campo_lbl_entidad_telefono = ?'
-                    let resultSet3 = query.runSuiteQL({ query: sql3, params: [PropietarioMonitoreo] });
+                    if (subsidiaria == 2) { 
+                      //celular = results2.length ? results2[0]['celular'].replace('+593', '0') : celular; 
+                      if (results2.length) {
+                            celular = results2[0]['celular'].replace('+593', '0'); 
+                      } else
+                      {
+                          tipoCelular=1;
+                          let sqlcel = 'SELECT custrecord_ht_campo_txt_telefono as celular FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = ? AND custrecord_ht_campo_lbl_entidad_telefono = ?'
+                          let resultSetcel = query.runSuiteQL({ query: sqlcel, params: [tipoCelular, PropietarioMonitoreo] });
+                          let resultscel    = resultSetcel.asMappedResults();
+                          if (resultscel.length) {
+                              celular = resultscel[0]['celular'].replace('+593', '0'); 
+                          }
+                      }
+                    }
+                    if (subsidiaria == 3) { celular = results2.length ? results2[0]['celular'].replace('+51', '0') : celular; }
+                    let sql3 = 'SELECT custrecord_ht_campo_txt_telefono as convencional FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = ? AND custrecord_ht_campo_lbl_entidad_telefono = ?'
+                    let resultSet3 = query.runSuiteQL({ query: sql3, params: [tipoConvencional, PropietarioMonitoreo] });
                     let results3 = resultSet3.asMappedResults();
                     //convencional = results3.length ? results3[0]['convencional'].replace('+593', '0') : convencional;
                     if (subsidiaria == 2) { convencional = results3.length ? results3[0]['convencional'].replace('+593', '0') : convencional; }
-                    if (subsidiaria == 3) { convencional = results3.length ? results3[0]['convencional'] : convencional; }
+                    if (subsidiaria == 3) { convencional = results3.length ? results3[0]['convencional'].replace('+51', '0') : convencional; }
                     //let provincia = ObtenerProvincia(PropietarioMonitoreo);
                     let sql4 = 'SELECT addressbookaddress FROM customeraddressbook WHERE entity = ?'
                     let resultSet4 = query.runSuiteQL({ query: sql4, params: [PropietarioMonitoreo] });
@@ -1879,12 +2255,13 @@ define(['N/log',
                     }
                     lookupFieldsPropietarioMonitoreo.htEmail = obtenerCorreosPropietario(PropietarioMonitoreo, subsidiaria);
                     lookupFieldsPropietarioMonitoreo = search.lookupFields({ type: 'customer', id: PropietarioMonitoreo, columns: ['vatregnumber'] });
-                    log.debug('lookupFieldsPropietarioMonitoreo', lookupFieldsPropietarioMonitoreo);
+                    //log.debug('lookupFieldsPropietarioMonitoreo', lookupFieldsPropietarioMonitoreo);
                     //let provincia = ObtenerProvincia(PropietarioMonitoreo);
                     lookupFieldsPropietarioMonitoreo.htEmail = obtenerCorreosPropietario(PropietarioMonitoreo, subsidiaria);
                     lookupFieldsPropietarioMonitoreo.entityid = results[0]['entityid'] == null ? '' : results[0]['entityid'];
                     lookupFieldsPropietarioMonitoreo.phone = celular;
-                    lookupFieldsPropietarioMonitoreo.homephone = convencional;
+                    //lookupFieldsPropietarioMonitoreo.homephone = convencional;
+                    lookupFieldsPropietarioMonitoreo.homephone = convencional ? convencional : celular;
                     lookupFieldsPropietarioMonitoreo.email = correoEmail;
                     // lookupFieldsPropietarioMonitoreo.email = generalCorreos?.pxEmail ? generalCorreos?.pxEmail : correoEmail;  // Doas 21/08/2025
                     lookupFieldsPropietarioMonitoreo.vatregnumber = lookupFieldsPropietarioMonitoreo.vatregnumber.length ? lookupFieldsPropietarioMonitoreo.vatregnumber : '';
@@ -1892,12 +2269,13 @@ define(['N/log',
                     lookupFieldsPropietarioMonitoreo.isperson = results[0]['isperson'];
                     lookupFieldsPropietarioMonitoreo.custentityts_ec_cod_tipo_doc_identidad = results[0]['custentityts_ec_cod_tipo_doc_identidad'];
                     lookupFieldsPropietarioMonitoreo.companyname = results[0]["companyname"];
-                    lookupFieldsPropietarioMonitoreo.identity = results[0]["id"];
-                    //lookupFieldsPropietarioMonitoreo.identity = PropietarioMonitoreo;
+                    //lookupFieldsPropietarioMonitoreo.identity = results[0]["id"];
+                    lookupFieldsPropietarioMonitoreo.identity = PropietarioMonitoreo;
                     // lookupFieldsPropietarioMonitoreo.provincia = provincia.length ? provincia : '';
                     lookupFieldsPropietarioMonitoreo.provincia = city;
                     if (results[0]['isperson'] == 'F') {
                         lookupFieldsPropietarioMonitoreo.custentity_ht_cl_primernombre = results[0]['companyname'] == null ? '' : results[0]['companyname']
+                        lookupFieldsPropietarioMonitoreo.custentity_ht_cl_apellidopaterno = results[0]['companyname'] == null ? '' : results[0]['companyname']
                     } else {
                         lookupFieldsPropietarioMonitoreo.custentity_ht_cl_primernombre = results[0]['custentity_ht_cl_primernombre'] == null ? '' : results[0]['custentity_ht_cl_primernombre']
                         lookupFieldsPropietarioMonitoreo.custentity_ht_cl_segundonombre = results[0]['custentity_ht_cl_segundonombre'] == null ? '' : results[0]['custentity_ht_cl_segundonombre']
@@ -1952,10 +2330,16 @@ define(['N/log',
             let bienId = ordenTrabajo.getValue('custrecord_ht_ot_vehiculo');
             let clienteId = ordenTrabajo.getValue('custrecord_ht_ot_cliente_id');
             let subsdiaryId = ordenTrabajo.getValue('custrecord_ht_ot_subsidiary');
-            log.debug('itemId-pxxxx', itemId);
-            log.debug('bienId-pxxxx', bienId);
-            log.debug('clienteId-pxxxx', clienteId);
-            log.debug('subsdiaryId-pxxxx', subsdiaryId);
+            //log.debug('itemId-pxxxx', itemId);
+            //log.debug('bienId-pxxxx', bienId);
+            //log.debug('clienteId-pxxxx', clienteId);
+            //log.debug('subsdiaryId-pxxxx', subsdiaryId);
+             log.debug("Datos..1.", {
+                                "itemId-pxxxx": itemId,
+                                "bienId-pxxxx": bienId,
+                                "clienteId-pxxxx": clienteId,
+                                "subsdiaryId-pxxxx": subsdiaryId
+                            })
             let coberturaSearchResult = search.create({
                 type: "customrecord_ht_co_cobertura",
                 filters: [
@@ -2015,8 +2399,8 @@ define(['N/log',
                     // "AND", 
                     // ["custrecord_ht_co_estado_cobertura","anyof","2","3"], // Suspendido
                     // NO TIENE LLENO EL CAMPO DE SUBSIDIARIA
-                    // "AND",
-                    // ["custrecord_ht_co_subsidiaria", "anyof", subsidiaria],
+                    "AND",
+                    ["custrecord_ht_co_subsidiaria", "anyof", subsidiaria],
                     "AND",
                     ["custrecord_ht_co_familia_prod", "anyof", idfamilia],
                 ],
@@ -2134,7 +2518,7 @@ define(['N/log',
                 });
                 return results[0];
             } catch (error) {
-                log.debug("error", error);
+                log.debug("Error", error);
                 return [];
             }
         }
@@ -2177,9 +2561,14 @@ define(['N/log',
             //let filters = ordenVenta.getValue("custbody_ht_os_servicios");
             let commands = obtenerServicios(filters, subsidiaria);
             //let commands = obtenerServiciosPX(filters);
-            log.debug("commands..................", commands);
-            log.debug("obtenerServicios..................", ordenVenta)
-            log.debug("ordenTrabajo..................", ordenTrabajo);
+            //log.debug("commands..................", commands);
+            //log.debug("obtenerServicios..................", ordenVenta)
+            //log.debug("ordenTrabajo..................", ordenTrabajo);
+            log.debug("Datos...2..", {
+                      "commands": commands,
+                      "obtenerServicios": ordenVenta,
+                      "ordenTrabajo": ordenTrabajo
+            })
             return commands;
             // let paralizador = ordenTrabajo.getValue("custrecord_ht_ot_paralizador");
             // let aperturaPuertas = ordenTrabajo.getValue("custrecord_ht_ot_boton_panico");
@@ -2223,14 +2612,11 @@ define(['N/log',
             return estadoSIM;
         }
 
-
-
-
         // const setCoberturaValues = (PxAdmin, Cobertura, operacionOrden) => {
         //     PxAdmin["Servicio"] = [];
         // }
 
-        const setAseguradoraValues = (PxAdmin, Aseguradora, operacionOrden,subsidiaria) => {
+        const setAseguradoraValues = (PxAdmin, Aseguradora, operacionOrden, subsidiaria) => {
             if (!Aseguradora.custrecord_ht_cd_nombre) return;
             if (operacionOrden == OPERACION_ORDEN_INSTALACION) {
                 PxAdmin["IdentificadorAseguradora"] = Aseguradora.custrecord_ht_cd_ruccanaldistribucion || "";
@@ -2242,8 +2628,8 @@ define(['N/log',
                     PxAdmin["CelularAseguradora"] = Aseguradora.custrecord_ht_cd_telefono.replace('+593', '0') || "";
                 }
                 if (subsidiaria == 3) { 
-                    PxAdmin["ConvencionalAseguradora"] = Aseguradora.custrecord_ht_cd_convencional; 
-                    PxAdmin["CelularAseguradora"] = Aseguradora.custrecord_ht_cd_telefono || "";
+                    PxAdmin["ConvencionalAseguradora"] = Aseguradora.custrecord_ht_cd_convencional.replace('+51', '0'); 
+                    PxAdmin["CelularAseguradora"] = Aseguradora.custrecord_ht_cd_telefono.replace('+51', '0') || "";
                 }
                 //PxAdmin["CelularAseguradora"] = Aseguradora.custrecord_ht_cd_telefono.replace('+593', '0') || "";
                 PxAdmin["EmailAseguradora"] = Aseguradora.custrecord_ht_cd_email || "";
@@ -2258,19 +2644,19 @@ define(['N/log',
                     PxAdmin["CelularAseguradora"] = Aseguradora.custrecord_ht_cd_telefono.replace('+593', '0') || "";
                 }
                 if (subsidiaria == 3) { 
-                    PxAdmin["ConvencionalAseguradora"] = Aseguradora.custrecord_ht_cd_convencional; 
-                    PxAdmin["CelularAseguradora"] = Aseguradora.custrecord_ht_cd_telefono || "";
+                    PxAdmin["ConvencionalAseguradora"] = Aseguradora.custrecord_ht_cd_convencional.replace('+51', '0'); 
+                    PxAdmin["CelularAseguradora"] = Aseguradora.custrecord_ht_cd_telefono.replace('+51', '0') || "";
                 }
                 PxAdmin["EmailAseguradora"] = Aseguradora.custrecord_ht_cd_email || "";
             }
         }
 
-        const setConcesionarioValues = (PxAdmin, Concesionario, operacionOrden,subsidiaria) => {
+        const setConcesionarioValues = (PxAdmin, Concesionario, operacionOrden, subsidiaria) => {
             if (!Concesionario.custrecord_ht_cd_nombre) return;
             if (operacionOrden == OPERACION_ORDEN_INSTALACION) {
                 PxAdmin["IdentificadorConcesionario"] = Concesionario.custrecord_ht_cd_ruccanaldistribucion || "";
-                PxAdmin["RazonSocialConcesionario"] = Concesionario.custrecord_ht_cd_nombre || "";
-                PxAdmin["DireccionConcesionario"] = Concesionario.custrecord_ht_cd_direccion || "";
+                PxAdmin["RazonSocialConcesionario"] = (Concesionario.custrecord_ht_cd_nombre || "").replace(/&/g, '&amp;');
+                PxAdmin["DireccionConcesionario"] = (Concesionario.custrecord_ht_cd_direccion || "").replace(/&/g, '&amp;');
                 //PxAdmin["ConvencionalConcesionario"] = Concesionario.custrecord_ht_cd_convencional.replace('+593', '0');
                 //PxAdmin["CelularConcesionario"] = Concesionario.custrecord_ht_cd_telefono.replace('+593', '0') || "";
                 if (subsidiaria == 2) { 
@@ -2278,14 +2664,14 @@ define(['N/log',
                     PxAdmin["CelularConcesionario"] = Concesionario.custrecord_ht_cd_telefono.replace('+593', '0') || "";
                 }
                 if (subsidiaria == 3) { 
-                    PxAdmin["ConvencionalConcesionario"] = Concesionario.custrecord_ht_cd_convencional;
-                    PxAdmin["CelularConcesionario"] = Concesionario.custrecord_ht_cd_telefono || ""; 
+                    PxAdmin["ConvencionalConcesionario"] = Concesionario.custrecord_ht_cd_convencional.replace('+51', '0');
+                    PxAdmin["CelularConcesionario"] = Concesionario.custrecord_ht_cd_telefono.replace('+51', '0') || ""; 
                 }
                 PxAdmin["EmailConcesionario"] = Concesionario.custrecord_ht_cd_email || "";
             } else if (operacionOrden == OPERACION_ORDEN_REGISTRAR_CANAL) {
                 PxAdmin["IdentificadorConcesionario"] = Concesionario.custrecord_ht_cd_ruccanaldistribucion || "";
-                PxAdmin["RazonSocialConcesionario"] = Concesionario.custrecord_ht_cd_nombre || "";
-                PxAdmin["DireccionConcesionario"] = Concesionario.custrecord_ht_cd_direccion || "";
+                PxAdmin["RazonSocialConcesionario"] = (Concesionario.custrecord_ht_cd_nombre || "").replace(/&/g, '&amp;');
+                PxAdmin["DireccionConcesionario"] = (Concesionario.custrecord_ht_cd_direccion || "").replace(/&/g, '&amp;');
                 //PxAdmin["ConvencionalConcesionario"] = Concesionario.custrecord_ht_cd_convencional.replace('+593', '0');
                 //PxAdmin["CelularConcesionario"] = Concesionario.custrecord_ht_cd_telefono.replace('+593', '0') || "";
                 if (subsidiaria == 2) { 
@@ -2293,19 +2679,19 @@ define(['N/log',
                     PxAdmin["CelularConcesionario"] = Concesionario.custrecord_ht_cd_telefono.replace('+593', '0') || "";
                 }
                 if (subsidiaria == 3) { 
-                    PxAdmin["ConvencionalConcesionario"] = Concesionario.custrecord_ht_cd_convencional;
-                    PxAdmin["CelularConcesionario"] = Concesionario.custrecord_ht_cd_telefono || ""; 
+                    PxAdmin["ConvencionalConcesionario"] = Concesionario.custrecord_ht_cd_convencional.replace('+51', '0');
+                    PxAdmin["CelularConcesionario"] = Concesionario.custrecord_ht_cd_telefono.replace('+51', '0') || ""; 
                 }
                 PxAdmin["EmailConcesionario"] = Concesionario.custrecord_ht_cd_email || "";
             }
         }
 
-        const setFinancieraValues = (PxAdmin, Financiera, operacionOrden,subsidiaria) => {
+        const setFinancieraValues = (PxAdmin, Financiera, operacionOrden, subsidiaria) => {
             if (!Financiera.custrecord_ht_cd_nombre) return;
             if (operacionOrden == OPERACION_ORDEN_INSTALACION) {
                 PxAdmin["IdentificadorFinanciera"] = Financiera.custrecord_ht_cd_ruccanaldistribucion || "";
-                PxAdmin["RazonSocialFinanciera"] = Financiera.custrecord_ht_cd_nombre || "";
-                PxAdmin["DireccionFinanciera"] = Financiera.custrecord_ht_cd_direccion || "";
+                PxAdmin["RazonSocialFinanciera"] = (Financiera.custrecord_ht_cd_nombre || "").replace(/&/g, '&amp;');
+                PxAdmin["DireccionFinanciera"] = (Financiera.custrecord_ht_cd_direccion || "").replace(/&/g, '&amp;');
                 //PxAdmin["ConvencionalFinanciera"] = Financiera.custrecord_ht_cd_convencional.replace('+593', '0');
                 //PxAdmin["CelularFinanciera"] = Financiera.custrecord_ht_cd_telefono.replace('+593', '0') || "";
                 if (subsidiaria == 2) { 
@@ -2313,14 +2699,14 @@ define(['N/log',
                    PxAdmin["CelularFinanciera"] = Financiera.custrecord_ht_cd_telefono.replace('+593', '0') || "";
                 }
                 if (subsidiaria == 3) { 
-                    PxAdmin["ConvencionalFinanciera"] = Financiera.custrecord_ht_cd_convencional;
-                    PxAdmin["CelularFinanciera"] = Financiera.custrecord_ht_cd_telefono || "";
+                    PxAdmin["ConvencionalFinanciera"] = Financiera.custrecord_ht_cd_convencional.replace('+51', '0');
+                    PxAdmin["CelularFinanciera"] = Financiera.custrecord_ht_cd_telefono.replace('+51', '0') || "";
                 }
                 PxAdmin["EmailFinanciera"] = Financiera.custrecord_ht_cd_email || "";
             } else if (operacionOrden == OPERACION_ORDEN_REGISTRAR_CANAL) {
                 PxAdmin["IdentificadorFinanciera"] = Financiera.custrecord_ht_cd_ruccanaldistribucion || "";
-                PxAdmin["RazonSocialFinanciera"] = Financiera.custrecord_ht_cd_nombre || "";
-                PxAdmin["DireccionFinanciera"] = Financiera.custrecord_ht_cd_direccion || "";
+                PxAdmin["RazonSocialFinanciera"] = (Financiera.custrecord_ht_cd_nombre || "").replace(/&/g, '&amp;');
+                PxAdmin["DireccionFinanciera"] = (Financiera.custrecord_ht_cd_direccion || "").replace(/&/g, '&amp;');
                 //PxAdmin["ConvencionalFinanciera"] = Financiera.custrecord_ht_cd_convencional.replace('+593', '0');
                 //PxAdmin["CelularFinanciera"] = Financiera.custrecord_ht_cd_telefono.replace('+593', '0') || "";
                 if (subsidiaria == 2) { 
@@ -2328,19 +2714,19 @@ define(['N/log',
                    PxAdmin["CelularFinanciera"] = Financiera.custrecord_ht_cd_telefono.replace('+593', '0') || "";
                 }
                 if (subsidiaria == 3) { 
-                    PxAdmin["ConvencionalFinanciera"] = Financiera.custrecord_ht_cd_convencional;
-                    PxAdmin["CelularFinanciera"] = Financiera.custrecord_ht_cd_telefono || "";
+                    PxAdmin["ConvencionalFinanciera"] = Financiera.custrecord_ht_cd_convencional.replace('+51', '0');
+                    PxAdmin["CelularFinanciera"] = Financiera.custrecord_ht_cd_telefono.replace('+51', '0') || "";
                 }
                 PxAdmin["EmailFinanciera"] = Financiera.custrecord_ht_cd_email || "";
             }
         }
 
-        const setConvenioValues = (PxAdmin, Convenio, operacionOrden,subsidiaria) => {
+        const setConvenioValues = (PxAdmin, Convenio, operacionOrden, subsidiaria) => {
             if (!Convenio.custrecord_ht_cn_ruc_convenio) return;
             if (operacionOrden == OPERACION_ORDEN_INSTALACION) {
                 PxAdmin["IdentificadorConvenio"] = Convenio.custrecord_ht_cn_ruc_convenio || "";
-                PxAdmin["RazonSocialConvenio"] = Convenio.custrecord_ht_cn_razon_social || "";
-                PxAdmin["DireccionConvenio"] = Convenio.custrecord_ht_cn_direccion || "";
+                PxAdmin["RazonSocialConvenio"] = (Convenio.custrecord_ht_cn_razon_social || "").replace(/&/g, '&amp;');
+                PxAdmin["DireccionConvenio"] = (Convenio.custrecord_ht_cn_direccion || "").replace(/&/g, '&amp;');
                 //PxAdmin["ConvencionalConvenio"] = Convenio.custrecord_ht_cn_convencional.replace('+593', '0');
                 //PxAdmin["CelularConvenio"] = Convenio.custrecord_ht_cn_celular.replace('+593', '0') || "";
                 if (subsidiaria == 2) { 
@@ -2348,14 +2734,14 @@ define(['N/log',
                     PxAdmin["CelularConvenio"] = Convenio.custrecord_ht_cn_celular.replace('+593', '0') || "";
                 }
                 if (subsidiaria == 3) { 
-                    PxAdmin["ConvencionalConvenio"] = Convenio.custrecord_ht_cn_convencional;
-                    PxAdmin["CelularConvenio"] = Convenio.custrecord_ht_cn_celular || "";
+                    PxAdmin["ConvencionalConvenio"] = Convenio.custrecord_ht_cn_convencional.replace('+51', '0');
+                    PxAdmin["CelularConvenio"] = Convenio.custrecord_ht_cn_celular.replace('+51', '0') || "";
                 }
                 PxAdmin["EmailConvenio"] = Convenio.custrecord_ht_cn_email || "";
             } else if (operacionOrden == OPERACION_ORDEN_REGISTRAR_CANAL) {
                 PxAdmin["IdentificadorConvenio"] = Convenio.custrecord_ht_cn_ruc_convenio || "";
-                PxAdmin["RazonSocialConvenio"] = Convenio.custrecord_ht_cn_razon_social || "";
-                PxAdmin["DireccionConvenio"] = Convenio.custrecord_ht_cn_direccion || "";
+                PxAdmin["RazonSocialConvenio"] = (Convenio.custrecord_ht_cn_razon_social || "").replace(/&/g, '&amp;');
+                PxAdmin["DireccionConvenio"] = (Convenio.custrecord_ht_cn_direccion || "").replace(/&/g, '&amp;');
                 //PxAdmin["ConvencionalConvenio"] = Convenio.custrecord_ht_cn_convencional.replace('+593', '0');
                 //PxAdmin["CelularConvenio"] = Convenio.custrecord_ht_cn_celular.replace('+593', '0') || "";
                 if (subsidiaria == 2) { 
@@ -2363,47 +2749,65 @@ define(['N/log',
                     PxAdmin["CelularConvenio"] = Convenio.custrecord_ht_cn_celular.replace('+593', '0') || "";
                 }
                 if (subsidiaria == 3) { 
-                    PxAdmin["ConvencionalConvenio"] = Convenio.custrecord_ht_cn_convencional;
-                    PxAdmin["CelularConvenio"] = Convenio.custrecord_ht_cn_celular || "";
+                    PxAdmin["ConvencionalConvenio"] = Convenio.custrecord_ht_cn_convencional.replace('+51', '0');
+                    PxAdmin["CelularConvenio"] = Convenio.custrecord_ht_cn_celular.replace('+51', '0') || "";
                 }
                 PxAdmin["EmailConvenio"] = Convenio.custrecord_ht_cn_email || "";
             }
         }
 
-        const setMonitoreoValues = (PxAdmin, PropietarioMonitoreo, operacionOrden,subsidiaria) => {
+        const setMonitoreoValues = (PxAdmin, PropietarioMonitoreo, operacionOrden, subsidiaria) => {
             // let persona = PropietarioMonitoreo.isperson;
             let convencional = '';
             if (!PropietarioMonitoreo.vatregnumber) return;
+            log.debug('IDMONITOREO', PropietarioMonitoreo);
             // log.debug('IDMONITOREO', PropietarioMonitoreo);
-            let sql3 = 'SELECT custrecord_ht_campo_txt_telefono as convencional FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = 10 AND custrecord_ht_campo_lbl_entidad_telefono = ?'
-            let resultSet3 = query.runSuiteQL({ query: sql3, params: [PropietarioMonitoreo.identity] });
-            let results3 = resultSet3.asMappedResults();
+            let tipoConvencional='';
+
+            if (subsidiaria == 2) {  tipoConvencional=10; }
+            if (subsidiaria == 3) {  tipoConvencional=4;}
+
+            // NuevoPropietario (obtenerNewPropietario) no trae 'identity', solo 'internalid'
+            let entidadId = PropietarioMonitoreo.identity || (Array.isArray(PropietarioMonitoreo.internalid) && PropietarioMonitoreo.internalid.length ? PropietarioMonitoreo.internalid[0].value : '');
+            let sql3 = 'SELECT custrecord_ht_campo_txt_telefono as convencional FROM customrecord_ht_registro_telefono WHERE custrecord_ht_campo_list_tipo_telefono = ? AND custrecord_ht_campo_lbl_entidad_telefono = ?'
+            //let resultSet3 = query.runSuiteQL({ query: sql3, params: [PropietarioMonitoreo.identity] });
+            let resultSet3='';
+            if (subsidiaria == 2 && entidadId) {
+                tipoConvencional=10;
+                resultSet3 = query.runSuiteQL({ query: sql3, params: [tipoConvencional, entidadId] });
+            }
+            if (subsidiaria == 3 && entidadId) {
+                tipoConvencional=4;
+                //resultSet3 = query.runSuiteQL({ query: sql3, params: [tipoConvencional, PropietarioMonitoreo.internalid[0].value ]});
+                resultSet3 = query.runSuiteQL({ query: sql3, params: [tipoConvencional, entidadId]});
+            }
+            let results3 = resultSet3 ? resultSet3.asMappedResults() : [];
             //convencional = results3.length ? results3[0]['convencional'].replace('+593', '0') : convencional;
             if (subsidiaria == 2) { 
                 convencional = results3.length ? results3[0]['convencional'].replace('+593', '0') : convencional;
             }
             if (subsidiaria == 3) { 
-                convencional = results3.length ? results3[0]['convencional'] : convencional;
+                convencional = results3.length ? results3[0]['convencional'].replace('+51', '0') : convencional;
             }
             if (operacionOrden == OPERACION_ORDEN_INSTALACION) {
                 PxAdmin["IdentificadorMonitorea"] = PropietarioMonitoreo.vatregnumber;
                 PxAdmin["NombreMonitorea"] = (typeof PropietarioMonitoreo.custentity_ht_cl_primernombre == 'undefined' ? '' : PropietarioMonitoreo.custentity_ht_cl_primernombre).replace(/&/g, '&amp;') + ' ' + (typeof PropietarioMonitoreo.custentity_ht_cl_segundonombre == 'undefined' ? '' : PropietarioMonitoreo.custentity_ht_cl_segundonombre).replace(/&/g, '&amp;');
-                PxAdmin["ApellidosMonitorea"] = (typeof PropietarioMonitoreo.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : PropietarioMonitoreo.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof PropietarioMonitoreo.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : PropietarioMonitoreo.custentity_ht_cl_apellidomaterno);
+                PxAdmin["ApellidosMonitorea"] = (typeof PropietarioMonitoreo.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : PropietarioMonitoreo.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof PropietarioMonitoreo.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : PropietarioMonitoreo.custentity_ht_cl_apellidomaterno).replace(/&/g, '&amp;');
                 PxAdmin["DireccionMonitorea"] = PropietarioMonitoreo.provincia.replace(/&/g, '&amp;');
                 PxAdmin["ConvencionalMonitorea"] = convencional;
                 //PxAdmin["CelularMonitorea"] = PropietarioMonitoreo.phone.replace('+593', '0');
                 if (subsidiaria == 2) { PxAdmin["CelularMonitorea"] = PropietarioMonitoreo.phone.replace('+593', '0'); }
-                if (subsidiaria == 3) { PxAdmin["CelularMonitorea"] = PropietarioMonitoreo.phone; }
+                if (subsidiaria == 3) { PxAdmin["CelularMonitorea"] = PropietarioMonitoreo.phone.replace('+51', '0'); }
                 PxAdmin["EmailMonitorea"] = PropietarioMonitoreo.email;
             } else if (operacionOrden == OPERACION_ORDEN_CAMBIO_PROPIETARIO) {
                 PxAdmin["IdentificadorMonitorea"] = PropietarioMonitoreo.vatregnumber;
-                PxAdmin["NombreMonitorea"] = PropietarioMonitoreo.custentity_ht_cl_primernombre.replace(/&/g, '&amp;') + ' ' + PropietarioMonitoreo.custentity_ht_cl_segundonombre.replace(/&/g, '&amp;');
-                PxAdmin["ApellidosMonitorea"] = PropietarioMonitoreo.custentity_ht_cl_apellidopaterno.replace(/&/g, '&amp;') + ' ' + PropietarioMonitoreo.custentity_ht_cl_apellidomaterno;
+                PxAdmin["NombreMonitorea"] = (typeof PropietarioMonitoreo.custentity_ht_cl_primernombre == 'undefined' ? '' : PropietarioMonitoreo.custentity_ht_cl_primernombre).replace(/&/g, '&amp;') + ' ' + (typeof PropietarioMonitoreo.custentity_ht_cl_segundonombre == 'undefined' ? '' : PropietarioMonitoreo.custentity_ht_cl_segundonombre).replace(/&/g, '&amp;');
+                PxAdmin["ApellidosMonitorea"] = (typeof PropietarioMonitoreo.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : PropietarioMonitoreo.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof PropietarioMonitoreo.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : PropietarioMonitoreo.custentity_ht_cl_apellidomaterno).replace(/&/g, '&amp;');
                 PxAdmin["DireccionMonitorea"] = PropietarioMonitoreo.provincia.replace(/&/g, '&amp;');
                 PxAdmin["ConvencionalMonitorea"] = convencional;
                 //PxAdmin["CelularMonitorea"] = PropietarioMonitoreo.phone.replace('+593', '0');
                 if (subsidiaria == 2) { PxAdmin["CelularMonitorea"] = PropietarioMonitoreo.phone.replace('+593', '0'); }
-                if (subsidiaria == 3) { PxAdmin["CelularMonitorea"] = PropietarioMonitoreo.phone; }
+                if (subsidiaria == 3) { PxAdmin["CelularMonitorea"] = PropietarioMonitoreo.phone.replace('+51', '0'); }
                 PxAdmin["EmailMonitorea"] = PropietarioMonitoreo.email;
             }
         }
@@ -2553,13 +2957,13 @@ define(['N/log',
             // log.error(".....salesOrder.....", salesOrder.tranid.replace('S001', ''));
             // log.error(".....salesOrder.....", salesOrder.tranid.replace('S001', '').replace(/\D/g, ''));
             if (NACIONALIDAD == "PE") {
-                PxAdmin["NumeroOrden"] = salesOrder.tranid.replace('S001', '').replace('M001', '').replace(/\D/g, '');
+                PxAdmin["NumeroOrden"] = salesOrder.tranid.replace('S001', '').replace('M001', '').replace('T002', '').replace('A002', '').replace(/\D/g, '');
             } else {
                 PxAdmin["NumeroOrden"] = salesOrder.tranid.replace(/\D/g, '');
             }
             // //TODO: BLOQUE DE PRUEBA POR CAMBIO DE NUMERO DE ORDEN
             const fecha = new Date();
-            log.debug("Body PX fecha", fecha);
+            //log.debug("Body PX fecha", fecha);
             // const hora = String(fecha.getHours()).padStart(2, '0'); // Hora (0-23)
             // const minutos = String(fecha.getMinutes()).padStart(2, '0'); // Minutos (0-59)
             // const segundos = String(fecha.getSeconds()).padStart(2, '0');
@@ -2580,11 +2984,11 @@ define(['N/log',
             PxAdmin["NACIONALIDAD"] = NACIONALIDAD;
             PxAdmin["UsuarioIngreso"] = "OPERAD" + "_" + NACIONALIDAD;
             let estadovehiculo = vehiculo["custrecord_ht_bn_estadobien"] || "";
-            log.debug('estadovehiculo.................................', estadovehiculo);
+            //log.debug('estadovehiculo.................................', estadovehiculo);
             PxAdmin["EstadoCartera"] = estadovehiculo[0].text;
-            PxAdmin["NombreEjecutiva"] = ejecutiva;
-            PxAdmin["Sucursal"] = location;
-            PxAdmin["Ciudad"] = location;
+            PxAdmin["NombreEjecutiva"] = String(ejecutiva || "").replace(/&/g, '&amp;');
+            PxAdmin["Sucursal"] = String(location || "").replace(/&/g, '&amp;');
+            PxAdmin["Ciudad"] = String(location || "").replace(/&/g, '&amp;');
             PxAdmin["FechaInicioCobertura"] = Cobertura?.custrecord_ht_co_coberturainicial || vehiculo.co;
             PxAdmin["FechaFinCobertura"] = Cobertura?.custrecord_ht_co_coberturafinal || "";
         }
@@ -2598,6 +3002,37 @@ define(['N/log',
             let descModelo = vehiculo["custrecord_ht_bien_modelo.custrecord_ht_mod_descripcion"];
             let colorName = vehiculo["custrecord_ht_bien_colorcarseg.custrecord_ht_bn_colorcarseg_descripcion"];
             let tipoVehiculo = vehiculo["custrecord_ht_bien_tipo.custrecord_ht_tv_descripcion"];
+            log.debug("custrecord_ht_bien_tipobien...........",  vehiculo.custrecord_ht_bien_tipobien[0].value );
+            switch (vehiculo.custrecord_ht_bien_tipobien[0].value) {
+            //switch (vehiculo.custrecord_ht_bien_tipobien) {
+                case "1": // 1	TERRESTRE
+                   break;
+                case "6": // 6	MARÍTIMO
+                    //vehiculo.custrecord_ht_bien_placa = vehiculo.altname;
+                    vehiculo.custrecord_ht_bien_placa = vehiculo.custrecord_ht_bien_nom_embarcacion;
+                    vehiculo.custrecord_ht_bien_chasis= vehiculo.altname;
+                    vehiculo.custrecord_ht_bien_motor= vehiculo.altname;
+                    break;
+                case "7": // 7	TANQUE
+                    // jsonObject.placa = newRecord.getValue({ fieldId: "custrecord_ht_bien_nom_embarcacion" });
+                    vehiculo.custrecord_ht_bien_placa = vehiculo.custrecord_ht_bien_nom_embarcacion;
+                    vehiculo.custrecord_ht_bien_chasis= "NO DEFINIDO";
+                    vehiculo.custrecord_ht_bien_motor= "NO DEFINIDO";
+                    break;
+                case "8": // 8	INMUEBLE
+                    vehiculo.custrecord_ht_bien_placa = vehiculo.altname;
+                    vehiculo.custrecord_ht_bien_chasis= vehiculo.altname;
+                    vehiculo.custrecord_ht_bien_motor= vehiculo.altname;
+                    break;
+                case "9": // 9	PRODUCCIÓN
+                     //   jsonObject.placa = newRecord.getValue({ fieldId: "custrecord_ht_serie_pro" });
+                    vehiculo.custrecord_ht_bien_placa = vehiculo.custrecord_ht_serie_pro;
+                    vehiculo.custrecord_ht_bien_chasis= vehiculo.altname;
+                    vehiculo.custrecord_ht_bien_motor= vehiculo.altname;
+                    break;
+                default:
+                    break;
+            } 
             if (operacionOrden == OPERACION_ORDEN_INSTALACION) {
                 PxAdmin["Emergencia"] = vehiculo.custrecord_ht_bien_telefono_emergencia;
                 PxAdmin["Placa"] = vehiculo.custrecord_ht_bien_placa;
@@ -2728,10 +3163,7 @@ define(['N/log',
                 //let serie = Dispositivo.custrecord_ht_mc_vid.length ? Dispositivo.custrecord_ht_mc_vid : '';
                 let serie = Dispositivo?.custrecord_ht_mc_vid ? Dispositivo.custrecord_ht_mc_vid : '';
                 let idSerie = serie.length ? serie[0] : '';
-
-
                 let descOperadora = Dispositivo["custrecord_ht_mc_operadora.custrecord_ht_cs_operadora_descrip"];
-
                 //EstadoSim    custrecord_ht_mc_apn
                 //let Estado = Dispositivo.custrecord_ht_mc_estado[0].text.split(' - ');
                 let Estado = Dispositivo?.custrecord_ht_mc_estadolodispositivo[0]?.text ? Dispositivo?.custrecord_ht_mc_estadolodispositivo[0]?.text?.split(' - ') : '';
@@ -2755,9 +3187,14 @@ define(['N/log',
                 //let estadoDispositivo = Dispositivo?.custrecord_ht_mc_estadolodispositivo ? Dispositivo?.custrecord_ht_mc_estadolodispositivo[0]?.text?.split(' - ') : '';
                 let idEstadoDispositivo = estadoDispositivo.length ? estadoDispositivo[0] : "";
                 //let estadoSim = obtenerEstadoSIM(idEstadoDispositivo);
-                log.debug("Dispositivo........................", Dispositivo);
-                log.debug("estadoDispositivo........................", estadoDispositivo);
-                log.debug("idEstadoDispositivo........................", idEstadoDispositivo);
+                //log.debug("Dispositivo........................", Dispositivo);
+                //log.debug("estadoDispositivo........................", estadoDispositivo);
+                //log.debug("idEstadoDispositivo........................", idEstadoDispositivo);
+                log.debug("Datos..3...", {
+                                "Dispositivo": Dispositivo,
+                                "estadoDispositivo": estadoDispositivo,
+                                "idEstadoDispositivo": idEstadoDispositivo
+                })
                 if (operacionOrden == OPERACION_ORDEN_INSTALACION) {
                     PxAdmin["Vid"] = Dispositivo.custrecord_ht_mc_vid;
                     PxAdmin["IdProducto"] = idProducto.substr(0, 5);
@@ -2797,12 +3234,15 @@ define(['N/log',
                     PxAdmin["Operadora"] = descOperadora;
                     // PxAdmin["EstadoSim"] = descEstado;
                     PxAdmin["EstadoSim"] = EstadoSim;
-                    PxAdmin["OperacionDispositivo"] = "A";
+                    PxAdmin["OperacionDispositivo"] = "I";
                 } else if (operacionOrden == OPERACION_ORDEN_RENOVACION) {
                     PxAdmin["Vid"] = Dispositivo.custrecord_ht_mc_vid;
+                    PxAdmin["EstadoSim"] = EstadoSim;
                     PxAdmin["OperacionDispositivo"] = "A";
                 } else if (operacionOrden == OPERACION_ORDEN_MODIFICACION) {
                     PxAdmin["Vid"] = Dispositivo.custrecord_ht_mc_vid;
+                    PxAdmin["IdProducto"] = idProducto.substr(0, 5);
+                    PxAdmin["DescProducto"] = descProducto;
                     PxAdmin["CodMarcaDispositivo"] = idUnidad2[0].value;
                     PxAdmin["MarcaDispositivo"] = descUnidad;
                     PxAdmin["CodModeloDispositivo"] = idModelo2[0].value;
@@ -2816,11 +3256,14 @@ define(['N/log',
                     PxAdmin["Operadora"] = descOperadora;
                     //PxAdmin["EstadoSim"] = descEstado;
                     PxAdmin["EstadoSim"] = EstadoSim;
-                    PxAdmin["OperacionDispositivo"] = "A";
+                    //PxAdmin["OperacionDispositivo"] = "A";
+                    PxAdmin["OperacionDispositivo"] = "C";
                 } else if (operacionOrden == OPERACION_ORDEN_MANTENIMIENTO_CHEQUEO) {
                     //let estadoSim = obtenerEstadoSIM(idEstadoDispositivo);
                     PxAdmin["Vid"] = Dispositivo.custrecord_ht_mc_vid;
                     PxAdmin["CodMarcaDispositivo"] = idUnidad2[0].value;
+                    PxAdmin["IdProducto"] = idProducto.substr(0, 5);
+                    PxAdmin["DescProducto"] = descProducto;
                     PxAdmin["MarcaDispositivo"] = descUnidad;
                     PxAdmin["CodModeloDispositivo"] = idModelo2[0].value;
                     PxAdmin["ModeloDispositivo"] = descModelo;
@@ -2954,51 +3397,51 @@ define(['N/log',
             if (operacionOrden == OPERACION_ORDEN_INSTALACION) {
                 PxAdmin["IdentificadorPropietario"] = Propietario.vatregnumber;
                 PxAdmin["NombrePropietario"] = Propietario.custentity_ht_cl_primernombre.replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_segundonombre == 'undefined' ? '' : Propietario.custentity_ht_cl_segundonombre).replace(/&/g, '&amp;');
-                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno);
+                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno).replace(/&/g, '&amp;');
                 PxAdmin["DireccionPropietario"] = Propietario.provincia.replace(/&/g, '&amp;');
                 PxAdmin["ConvencionalPropietario"] = Propietario.homephone;
                 //PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+593', '0') : '';
                 if (subsidiaria == 2) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+593', '0') : ''; }
-                if (subsidiaria == 3) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone : ''; }
+                if (subsidiaria == 3) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+51', '0') : ''; }
                 PxAdmin["EmailPropietario"] = Propietario.email;
              } else if (operacionOrden == OPERACION_ORDEN_RENOVACION) {
                 PxAdmin["IdentificadorPropietario"] = Propietario.vatregnumber;
                 PxAdmin["NombrePropietario"] = (typeof Propietario.custentity_ht_cl_primernombre == 'undefined' ? '' : Propietario.custentity_ht_cl_primernombre).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_segundonombre == 'undefined' ? '' : Propietario.custentity_ht_cl_segundonombre).replace(/&/g, '&amp;');
-                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno);
+                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno).replace(/&/g, '&amp;');
             } else if (operacionOrden == OPERACION_ORDEN_CHEQUEO_COMPONENTES) {
                 PxAdmin["IdentificadorPropietario"] = Propietario.vatregnumber;
                 PxAdmin["NombrePropietario"] = (typeof Propietario.custentity_ht_cl_primernombre == 'undefined' ? '' : Propietario.custentity_ht_cl_primernombre).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_segundonombre == 'undefined' ? '' : Propietario.custentity_ht_cl_segundonombre).replace(/&/g, '&amp;');
-                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno);
+                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno).replace(/&/g, '&amp;');
                 PxAdmin["DireccionPropietario"] = Propietario.provincia.replace(/&/g, '&amp;');
                 PxAdmin["ConvencionalPropietario"] = Propietario.homephone;
                 //PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+593', '0') : '';
                 if (subsidiaria == 2) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+593', '0') : ''; }
-                if (subsidiaria == 3) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone : ''; }
+                if (subsidiaria == 3) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+51', '0') : ''; }
                 PxAdmin["EmailPropietario"] = Propietario.email;
             } else if (operacionOrden == OPERACION_ORDEN_ACTUALIZACION_DATOS_PROPIETARIOS) {
                 PxAdmin["IdentificadorPropietario"] = Propietario.vatregnumber;
                 PxAdmin["NombrePropietario"] = (typeof Propietario.custentity_ht_cl_primernombre == 'undefined' ? '' : Propietario.custentity_ht_cl_primernombre).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_segundonombre == 'undefined' ? '' : Propietario.custentity_ht_cl_segundonombre).replace(/&/g, '&amp;');
-                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno);
+                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno).replace(/&/g, '&amp;');
                 PxAdmin["DireccionPropietario"] = Propietario.provincia.replace(/&/g, '&amp;');
                 PxAdmin["ConvencionalPropietario"] = Propietario.homephone;
                 //PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+593', '0') : '';
                 if (subsidiaria == 2) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+593', '0') : ''; }
-                if (subsidiaria == 3) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone : ''; }
+                if (subsidiaria == 3) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+51', '0') : ''; }
                 PxAdmin["EmailPropietario"] = Propietario.email;
             } else if (operacionOrden == OPERACION_ORDEN_CAMBIO_PROPIETARIO) {
                 PxAdmin["IdentificadorPropietario"] = Propietario.vatregnumber;
                 PxAdmin["NombrePropietario"] = Propietario.custentity_ht_cl_primernombre.replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_segundonombre == 'undefined' ? '' : Propietario.custentity_ht_cl_segundonombre).replace(/&/g, '&amp;');
-                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno);
+                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno).replace(/&/g, '&amp;');
                 PxAdmin["DireccionPropietario"] = Propietario.provincia.replace(/&/g, '&amp;');
                 PxAdmin["ConvencionalPropietario"] = Propietario.homephone;
                 //PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+593', '0') : '';
                 if (subsidiaria == 2) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+593', '0') : ''; }
-                if (subsidiaria == 3) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone : ''; }
+                if (subsidiaria == 3) { PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+51', '0') : ''; }
                 PxAdmin["EmailPropietario"] = Propietario.email;
             } else if (operacionOrden == OPERACION_ORDEN_REGISTRAR_CANAL) {
                 PxAdmin["IdentificadorPropietario"] = Propietario.vatregnumber;
                 PxAdmin["NombrePropietario"] = Propietario.custentity_ht_cl_primernombre.replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_segundonombre == 'undefined' ? '' : Propietario.custentity_ht_cl_segundonombre).replace(/&/g, '&amp;');
-                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno);
+                PxAdmin["ApellidosPropietario"] = (typeof Propietario.custentity_ht_cl_apellidopaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidopaterno).replace(/&/g, '&amp;') + ' ' + (typeof Propietario.custentity_ht_cl_apellidomaterno == 'undefined' ? '' : Propietario.custentity_ht_cl_apellidomaterno).replace(/&/g, '&amp;');
                 PxAdmin["DireccionPropietario"] = Propietario.provincia.replace(/&/g, '&amp;');
                 PxAdmin["ConvencionalPropietario"] = Propietario.homephone;
                 //PxAdmin["CelularPropietario"] = Propietario.phone.length ? Propietario.phone.replace('+593', '0') : '';
@@ -3013,7 +3456,7 @@ define(['N/log',
             log.debug("..........Servicios.....1.........",  Servicios);  
             // log.debug("..........FECHA.....1.........",  Cobertura.custrecord_ht_co_coberturainicialtext);  
             PxAdmin["Alerta"]="N";
-            let CodServicioEmergencia = ["042"]
+            let CodServicioEmergencia = ["042","046","047","048","049"]
             if (operacionOrden == OPERACION_ORDEN_INSTALACION) {            
                 if (Servicios && Servicios.length > 0) {                              
                     PxAdmin["Servicios"]="<ServiciosInstalados>";
@@ -3088,32 +3531,64 @@ define(['N/log',
                 }
             } else if (operacionOrden == OPERACION_ORDEN_RENOVACION) {  
                 if (Servicios && Servicios.length > 0) {
+                     //var datcomandos="";
                      for ( let i=0; i<Servicios.length; i++) { 
-                        comandos = Servicios[i].servicio.split(",")
-                        //log.debug("servicio.", Servicios[i].servicio.split(","));
+                        //comandos = Servicios[i].servicio.split(",")
+                         if (i==0){ 
+                             comandos = Servicios[i].servicio.split(",")
+                         } else {
+                             comandos  +=","+ Servicios[i].servicio.split(",");    
+                         }              
                     }
                     log.debug("comandos", comandos);
-                    for ( let i=0; i<comandos.length; i++) { 
-                        //log.debug("comandos....", comandos[i].split(" - ")[0]);
-                        if (CodServicioEmergencia.includes(comandos[i].split(" - ")[0])) {
-                            PxAdmin["Alerta"]="S";
-                        }                   
-                    }
-                    if (PxAdmin["Alerta"]=="S"){ 
+                    var datcomandos="";
+                     if (comandos.length > 0) {
+                        datcomandos=comandos.split(",");
+                        log.debug("datcomandos", datcomandos );
+                         //log.debug("datcomandos", datcomandos);
                         PxAdmin["Servicios"]="<ServiciosInstalados>";
-                        for ( let i=0; i<comandos.length; i++) { 
-                            PxAdmin["Servicios"]+="<Servicio><CodServicio>" + comandos[i].split(" - ")[0] + "</CodServicio>";
-                            PxAdmin["Servicios"]+="<DescripcionServicio>" + comandos[i].split(" - ")[1] + "</DescripcionServicio>";
+                        for ( let i=0; i<datcomandos.length; i++) { 
+                            log.debug("comandos....", datcomandos[i].split(" - ")[0]);
+                            log.debug("comandos..11..", datcomandos[i].split(" - ")[1]);
+                            if (CodServicioEmergencia.includes(datcomandos[i].split(" - ")[0])) {
+                                PxAdmin["Alerta"]="S";
+                            }          
+                            PxAdmin["Servicios"]+="<Servicio><CodServicio>" + datcomandos[i].split(" - ")[0] + "</CodServicio>";
+                            PxAdmin["Servicios"]+="<DescripcionServicio>" + datcomandos[i].split(" - ")[1] + "</DescripcionServicio>";
                             PxAdmin["Servicios"]+="<FechaInicioServicio>" + Cobertura.custrecord_ht_co_coberturainicialtext + "</FechaInicioServicio>";
                             PxAdmin["Servicios"]+="<FechaFinServicio>" + Cobertura.custrecord_ht_co_coberturafinaltext + "</FechaFinServicio>";
                             PxAdmin["Servicios"]+="<EstadoServicio>ACTIVO</EstadoServicio>";
                             PxAdmin["Servicios"]+="</Servicio>";
-                            log.debug("Servicios", comandos[i]);
                         }
                         PxAdmin["Servicios"]+="</ServiciosInstalados>"  
-                    } else {
-                        PxAdmin["Servicios"]="<ServiciosInstalados />";           
-                    }         
+                    }else {
+                         PxAdmin["Servicios"]="<ServiciosInstalados />";           
+                    }    
+                  //if (PxAdmin["Alerta"]=="S"){ 
+                       // PxAdmin["Servicios"]="<ServiciosInstalados>";
+                        //for ( let i=0; i<comandos.length; i++) { 
+                        //    PxAdmin["Servicios"]+="<Servicio><CodServicio>" + comandos[i].split(" - ")[0] + "</CodServicio>";
+                       //     PxAdmin["Servicios"]+="<DescripcionServicio>" + comandos[i].split(" - ")[1] + "</DescripcionServicio>";
+                       //     PxAdmin["Servicios"]+="<FechaInicioServicio>" + Cobertura.custrecord_ht_co_coberturainicialtext + "</FechaInicioServicio>";
+                       //     PxAdmin["Servicios"]+="<FechaFinServicio>" + Cobertura.custrecord_ht_co_coberturafinaltext + "</FechaFinServicio>";
+                       //     PxAdmin["Servicios"]+="<EstadoServicio>ACTIVO</EstadoServicio>";
+                       //     PxAdmin["Servicios"]+="</Servicio>";
+                       //     log.debug("Servicios", comandos[i]);
+                       // }
+                         //for ( let i=0; i<datcomandos.length; i++) {
+                             //log.debug("Servicios------------------",Servicios[i]);
+                           //log.debug("Servicios--------11----------",Servicios[i].servicio.split(" - ")[0]);
+                          //  PxAdmin["Servicios"]+="<Servicio><CodServicio>" + datcomandos[i].split(" - ")[0] + "</CodServicio>";
+                           // PxAdmin["Servicios"]+="<DescripcionServicio>" + datcomandos[i].split(" - ")[1] + "</DescripcionServicio>";
+                           // PxAdmin["Servicios"]+="<FechaInicioServicio>" + Cobertura.custrecord_ht_co_coberturainicialtext + "</FechaInicioServicio>";
+                           // PxAdmin["Servicios"]+="<FechaFinServicio>" + Cobertura.custrecord_ht_co_coberturafinaltext + "</FechaFinServicio>";
+                           // PxAdmin["Servicios"]+="<EstadoServicio>ACTIVO</EstadoServicio>";
+                           // PxAdmin["Servicios"]+="</Servicio>";
+                        //}
+                        //PxAdmin["Servicios"]+="</ServiciosInstalados>"  
+                    // } else {
+                    //     PxAdmin["Servicios"]="<ServiciosInstalados />";           
+                    // }        
                 } else {
                     PxAdmin["Servicios"]="<ServiciosInstalados />";           
                 }            
@@ -3122,8 +3597,6 @@ define(['N/log',
                 PxAdmin["Servicios"]="<ServiciosInstalados />";
             }
         }
-
-
 
 
         const getSalesOrder = (salesOrderId) => {
@@ -3355,7 +3828,10 @@ define(['N/log',
 
 
         return {
+            envioPXcliente,
+            envioPXvehiculo,
             envioPXInstalacionDispositivo,
+            envioPXInstalacionDispositivoPeru,
             envioPXDesinstalacionDispositivo,
             envioPXReinstalacionDispositivo,
             envioPXRenovacionDispositivo,
@@ -3374,6 +3850,7 @@ define(['N/log',
             envioPXActualizacionEstado,
             envioPXRegistrarCanal,
             envioPXInstalacionComponentes,
+            envioPXInstalacionComponentesNuevo,
             // envioTelecInstalacionNueva,
             // envioTelecReinstalacion,
             // envioTelecDesinstalacionDispositivo,

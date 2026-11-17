@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000010894|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|administracion@chavezsolutions.com|
+IC|01/09/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CHAVEZSOLUTIONS AMBIENTALES CIA. LTDA.|1792286182001|DOLAR|||||0||||||||||||Ignacio Asn # 52-27 y Antonio Romn|
+T|300.00|0.00|0|300.00|0.00|0|45.00|345.00|0|345.00|
+TI|2|4|300.00|15|45.00|IVA|
+DE|10485|10485|ALQU HM CORPORATIVO SERVICIO ALQUILER|1|300|0|300.00|
+IM|2|4|15|300.00|45.00|IVA|
+IA|DIRECCION|Ignacio Asn # 52-27 y Antonio Romn|
+IA|TELEFONO|+593992804701|
+IA|OBSERVACION|PFN-2686|
+IA|VENCIMIENTO|01/10/2025|
+IA|EMISION|Quito|
+IA|CORREO|administracion@chavezsolutions.com,administracion@chavezsolutions.com,gerenciacomercial@chavezsolutions.com,gerenciacomercial@chavezsolutions.com,contable@chavezsolutions.com|
+IA|PLAZO|30 días|
+PA|20|345.00|30|días|

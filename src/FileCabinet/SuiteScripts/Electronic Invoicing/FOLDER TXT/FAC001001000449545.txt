@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000449545|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Cbonifaz@agroilec.com|
+IC|21/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||TRANSPORTES LOBO S.A. .|0993379977001|DOLAR|||||0||||||||||||Febrescordero 2427 Y Andres Marin Junto A Tecnicentro Maestro Eddy 2|
+T|250.00|0.00|0|250.00|0.00|0|37.50|287.50|0|287.50|
+TI|2|4|250.00|15|37.50|IVA|
+DE|12887|12887|VENT HCAM REPUESTO|1|250|0|250.00|
+IM|2|4|15|250.00|37.50|IVA|
+IA|DIRECCION|Febrescordero 2427 Y Andres Marin Junto A Tecnicentro Maestro Eddy 2|
+IA|TELEFONO|+593996548699|
+IA|OBSERVACION|GBF-0884|
+IA|VENCIMIENTO|21/12/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|Cbonifaz@agroilec.com,cbonifaz@agroilec.com,transportelobosa@gmail.com,cbonifaz@agroilec.com,cbonifaz@agroilec.com,cbonifaz@agroilec.com|
+IA|PLAZO|30 días|
+PA|20|287.50|30|días|

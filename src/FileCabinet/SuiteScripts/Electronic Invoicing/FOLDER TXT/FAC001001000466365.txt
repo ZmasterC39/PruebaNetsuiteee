@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000466365|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|joyeriaespinoza@outlook.com|
+IC|30/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||ANGEL AUGUSTO ESPINOZA CAZCO|0600876056|DOLAR|||||0||||||||||||CIUDADELA CATALUA MZ19 V23|
+T|144.00|0.00|0|144.00|0.00|0|21.60|165.60|0|165.60|
+TI|2|4|144.00|15|21.60|IVA|
+DE|11257|11257|RENO HM AMI RENOVACION|1|144|0|144.00|
+IM|2|4|15|144.00|21.60|IVA|
+IA|DIRECCION|CIUDADELA CATALUA MZ19 V23|
+IA|TELEFONO|+593984893122|
+IA|VENCIMIENTO|30/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|joyeriaespinoza@outlook.com,joyeriaespinoza@outlook.com,joyeriaespinoza@outlook.com,joyeriaespinoza@outlook.com,joyeriaespinoza@outlook.com,joyeriaespinoza@outlook.com,joyeriaespinoza@outlook.com|
+IA|PLAZO| días|
+PA|20|165.60|0|días|

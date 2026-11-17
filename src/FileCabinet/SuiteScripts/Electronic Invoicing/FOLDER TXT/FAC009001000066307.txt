@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|009|001|000066307|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|elmike-azul@hotmail.com|
+IC|29/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||MIGUEL ALEJANDRO ALVAREZ ROMERO|1715806517|DOLAR|||||0||||||||||||Km 29 va Santo Domingo -Quevedo .. margen derecho|
+T|50.00|0.00|0|50.00|0.00|0|7.50|57.50|0|57.50|
+TI|2|4|50.00|15|7.50|IVA|
+DE|44|44|REIN HUNTER RASTREO REINSTALACION CON CUSTODIA|1|50|0|50.00|
+IM|2|4|15|50.00|7.50|IVA|
+IA|DIRECCION|Km 29 va Santo Domingo -Quevedo .. margen derecho|
+IA|TELEFONO|+593991974797|
+IA|OBSERVACION|PFT-9180|
+IA|VENCIMIENTO|29/06/2026|
+IA|EMISION|Santo Domingo|
+IA|CORREO|elmike-azul@hotmail.com,elmike-azul@hotmail.com,elmike-azul@hotmail.com,elmike-azul@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|57.50|0|días|

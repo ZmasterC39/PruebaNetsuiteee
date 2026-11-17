@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000022094|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|soledad.aguilar@care.org|
+IC|09/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CARE|1790176657001|DOLAR|||||0||||||||||||Camilo Destruge N24-633 y Francisco Salazar Edificio In Luxor piso 7, oficina 703|
+T|400.00|0.00|0|400.00|0.00|0|60.00|460.00|0|460.00|
+TI|2|4|400.00|15|60.00|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|2|200|0|400.00|
+IM|2|4|15|400.00|60.00|IVA|
+IA|DIRECCION|Camilo Destruge N24-633 y Francisco Salazar Edificio In Luxor piso 7, oficina 703|
+IA|TELEFONO|+593997742492|
+IA|OBSERVACION|PDL-8541 / PCU-7416|
+IA|VENCIMIENTO|09/05/2026|
+IA|EMISION|Quito|
+IA|CORREO|soledad.aguilar@care.org,soledad.aguilar@care.org,soledad.aguilar@care.org,soledad.aguilar@care.org,xavier.flores@care.org,guadalupe.arana@care.org,xavier.flores@care.org|
+IA|PLAZO|30 días|
+PA|20|460.00|30|días|

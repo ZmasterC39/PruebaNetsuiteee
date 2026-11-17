@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000010528|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|helenpazmi@hotmail.com|
+IC|26/08/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||HELEN ANABELA PAZMIÑO LUCIO|0201168945|DOLAR|||||0||||||||||||Salazar Gomez E14-24 Y Martinez Mera Empresa Asedupro Ref. Instituto Tecno Ecuatoriano Por La Iglesia De Fatima|
+T|257.00|0.00|0|257.00|0.00|0|38.55|295.55|0|295.55|
+TI|2|4|257.00|15|38.55|IVA|
+DE|9621|9621||1|168|0|168.00|
+IM|2|4|15|168.00|25.20|IVA|
+DE|4321|4321|GARANTIA EXTENDIDA|1|89|0|89.00|
+IM|2|4|15|89.00|13.35|IVA|
+IA|DIRECCION|Salazar Gomez E14-24 Y Martinez Mera Empresa Asedupro Ref. Instituto Tecno Ecuatoriano Por La Iglesia De Fatima|
+IA|TELEFONO|+593997315627|
+IA|VENCIMIENTO|28/08/2025|
+IA|EMISION|Quito|
+IA|CORREO|helenpazmi@hotmail.com,helenpazmi@hotmail.com,helenpazmi@hotmail.com|
+IA|PLAZO|2 días|
+PA|20|295.55|2|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000024737|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|veronicazambrano@uio.indumatic.com.ec|
+IC|04/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||INDUMATIC CIA. LTDA.|1792355974001|DOLAR|||||0||||||||||||Av. General Rumiahui 12-50 y Geovanni Farina, San Rafael, 12-50|
+T|295.00|0.00|0|295.00|0.00|0|44.25|339.25|0|339.25|
+TI|2|4|295.00|15|44.25|IVA|
+DE|8209|8209|RENO HMONITOREO MOTO RENOVACION|1|295|0|295.00|
+IM|2|4|15|295.00|44.25|IVA|
+IA|DIRECCION|Av. General Rumiahui 12-50 y Geovanni Farina, San Rafael, 12-50|
+IA|TELEFONO|+593992596375|
+IA|OBSERVACION|IX348X|
+IA|VENCIMIENTO|04/07/2026|
+IA|EMISION|Quito|
+IA|CORREO|veronicazambrano@uio.indumatic.com.ec,administracion@indumatic.com.ec,administracion@indumatic.com.ec,administracion@indumatic.com.ec|
+IA|PLAZO|30 días|
+PA|20|339.25|30|días|

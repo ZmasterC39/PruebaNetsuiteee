@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000447260|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@macargo.com.ec|
+IC|28/10/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MACCARGOCORP S.A.|0991368612001|DOLAR|||||0||||||||||||Urb. Entre Ros Avenida Primera, Edificio El ngel Manzana X-1 Solar 3|
+T|600.00|0.00|0|600.00|0.00|0|90.00|690.00|0|690.00|
+TI|2|4|600.00|15|90.00|IVA|
+DE|12476|12476|VENT ARCA NIVEL 3 VER 1|1|600|0|600.00|
+IM|2|4|15|600.00|90.00|IVA|
+IA|DIRECCION|Urb. Entre Ros Avenida Primera, Edificio El ngel Manzana X-1 Solar 3|
+IA|TELEFONO|+593980773068|
+IA|OBSERVACION|GBP-7641|
+IA|VENCIMIENTO|28/10/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@macargo.com.ec,contabilidad@macargo.com.ec,imacias@macargo.com.ec|
+IA|PLAZO|0 días|
+PA|20|690.00|0|días|

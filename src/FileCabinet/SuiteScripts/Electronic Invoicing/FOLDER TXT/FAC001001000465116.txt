@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000465116|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Asistente_gerencia@corpcacie.com|
+IC|08/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||IMPORTLENS S.A.|1792274486001|DOLAR|||||0||||||||||||Quito Versalles 2077 Y Bolivia Esquina|
+T|319.00|0.00|0|319.00|0.00|0|47.85|366.85|0|366.85|
+TI|2|4|319.00|15|47.85|IVA|
+DE|9621|9621|RENO GPS HMT RENOVACION|1|319|0|319.00|
+IM|2|4|15|319.00|47.85|IVA|
+IA|DIRECCION|Quito Versalles 2077 Y Bolivia Esquina|
+IA|TELEFONO|+59399566215|
+IA|OBSERVACION|GTK-2738|
+IA|VENCIMIENTO|08/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|Asistente_gerencia@corpcacie.com,Asistente_gerencia@corpcacie.com,nayelhy_cacie@hotmail.com,nayelhy_cacie@hotmail.com,nayelhy_cacie@hotmail.com,nayelhy_cacie@hotmail.com|
+IA|PLAZO| días|
+PA|20|366.85|0|días|

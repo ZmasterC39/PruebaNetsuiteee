@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000476294|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|monitoreoseg@elrosado.com|
+IC|11/09/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CORPORACION EL ROSADO S.A.|0990004196001|DOLAR|||||0||||||||||||Av. 9 de Octubre 729 y Boyac|
+T|222.00|0.00|0|222.00|0.00|0|33.30|255.30|0|255.30|
+TI|2|4|222.00|15|33.30|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|1|222|0|222.00|
+IM|2|4|15|222.00|33.30|IVA|
+IA|DIRECCION|Av. 9 de Octubre 729 y Boyac|
+IA|TELEFONO|+593992332240|
+IA|OBSERVACION|GTI-1079|
+IA|VENCIMIENTO|11/10/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|monitoreoseg@elrosado.com,monitoreoseg@elrosado.com,mecanica@elrosado.com,monitoreoseg@elrosado.com,vvelasco@carsegsa.com,edocs@elrosado.com,edocs@elrosado.com|
+IA|PLAZO|30 días|
+PA|20|255.30|30|días|

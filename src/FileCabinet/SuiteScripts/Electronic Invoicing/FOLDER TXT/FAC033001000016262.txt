@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000016262|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Maurorivadeneira@hotmail.com|
+IC|11/12/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||MAURO HERNAN RIVADENEIRA CAMPUZANO|0601851934|DOLAR|||||0||||||||||||Sector Del Valle Puente 8-vicente Solano N9-805 Y Charls Darwin, La Herradura 2 Pisos Amarillo Claro|
+T|208.00|0.00|0|208.00|0.00|0|31.20|239.20|0|239.20|
+TI|2|4|208.00|15|31.20|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|208|0|208.00|
+IM|2|4|15|208.00|31.20|IVA|
+IA|DIRECCION|Sector Del Valle Puente 8-vicente Solano N9-805 Y Charls Darwin, La Herradura 2 Pisos Amarillo Claro|
+IA|TELEFONO|+593998552283|
+IA|VENCIMIENTO|11/12/2025|
+IA|EMISION|Quito|
+IA|CORREO|Maurorivadeneira@hotmail.com,maurorivadeneira@hotmail.com,maurorivadeneira@hotmail.com,gescobar@carsegsa.com,maurorivadeneira@hotmail.com,maurorivadeneira@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|239.20|0|días|

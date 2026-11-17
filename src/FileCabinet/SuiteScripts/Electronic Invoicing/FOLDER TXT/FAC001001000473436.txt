@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000473436|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|pcarrillo@grupohg.com.ec|
+IC|11/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PROMAPLAST PROCESADORA DE MATERIALES PLASTICOS S.A|0992517069001|DOLAR|||||0||||||||||||Vía Daule Km 10.5 Solar 4 Lotización Expogranos|
+T|120.00|0.00|0|120.00|0.00|0|18.00|138.00|0|138.00|
+TI|2|4|120.00|15|18.00|IVA|
+DE|13288|13288|VENT HM CORPORATIVO 360 REPUESTO |1|120|0|120.00|
+IM|2|4|15|120.00|18.00|IVA|
+IA|DIRECCION|Vía Daule Km 10.5 Solar 4 Lotización Expogranos|
+IA|TELEFONO|+593993802016|
+IA|OBSERVACION|GTA-5717|
+IA|VENCIMIENTO|10/09/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|pcarrillo@grupohg.com.ec,mario.garzon@grupohg.com.ec,evelyn.miranda@grupohg.com.ec,karem.meresi@grupohg.com.ec,mario.garzon@grupohg.com.ec,compras@grupohg.com.ec|
+IA|PLAZO|30 días|
+PA|20|138.00|30|días|

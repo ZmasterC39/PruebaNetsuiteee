@@ -1,0 +1,18 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000003746|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|adquisiciones@protecompu.com|
+IC|24/04/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PROTECOMPU C.A|1791241398001|DOLAR|||||0||||||||||||Av. Galo Plazo Lasso, Conjunto de Bodegas Parkenor, Bodega 47-48|
+T|1850.00|0.00|0|1850.00|0.00|0|277.50|2127.50|0|2127.50|
+TI|2|4|1850.00|15|277.50|IVA|
+DE|9621|9621|RENO GPS HMT RENOVACION|2|185|0|370.00|
+IM|2|4|15|370.00|55.50|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|3|185|0|555.00|
+IM|2|4|15|555.00|83.25|IVA|
+DE|2320|2320|RENO HM CORPORATIVO RENOVACION|5|185|0|925.00|
+IM|2|4|15|925.00|138.75|IVA|
+IA|DIRECCION|Av. Galo Plazo Lasso, Conjunto de Bodegas Parkenor, Bodega 47-48|
+IA|TELEFONO|+593998907388|
+IA|VENCIMIENTO|24/05/2025|
+IA|EMISION|Quito|
+IA|CORREO|diego.alminate@protecompu.com,diego.alminate@protecompu.com,francisco.barzallo@protecompu.com,francisco.barzallo@protecompu.com,adquisiciones@protecompu.com|
+IA|PLAZO|30 días|
+PA|20|2127.50|30|días|

@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000476170|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|administracion@sembriexport-ec.com|
+IC|09/09/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||SEMBRIOS DE EXPORTACION SEMBRIEXPORT S. A.|0991173285001|DOLAR|||||0||||||||||||Km 23.5 via a daule diagonal a lago de capeira|
+T|1399.86|0.00|0|1399.86|0.00|0|209.98|1609.84|0|1609.84|
+TI|2|4|1399.86|15|209.98|IVA|
+DE|9979|9979|RENO HUNTER PORTATIL RENOVACIÓN|14|99.99|0|1399.86|
+IM|2|4|15|1399.86|209.98|IVA|
+IA|DIRECCION|Km 23.5 via a daule diagonal a lago de capeira|
+IA|TELEFONO|+593999444982|
+IA|VENCIMIENTO|08/12/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|administracion@sembriexport-ec.com,Compras@sembriexport-ec.com,administracion@sembriexport-ec.com|
+IA|PLAZO|90 días|
+PA|20|1609.84|90|días|

@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000014579|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|mercedescondor@gmail.com|
+IC|10/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MERCEDES AMANDA CONDOR SALAZAR|0502934565001|DOLAR|||||0||||||||||||Calle Lola Quintana y  Polit Lasso -  Conocoto|
+T|233.93|0.00|0|233.93|0.00|0|35.09|269.02|0|269.02|
+TI|2|4|233.93|15|35.09|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|233.93|0|233.93|
+IM|2|4|15|233.93|35.09|IVA|
+IA|DIRECCION|Calle Lola Quintana y  Polit Lasso -  Conocoto|
+IA|CIUDAD|RUMIÑAHUI|
+IA|TELEFONO|+593995419738|
+IA|OBSERVACION|RENOVACION SERVICIO 1 AO DE COBERTURA VEH PLACA: PDO-9383|
+IA|VENCIMIENTO|10/11/2025|
+IA|EMISION|Quito|
+IA|CORREO|mercedescondor@gmail.com,mercedescondor@gmail.com,notaria85quito2017@gmail.com,mercedescondor@gmail.com,contabilidadnotaria85@gmail.com,notaria85quito2017@gmail.com,contabilidadnotaria85@gmail.com|
+IA|PLAZO|0 días|
+PA|20|269.02|0|días|

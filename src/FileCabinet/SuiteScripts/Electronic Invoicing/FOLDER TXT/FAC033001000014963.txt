@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000014963|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|gabocabreram@hotmail.com|
+IC|20/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||SERVICIOS Y SUPLIDORA PETROLERA ECUATORIANA S.A. PETROSERVISUPPLY|1792300347001|DOLAR|||||0||||||||||||Pasaje El Jardn E10-05 y Av. 6 de Diciembre|
+T|263.39|0.00|0|263.39|0.00|0|39.51|302.90|0|302.90|
+TI|2|4|263.39|15|39.51|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|263.39|0|263.39|
+IM|2|4|15|263.39|39.51|IVA|
+IA|DIRECCION|Pasaje El Jardn E10-05 y Av. 6 de Diciembre|
+IA|TELEFONO|+593999461994|
+IA|OBSERVACION|pcz-3659|
+IA|VENCIMIENTO|20/12/2025|
+IA|EMISION|Quito|
+IA|CORREO|proveedores@petroservisupply.com,proveedores@petroservisupply.com,proveedores@petroservisupply.com,proveedores@petroservisupply.com,proveedores@petroservisupply.com|
+IA|PLAZO|30 días|
+PA|20|302.90|30|días|

@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000451797|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|myannuz@gye.satnet.net|
+IC|09/12/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||MARIA ISABEL ROLDOS AGUIRRE|0907369219|DOLAR|||||0||||||||||||entre rio calle 5ta mz g1 solar 25 primer piso|
+T|30.00|0.00|0|30.00|0.00|0|4.50|34.50|0|34.50|
+TI|2|4|30.00|15|4.50|IVA|
+DE|5129|5129|SERV ATENCION EN SITIO|1|30|0|30.00|
+IM|2|4|15|30.00|4.50|IVA|
+IA|DIRECCION|entre rio calle 5ta mz g1 solar 25 primer piso|
+IA|TELEFONO|+593999353284|
+IA|VENCIMIENTO|09/12/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|myannuz@gye.satnet.net,myannuz@gye.satnet.net,myannuz@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|34.50|0|días|

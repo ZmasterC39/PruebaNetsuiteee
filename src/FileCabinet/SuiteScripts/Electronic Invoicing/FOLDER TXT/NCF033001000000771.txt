@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|033|001|000000771|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|mayra.gallegos@emseguridad-q.gob.ec|
+IC|13/06/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||EP EMSEGURIDAD Empresa Pública Metropolitana de Logística para la Seguridad y la Co|1768156390001|DOLAR||01|033-001-000002525|31/03/2025|249.07|C-EC-1768156390001 EP EMSEGURIDAD Empresa Pública Metropolitana de Logística para la Seguridad y la Co FA033001000002525|||||||||||
+T|216.58|0.00|0|216.58|0.00|0|32.49|249.07|0|249.07|
+TI|2|4|15|216.58|32.49|IVA|
+DE|11399|11399|SERVICIO MONITOREO GPS (AS)|26|8.33|0|216.58|
+IM|2|4|15|216.58|32.49|IVA|
+IA|DIRECCION|Pasaje Espejo OE-240 Entre Guayaquil y Flores, Frente al Teatro Bolvar|
+IA|TELEFONO|+593988477370|
+IA|EMISION|Quito|
+IA|CORREO|mayra.gallegos@emseguridad-q.gob.ec|

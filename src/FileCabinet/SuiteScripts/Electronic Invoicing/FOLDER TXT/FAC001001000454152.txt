@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000454152|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|operaciones@pct.com.ec|
+IC|06/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PACIFIC TRUCKS PACITRUCKS S.A.|0992731389001|DOLAR|||||0||||||||||||Cdla Lote Industrial Inmaconsa Sl 4 Mz106 . via perimetral km 23, frente al hospital Universitario|
+T|49.50|0.00|0|49.50|0.00|0|7.43|56.93|0|56.93|
+TI|2|4|49.50|15|7.43|IVA|
+DE|8925|8925|VENT HM CORPORATIVO SERVICIO DE INSTALACIÓN|1|34.5|0|34.50|
+IM|2|4|15|34.50|5.18|IVA|
+DE|5129|5129|SERV ATENCION EN SITIO|1|15|0|15.00|
+IM|2|4|15|15.00|2.25|IVA|
+IA|DIRECCION|Cdla Lote Industrial Inmaconsa Sl 4 Mz106 . via perimetral km 23, frente al hospital Universitario|
+IA|TELEFONO|+593952634111|
+IA|OBSERVACION|CHASIS LZZPCCND9SJ369584|
+IA|VENCIMIENTO|05/02/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|operaciones@pct.com.ec,maria.jose.pincay@pct.com.ec,operaciones@pct.com.ec,fernando.salas@pct.com.ec,operaciones@pct.com.ec|
+IA|PLAZO|30 días|
+PA|20|56.93|30|días|

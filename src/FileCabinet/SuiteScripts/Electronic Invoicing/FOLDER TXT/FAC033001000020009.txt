@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000020009|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|hernangarnicaf@hotmail.com|
+IC|03/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||HERNAN ARMANDO GARNICA GUERRA|1707131353|DOLAR|||||0||||||||||||Av.amazonas O2-35 Y Luis Cordero Ref. Machachi|
+T|150.00|0.00|0|150.00|0.00|0|22.50|172.50|0|172.50|
+TI|2|4|150.00|15|22.50|IVA|
+DE|5915|5915|VENT HMONITOREO DISPOSITIVO|1|150|0|150.00|
+IM|2|4|15|150.00|22.50|IVA|
+IA|DIRECCION|Av.amazonas O2-35 Y Luis Cordero Ref. Machachi|
+IA|TELEFONO|+593999031537|
+IA|VENCIMIENTO|03/03/2026|
+IA|EMISION|Quito|
+IA|CORREO|hernangarnicaf@hotmail.com,hernangarnicaf@hotmail.com,hernangarnicaf@hotmail.com,hernangarnicaf@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|172.50|0|días|

@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|006|001|000081930|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|paalvarado@ciudadalfaro.gob.ec|
+IC|18/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CORPORACION CIUDAD ALFARO|1768148880001|DOLAR|||||0||||||||||||Av. Malecón Alberto F. Santos entre Aguilera y Peña|
+T|84.00|0.00|0|84.00|0.00|0|12.60|96.60|0|96.60|
+TI|2|4|84.00|15|12.60|IVA|
+DE|15002|15002|SERVICIO MONITOREO GPS (AS) RENOVACION|6|14|0|84.00|
+IM|2|4|15|84.00|12.60|IVA|
+IA|DIRECCION|Av. Malecón Alberto F. Santos entre Aguilera y Peña|
+IA|CIUDAD|MANTA|
+IA|TELEFONO|+593987690639|
+IA|OBSERVACION|factura correspodiente al 01 de abril al 30 abril del 2026|
+IA|VENCIMIENTO|17/06/2026|
+IA|EMISION|Manta|
+IA|CORREO|paalvarado@ciudadalfaro.gob.ec,paalvarado@ciudadalfaro.gob.ec,paalvarado@ciudadalfaro.gob.ec,mlandin@ciudadalfaro.gob.ec,ttapia@ciudadalfaro.gob.ec|
+IA|PLAZO|30 días|
+PA|20|96.60|30|días|

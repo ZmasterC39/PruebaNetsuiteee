@@ -1,0 +1,128 @@
+<customrecordtype scriptid="customrecord_ht_pe_bag_queue">
+    <accesstype>NONENEEDED</accesstype>
+    <allowinlineediting>F</allowinlineediting>
+    <allowuiaccess>F</allowuiaccess>
+    <description>Cola idempotente para sincronizar revisiones BOM con ordenes de fabricacion.</description>
+    <enableoptimisticlocking>T</enableoptimisticlocking>
+    <enablesystemnotes>T</enablesystemnotes>
+    <includeinsearchmenu>F</includeinsearchmenu>
+    <includename>T</includename>
+    <isinactive>F</isinactive>
+    <recordname>HT PE BAG - Cola de sincronizacion</recordname>
+    <customrecordcustomfields>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_scope">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Alcance</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_bomrev">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>ID Revision BOM</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_workorder">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>ID Orden de fabricacion</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_target_fp">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Fingerprint objetivo</label>
+            <maxlength>64</maxlength>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_done_fp">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Fingerprint procesado</label>
+            <maxlength>64</maxlength>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_status">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Estado</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_priority">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Prioridad</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_attempts">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Intentos</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_not_before">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>DATETIMETZ</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>No procesar antes de</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_request_id">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>ID de solicitud</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_claim_token">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Token de reclamo</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_claim_until">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>DATETIMETZ</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Reclamo vigente hasta</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_error_code">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Codigo de error</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_q_last_error">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>CLOBTEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Ultimo error</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+    </customrecordcustomfields>
+</customrecordtype>

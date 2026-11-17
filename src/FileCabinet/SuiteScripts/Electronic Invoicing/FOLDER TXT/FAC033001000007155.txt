@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000007155|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|gerencia@importexauniformes.com.ec|
+IC|25/06/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ROSMERY PAULINA NARANJO BENITEZ|1712438165001|DOLAR|||||0||||||||||||Cap. Ramn Borja E9-60 y 6 de diciembre/ Sector Kennedy (Junto al conjunto brasilia 1)|
+T|257.00|0.00|0|257.00|0.00|0|38.55|295.55|0|295.55|
+TI|2|4|257.00|15|38.55|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|257|0|257.00|
+IM|2|4|15|257.00|38.55|IVA|
+IA|DIRECCION|Cap. Ramn Borja E9-60 y 6 de diciembre/ Sector Kennedy (Junto al conjunto brasilia 1)|
+IA|TELEFONO|+593996338386|
+IA|VENCIMIENTO|27/06/2025|
+IA|EMISION|Quito|
+IA|CORREO|gerencia@importexauniformes.com.ec|
+IA|PLAZO|2 días|
+PA|20|295.55|2|días|

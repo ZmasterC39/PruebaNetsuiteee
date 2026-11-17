@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000460949|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|yadira_blakman@hotmail.com|
+IC|31/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||YADIRA ALEXANDRA BLAKMAN BRIONES|0908963242|DOLAR|||||0||||||||||||VILLA CLUB ETAPA COSMO MZ. 8 VILLA 35|
+T|168.00|0.00|0|168.00|0.00|0|25.20|193.20|0|193.20|
+TI|2|4|168.00|15|25.20|IVA|
+DE|11257|11257|RENO HM AMI RENOVACION|1|168|0|168.00|
+IM|2|4|15|168.00|25.20|IVA|
+IA|DIRECCION|VILLA CLUB ETAPA COSMO MZ. 8 VILLA 35|
+IA|TELEFONO|+593999480217|
+IA|VENCIMIENTO|31/03/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|yadira_blakman@hotmail.com,yadira_blakman@hotmail.com,yadira_blakman@hotmail.com,yadira_blakman@hotmail.com,yadira_blakman@hotmail.com,yadira_blakman@hotmail.com,yadira_blakman@hotmail.com,yadira_blakman@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|193.20|0|días|

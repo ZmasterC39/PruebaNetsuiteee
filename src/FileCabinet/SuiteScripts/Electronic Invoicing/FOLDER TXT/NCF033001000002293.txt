@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|033|001|000002293|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|dilansoccer@hotmail.com|
+IC|22/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||CONSUELO ISABEL ORTIZ ORTIZ|1719521260|DOLAR||01|033-001-000014609|10/11/2025|100.00|C-EC-1719521260 CONSUELO ISABEL ORTIZ ORTIZ|||||||||||
+T|86.96|0.00|0|86.96|0.00|0|13.04|100.00|0|100.00|
+TI|2|4|15|86.96|13.04|IVA|
+DE|7766|7766|RENO HMONITOREO RENOVACION 4TO AÑO|1|86.96|0|86.96|
+IM|2|4|15|86.96|13.04|IVA|
+IA|DIRECCION|Armenia 1 puente 9 calle Juan Jose Izurieta y Luis Talavera, la casa es de un piso verde a una cuadra de la iglesia Sagrado corazon de Jesus|
+IA|TELEFONO|+593985820342|
+IA|EMISION|Quito|
+IA|CORREO|dilansoccer@hotmail.com,dilansoccer@hotmail.com,dilansoccer@hotmail.com,dilansoccer@hotmail.com|

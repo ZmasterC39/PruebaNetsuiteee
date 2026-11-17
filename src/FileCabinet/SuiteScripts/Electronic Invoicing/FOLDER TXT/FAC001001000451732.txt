@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000451732|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|johnnysanz@outlook.es|
+IC|08/12/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||MARIA FILADELFIA HERNANDEZ SIGCHO|0601338692|DOLAR|||||0||||||||||||Canton Naranjito Calle Atahualpa entre Garcia Moreno y Loja Cdla San Elias|
+T|83.48|42.00|0|125.48|0.00|0|12.52|138.00|0|138.00|
+TI|2|4|83.48|15|12.52|IVA|
+DE|12279|12279|VENT HUNTER MED PLUS PLAN INDIVIDUAL|1|42|0|42.00|
+IM|2|0|0|42.00|0.00|IVA|
+DE|5118|5118|VENT HMONITOREO REPUESTO|1|83.48|0|83.48|
+IM|2|4|15|83.48|12.52|IVA|
+IA|DIRECCION|Canton Naranjito Calle Atahualpa entre Garcia Moreno y Loja Cdla San Elias|
+IA|CIUDAD|NARANJITO|
+IA|TELEFONO|+593982240584|
+IA|VENCIMIENTO|08/12/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|johnnysanz@outlook.es,johnnysanz@outlook.es,johnnysanz@outlook.es,johnnysanz@outlook.es,johnnysanz@outlook.es|
+IA|PLAZO|0 días|
+PA|20|138.00|0|días|

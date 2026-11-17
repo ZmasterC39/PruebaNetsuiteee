@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000473590|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|ing.oswaldo_rosales@live.com|
+IC|13/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||OSWALDO ENRIQUE ROSALES TOMALA|0919961276|DOLAR|||||0||||||||||||Direccin: La Libertad, Cdla. Virgen del Carmen, Av. 40 calle 15|
+T|233.93|0.00|0|233.93|0.00|0|35.09|269.02|0|269.02|
+TI|2|4|233.93|15|35.09|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|233.93|0|233.93|
+IM|2|4|15|233.93|35.09|IVA|
+IA|DIRECCION|Direccin: La Libertad, Cdla. Virgen del Carmen, Av. 40 calle 15|
+IA|TELEFONO|+593993512065|
+IA|OBSERVACION|PLACAS: GTK-8885|
+IA|VENCIMIENTO|13/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|ing.oswaldo_rosales@live.com,ing.oswaldo_rosales@live.com,ing.oswaldo_rosales@live.com,ing.oswaldo_rosales@live.com|
+IA|PLAZO| días|
+PA|20|269.02|0|días|

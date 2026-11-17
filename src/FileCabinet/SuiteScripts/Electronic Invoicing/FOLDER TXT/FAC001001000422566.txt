@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000422566|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|vicenteduvuges@hotmail.com|
+IC|11/02/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||VICENTA EDUVIGES URIÑA MEZZA|0907215958|DOLAR|||||0||||||||||||MZ#5323 SOL#21 VILLA BONITA MI LOTE|
+T|20.00|0.00|0|20.00|0.00|0|3.00|23.00|0|23.00|
+TI|2|4|20.00|15|3.00|IVA|
+DE|2360|2360|CHEQ HMONITOREO CHEQUEO|1|20|0|20.00|
+IM|2|4|15|20.00|3.00|IVA|
+IA|DIRECCION|MZ#5323 SOL#21 VILLA BONITA MI LOTE|
+IA|TELEFONO|+593991500742|
+IA|OBSERVACION|presentado inconvenientes con el consumo de batería, ya fue revisado por el mecánico y el electromecánico, revisaron las conexiones y se percataron con la desconexión y conexión del dispositivo que la batería de descargaba|
+IA|VENCIMIENTO|11/02/2025|
+IA|EMISION|Guayaquil|
+IA|PLAZO|0 días|
+PA|20|23.00|0|días|

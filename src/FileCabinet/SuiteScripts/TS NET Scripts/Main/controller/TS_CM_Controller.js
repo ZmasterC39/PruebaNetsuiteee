@@ -19,11 +19,9 @@ define([
     (log, record, search, query, _constant, _platformController, runtime, _platformControllerLatam) => {
         //! FUNCTIONS ====================================================================================================================================================
         //var URLPX = 'https://tyr.24hm.net/API_PX/WSPX.asmx'; 
-        //PROD
-        //var URLPX = 'https://tristan.24hm.net/API_PX_LATAM/WSPX.asmx';
-        //DESA 
-        var URLPX = 'https://tyr.24hm.net/API_PX/WSPX.asmx';
-        const createServiceOrder = (requestHeader, requestDetail) => {
+        var URLPX = 'https://tristan.24hm.net/API_PX_LATAM/WSPX.asmx';
+
+      const createServiceOrder2 = (requestHeader, requestDetail) => {
             let objRecord = record.create({ type: record.Type.SALES_ORDER, isDynamic: true });
             for (let j in requestHeader) {
                 objRecord.setValue({ fieldId: requestHeader[j].field, value: requestHeader[j].value });
@@ -34,11 +32,88 @@ define([
                     log.debug('Detail...............', requestDetail[k][i].field + ' - ' + requestDetail[k][i].value);
                     detail.setCurrentSublistValue({ sublistId: 'item', fieldId: requestDetail[k][i].field, value: requestDetail[k][i].value, ignoreFieldChange: false });
                 }
-                objRecord.commitLine({ sublistId: 'item' });
-            }
+               objRecord.commitLine({ sublistId: 'item' });
+            }              
             let response = objRecord.save({ ignoreMandatoryFields: true });
             return response;
         }
+
+       	const createServiceOrder = (requestHeader, requestDetail) => {
+            let objRecord = record.create({
+                type: record.Type.SALES_ORDER,
+                isDynamic: true
+            });
+            // =========================
+            // Header
+            // =========================
+            for (let j in requestHeader) {
+                objRecord.setValue({
+                    fieldId: requestHeader[j].field,
+                    value: requestHeader[j].value
+                });
+            }
+            // =========================
+            // Lines
+            // =========================
+            for (let k in requestDetail) {			
+                objRecord.selectNewLine({ sublistId: 'item' });
+                const line = requestDetail[k];
+                log.debug({
+                title: `Linea ${k}`,
+                details: JSON.stringify(line, null, 2) // muestra toda la info de la línea
+                });
+                // -------- 1. ITEM PRIMERO --------
+                const itemField = line.find(f => f.field === 'item');
+                objRecord.setCurrentSublistValue({
+                    sublistId: 'item',
+                    fieldId: 'item',
+                    value: Number(itemField.value)
+                });
+                // -------- 2. QUANTITY --------
+                const qtyField = line.find(f => f.field === 'quantity');
+                if (qtyField) {
+                    objRecord.setCurrentSublistValue({
+                        sublistId: 'item',
+                        fieldId: 'quantity',
+                        value: Number(qtyField.value)
+                    });
+                }
+                // -------- 3. PRICE LEVEL --------
+                const priceField = line.find(f => f.field === 'price');
+                const rateField = line.find(f => f.field === 'rate'); 
+                const billingField = line.find(f => f.field === 'billingschedule');
+                if (priceField) {
+                    const priceValue = Number(priceField.value);
+                    objRecord.setCurrentSublistValue({
+                        sublistId: 'item',
+                        fieldId: 'price',
+                        value: Number(priceField.value)
+                    }); 
+                }
+                // -------- 4. RESTO DE CAMPOS (excepto billing) --------
+                line
+                    .filter(f => !['item','quantity','price','billingschedule'].includes(f.field))
+                    .forEach(f => {
+                        objRecord.setCurrentSublistValue({
+                            sublistId: 'item',
+                            fieldId: f.field,
+                            value: f.value,
+                            ignoreFieldChange: false
+                        });
+                    });
+                // -------- 5. BILLING SCHEDULE SIEMPRE AL FINAL --------
+                //const billingField = line.find(f => f.field === 'billingschedule');
+                if (billingField && billingField.value) {
+                    objRecord.setCurrentSublistValue({
+                        sublistId: 'item',
+                        fieldId: 'billingschedule',
+                        value: Number(billingField.value)
+                    });
+                }          
+                objRecord.commitLine({ sublistId: 'item' });
+            }
+            return objRecord.save({ ignoreMandatoryFields: true });
+	    };
 
         const createInvoice = (serviceOrder) => {
             let recTransform = record.transform({
@@ -54,12 +129,10 @@ define([
 
         const createJournal = (fecha, provision, nota) => {
             const objRecord = record.create({ type: record.Type.JOURNAL_ENTRY, isDynamic: true });
-
             objRecord.setValue({ fieldId: 'trandate', value: new Date(fecha) });
             //objRecord.setValue({ fieldId: 'currency', value: context.currency });
             objRecord.setValue({ fieldId: 'memo', value: nota });
             objRecord.setValue({ fieldId: 'subsidiary', value: 2 });
-
             objRecord.selectNewLine({ sublistId: 'line' });
             objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'account', value: 1237, ignoreFieldChange: false });
             objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'debit', value: provision, ignoreFieldChange: false });
@@ -67,7 +140,6 @@ define([
             // objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'class', value: 3, ignoreFieldChange: false });
             objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'location', value: 2, ignoreFieldChange: false });
             objRecord.commitLine({ sublistId: 'line' });
-
             objRecord.selectNewLine({ sublistId: 'line' });
             objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'account', value: 798, ignoreFieldChange: false });
             objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'credit', value: provision, ignoreFieldChange: false });
@@ -75,9 +147,7 @@ define([
             // objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'class', value: 3, ignoreFieldChange: false });
             objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'location', value: 2, ignoreFieldChange: false });
             objRecord.commitLine({ sublistId: 'line' });
-
             const newJournal = objRecord.save({ ignoreMandatoryFields: false });
-
             return newJournal
         }
 
@@ -124,9 +194,8 @@ define([
                             //response = _platformController.envioPXDesinstalacionDispositivo(id); // id Orden de Trabajo
                             // GALVAR LATAM
                             response = _platformControllerLatam.envioPXDesinstalacionDispositivo(id, subsidiariaEjecucion, URLPX); // id Orden de Trabajo
-
                             log.debug('ResponsePX', response);
-                            break;
+                            break;                      
                         case _constant.Valor.VALOR_004_RENOVACION_DE_DISP:
                             log.debug('VALOR_004_RENOVACION_DE_DISP', 'Entré a RENOVACION PX');
                             let sql6 = 'select custrecord_ht_pp_codigo from customrecord_ht_cr_pp_valores where recordid= ? and  custrecord33 = ? '
@@ -142,22 +211,25 @@ define([
                                 FAM = "";
                                 log.debug('Familia Renovacion', "No se realizado la Renovacion en PX");
                             }                        
-                            break;                      
+                            break;                          
+                        //GALVAR 16-03-2026
+                        case _constant.Valor.VALOR_005_MODIFICACION_DE_DISP:
+                            log.debug('VALOR_005_MODIFICACION_DE_DISP', 'Entré a Chequeo de Modificacion de Dispositivo PX');
+                            response = _platformControllerLatam.envioPXModificacionDispositivo(id, subsidiariaEjecucion, URLPX, ""); // id Orden de Trabajo
+                            log.debug('ResponsePX', response);
+                            break;                       
                         case _constant.Valor.VALOR_006_MANTENIMIENTO_CHEQUEO_DE_DISPOSITIVO:
                             log.debug('VALOR_006_MANTENIMIENTO_CHEQUEO_DE_DISPOSITIVO', 'Entré a Chequeo Dispositivo PX');
                             //response = _platformController.envioPXMantenimientoChequeoDispositivo(id); // id Orden de Trabajo
                             // GALVAR LATAM
                             response = _platformControllerLatam.envioPXMantenimientoChequeoDispositivo(id, subsidiariaEjecucion, URLPX, ""); // id Orden de Trabajo
-
                             log.debug('ResponsePX', response);
                             break;
-
                         case _constant.Valor.VALOR_007_CHEQUEO_DE_COMPONENTES:
                             log.debug('VALOR_007_CHEQUEO_DE_COMPONENTES', 'Entré a Chequeo Componente de PX');
                             //response = _platformController.envioPXMantenimientoChequeoDispositivo(id); // id Orden de Trabajo
                             // GALVAR LATAM
                             response = _platformControllerLatam.envioPXChequeoComponentes(id, subsidiariaEjecucion, URLPX); // id Orden de Trabajo
-
                             log.debug('ResponsePX', response);
                             break;
                         default:
@@ -348,7 +420,7 @@ define([
                                 relatedItemsArr.push(searchResultCount[index].getValue({ name: 'custrecord_ht_pp_descripcionit' }));
                             }
                         }
-                        log.debug('Crea ordenes de trabajo', '===============================')
+                        //log.debug('Crea ordenes de trabajo', '===============================')
                         if (relatedItemsArr.length != 0) {
                             log.debug('Crea ordenes de trabajo relatedItemsArr', '===============================')
                             for (let index = 0; index < relatedItemsArr.length; index++) {
@@ -406,7 +478,6 @@ define([
                             objRecord.setValue({ fieldId: 'custrecord_ht_ot_orden_serivicio_txt', value: id.ordenServicio });
                             //galvar 20-06-25
                             objRecord.setValue({ fieldId: 'custrecord_cons_trabajo', value: id.comentario });
-
                             if (fam != 0)
                                 objRecord.setValue({ fieldId: 'custrecord_ht_ot_producto', value: fam });
                             if (ttr != 0)
@@ -527,7 +598,10 @@ define([
                                     "AND",
                                     ["custrecord_ht_co_familia_prod", "anyof", familia],
                                     "AND",
-                                    ["custrecord_ht_co_estado", "anyof", _constant.Status.INSTALADO]
+                                    ["custrecord_ht_co_estado", "anyof", _constant.Status.INSTALADO],
+                                    //galvar 26-08-2026
+                                    "AND",
+                                    ["isinactive", "is", "F"] 
                                 ],
                             columns:
                                 [
@@ -550,7 +624,6 @@ define([
                                 response.mensaje = 'No existe un producto instalado con esta familia de producto del ITEM ' + item + '.'
                             }
                         }
-
                         //TODO: BACKUP VALIDACION CPI POR QUERY
                         // let parametrosRespoitem = parametrizacion(item);
                         // if (parametrosRespoitem.length != 0) {
@@ -574,14 +647,12 @@ define([
                         //             }
                         //         }
                         //     }
-
                         //     if (cont == 0) {
                         //         response.status = false;
                         //         response.mensaje = 'No existe un producto instalado con esta familia de producto del ITEM ' + item + '.'
                         //     }
                         //     //TODO: Revisar cuando sea para instalación y desinstalación, dependiendo del caso debe validar que tenga instalado y otro no.
                         // }
-
                         if (type == '') {
                             response.status = false;
                             response.mensaje = 'El bien ingresado no cuenta con dispositivo instalado.'
@@ -784,7 +855,10 @@ define([
                         "AND",
                         ["custrecord_ht_co_bien", "anyof", objParameters.bien],
                         "AND",
-                        ["custrecord_ht_co_estado", "anyof", _constant.Status.INSTALADO]
+                        ["custrecord_ht_co_estado", "anyof", _constant.Status.INSTALADO],
+                        //galvar 26-08-2026
+                        "AND",
+                        ["isinactive", "is", "F"]   
                     ],
                 columns:
                     [
@@ -810,6 +884,9 @@ define([
                         ["custrecord_ht_co_numeroserieproducto", "anyof", objParameters.serieChaser],
                         "AND",
                         ["custrecord_ht_co_bien", "anyof", objParameters.bien],
+                        //galvar 26-08-2026
+                        "AND",
+                        ["isinactive", "is", "F"]   
                     ],
                 columns:
                     [
@@ -832,7 +909,6 @@ define([
             let binNumber, account, unitCost, flujo, item, location, customRecord, field, columns, memo;
             let sql = 'SELECT custrecord_ht_cuenta_activo_fijo_transit FROM subsidiary WHERE id = ?';
             let result = query.runSuiteQL({ query: sql, params: [scriptParameters.subsidiary] }).asMappedResults();
-
             //^Alquiler
             if (tipoFlujo == 0) {
                 binNumber = getBinNumberAlquiler(scriptParameters.location);
@@ -863,7 +939,6 @@ define([
                     return true;
                 });
             }
-
             //^Convenio
             if (tipoFlujo == 1) {
                 // binNumber = getBinNumberComercial(scriptParameters.location);
@@ -875,7 +950,6 @@ define([
                 location = scriptParameters.location;
                 memo = 'Ajuste de ingreso por convenio.'
             }
-
             //^Custodia
             if (tipoFlujo == 2) {
                 let ubicacion = 0;
@@ -895,7 +969,6 @@ define([
                 item = scriptParameters.dispositivo;
                 memo = 'Ajuste de ingreso por custodia.'
             }
-
             //^Garantía
             if (tipoFlujo == 3) {
                 binNumber = scriptParameters.deposito;
@@ -906,12 +979,18 @@ define([
                 location = scriptParameters.location;
                 memo = 'Ajuste de ingreso por garantía.'
             }
-
-            log.debug('createInventoryAdjustmentIngreso.account', account);
-            log.debug('createInventoryAdjustmentIngreso.binNumber', binNumber);
-            log.debug('createInventoryAdjustmentIngreso.customRecord', customRecord);
-            log.debug('createInventoryAdjustmentIngreso.item', item);
-            log.debug('createInventoryAdjustmentIngreso.location', location);
+            //log.debug('createInventoryAdjustmentIngreso.account', account);
+            //log.debug('createInventoryAdjustmentIngreso.binNumber', binNumber);
+            //log.debug('createInventoryAdjustmentIngreso.customRecord', customRecord);
+            //log.debug('createInventoryAdjustmentIngreso.item', item);
+            //log.debug('createInventoryAdjustmentIngreso.location', location);
+            log.debug("createInventoryAdjustmentIngreso", {
+                                "account": account,
+                                "binNumber": binNumber,
+                                "customRecord": customRecord,
+                                "item": item,
+                                "location": location
+                            });
             let newAdjust = record.create({ type: record.Type.INVENTORY_ADJUSTMENT, isDynamic: true });
             newAdjust.setValue({ fieldId: 'subsidiary', value: scriptParameters.subsidiary });
             newAdjust.setValue({ fieldId: 'account', value: account });
@@ -920,14 +999,12 @@ define([
             newAdjust.setValue({ fieldId: 'custbody_ht_af_ejecucion_relacionada', value: scriptParameters.salesorder });
             newAdjust.setValue({ fieldId: 'memo', value: memo });
             newAdjust.setValue({ fieldId: flujo, value: scriptParameters.boleano });
-
             newAdjust.selectNewLine({ sublistId: 'inventory' });
             newAdjust.setCurrentSublistValue({ sublistId: 'inventory', fieldId: 'item', value: item });
             //newAdjust.setCurrentSublistValue({ sublistId: 'inventory', fieldId: 'item', value: scriptParameters.dispositivo });
             newAdjust.setCurrentSublistValue({ sublistId: 'inventory', fieldId: 'location', value: location });
             newAdjust.setCurrentSublistValue({ sublistId: 'inventory', fieldId: 'adjustqtyby', value: 1 });
             newAdjust.setCurrentSublistValue({ sublistId: 'inventory', fieldId: 'unitcost', value: unitCost });
-
             let newDetail = newAdjust.getCurrentSublistSubrecord({ sublistId: 'inventory', fieldId: 'inventorydetail' });
             newDetail.selectNewLine({ sublistId: 'inventoryassignment' });
             newDetail.setCurrentSublistValue({ sublistId: 'inventoryassignment', fieldId: 'receiptinventorynumber', value: scriptParameters.comercial });
@@ -935,7 +1012,6 @@ define([
             newDetail.setCurrentSublistValue({ sublistId: 'inventoryassignment', fieldId: 'status', value: 1 });
             newDetail.commitLine({ sublistId: 'inventoryassignment' });
             newAdjust.commitLine({ sublistId: 'inventory' });
-
             let newRecord = newAdjust.save({ enableSourcing: false, ignoreMandatoryFields: true });
             log.error("newRecord", newRecord);
             return newRecord;
@@ -995,7 +1071,7 @@ define([
         const historialInstall = (installId, objParameters) => {
             log.debug('objParameters', JSON.stringify(objParameters))
             let count = verifyExistHistorial(objParameters.salesorder, objParameters.ordentrabajoId, _constant.Status.DEVOLUCION);
-            log.debug('Count', count)
+            //log.debug('Count', count)
             if (count == 0) {
                 let objRecord = record.create({ type: 'customrecord_ht_ct_cobertura_transaction', isDynamic: true });
                 objRecord.setValue({ fieldId: 'custrecord_ht_ct_transacciones', value: installId });
@@ -1039,6 +1115,9 @@ define([
                         ["custrecord_ht_co_subsidiaria", "anyof", objParameters.subsidiary],
                         "AND",
                         ["custrecord_ht_co_bien", "anyof", objParameters.bien],
+                        //galvar 12-03-2026
+                        "AND",
+                        ["isinactive", "is", "F"],
                         "AND",
                         ["custrecord_ht_co_estado", "noneof", _constant.Status.DESINSTALADO]
                     ],
@@ -1055,9 +1134,11 @@ define([
                 log.debug('estado', objParameters.estado);
                 let updateRec = record.load({ type: 'customrecord_ht_co_cobertura', id: installId, isDynamic: true });
                 if ((objParameters.estado == _constant.Status.DANADO || objParameters.estado == _constant.Status.PERDIDO || objParameters.estado == _constant.Status.DESINSTALADO || objParameters.estado == _constant.Status.DADO_DE_BAJO || objParameters.estado == _constant.Status.CODIGO_BLANCO || objParameters.estado == _constant.Status.ENTREGADO_A_CLIENTE)) {
-                    log.debug('estadoInfra', objParameters.estado);
-                    updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: _constant.Status.DESINSTALADO });
+                    //log.debug('estadoInfra', objParameters.estado);
+                    //updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: _constant.Status.DESINSTALADO });
                     updateRec.setValue({ fieldId: 'custrecord_ht_co_estado_cobertura', value: _constant.Status.SIN_DISPOSITIVO });
+                    //galvar 12-03-2026
+                    updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: objParameters.estado });
                     historialInstall(installId, objParameters)
                 } else if (objParameters.estado == _constant.Status.INSTALADO) {
                     //galvar
@@ -1075,7 +1156,104 @@ define([
             return installId;
         }
 
-         const upgrade= (objParameters) => {
+        const updateDesinstall = (objParameters) => {
+            log.debug('updateDesinstall', objParameters)
+            let installId = 0;
+            let productInstall = search.create({
+                type: "customrecord_ht_co_cobertura",
+                filters:
+                    [
+                        ["custrecord_ht_co_numeroserieproducto", "anyof", objParameters.serieChaser],
+                        "AND",
+                        ["custrecord_ht_co_subsidiaria", "anyof", objParameters.subsidiary],
+                        "AND",
+                        ["custrecord_ht_co_bien", "anyof", objParameters.bien],
+                         //galvar 12-03-2026
+                        "AND",
+                        ["isinactive", "is", "F"]
+                    ],
+                columns:
+                    ['internalid']
+            });
+            let resultCount = productInstall.runPaged().count;
+            if (resultCount > 0) {
+                productInstall.run().each(result => {
+                    installId = result.getValue({ name: "internalid" });
+                    return true;
+                });
+                log.debug('Desinstall', installId);
+                log.debug('estado...Desinstall', objParameters.estado);
+                let updateRec = record.load({ type: 'customrecord_ht_co_cobertura', id: installId, isDynamic: true });
+                if ((objParameters.estado == _constant.Status.DANADO || objParameters.estado == _constant.Status.PERDIDO || objParameters.estado == _constant.Status.DESINSTALADO || objParameters.estado == _constant.Status.DADO_DE_BAJO || objParameters.estado == _constant.Status.CODIGO_BLANCO || objParameters.estado == _constant.Status.ENTREGADO_A_CLIENTE)) {
+                    //log.debug('estadoInfra', objParameters.estado);
+                    //updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: _constant.Status.DESINSTALADO });
+                    updateRec.setValue({ fieldId: 'custrecord_ht_co_estado_cobertura', value: _constant.Status.SIN_DISPOSITIVO });
+                    //galvar 12-03-2026
+                    updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: objParameters.estado });
+                    //if ((objParameters.estado == _constant.Status.DANADO )) {
+                    //    updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: _constant.Status.DANADO });
+                    //} else if (objParameters.estado == _constant.Status.PERDIDO) {
+                    //    updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: _constant.Status.PERDIDO });
+                    // } else if (objParameters.estado == _constant.Status.DESINSTALADO) {
+                    //     updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: _constant.Status.DESINSTALADO });
+                    // } else if (objParameters.estado == _constant.Status.DADO_DE_BAJO) {
+                    //     updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: _constant.Status.DADO_DE_BAJO });
+                    // } else if (objParameters.estado == _constant.Status.CODIGO_BLANCO) {
+                    //     updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: _constant.Status.CODIGO_BLANCO });
+                    // } else if (objParameters.estado == _constant.Status.ENTREGADO_A_CLIENTE) {
+                    //    updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: _constant.Status.ENTREGADO_A_CLIENTE });
+                    //}
+                    historialInstall(installId, objParameters)
+                }
+                // if (objParameters.t_PPS == true) { // DOAS 20/01/2025 - Se Comenta por conflicto en estado de la cobertura Caso Chequeo
+                //     updateRec.setValue({ fieldId: 'custrecord_ht_co_estado_cobertura', value: _constant.Status.SIN_DISPOSITIVO });
+                // }
+                let updaetIns = updateRec.save();
+                log.debug('ConfirmaciónActualizacióndeCobertura...Desinstall', updaetIns)
+            }
+            return installId;
+        }
+
+        const updateGarantia= (objParameters) => {
+            log.debug('updateGarantia', objParameters)
+            let installId = 0;
+            let productInstall = search.create({
+                type: "customrecord_ht_co_cobertura",
+                filters:
+                    [
+                        ["custrecord_ht_co_familia_prod", "anyof", objParameters.familia],
+                        "AND",
+                        ["custrecord_ht_co_subsidiaria", "anyof", objParameters.subsidiary],
+                        "AND",
+                        ["custrecord_ht_co_bien", "anyof", objParameters.bien],
+                         //galvar 12-03-2026
+                        "AND",
+                        ["isinactive", "is", "F"]
+                    ],
+                columns:
+                    ['internalid']
+            });
+            let resultCount = productInstall.runPaged().count;
+            if (resultCount > 0) {
+                productInstall.run().each(result => {
+                    installId = result.getValue({ name: "internalid" });
+                    return true;
+                });
+                log.debug('Garantia', installId);
+                log.debug('estado...Garantia', objParameters.estado);
+                if (objParameters.estado == _constant.Status.INSTALADO) { 
+                    let updateRec = record.load({ type: 'customrecord_ht_co_cobertura', id: installId, isDynamic: true });
+                    updateRec.setValue({ fieldId: 'custrecord_ht_co_estado_cobertura', value: _constant.Status.ACTIVO });
+                    updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: _constant.Status.INSTALADO });
+                    updateRec.setValue({ fieldId: 'custrecord_ht_co_numeroserieproducto', value: objParameters.serieChaser })
+                    let updaetIns = updateRec.save();
+                    log.debug('ConfirmaciónActualizacióndeCobertura...Garantia', updaetIns)
+                }             
+            }
+            return installId;
+        }
+      
+        const upgrade= (objParameters) => {
             log.debug('upgrade', objParameters)
             let installId = 0;
             let productInstall = search.create({
@@ -1086,9 +1264,11 @@ define([
                         "AND",
                         ["custrecord_ht_co_subsidiaria", "anyof", objParameters.subsidiary],
                         "AND",
-                        ["custrecord_ht_co_bien", "anyof", objParameters.bien]
+                        ["custrecord_ht_co_bien", "anyof", objParameters.bien],
+                        //galvar 12-03-2026
+                        "AND",
+                        ["isinactive", "is", "F"]
                     ],
-
                 columns:
                     ['internalid']
             });
@@ -1098,16 +1278,15 @@ define([
                     installId = result.getValue({ name: "internalid" });
                     return true;
                 });
-                log.debug('installId', installId);
-                log.debug('estado', objParameters.estado);
+                log.debug('upgrade', installId);
+                log.debug('estado...upgrade', objParameters.estado);
                 if (objParameters.estado == _constant.Status.INSTALADO) { 
                     let updateRec = record.load({ type: 'customrecord_ht_co_cobertura', id: installId, isDynamic: true });
                     updateRec.setValue({ fieldId: 'custrecord_ht_co_estado_cobertura', value: _constant.Status.UPG_CONVERTIDO });
                     updateRec.setValue({ fieldId: 'custrecord_ht_co_estado', value: _constant.Status.DESINSTALADO });
                     let updaetIns = updateRec.save();
-                    log.debug('ConfirmaciónActualizacióndeCobertura', updaetIns)
-                }
-                
+                    log.debug('ConfirmaciónActualizacióndeCobertura...upgrade', updaetIns)
+                }          
             }
             return installId;
         }
@@ -1148,7 +1327,6 @@ define([
                     //         tipeItmes = fieldLookUp.custitem_ht_ai_tipocomponente[0].value;
                     //     }
                     // }
-
                     //log.debug('tipeItmes', tipeItmes)
                     if (tipeItmes == 1) {
                         //log.debug('tipeItmesEntry', tipeItmes)
@@ -1176,7 +1354,6 @@ define([
                             });
                         });
                     }
-
                     if (tipeItmes == 2) {
                         //log.debug('tipeItmesEntry', tipeItmes)
                         let Simcard = getInventorynumber(arrayComponents, i, tipeItmes);
@@ -1193,7 +1370,6 @@ define([
                             });
                         });
                     }
-
                     if (tipeItmes == 3) {
                         //log.debug('tipeItmesEntry', tipeItmes)
                         let lojack = getInventorynumber(arrayComponents, i, tipeItmes);
@@ -1218,7 +1394,6 @@ define([
                 log.error('Error-CreateChaser', error);
                 return 0;
             }
-
         }
 
         const getInventorynumber = (arrayComponents, i, tipeItmes) => {
@@ -1278,10 +1453,8 @@ define([
                 default:
                     break;
             }
-
             // let invDetailRec = objRecord.getSublistSubrecord({ sublistId: 'component', fieldId: 'componentinventorydetail', line: i });
             // let inventoryAssignmentLines = invDetailRec.getLineCount({ sublistId: 'inventoryassignment' });
-
             // for (let j = 0; j < arrayParams.length; j++) {
             // let inventorynumber = invDetailRec.getSublistValue({ sublistId: 'inventoryassignment', fieldId: 'issueinventorynumber', line: j });
             let inventorynumber = arrayComponents[i];
@@ -1323,14 +1496,14 @@ define([
             let serie = 0;
             let suma = 0;
             let deviceBillOfMaterials = getDeviceBillofMaterials(disp);
-            log.debug('deviceBillOfMaterials', deviceBillOfMaterials);
+            //log.debug('deviceBillOfMaterials', deviceBillOfMaterials);
             let simBillOfMaterials = getSimBillofMaterials(sim);
-            log.debug('simBillOfMaterials', simBillOfMaterials);
+            //log.debug('simBillOfMaterials', simBillOfMaterials);
             let arrayComponents = getComponents(scriptParameters.item, scriptParameters.location);
             let account = arrayComponents[0][4];
             let binNumber = arrayComponents[0][3]
-            log.debug('ArrayComponents', arrayComponents);
-            log.debug('ARRAYYYY', disp + ' - ' + sim);
+            //log.debug('ArrayComponents', arrayComponents);
+            //log.debug('ARRAYYYY', disp + ' - ' + sim);
             for (let i = 0; i < arrayComponents.length; i++) {
                 let item = arrayComponents[i][2];
                 //log.debug('ITEMMMMM', arrayComponents[i][0].length + ' > ' + 0 + ' && ' + item + ' == ' + scriptParameters.item);
@@ -1340,7 +1513,6 @@ define([
                     newAdjust.setCurrentSublistValue({ sublistId: 'inventory', fieldId: 'location', value: scriptParameters.location });
                     newAdjust.setCurrentSublistValue({ sublistId: 'inventory', fieldId: 'adjustqtyby', value: -1 });
                     newAdjust.setCurrentSublistValue({ sublistId: 'inventory', fieldId: 'unitcost', value: arrayComponents[i][0] });
-
                     let newDetail = newAdjust.getCurrentSublistSubrecord({ sublistId: 'inventory', fieldId: 'inventorydetail' });
                     newDetail.selectNewLine({ sublistId: 'inventoryassignment' });
                     if (arrayComponents[i][1] != "4") {
@@ -1350,8 +1522,7 @@ define([
                             serie = getSerie(sim)
                         // if (arrayComponents[i][1] == 3)
                         //     serie = getSerie(disp)
-
-                        log.debug('SERIE', item + ' - ' + serie + ' - ' + arrayComponents[i][1]);
+                        //log.debug('SERIE', item + ' - ' + serie + ' - ' + arrayComponents[i][1]);
                         newDetail.setCurrentSublistValue({ sublistId: 'inventoryassignment', fieldId: 'issueinventorynumber', value: serie }); //8959300110505600000 //	1128192493
                         newDetail.setCurrentSublistValue({ sublistId: 'inventoryassignment', fieldId: 'binnumber', value: arrayComponents[i][3] });
                         newDetail.setCurrentSublistValue({ sublistId: 'inventoryassignment', fieldId: 'status', value: 1 });
@@ -1366,7 +1537,6 @@ define([
                     log.debug('SUMA', suma);
                 }
             }
-
             return {
                 account: account,
                 binNumber: binNumber,
@@ -1395,7 +1565,10 @@ define([
                     [
                         ["custrecord_ht_co_numeroserieproducto", "anyof", objParams.serieChaser],
                         "AND",
-                        ["custrecord_ht_co_bien", "anyof", objParams.bien]
+                        ["custrecord_ht_co_bien", "anyof", objParams.bien],
+                        //galvar 26-08-2026
+                        "AND",
+                        ["isinactive", "is", "F"]   
                     ],
                 columns:
                     ['internalid']
@@ -1439,7 +1612,6 @@ define([
                     registroCustodia = result.getValue({ name: "internalid", label: "Internal ID" });
                     return true;
                 });
-
                 // record.submitFields({
                 //     type: _constant.customRecord.CUSTODIA,
                 //     id: registroCustodia,
@@ -1449,7 +1621,6 @@ define([
                 //     },
                 //     options: { enableSourcing: false, ignoreMandatoryFields: true }
                 // });
-
                 let deleteRecordPromise = record.delete.promise({
                     type: _constant.customRecord.CUSTODIA,
                     id: registroCustodia
@@ -1536,7 +1707,6 @@ define([
                     objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'debit', value: provision, ignoreFieldChange: false });
                     objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'location', value: location, ignoreFieldChange: false });
                     objRecord.commitLine({ sublistId: 'line' });
-
                     objRecord.selectNewLine({ sublistId: 'line' });
                     objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'account', value: inventoryAccount, ignoreFieldChange: false });
                     objRecord.setCurrentSublistValue({ sublistId: 'line', fieldId: 'credit', value: provision, ignoreFieldChange: false });
@@ -1575,7 +1745,6 @@ define([
                     } else {
                         searchResult = objSearch.run().getRange({ start: start, end: searchResultCount });
                     }
-
                     for (let j in searchResult) {
                         const internalid = searchResult[j].getValue({ name: "internalid", summary: "GROUP" });
                         const item = searchResult[j].getValue({ name: "item", summary: "GROUP" });
@@ -1628,7 +1797,6 @@ define([
                 let entity = result.getValue({ name: 'entity' });
                 return true;
             });
-
             /*
             customrecord_ht_cuentas_nrocuotasSearchObj.id="customsearch1688534783904";
             customrecord_ht_cuentas_nrocuotasSearchObj.title="Cuentas y Nro Cuotas Search - DEVELOPER (copy)";
@@ -1638,7 +1806,6 @@ define([
 
         const getCoberturaSubsidiaria = (id) => {
             let subsidiariaEjecucion = runtime.getCurrentUser().subsidiary;
-
             log.error("...........subsidiary................", subsidiariaEjecucion);
             let arrayCobertura = [];
             let busqueda = search.create({
@@ -1648,6 +1815,9 @@ define([
                         ["custrecord_ht_co_bien", "anyof", id],
                         "AND",
                         ["custrecord_ht_co_subsidiaria", "anyof", subsidiariaEjecucion],
+                        //galvar 26-08-2026
+                        "AND",
+                        ["isinactive", "is", "F"]   
                     ],
                 columns:
                     [
@@ -1673,7 +1843,10 @@ define([
                 type: "customrecord_ht_co_cobertura",
                 filters:
                     [
-                        ["custrecord_ht_co_bien", "anyof", id]
+                        ["custrecord_ht_co_bien", "anyof", id],
+                        //galvar 26-08-2026
+                        "AND",
+                        ["isinactive", "is", "F"]   
                     ],
                 columns:
                     [
@@ -1719,9 +1892,7 @@ define([
                         let codigoParametrizacion = result.getValue(columns[1]);
                         let idValor = result.getValue(columns[2]);
                         let codigoValor = result.getValue(columns[3]);
-
                         if (!codigoParametrizacion) return;
-
                         parametrizacionResult[codigoParametrizacion] = {
                             parametrizacion: codigoParametrizacion,
                             valor: codigoValor,
@@ -1731,7 +1902,6 @@ define([
                     });
                 });
             }
-
             return parametrizacionResult;
         }
 
@@ -1954,7 +2124,6 @@ define([
                     binNumber = result.getValue({ name: "internalid", join: "binNumber", label: "Internal ID" });
                     return true;
                 });
-
                 let bomrevisionSearchObj = search.create({
                     type: "bomrevision",
                     filters:
@@ -2034,7 +2203,6 @@ define([
             //log.debug("itemSearchObj result count", searchResultCount);
             itemSearchObj.run().each(function (result) {
                 serie = account = result.getValue({ name: "internalid", join: "inventoryNumber", label: "Internal ID" });
-
                 return true;
             });
             return serie;
@@ -2247,7 +2415,7 @@ define([
                 let producto = results.length > 0 ? results[0]['producto'] : 0;
                 return producto;
             } catch (error) {
-                log.error('Error-getProductoInstalado', error)
+                log.error('Error-getProductoDesinstalado', error)
                 return 0;
             }
         }
@@ -2501,6 +2669,8 @@ define([
             updateHistorialAF,
             getDateNow,
             updateInstall,
+            updateDesinstall,
+            updateGarantia,
             getInstall,
             identifyServiceOrder,
             getItemOfServiceOrder,

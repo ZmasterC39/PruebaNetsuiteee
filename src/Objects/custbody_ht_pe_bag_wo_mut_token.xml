@@ -1,0 +1,11 @@
+<transactionbodycustomfield scriptid="custbody_ht_pe_bag_wo_mut_token">
+    <accesslevel>2</accesslevel>
+    <displaytype>HIDDEN</displaytype>
+    <fieldtype>TEXT</fieldtype>
+    <ismandatory>F</ismandatory>
+    <label>HT PE BAG - Token de mutacion OF</label>
+    <searchlevel>2</searchlevel>
+    <showinlist>F</showinlist>
+    <storevalue>T</storevalue>
+    <bodybom>T</bodybom>
+</transactionbodycustomfield>

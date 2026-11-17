@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000475019|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@globalenvios.net|
+IC|03/09/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||GLOBALENVIOS S.A|1791730534001|DOLAR|||||0||||||||||||KENNEDY NORTE, Ave. Francisco de Orellana #501, Ed. CENTRUM, Piso 12, Of. 2|
+T|263.39|0.00|0|263.39|0.00|0|39.51|302.90|0|302.90|
+TI|2|4|263.39|15|39.51|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|263.39|0|263.39|
+IM|2|4|15|263.39|39.51|IVA|
+IA|DIRECCION|KENNEDY NORTE, Ave. Francisco de Orellana #501, Ed. CENTRUM, Piso 12, Of. 2|
+IA|TELEFONO|+593999445195|
+IA|OBSERVACION|GTD-6740|
+IA|VENCIMIENTO|03/10/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@globalenvios.net,r.alcantara@globalenvios.net,r.alcantara@globalenvios.net,r.alcantara@globalenvios.net,r.alcantara@globalenvios.net|
+IA|PLAZO|30 días|
+PA|20|302.90|30|días|

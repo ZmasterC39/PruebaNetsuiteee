@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000471477|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|cgarzon@agripac.com.ec|
+IC|22/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||AGRIPAC S.A.|0990006687001|DOLAR|||||0||||||||||||GENERAL CORDOVA 623 Y PADRE SOLANO|
+T|210.00|0.00|0|210.00|0.00|0|31.50|241.50|0|241.50|
+TI|2|4|210.00|15|31.50|IVA|
+DE|10485|10485|ALQU HM CORPORATIVO SERVICIO ALQUILER|1|210|0|210.00|
+IM|2|4|15|210.00|31.50|IVA|
+IA|DIRECCION|GENERAL CORDOVA 623 Y PADRE SOLANO|
+IA|TELEFONO|+593991856192|
+IA|OBSERVACION|PLC.:GTY-7677 OC.# 7500321023|
+IA|VENCIMIENTO|21/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|vehiculo@agripac.com.ec,pvarelapincay@gmail.com,vehiculo@agripac.com.ec,dguerrero@agripac.com.ec,asistentevehiculos@agripac.com.ec,fgallo@agripac.com.ec,dguerrero@agripac.com.ec,asistentevehiculos@agripac.com.ec,JTOALA@AGRIPAC.COM.EC,fgallo@agripac.com.ec,sgarcia@agripac.com.ec|
+IA|PLAZO|30 días|
+PA|20|241.50|30|días|

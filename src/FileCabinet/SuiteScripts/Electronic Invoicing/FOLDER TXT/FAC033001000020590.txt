@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000020590|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|jcalvopina@empresaspichincha.com|
+IC|11/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||EMPRESA PUBLICA HIDROEQUINOCCIO EP.|1768152990001|DOLAR|||||0||||||||||||Colegio de Ingenieros Civiles de Pichincha, Corea E1-48 e Iñaquito|
+T|86.80|0.00|0|86.80|0.00|0|13.02|99.82|0|99.82|
+TI|2|4|86.80|15|13.02|IVA|
+DE|15002|15002|SERVICIO MONITOREO GPS (AS) RENOVACION|14|6.2|0|86.80|
+IM|2|4|15|86.80|13.02|IVA|
+IA|DIRECCION|Colegio de Ingenieros Civiles de Pichincha, Corea E1-48 e Iñaquito|
+IA|CIUDAD|QUITO|
+IA|TELEFONO|+59323830040|
+IA|OBSERVACION|SERVICIO DEL 16 DE ENERO AL 15 DE FEBRERO 2026|
+IA|VENCIMIENTO|10/04/2026|
+IA|EMISION|Quito|
+IA|CORREO|jcalvopina@empresaspichincha.com,jcalvopina@empresaspichincha.com,jcalvopina@empresaspichincha.com,jcalvopina@empresaspichincha.com,jcalvopina@empresaspichincha.com|
+IA|PLAZO|30 días|
+PA|20|99.82|30|días|

@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000457991|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|hsuarezborbor@hotmail.com|
+IC|24/02/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||OLGA STELLA ORELLANA COBEÑA|1302111610|DOLAR|||||0||||||||||||Sauces 9 Mz-r13 Solar 1 Casa De 2 Plantas Color Verde Con Beige|
+T|20.00|0.00|0|20.00|0.00|0|3.00|23.00|0|23.00|
+TI|2|4|20.00|15|3.00|IVA|
+DE|956|956|CHEQ HUNTER RASTREO CHEQUEO|1|20|0|20.00|
+IM|2|4|15|20.00|3.00|IVA|
+IA|DIRECCION|Sauces 9 Mz-r13 Solar 1 Casa De 2 Plantas Color Verde Con Beige|
+IA|TELEFONO|+593939431164|
+IA|VENCIMIENTO|24/02/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|hsuarezborbor@hotmail.com,brenda_suarez31@hotmail.com,olgaorellana1956@hotmail.com,brenda_suarez31@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|23.00|0|días|

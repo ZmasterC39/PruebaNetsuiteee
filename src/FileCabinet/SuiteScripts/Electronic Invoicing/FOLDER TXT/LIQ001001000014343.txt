@@ -1,0 +1,10 @@
+VE|03|LIQUIDACIONDECOMPRA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||03|001|001|000014343|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|billing@cloudflare.com|
+IC|31/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|08||Cloudflare, Inc.|270805829|DOLAR|||||0||08/2026|||||||||||
+T|0|0|0|13.33|0|0|0|13.33|0|13.33|
+TI|2|4|13.33|15|2|IVA|
+DE|1125||P-EC-270805829 Cloudflare, Inc. - ofrece aceleración y seguridad para sitios y aplicaciones web - Estados Unidos - JNeira|1|13.33|0|13.33|
+IM|2|4|15|13.33|2|IVA|
+IA|TELEFONO|+18889935273|
+IA|EMISION|Guayaquil|
+PA|20|10.00|||

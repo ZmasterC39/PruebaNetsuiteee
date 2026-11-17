@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000028202|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Mafernandafg@yahoo.com|
+IC|18/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||LUIS ERNESTO FLORES GONZALEZ|1707818702|DOLAR|||||0||||||||||||Edificio Mansion Blanca Torre Londres Of.602 Republica Del Salvador No.1082|
+T|251.39|0.00|0|251.39|0.00|0|37.71|289.10|0|289.10|
+TI|2|4|251.39|15|37.71|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|251.39|0|251.39|
+IM|2|4|15|251.39|37.71|IVA|
+IA|DIRECCION|Edificio Mansion Blanca Torre Londres Of.602 Republica Del Salvador No.1082|
+IA|TELEFONO|+593997725230|
+IA|VENCIMIENTO|25/08/2026|
+IA|EMISION|Quito|
+IA|CORREO|Mafernandafg@yahoo.com,mariferflores@gmail.com,mariferflores@gmail.com,mariferflores@gmail.com|
+IA|PLAZO|7 días|
+PA|20|289.10|7|días|

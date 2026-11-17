@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|006|001|000080595|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|avijlgm@hotmail.com|
+IC|20/02/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||JORGE LUIS GUILLEN MENDOZA|1304315615001|DOLAR|||||0||||||||||||Via Portoviejo Crucita S/n Km 1 1/2 Frente A La Estacion De Servico De La Utm En Ofcinas De Avihol|
+T|163.30|0.00|0|163.30|0.00|0|24.50|187.80|0|187.80|
+TI|2|4|163.30|15|24.50|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|163.3|0|163.30|
+IM|2|4|15|163.30|24.50|IVA|
+IA|DIRECCION|Via Portoviejo Crucita S/n Km 1 1/2 Frente A La Estacion De Servico De La Utm En Ofcinas De Avihol|
+IA|TELEFONO|+593997002101|
+IA|OBSERVACION|PLC.:PDJ-7184|
+IA|VENCIMIENTO|25/02/2026|
+IA|EMISION|Manta|
+IA|CORREO|avijlgm@hotmail.com,cobranzasypagosjlgm@hotmail.com,avijlgm@hotmail.com,avijlgm@hotmail.com,avijlgm@hotmail.com|
+IA|PLAZO|5 días|
+PA|20|187.80|5|días|

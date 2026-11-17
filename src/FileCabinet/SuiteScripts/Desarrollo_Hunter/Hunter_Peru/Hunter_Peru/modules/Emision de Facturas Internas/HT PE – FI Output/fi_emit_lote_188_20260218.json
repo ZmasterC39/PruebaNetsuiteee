@@ -1,0 +1,1 @@
+{"ok":[{"sourceTranId":"OS-PE-M001-111111111930","targetTranId":"FIN-PE-0000167829","cuota":1,"cuotasTotal":1,"itemLine":1,"itemId":"46094","msg":"OK"},{"sourceTranId":"OS-PE-M001-111111111932","targetTranId":"FIN-PE-0000167830","cuota":1,"cuotasTotal":1,"itemLine":1,"itemId":"46094","msg":"OK"}],"err":[],"total":2,"finishedAt":"2026-02-18T20:49:36.946Z"}

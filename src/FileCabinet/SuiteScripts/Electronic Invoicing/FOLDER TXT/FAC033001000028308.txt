@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000028308|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|marcelocaceres22@gmail.com|
+IC|20/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||JUAN MARCELO CACERES|0300902608001|DOLAR|||||0||||||||||||Ave. Eustorgio Salgado, del Redondel de miraflores a mano derecha 78 metros en transportes Caceres.|
+T|260.00|0.00|0|260.00|0.00|0|39.00|299.00|0|299.00|
+TI|2|4|260.00|15|39.00|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|1|260|0|260.00|
+IM|2|4|15|260.00|39.00|IVA|
+IA|DIRECCION|Ave. Eustorgio Salgado, del Redondel de miraflores a mano derecha 78 metros en transportes Caceres.|
+IA|TELEFONO|+593982229577|
+IA|OBSERVACION|TAA-4418|
+IA|VENCIMIENTO|28/08/2026|
+IA|EMISION|Quito|
+IA|CORREO|marcelocaceres22@gmail.com,marcelocaceres22@gmail.com,marcelocaceres22@gmail.com|
+IA|PLAZO|8 días|
+PA|20|299.00|8|días|

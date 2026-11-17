@@ -1,0 +1,144 @@
+<customrecordtype scriptid="customrecord_ht_pe_bag_session">
+    <accesstype>NONENEEDED</accesstype>
+    <allowinlineediting>F</allowinlineediting>
+    <allowuiaccess>F</allowuiaccess>
+    <description>Sesion JIT emitida por el Gate y consumida al guardar el ensamblaje.</description>
+    <enableoptimisticlocking>T</enableoptimisticlocking>
+    <enablesystemnotes>T</enablesystemnotes>
+    <includeinsearchmenu>F</includeinsearchmenu>
+    <includename>T</includename>
+    <isinactive>F</isinactive>
+    <recordname>HT PE BAG - Sesion de ensamble</recordname>
+    <customrecordcustomfields>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_workorder">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>ID Orden de fabricacion</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_ot">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>ID Orden de trabajo</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_bomrev">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>ID Revision BOM</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_user">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>ID Usuario</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_build">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>ID Ensamblaje</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_fingerprint">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Fingerprint</label>
+            <maxlength>64</maxlength>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_wo_fingerprint">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Fingerprint Orden de fabricacion</label>
+            <maxlength>64</maxlength>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_status">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Estado</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_expires">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>DATETIMETZ</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Vence</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_opened">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>DATETIMETZ</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Formulario abierto</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_claimed">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>DATETIMETZ</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Sesion reclamada</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_used">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>DATETIMETZ</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Sesion consumida</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_lock_token">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Token de lock</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_bom_lock_token">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Token de lock BOM</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_request">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>ID de solicitud</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_s_error">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>CLOBTEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>Error</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+    </customrecordcustomfields>
+</customrecordtype>

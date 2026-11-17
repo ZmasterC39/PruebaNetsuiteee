@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|001|001|000028926|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|anitadavilafr@gmail.com|
+IC|16/09/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ECUADORIAN TRADE C. LTDA. DORIANTRADE|0991164960001|DOLAR||01|001-001-000440710|20/08/2025|302.90|FA001001000440710 GCA-6974|||||||||||
+T|263.39|0.00|0|263.39|0.00|0|39.51|302.90|0|302.90|
+TI|2|4|15|263.39|39.51|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|263.39|0|263.39|
+IM|2|4|15|263.39|39.51|IVA|
+IA|DIRECCION|Victor Manuel Rendon 301 y P. Carbo, piso 3, of 301|
+IA|TELEFONO|+593997202181|
+IA|EMISION|Guayaquil|
+IA|CORREO|anitadavilafr@gmail.com,asistenteadministrativa@doriantrade.com,anitadavilafr@gmail.com,bolivar.davila@doriantrade.com,anamaria.davila@doriantrade.com,ecuadorian0911@gmail.com,bolivar.davila@doriantrade.com|

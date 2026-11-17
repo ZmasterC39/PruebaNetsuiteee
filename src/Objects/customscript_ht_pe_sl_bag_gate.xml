@@ -1,0 +1,17 @@
+<suitelet scriptid="customscript_ht_pe_sl_bag_gate">
+    <description>Gate JIT para validar y sincronizar la orden de fabricacion antes de abrir el ensamblaje.</description>
+    <isinactive>F</isinactive>
+    <name>HT PE BAG - Gate de ensamblaje</name>
+    <notifyowner>F</notifyowner>
+    <scriptfile>[/SuiteScripts/Desarrollo_Hunter/Hunter_Peru/appHunter/modules/BOM Assembly Assurance/HT_PE_SL_BAG_GATE.js]</scriptfile>
+    <scriptdeployments>
+        <scriptdeployment scriptid="customdeploy_ht_pe_sl_bag_gate">
+            <allroles>T</allroles>
+            <isdeployed>T</isdeployed>
+            <isonline>F</isonline>
+            <loglevel>AUDIT</loglevel>
+            <status>RELEASED</status>
+            <title>HT PE BAG - Gate de ensamblaje</title>
+        </scriptdeployment>
+    </scriptdeployments>
+</suitelet>

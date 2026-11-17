@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|1|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|009|001|000064558|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|pandrade76@hotmail.com|
+IC|12/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PEDRO ONOFRE ANDRADE VERA|1714103981001|DOLAR|||||0||||||||||||Av Chones Cdla Del Magisterio Bloque 1 Dpto 6|
+T|20.00|0.00|0|20.00|0.00|0|3.00|23.00|0|23.00|
+TI|2|4|20.00|15|3.00|IVA|
+DE|2360|2360|CHEQ HMONITOREO CHEQUEO|1|20|0|20.00|
+IM|2|4|15|20.00|3.00|IVA|
+IA|DIRECCION|Av Chones Cdla Del Magisterio Bloque 1 Dpto 6|
+IA|CIUDAD|SANTO DOMINGO|
+IA|TELEFONO|+593997356480|
+IA|OBSERVACION|PAD-1723|
+IA|VENCIMIENTO|12/01/2026|
+IA|EMISION|Santo Domingo|
+IA|CORREO|pandrade76@hotmail.com,pandrade76@hotmail.com,pandrade76@hotmail.com,pandrade76asf@hotmail.com,pandrade76@hotmail.com,pandrade76asf@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|23.00|0|días|

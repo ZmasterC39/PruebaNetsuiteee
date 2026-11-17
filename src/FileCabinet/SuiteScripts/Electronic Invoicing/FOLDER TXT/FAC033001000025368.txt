@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000025368|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|David.sola.narvaez@gmail.com|
+IC|16/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||MARIO DAVID SOLA NARVAEZ|1713813457|DOLAR|||||0||||||||||||Miguel Angel 71 St Marcus 604B|
+T|0.00|42.00|0|42.00|0.00|0|0.00|42.00|0|42.00|
+TI|2|0|42.00|0|0.00|IVA|
+DE|12279|12279|VENT HUNTER MED PLUS PLAN INDIVIDUAL|1|42|0|42.00|
+IM|2|0|0|42.00|0.00|IVA|
+IA|DIRECCION|Miguel Angel 71 St Marcus 604B|
+IA|TELEFONO|+593998836387|
+IA|VENCIMIENTO|18/06/2026|
+IA|EMISION|Quito|
+IA|CORREO|David.sola.narvaez@gmail.com,david.sola.narvaez@gmail.com,david.sola.narvaez@gmail.com,david.sola.narvaez@gmail.com,david.sola.narvaez@gmail.com|
+IA|PLAZO|2 días|
+PA|20|42.00|2|días|

@@ -1,0 +1,13 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|001|001|000031141|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|cgarzon@agripac.com.ec|
+IC|12/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||AGRIPAC S.A.|0990006687001|DOLAR||01|001-001-000464977|06/05/2026|63.25|FA001001000464977 FACT DE 2 FIN|||||||||||
+T|55.00|0.00|0|55.00|0.00|0|8.25|63.25|0|63.25|
+TI|2|4|15|55.00|8.25|IVA|
+DE|8875|8875|DESI HM CORPORATIVO ENTREGA DIRECTA DESINSTALACIÓN|1|25|0|25.00|
+IM|2|4|15|25.00|3.75|IVA|
+DE|5129|5129|SERV ATENCION EN SITIO|1|30|0|30.00|
+IM|2|4|15|30.00|4.50|IVA|
+IA|DIRECCION|GENERAL CORDOVA 623 Y PADRE SOLANO|
+IA|TELEFONO|+593991856192|
+IA|EMISION|Guayaquil|
+IA|CORREO|vehiculo@agripac.com.ec,pvarelapincay@gmail.com,vehiculo@agripac.com.ec,dguerrero@agripac.com.ec,asistentevehiculos@agripac.com.ec,fgallo@agripac.com.ec,dguerrero@agripac.com.ec,asistentevehiculos@agripac.com.ec,JTOALA@AGRIPAC.COM.EC,fgallo@agripac.com.ec,sgarcia@agripac.com.ec|

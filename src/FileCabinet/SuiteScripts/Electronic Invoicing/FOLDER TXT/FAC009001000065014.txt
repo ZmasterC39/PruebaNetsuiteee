@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|009|001|000065014|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|orodriguezlara@hotmail.com|
+IC|27/02/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||OMAR DARIO RODRIGUEZ LARA|1720717915001|DOLAR|||||0||||||||||||km 54.via a Esmeraldas recinto Nuevos Horizontes. finca de palma.|
+T|690.00|0.00|0|690.00|0.00|0|103.50|793.50|0|793.50|
+TI|2|4|690.00|15|103.50|IVA|
+DE|2320|2320|RENO HM CORPORATIVO RENOVACION|3|115|0|345.00|
+IM|2|4|15|345.00|51.75|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|3|115|0|345.00|
+IM|2|4|15|345.00|51.75|IVA|
+IA|DIRECCION|km 54.via a Esmeraldas recinto Nuevos Horizontes. finca de palma.|
+IA|TELEFONO|+593997532878|
+IA|OBSERVACION|PLACAS : PBC-1743 , PWY- 0832 , XBA-7907|
+IA|VENCIMIENTO|07/03/2026|
+IA|EMISION|Santo Domingo|
+IA|CORREO|orodriguezlara@hotmail.com,orodriguezlara@hotmail.com,orodriguezlara@hotmail.com,orodriguezlara@hotmail.com|
+IA|PLAZO|8 días|
+PA|20|793.50|8|días|

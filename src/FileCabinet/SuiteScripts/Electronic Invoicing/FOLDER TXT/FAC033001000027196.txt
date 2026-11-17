@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000027196|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|mariozambrano0861@gmail.com|
+IC|27/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||MARIO ESTALIN ZAMBRANO CLAVIJO|1706795638|DOLAR|||||0||||||||||||E13  SnIsla Marchena Av Granados /ch Arangon 3 /ec/jipijapa -quito . .|
+T|240.00|0.00|0|240.00|0.00|0|36.00|276.00|0|276.00|
+TI|2|4|240.00|15|36.00|IVA|
+DE|9621|9621|RENO GPS HMT RENOVACION|1|240|0|240.00|
+IM|2|4|15|240.00|36.00|IVA|
+IA|DIRECCION|E13  SnIsla Marchena Av Granados /ch Arangon 3 /ec/jipijapa -quito . .|
+IA|TELEFONO|+593992707594|
+IA|VENCIMIENTO|03/08/2026|
+IA|EMISION|Quito|
+IA|CORREO|mariozambrano0861@gmail.com,mariozambrano0861@gmail.com,mariozambrano0861@gmail.com,mariozambrano0861@gmail.com,mariozambrano0861@gmail.com,mariozambrano0861@gmail.com|
+IA|PLAZO|7 días|
+PA|20|276.00|7|días|

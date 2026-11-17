@@ -219,7 +219,7 @@
                     "<FechaInicioCobertura>" + context.FechaInicioCobertura + "</FechaInicioCobertura>" +
                     "<FechaFinCobertura>" + context.FechaFinCobertura + "</FechaFinCobertura>" 
         }
-        if (['010','016','017','018'].includes(String(context.OperacionOrden))) {
+        if (['010','016','017'].includes(String(context.OperacionOrden))) {
             rowXml +="<NombreEjecutiva>" + context.NombreEjecutiva + "</NombreEjecutiva>" +
                     "<Ciudad>" + context.Ciudad + "</Ciudad>" +
                     "<Sucursal>" + context.Sucursal + "</Sucursal>"  +  
@@ -227,7 +227,14 @@
                     "<FechaInicioCobertura></FechaInicioCobertura>" +
                     "<FechaFinCobertura></FechaFinCobertura>"                 
         }
-
+        if (['018'].includes(String(context.OperacionOrden))) {
+            rowXml +="<NombreEjecutiva>" + context.NombreEjecutiva + "</NombreEjecutiva>" +
+                    "<Ciudad>" + context.Ciudad + "</Ciudad>" +
+                    "<Sucursal>" + context.Sucursal + "</Sucursal>"  +  
+                    "<EstadoCartera>" + context.EstadoCartera + "</EstadoCartera>" +
+                    "<FechaInicioCobertura></FechaInicioCobertura>" +
+                    "<FechaFinCobertura></FechaFinCobertura>"                 
+        }
         //vehiculo
         if (['001','018'].includes(String(context.OperacionOrden))) {
             rowXml +="<Vehiculo>" +
@@ -307,8 +314,30 @@
                     "<OperacionDispositivo>" + (context.OperacionDispositivo || "") + "</OperacionDispositivo>" +
                     "<VidAnterior></VidAnterior>" +
                     "</Dispositivo>" 
-        }        
-        if (['005','006','007','008','009'].includes(String(context.OperacionOrden))) {
+        }   
+        if (['005','006'].includes(String(context.OperacionOrden))) {
+            rowXml += "<Dispositivo>" +
+                    "<Vid>" + (context.Vid || "") + "</Vid>" +
+                    "<IdProducto>" + (context.IdProducto || "") + "</IdProducto>" +
+                    "<DescProducto>" + (context.DescProducto || "") + "</DescProducto>" +
+                    "<CodMarcaDispositivo>" + (context.CodMarcaDispositivo || "") + "</CodMarcaDispositivo>" +
+                    "<MarcaDispositivo>" + (context.MarcaDispositivo || "") + "</MarcaDispositivo>" +
+                    "<CodModeloDispositivo>" + (context.CodModeloDispositivo || "") + "</CodModeloDispositivo>" +
+                    "<ModeloDispositivo>" + (context.ModeloDispositivo || "") + "</ModeloDispositivo>" +
+                    "<Sn>" + (context.Sn || "") + "</Sn>" +
+                    "<Imei>" + (context.Imei || "") + "</Imei>" +
+                    "<NumeroCamaras>" + (context.NumeroCamaras || "") + "</NumeroCamaras>" +
+                    "<DireccionMac>" + (context.DireccionMac || "") + "</DireccionMac>" +
+                    "<Icc>" + (context.Icc || "") + "</Icc>" +
+                    "<NumeroCelular>" + (context.NumeroCelular || "") + "</NumeroCelular>" +
+                    "<Operadora>" + (context.Operadora || "") + "</Operadora>" +
+                    "<EstadoSim>" + (context.EstadoSim || "") + "</EstadoSim>" +
+                    context.Servicios +
+                    "<OperacionDispositivo>" + (context.OperacionDispositivo || "") + "</OperacionDispositivo>" +
+                    "<VidAnterior>" + (context.VidAnterior || "") + "</VidAnterior>" +
+                    "</Dispositivo>" 
+        }
+        if (['007','008','009'].includes(String(context.OperacionOrden))) {
             rowXml += "<Dispositivo>" +
                     "<Vid>" + (context.Vid || "") + "</Vid>" +
                     "<IdProducto></IdProducto>" +
@@ -449,7 +478,8 @@
         }
 
         //financiera
-        if (context.OperacionOrden == "001") {
+        //if (context.OperacionOrden == "001") {
+        if (['001','018'].includes(String(context.OperacionOrden))) {
             rowXml +="<Financiera>" +
                     "<IdentificadorFinanciera>" + (context.IdentificadorFinanciera || "") + "</IdentificadorFinanciera>" +
                     "<RazonSocialFinanciera>" + (context.RazonSocialFinanciera || "") + "</RazonSocialFinanciera>" +
@@ -459,12 +489,13 @@
                     "<EmailFinanciera>" + (context.EmailFinanciera || "") + "</EmailFinanciera>" +
                     "</Financiera>" 
         }
-        if (['002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','018','019'].includes(String(context.OperacionOrden))) {
+        if (['002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','019'].includes(String(context.OperacionOrden))) {
             rowXml +="<Financiera/>" 
         }
 
         //aseguradora
-        if (context.OperacionOrden == "001") {
+        //if (context.OperacionOrden == "001") {
+        if (['001','018'].includes(String(context.OperacionOrden))) {
             rowXml +="<Aseguradora>" +
                     "<IdentificadorAseguradora>" + (context.IdentificadorAseguradora || "") + "</IdentificadorAseguradora>" +
                     "<RazonSocialAseguradora>" + (context.RazonSocialAseguradora || "") + "</RazonSocialAseguradora>" +
@@ -474,12 +505,13 @@
                     "<EmailAseguradora>" + (context.EmailAseguradora || "") + "</EmailAseguradora>" +
                     "</Aseguradora>"
         }
-        if (['002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','018','019'].includes(String(context.OperacionOrden))) {
+        if (['002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','019'].includes(String(context.OperacionOrden))) {
             rowXml +="<Aseguradora/>" 
         }
 
         //convenio
-        if (context.OperacionOrden == "001") {
+        //if (context.OperacionOrden == "001") {
+        if (['001','018'].includes(String(context.OperacionOrden))) {
             rowXml +="<Convenio>" +
                     "<IdentificadorConvenio>" + (context.IdentificadorConvenio || "") + "</IdentificadorConvenio>" +
                     "<RazonSocialConvenio>" + (context.RazonSocialConvenio || "") + "</RazonSocialConvenio>" +
@@ -489,7 +521,7 @@
                     "<EmailConvenio>" + (context.EmailConvenio || "") + "</EmailConvenio>"+
                     "</Convenio>"
         }
-        if (['002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','018','019'].includes(String(context.OperacionOrden))) {
+        if (['002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','019'].includes(String(context.OperacionOrden))) {
             rowXml +="<Convenio/>" 
         }
         //cierre

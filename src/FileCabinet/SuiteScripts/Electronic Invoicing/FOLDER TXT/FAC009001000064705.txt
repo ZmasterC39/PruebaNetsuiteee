@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|009|001|000064705|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|riego.valleriojavita@gmail.com|
+IC|30/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||JUNTA DE RIEGO Y DRENAJE VALLE DEL RÍO JAVITA|2490033877001|DOLAR|||||0||||||||||||Santa Elena - Comuna San Marcos - Calle principal ref. A un costado de la junta de agua potable|
+T|249.50|0.00|0|249.50|0.00|0|37.43|286.93|0|286.93|
+TI|2|4|249.50|15|37.43|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|1|249.5|0|249.50|
+IM|2|4|15|249.50|37.43|IVA|
+IA|DIRECCION|Santa Elena - Comuna San Marcos - Calle principal ref. A un costado de la junta de agua potable|
+IA|TELEFONO|+593997373925|
+IA|OBSERVACION|CHasis: 1P06603XES3103507|
+IA|VENCIMIENTO|01/03/2026|
+IA|EMISION|Santo Domingo|
+IA|CORREO|riego.valleriojavita@gmail.com|
+IA|PLAZO|30 días|
+PA|20|286.93|30|días|

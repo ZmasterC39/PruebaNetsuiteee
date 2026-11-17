@@ -1,0 +1,15 @@
+/**
+ * @NApiVersion 2.1
+ * @NScriptType ScheduledScript
+ * @NModuleScope SameAccount
+ */
+define(['N/log'], (log) => {
+  const execute = () => {
+    try {
+      log.audit({ title: 'Hola mundo', details: 'Ejecutado correctamente.' });
+    } catch (e) {
+      log.error({ title: 'Error en Hola mundo', details: e });
+    }
+  };
+  return { execute };
+});

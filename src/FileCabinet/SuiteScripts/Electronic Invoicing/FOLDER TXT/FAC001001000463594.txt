@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000463594|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@amcrsa.com|
+IC|28/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CISCR CIA LTDA Corporación Integral de Seguridad y Control de Riesgo|0992856491001|DOLAR|||||0||||||||||||Cdla. Florida Norte Mz. 404 V. 10|
+T|200.00|0.00|0|200.00|0.00|0|30.00|230.00|0|230.00|
+TI|2|4|200.00|15|30.00|IVA|
+DE|10467|10467|VENT HBLOCK HEAVY REPUESTO GPS|1|200|0|200.00|
+IM|2|4|15|200.00|30.00|IVA|
+IA|DIRECCION|Cdla. Florida Norte Mz. 404 V. 10|
+IA|TELEFONO|+593989627496|
+IA|OBSERVACION|13506 CANLIV589|
+IA|VENCIMIENTO|28/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@amcrsa.com,wrodriguez@amcrsa.com,administracion@amcrsa.com,wrodriguez@amcrsa.com,wrodriguez@amcrsa.com|
+IA|PLAZO|30 días|
+PA|20|230.00|30|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000462920|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|lilibeth.falcones@deprati.com.ec|
+IC|17/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ALMACENES DE PRATI S.A.|0990011214001|DOLAR|||||0||||||||||||Luque, 502 Y BOYACA|
+T|864.00|0.00|0|864.00|0.00|0|129.60|993.60|0|993.60|
+TI|2|4|864.00|15|129.60|IVA|
+DE|7781|7781|ALQU HUNTER RASTREO TRANSMISION ALQUILER|6|144|0|864.00|
+IM|2|4|15|864.00|129.60|IVA|
+IA|DIRECCION|Luque, 502 Y BOYACA|
+IA|TELEFONO|+593980600223|
+IA|OBSERVACION|PDD6474 / GTF6043 / GSO3556 / GTP1786 / GSM4859 / GSM4860|
+IA|VENCIMIENTO|17/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|lilibeth.falcones@deprati.com.ec,lilibeth.falcones@deprati.com.ec,gabriela.osorio@deprati.com.ec,patricio.torres@deprati.com.ec,jose.solorzano@deprati.com.ec,dennis.palacios@deprati.com.ec,facturas.servicios@deprati.com.ec,violeta.rodriguez@deprati.com.ec,kary.balladares@deprati.com.ec|
+IA|PLAZO|30 días|
+PA|20|993.60|30|días|

@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000470413|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|aalarcon@asagri.com|
+IC|06/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PORKAGRO S.A.|0992449306001|DOLAR|||||0||||||||||||Av. Felipe Peso C., Bodegas La Carlota, local #27. Alborada 10ma etapa. Guayaquil|
+T|240.00|0.00|0|240.00|0.00|0|36.00|276.00|0|276.00|
+TI|2|4|240.00|15|36.00|IVA|
+DE|11257|11257|RENO HM AMI RENOVACION|1|120|0|120.00|
+IM|2|4|15|120.00|18.00|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|120|0|120.00|
+IM|2|4|15|120.00|18.00|IVA|
+IA|DIRECCION|Av. Felipe Peso C., Bodegas La Carlota, local #27. Alborada 10ma etapa. Guayaquil|
+IA|TELEFONO|+593999885368|
+IA|OBSERVACION|:GSZ-7296|
+IA|VENCIMIENTO|21/07/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|aalarcon@asagri.com,aalarcon@asagri.com,abuhayar@asagri.com,abuhayar@asagri.com,aalarcon@asagri.com,aalarcon@asagri.com,abuhayar@asagri.com|
+IA|PLAZO|15 días|
+PA|20|276.00|15|días|

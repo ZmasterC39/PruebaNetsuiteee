@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|001|001|000029756|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|christophergruenberg@hansacomsa.com|
+IC|10/12/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||HANSACOM S.A.|0990900388001|DOLAR||01|001-001-000450494|03/12/2025|366.85|FA001001000450494 se reemplaza con FA001001000450688 GCT-2574 C-EC-0990900388001 HANSACOM S.A.|||||||||||
+T|319.00|0.00|0|319.00|0.00|0|47.85|366.85|0|366.85|
+TI|2|4|15|319.00|47.85|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|319|0|319.00|
+IM|2|4|15|319.00|47.85|IVA|
+IA|DIRECCION|VICTOR EMILIO ESTRADA #509 Y LAS MONJAS OFICINA 9|
+IA|TELEFONO|+593999450000|
+IA|EMISION|Guayaquil|
+IA|CORREO|christophergruenberg@hansacomsa.com,christophergruenberg@hansacomsa.com,christophergruenberg@hansacomsa.com,facturacion@hansacomsa.com,christophergruenberg@hansacomsa.com,christophergruenberg@hansacomsa.com|

@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|033|001|000003138|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|a.vallejo@bomberosruminahui.gob.ec|
+IC|15/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Cuerpo de Bomberos de Rumiñahui|1798194700001|DOLAR||01|033-001-000021492|31/03/2026|138.00|C-EC-1798194700001 Cuerpo de Bomberos de Rumiñahui FA033001000021492|||||||||||
+T|120.00|0.00|0|120.00|0.00|0|18.00|138.00|0|138.00|
+TI|2|4|15|120.00|18.00|IVA|
+DE|15002|15002|SERVICIO MONITOREO GPS (AS) RENOVACION|20|6|0|120.00|
+IM|2|4|15|120.00|18.00|IVA|
+IA|DIRECCION|Shyris y Altar, Sangolqu  Ecuador|
+IA|TELEFONO|+593984383273|
+IA|EMISION|Quito|
+IA|CORREO|a.vallejo@bomberosruminahui.gob.ec,a.vallejo@bomberosruminahui.gob.ec,a.vallejo@bomberosruminahui.gob.ec,a.vallejo@bomberosruminahui.gob.ec,a.vallejo@bomberosruminahui.gob.ec,a.vallejo@bomberosruminahui.gob.ec|

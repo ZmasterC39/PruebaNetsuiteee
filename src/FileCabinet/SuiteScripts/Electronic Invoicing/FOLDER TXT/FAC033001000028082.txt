@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000028082|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|administracion@chavezsolutions.com|
+IC|12/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CHAVEZSOLUTIONS AMBIENTALES CIA. LTDA.|1792286182001|DOLAR|||||0||||||||||||Ignacio Asn # 52-27 y Antonio Romn|
+T|792.00|0.00|0|792.00|0.00|0|118.80|910.80|0|910.80|
+TI|2|4|792.00|15|118.80|IVA|
+DE|2320|2320|RENO HM CORPORATIVO RENOVACION|3|264|0|792.00|
+IM|2|4|15|792.00|118.80|IVA|
+IA|DIRECCION|Ignacio Asn # 52-27 y Antonio Romn|
+IA|TELEFONO|+593992804701|
+IA|OBSERVACION|PDS-1589/PFG-2900/PDS-1589|
+IA|VENCIMIENTO|11/09/2026|
+IA|EMISION|Quito|
+IA|CORREO|administracion@chavezsolutions.com,administracion@chavezsolutions.com,gerenciacomercial@chavezsolutions.com,gerenciacomercial@chavezsolutions.com,contable@chavezsolutions.com|
+IA|PLAZO|30 días|
+PA|20|910.80|30|días|

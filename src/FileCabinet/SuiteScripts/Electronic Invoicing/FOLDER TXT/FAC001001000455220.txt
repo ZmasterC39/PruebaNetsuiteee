@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000455220|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|info@acuariosdelmar.com.ec|
+IC|23/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ACUARIOS DEL MAR S.A. ACDELMAR|0992469838001|DOLAR|||||0||||||||||||CALLE 1ERA #821 entre guayacanes e higueras|
+T|289.00|0.00|0|289.00|0.00|0|43.35|332.35|0|332.35|
+TI|2|4|289.00|15|43.35|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|289|0|289.00|
+IM|2|4|15|289.00|43.35|IVA|
+IA|DIRECCION|CALLE 1ERA #821 entre guayacanes e higueras|
+IA|TELEFONO|+593997032979|
+IA|OBSERVACION|GCB-7494|
+IA|VENCIMIENTO|23/04/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidadgye@acuariosdelmar.com.ec,info@acuariosdelmar.com.ec,contabilidadgye@acuariosdelmar.com.ec,contabilidadgye@acuariosdelmar.com.ec,contabilidadgye@acuariosdelmar.com.ec,info@acuariosdelmar.com.ec|
+IA|PLAZO|90 días|
+PA|20|332.35|90|días|

@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000018466|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Mario0600@hotmail.com|
+IC|30/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||MARIO ERNESTO ALULEMA MATUTE|0600220578|DOLAR|||||0||||||||||||Los Cisnes #oe 10-2012 Y San Juan De Dios Casa Color Verde De 3 Pisos Rf. Esquina Tanques De Agua Mirasierra|
+T|244.00|0.00|0|244.00|0.00|0|36.60|280.60|0|280.60|
+TI|2|4|244.00|15|36.60|IVA|
+DE|11257|11257|RENO HM AMI RENOVACION|1|155|0|155.00|
+IM|2|4|15|155.00|23.25|IVA|
+DE|4321|4321|GARANTIA EXTENDIDA|1|89|0|89.00|
+IM|2|4|15|89.00|13.35|IVA|
+IA|DIRECCION|Los Cisnes #oe 10-2012 Y San Juan De Dios Casa Color Verde De 3 Pisos Rf. Esquina Tanques De Agua Mirasierra|
+IA|TELEFONO|+593998530492|
+IA|VENCIMIENTO|30/01/2026|
+IA|EMISION|Quito|
+IA|CORREO|Mario0600@hotmail.com,xhavybas17@icloud.com,javier.ar3@outlook.com,mario0600@hotmail.com,xhavybas17@icloud.com|
+IA|PLAZO|0 días|
+PA|20|280.60|0|días|

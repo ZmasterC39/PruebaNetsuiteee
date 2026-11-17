@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000462954|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|gerencia@incuseg.com|
+IC|17/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||INCUSEG CIA. LTDA.|0992797630001|DOLAR|||||0||||||||||||Km. 13.5 Avenida Len Febres Cordero - Edificio River Plaza 3er. Piso, oficina #314 - Cantn Daule, parroquia la Aurora.|
+T|80.00|0.00|0|80.00|0.00|0|12.00|92.00|0|92.00|
+TI|2|4|80.00|15|12.00|IVA|
+DE|10877|10877|VENT CARGADOR HUNTER BLOCK S|2|40|0|80.00|
+IM|2|4|15|80.00|12.00|IVA|
+IA|DIRECCION|Km. 13.5 Avenida Len Febres Cordero - Edificio River Plaza 3er. Piso, oficina #314 - Cantn Daule, parroquia la Aurora.|
+IA|TELEFONO|+593993230628|
+IA|OBSERVACION|989510 BLOCKS2148|
+IA|VENCIMIENTO|17/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|marielac@incuseg.com,gerencia@incuseg.com,gerencia@incuseg.com,incuseg@outlook.com,gerencia@incuseg.com,gerencia@incuseg.com|
+IA|PLAZO|30 días|
+PA|20|92.00|30|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000441367|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|erikavivianacedenosabando@gmail.com|
+IC|28/08/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ERIKA VEVIANA CEDEÑO SABANDO|1724963903001|DOLAR|||||0||||||||||||EL CARMEN - MANABI - calle sapotal y cristo rey|
+T|260.00|0.00|0|260.00|0.00|0|39.00|299.00|0|299.00|
+TI|2|4|260.00|15|39.00|IVA|
+DE|11257|11257|RENO HM AMI RENOVACION|1|260|0|260.00|
+IM|2|4|15|260.00|39.00|IVA|
+IA|DIRECCION|EL CARMEN - MANABI - calle sapotal y cristo rey|
+IA|TELEFONO|+593999612007|
+IA|OBSERVACION|WIICARECUADOR S.A.|
+IA|VENCIMIENTO|27/09/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|erikavivianacedenosabando@gmail.com,erikavivianacedenosabando@gmail.com,erikavivianacedenosabando@gmail.com,erikavivianacedenosabando@gmail.com|
+IA|PLAZO|30 días|
+PA|20|299.00|30|días|

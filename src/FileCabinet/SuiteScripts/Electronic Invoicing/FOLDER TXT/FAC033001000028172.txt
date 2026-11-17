@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000028172|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|salome.egas@megamicro-ec.com|
+IC|17/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MEGAMICRO S.A.|1791353897001|DOLAR|||||0||||||||||||De Las Anonas E9-119 y de Los Jazmines|
+T|50.00|0.00|0|50.00|0.00|0|7.50|57.50|0|57.50|
+TI|2|4|50.00|15|7.50|IVA|
+DE|8783|8783|Cambio se sensor reset interno y pin de seguros.|1|50|0|50.00|
+IM|2|4|15|50.00|7.50|IVA|
+IA|DIRECCION|De Las Anonas E9-119 y de Los Jazmines|
+IA|TELEFONO|+593992889439|
+IA|OBSERVACION|CANLIV698|
+IA|VENCIMIENTO|16/09/2026|
+IA|EMISION|Quito|
+IA|CORREO|maritza.villegas@megamicro-ec.com,salome.egas@megamicro-ec.com,maritza.villegas@megamicro-ec.com,salome.egas@megamicro-ec.com,salome.egas@megamicro-ec.com|
+IA|PLAZO|30 días|
+PA|20|57.50|30|días|

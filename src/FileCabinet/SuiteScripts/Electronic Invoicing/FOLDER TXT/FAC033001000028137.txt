@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000028137|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|gomezrossy52@gmail.com.ec|
+IC|14/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||ROSA ELIZABETH GOMEZ PROANO|1706819594|DOLAR|||||0||||||||||||Sector El Bosque Calle Sexta O Edif San Geminiano Piso 3 Dept 304 Y Av Del Parque|
+T|144.00|0.00|0|144.00|0.00|0|21.60|165.60|0|165.60|
+TI|2|4|144.00|15|21.60|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|144|0|144.00|
+IM|2|4|15|144.00|21.60|IVA|
+IA|DIRECCION|Sector El Bosque Calle Sexta O Edif San Geminiano Piso 3 Dept 304 Y Av Del Parque|
+IA|TELEFONO|+593981908119|
+IA|VENCIMIENTO|14/08/2026|
+IA|EMISION|Quito|
+IA|CORREO|gomezrossy52@gmail.com.ec,gomezrossy52@gmail.com.ec,gomezrossy52@gmail.com.ec,gomezrossy52@gmail.com.ec|
+IA|PLAZO| días|
+PA|20|165.60|0|días|

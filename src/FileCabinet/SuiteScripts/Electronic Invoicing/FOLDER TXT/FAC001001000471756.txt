@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000471756|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|anghelbalonc@gmail.com|
+IC|29/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||ANGEL FERNANDO BALON CRESPIN|0922252028|DOLAR|||||0||||||||||||Km 10.5 Va Playas - Posorja Data De Villamil - Barrio Las Cruces|
+T|120.00|0.00|0|120.00|0.00|0|18.00|138.00|0|138.00|
+TI|2|4|120.00|15|18.00|IVA|
+DE|11257|11257|RENO HM AMI RENOVACION|1|120|0|120.00|
+IM|2|4|15|120.00|18.00|IVA|
+IA|DIRECCION|Km 10.5 Va Playas - Posorja Data De Villamil - Barrio Las Cruces|
+IA|TELEFONO|+593998567796|
+IA|VENCIMIENTO|29/07/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|anghelbalonc@gmail.com,anghelbalonc@gmail.com,anghelbalonc@gmail.com,anghelbalonc@gmail.com,anghelbalonc@gmail.com,anghelbalonc@gmail.com|
+IA|PLAZO| días|
+PA|20|138.00|0|días|

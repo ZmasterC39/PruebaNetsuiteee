@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000473505|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|ignacioonate@hotmail.com|
+IC|12/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||JUAN IGNACIO OÑATE GARCIA|1703593077|DOLAR|||||0||||||||||||Quito, multifamiliares Carcelen sector 7 y Avenida Pedro Sanchez Y ROLDOS AGUILERA|
+T|50.00|0.00|0|50.00|0.00|0|7.50|57.50|0|57.50|
+TI|2|4|50.00|15|7.50|IVA|
+DE|8874|8874|DESI HMONITOREO ENTREGA DIRECTA DESINSTALACION|1|50|0|50.00|
+IM|2|4|15|50.00|7.50|IVA|
+IA|DIRECCION|Quito, multifamiliares Carcelen sector 7 y Avenida Pedro Sanchez Y ROLDOS AGUILERA|
+IA|TELEFONO|+593991725735|
+IA|VENCIMIENTO|12/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|ignacioonate@hotmail.com,ignacioonate@hotmail.com,ignacioonate@hotmail.com,ignacioonate@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|57.50|0|días|

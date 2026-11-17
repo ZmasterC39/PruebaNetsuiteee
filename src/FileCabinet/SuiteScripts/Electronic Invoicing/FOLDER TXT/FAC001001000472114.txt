@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000472114|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|mchoez@grupominerobonanza.com|
+IC|03/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||EXPORTADORA AURIFERA S.A. EXPAUSA|0992305312001|DOLAR|||||0||||||||||||Bahia Norte Mz 57 Sola 1-2 Edificio Sky building piso 11 of 1101-1102|
+T|25.00|0.00|0|25.00|0.00|0|3.75|28.75|0|28.75|
+TI|2|4|25.00|15|3.75|IVA|
+DE|11187|11187|VENT HM GEO SERVICIO DE INSTALACION|1|25|0|25.00|
+IM|2|4|15|25.00|3.75|IVA|
+IA|DIRECCION|Bahia Norte Mz 57 Sola 1-2 Edificio Sky building piso 11 of 1101-1102|
+IA|TELEFONO|+59344605900|
+IA|OBSERVACION|PLC.:GSB-1667|
+IA|VENCIMIENTO|02/09/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|mchoez@grupominerobonanza.com,llarrea@grupominerobonanza.com,avallejo@grupominerobonanza.com,mchoez@grupominerobonanza.com,llarrea@grupominerobonanza.com,comprobanteselectronicos.expa@gmail.com,llarrea@grupominerobonanza.com|
+IA|PLAZO|30 días|
+PA|20|28.75|30|días|

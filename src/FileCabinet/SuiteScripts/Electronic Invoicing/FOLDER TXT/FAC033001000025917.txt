@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000025917|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|andres.salazar.larco@gmail.com|
+IC|29/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||ANTONIO ANDRES SALAZAR LARCO|1712081387|DOLAR|||||0||||||||||||ESPAA 557 CALDERON|
+T|200.00|0.00|0|200.00|0.00|0|30.00|230.00|0|230.00|
+TI|2|4|200.00|15|30.00|IVA|
+DE|9621|9621|RENO GPS HMT RENOVACION|1|200|0|200.00|
+IM|2|4|15|200.00|30.00|IVA|
+IA|DIRECCION|ESPAA 557 CALDERON|
+IA|TELEFONO|+593995494571|
+IA|VENCIMIENTO|04/07/2026|
+IA|EMISION|Quito|
+IA|CORREO|andres.salazar.larco@gmail.com,andres.salazar.larco@gmail.com,andres.salazar.larco@gmail.com,andres.salazar.larco@gmail.com,andres.salazar.larco@gmail.com,andres.salazar.larco@gmail.com|
+IA|PLAZO|5 días|
+PA|20|230.00|5|días|

@@ -1,0 +1,882 @@
+/**
+ * @NApiVersion 2.1
+ * @NScriptType Suitelet
+ */
+define(['N/ui/serverWidget', 'N/search', 'N/url', 'N/format', 'N/runtime'], (serverWidget, search, url, format, runtime) => {
+  const FIXED_SUBSIDIARY_ID = '3';
+
+  const fmtDate = (dateObj) => {
+    try {
+      return format.format({ value: dateObj, type: format.Type.DATE });
+    } catch (e) {
+      return '';
+    }
+  };
+
+  const parseDateParam = (val) => {
+    if (!val) return null;
+    try {
+      return format.parse({ value: val, type: format.Type.DATE });
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const getDefaultMonthRange = () => {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = now.getMonth();
+    return { from: new Date(y, m, 1), to: new Date(y, m + 1, 0) };
+  };
+
+  const toInt = (v, def) => {
+    const n = parseInt(v, 10);
+    return Number.isFinite(n) ? n : def;
+  };
+
+  const trim = (v) => (v == null ? '' : String(v).trim());
+
+  const uniq = (arr) => {
+    const out = [];
+    const seen = {};
+    (arr || []).forEach((v) => {
+      const s = String(v || '').trim();
+      if (!s) return;
+      if (seen[s]) return;
+      seen[s] = true;
+      out.push(s);
+    });
+    return out;
+  };
+
+  const csvCell = (v) => {
+    if (v === null || v === undefined) return '""';
+    const s = String(v).replace(/"/g, '""');
+    return `"${s}"`;
+  };
+
+  const setLineValue = (sublist, id, line, val, maxLen = 300) => {
+    if (val === null || val === undefined) return;
+    const s = String(val);
+    if (s === '') return;
+    sublist.setSublistValue({
+      id,
+      line,
+      value: s.length > maxLen ? s.substring(0, maxLen) : s
+    });
+  };
+
+  const addFilters = (filters, params) => {
+    const def = getDefaultMonthRange();
+    const dateFrom = parseDateParam(params.custpage_date_from) || def.from;
+    const dateTo = parseDateParam(params.custpage_date_to) || def.to;
+
+    const os = trim(params.custpage_os_tranid);
+    const hasOS = !!os;
+
+    filters.push(['mainline', 'is', 'T']);
+    filters.push('AND', ['subsidiary', 'anyof', FIXED_SUBSIDIARY_ID]);
+
+    if (hasOS) {
+      filters.push('AND', ['tranid', 'is', os]);
+      return;
+    }
+
+    if (dateFrom) filters.push('AND', ['trandate', 'onorafter', fmtDate(dateFrom)]);
+    if (dateTo) filters.push('AND', ['trandate', 'onorbefore', fmtDate(dateTo)]);
+
+    if (params.custpage_department) {
+      filters.push('AND', ['department', 'anyof', params.custpage_department]);
+    }
+    if (params.custpage_createdby) {
+      filters.push('AND', ['createdby', 'anyof', params.custpage_createdby]);
+    }
+    if (params.custpage_estado_factura_interna) {
+      filters.push('AND', ['custbody_ec_estado_factura_interna', 'anyof', params.custpage_estado_factura_interna]);
+    }
+    if (params.custpage_estado_facturacion_os) {
+      filters.push('AND', ['custbody_estado_facturacion_os', 'anyof', params.custpage_estado_facturacion_os]);
+    }
+  };
+
+  const pickParamsForLinks = (params) => ({
+    custpage_date_from: params.custpage_date_from || '',
+    custpage_date_to: params.custpage_date_to || '',
+    custpage_os_tranid: params.custpage_os_tranid || '',
+    custpage_department: params.custpage_department || '',
+    custpage_createdby: params.custpage_createdby || '',
+    custpage_estado_facturacion_os: params.custpage_estado_facturacion_os || '',
+    custpage_estado_factura_interna: params.custpage_estado_factura_interna || '',
+    custpage_pagesize: params.custpage_pagesize || '50',
+    custpage_page: params.custpage_page || '0'
+  });
+
+  const addExportNativeButton = (form) => {
+    const fldAction = form.addField({
+      id: 'custpage_action',
+      type: serverWidget.FieldType.TEXT,
+      label: ' '
+    });
+    fldAction.updateDisplayType({ displayType: serverWidget.FieldDisplayType.HIDDEN });
+    fldAction.defaultValue = '';
+
+    form.addButton({
+      id: 'custpage_btn_export',
+      label: 'Exportar a Excel',
+      functionName: 'custpage_export_excel'
+    });
+
+    const fld = form.addField({
+      id: 'custpage_export_js',
+      type: serverWidget.FieldType.INLINEHTML,
+      label: ' '
+    });
+
+    fld.defaultValue = `
+      <script>
+        function custpage_export_excel(){
+          try{
+            var f = document.forms && document.forms[0];
+            if (!f) return;
+            var act = document.getElementById('custpage_action');
+            if (!act){
+              act = document.createElement('input');
+              act.type = 'hidden';
+              act.name = 'custpage_action';
+              act.id = 'custpage_action';
+              f.appendChild(act);
+            }
+            act.value = 'export';
+            f.submit();
+          }catch(_e){}
+        }
+      </script>
+    `;
+  };
+
+  const buildPagingHtml = ({ params, total, pageIndex, pageSize, totalPages, shown }) => {
+    const cs = runtime.getCurrentScript();
+    const baseParams = pickParamsForLinks(params);
+
+    const makeHref = (page) =>
+      url.resolveScript({
+        scriptId: cs.id,
+        deploymentId: cs.deploymentId,
+        params: { ...baseParams, custpage_page: String(page) }
+      });
+
+    const start = total === 0 ? 0 : (pageIndex * pageSize) + 1;
+    const end = total === 0 ? 0 : (pageIndex * pageSize) + shown;
+
+    const firstIdx = 0;
+    const lastIdx = Math.max(0, totalPages - 1);
+
+    const disabled = (txt) => `<span style="opacity:.45;cursor:not-allowed;">${txt}</span>`;
+    const a = (txt, page, isDisabled) => (isDisabled ? disabled(txt) : `<a href="${makeHref(page)}" style="text-decoration:none;">${txt}</a>`);
+
+    return `
+      <div style="margin:10px 0;padding:10px;border:1px solid #ddd;border-radius:8px;">
+        <div style="margin-bottom:6px;">
+          Mostrando <b>${start}</b>–<b>${end}</b> de <b>${total}</b>
+          &nbsp;|&nbsp; Página <b>${totalPages === 0 ? 0 : (pageIndex + 1)}</b> de <b>${totalPages}</b>
+          &nbsp;|&nbsp; Tamaño: <b>${pageSize}</b>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+          ${a('⏮ Primera', firstIdx, pageIndex <= 0 || totalPages === 0)}
+          ${a('◀ Anterior', pageIndex - 1, pageIndex <= 0 || totalPages === 0)}
+          ${a('Siguiente ▶', pageIndex + 1, pageIndex >= lastIdx || totalPages === 0)}
+          ${a('Última ⏭', lastIdx, pageIndex >= lastIdx || totalPages === 0)}
+        </div>
+      </div>
+    `;
+  };
+
+  const buildForm = (params) => {
+    const form = serverWidget.createForm({ title: 'Reporte Estado Facturacion Orden de Servicio' });
+    const def = getDefaultMonthRange();
+
+    const fldPage = form.addField({ id: 'custpage_page', type: serverWidget.FieldType.INTEGER, label: ' ' });
+    fldPage.updateDisplayType({ displayType: serverWidget.FieldDisplayType.HIDDEN });
+
+    const fldPageSize = form.addField({ id: 'custpage_pagesize', type: serverWidget.FieldType.SELECT, label: 'Tamaño página' });
+    ['50', '100', '200', '500'].forEach((v) => fldPageSize.addSelectOption({ value: v, text: v }));
+
+    const fldDateFrom = form.addField({ id: 'custpage_date_from', type: serverWidget.FieldType.DATE, label: 'Fecha desde' });
+    const fldDateTo = form.addField({ id: 'custpage_date_to', type: serverWidget.FieldType.DATE, label: 'Fecha hasta' });
+
+    const fldOS = form.addField({ id: 'custpage_os_tranid', type: serverWidget.FieldType.TEXT, label: 'Orden de servicio' });
+    const fldDept = form.addField({ id: 'custpage_department', type: serverWidget.FieldType.SELECT, label: 'Departamento', source: 'department' });
+    const fldCreatedBy = form.addField({ id: 'custpage_createdby', type: serverWidget.FieldType.SELECT, label: 'Creado por', source: 'employee' });
+
+    const fldEstadoOS = form.addField({ id: 'custpage_estado_facturacion_os', type: serverWidget.FieldType.SELECT, label: 'Estado Facturación OS' });
+    fldEstadoOS.addSelectOption({ value: '', text: '- Todos -' });
+    fldEstadoOS.addSelectOption({ value: '1', text: 'Facturado' });
+    fldEstadoOS.addSelectOption({ value: '2', text: 'Facturacion Pendiente' });
+    fldEstadoOS.addSelectOption({ value: '3', text: 'No Facturado' });
+
+    const fldEstadoInt = form.addField({ id: 'custpage_estado_factura_interna', type: serverWidget.FieldType.SELECT, label: 'Estado Factura Interna' });
+    fldEstadoInt.addSelectOption({ value: '', text: '- Todos -' });
+    fldEstadoInt.addSelectOption({ value: '1', text: 'No Facturado' });
+    fldEstadoInt.addSelectOption({ value: '2', text: 'Facturado' });
+    fldEstadoInt.addSelectOption({ value: '3', text: 'Anulada' });
+
+    fldDateFrom.defaultValue = params.custpage_date_from || fmtDate(def.from);
+    fldDateTo.defaultValue = params.custpage_date_to || fmtDate(def.to);
+
+    fldOS.defaultValue = params.custpage_os_tranid || '';
+    fldDept.defaultValue = params.custpage_department || '';
+    fldCreatedBy.defaultValue = params.custpage_createdby || '';
+    fldEstadoOS.defaultValue = params.custpage_estado_facturacion_os || '';
+    fldEstadoInt.defaultValue = params.custpage_estado_factura_interna || '';
+
+    fldPageSize.defaultValue = params.custpage_pagesize || '50';
+    fldPage.defaultValue = String(toInt(params.custpage_page, 0));
+
+    form.addSubmitButton({ label: 'Buscar' });
+    addExportNativeButton(form);
+
+    const fldCount = form.addField({ id: 'custpage_count', type: serverWidget.FieldType.INTEGER, label: 'Recuento' });
+    fldCount.updateDisplayType({ displayType: serverWidget.FieldDisplayType.INLINE });
+
+    const fldPaging = form.addField({ id: 'custpage_paging', type: serverWidget.FieldType.INLINEHTML, label: ' ' });
+    const fldWarn = form.addField({ id: 'custpage_warn', type: serverWidget.FieldType.INLINEHTML, label: ' ' });
+
+    // ===== Sublista con el ORDEN que pediste =====
+    const sublist = form.addSublist({ id: 'custpage_results', type: serverWidget.SublistType.LIST, label: 'Detalle' });
+
+    // A) Orden de Servicio
+    sublist.addField({ id: 'custpage_view', type: serverWidget.FieldType.URL, label: 'Ver' });
+    sublist.addField({ id: 'custpage_tranid', type: serverWidget.FieldType.TEXT, label: 'Orden de servicio' });
+    sublist.addField({ id: 'custpage_memo_os', type: serverWidget.FieldType.TEXT, label: 'OS Syshunter' });
+    sublist.addField({ id: 'custpage_trandate', type: serverWidget.FieldType.TEXT, label: 'Fecha' });
+
+    // E) Items al lado de OS
+    sublist.addField({ id: 'custpage_items', type: serverWidget.FieldType.TEXT, label: 'Items (producto)' });
+
+    sublist.addField({ id: 'custpage_status', type: serverWidget.FieldType.TEXT, label: 'Estado' });
+    sublist.addField({ id: 'custpage_currency', type: serverWidget.FieldType.TEXT, label: 'Moneda' });
+    sublist.addField({ id: 'custpage_total', type: serverWidget.FieldType.TEXT, label: 'Total' });
+    sublist.addField({ id: 'custpage_department_txt', type: serverWidget.FieldType.TEXT, label: 'Departamento' });
+
+    sublist.addField({ id: 'custpage_vendedor', type: serverWidget.FieldType.TEXT, label: 'Vendedor' });
+    sublist.addField({ id: 'custpage_createdby_txt', type: serverWidget.FieldType.TEXT, label: 'Creado por' });
+
+    sublist.addField({ id: 'custpage_estado_fact_int', type: serverWidget.FieldType.TEXT, label: 'Estado Factura Interna' });
+    sublist.addField({ id: 'custpage_estado_fact_os', type: serverWidget.FieldType.TEXT, label: 'Estado Facturación OS' });
+    sublist.addField({ id: 'custpage_salesrep', type: serverWidget.FieldType.TEXT, label: 'Ejecutivo de ventas' });
+
+    sublist.addField({ id: 'custpage_ht_concesionario', type: serverWidget.FieldType.TEXT, label: 'HT Concesionario' });
+    // B) Bien: Sucursal al lado de concesionario
+    sublist.addField({ id: 'custpage_ht_sucursal_conces', type: serverWidget.FieldType.TEXT, label: 'HT Sucursal Concesionario' });
+
+    sublist.addField({ id: 'custpage_ht_aseguradora', type: serverWidget.FieldType.TEXT, label: 'HT Aseguradora' });
+    sublist.addField({ id: 'custpage_ht_financiera', type: serverWidget.FieldType.TEXT, label: 'HT Financiera' });
+    sublist.addField({ id: 'custpage_ht_broker', type: serverWidget.FieldType.TEXT, label: 'HT Broker' });
+
+    sublist.addField({ id: 'custpage_facturar_a', type: serverWidget.FieldType.TEXT, label: 'Facturar a' });
+
+    // B) Bien
+    sublist.addField({ id: 'custpage_bien_marca', type: serverWidget.FieldType.TEXT, label: 'Marca' });
+    sublist.addField({ id: 'custpage_bien_modelo', type: serverWidget.FieldType.TEXT, label: 'Modelo' });
+    sublist.addField({ id: 'custpage_bien_tipo', type: serverWidget.FieldType.TEXT, label: 'Tipo' });
+    sublist.addField({ id: 'custpage_bien_ano', type: serverWidget.FieldType.TEXT, label: 'Año' });
+
+    sublist.addField({ id: 'custpage_bien_motor', type: serverWidget.FieldType.TEXT, label: 'Motor' });
+    sublist.addField({ id: 'custpage_bien_placa', type: serverWidget.FieldType.TEXT, label: 'Placa' });
+    sublist.addField({ id: 'custpage_bien_chasis', type: serverWidget.FieldType.TEXT, label: 'Chasis' });
+
+    // C) Cliente
+    sublist.addField({ id: 'custpage_cliente_nombre', type: serverWidget.FieldType.TEXT, label: 'Cliente:Nombre' });
+    sublist.addField({ id: 'custpage_cliente_doc', type: serverWidget.FieldType.TEXT, label: 'Cliente:Nro Documento' });
+
+    // D) Coberturas
+    sublist.addField({ id: 'custpage_cob_name', type: serverWidget.FieldType.TEXT, label: 'Cobertura (ID/Name)' });
+    sublist.addField({ id: 'custpage_cob_ini', type: serverWidget.FieldType.TEXT, label: 'Cobertura inicial' });
+    sublist.addField({ id: 'custpage_cob_plazo', type: serverWidget.FieldType.TEXT, label: 'Plazo' });
+    sublist.addField({ id: 'custpage_cob_fin', type: serverWidget.FieldType.TEXT, label: 'Cobertura final' });
+
+    // (Útil) Factura
+    sublist.addField({ id: 'custpage_invoice_tranid', type: serverWidget.FieldType.TEXT, label: 'Factura de venta' });
+
+    const viewField = sublist.getField({ id: 'custpage_view' });
+    if (viewField) viewField.linkText = 'Ver';
+
+    return { form, sublist, fldCount, fldWarn, fldPaging };
+  };
+
+  const createSearch = (params) => {
+    const filters = [];
+    addFilters(filters, params);
+
+    return search.create({
+      type: search.Type.SALES_ORDER,
+      filters,
+      columns: [
+        search.createColumn({ name: 'internalid' }),
+        search.createColumn({ name: 'tranid' }),
+        search.createColumn({ name: 'trandate' }),
+        search.createColumn({ name: 'statusref' }),
+        search.createColumn({ name: 'currency' }),
+        search.createColumn({ name: 'total' }),
+        search.createColumn({ name: 'department' }),
+
+        // Cliente
+        search.createColumn({ name: 'altname', join: 'customerMain' }),
+        search.createColumn({ name: 'custentity_pe_document_number', join: 'customerMain' }),
+
+        // OS (campos pedidos)
+        search.createColumn({ name: 'memo' }),               // OS Syshunter
+        search.createColumn({ name: 'salesrep' }),           // Ejecutivo ventas
+
+        search.createColumn({ name: 'custbody_ht_os_concesionario' }),
+        search.createColumn({ name: 'custbody_ht_os_companiaseguros' }),
+        search.createColumn({ name: 'custbody_ht_os_bancofinanciera' }),
+        search.createColumn({ name: 'custbody_ht_os_broker' }),
+
+        search.createColumn({ name: 'custbody_ht_facturar_a' }), // Facturar a (getText)
+
+        search.createColumn({ name: 'custbody_ec_estado_factura_interna' }),
+        search.createColumn({ name: 'custbody_estado_facturacion_os' }),
+
+        search.createColumn({ name: 'custbody_ht_pe_os_vendedor' }),
+        search.createColumn({ name: 'createdby' }),
+
+        // Bien principal
+        search.createColumn({ name: 'custbody_ht_so_bien' })
+      ]
+    });
+  };
+
+  // === Items con nombre completo (sin "(1)") ===
+  const getItemsMap = (internalIds) => {
+    const ids = uniq(internalIds);
+    if (!ids.length) return {};
+
+    const m = {};
+
+    const lineSearch = search.create({
+      type: search.Type.SALES_ORDER,
+      filters: [
+        ['internalid', 'anyof', ids],
+        'AND',
+        ['mainline', 'is', 'F'],
+        'AND',
+        ['taxline', 'is', 'F'],
+        'AND',
+        ['shipping', 'is', 'F']
+      ],
+      columns: [
+        search.createColumn({ name: 'internalid' }),
+        search.createColumn({ name: 'item' }),
+        search.createColumn({ name: 'memo' }), // descripción en línea
+        search.createColumn({ name: 'itemid', join: 'item' }),
+        search.createColumn({ name: 'displayname', join: 'item' }),
+        search.createColumn({ name: 'salesdescription', join: 'item' })
+      ]
+    });
+
+    const paged = lineSearch.runPaged({ pageSize: 1000 });
+
+    const norm = (s) => String(s || '').trim().toLowerCase();
+
+    for (let p = 0; p < paged.pageRanges.length; p++) {
+      const page = paged.fetch({ index: p });
+
+      for (let i = 0; i < page.data.length; i++) {
+        const r = page.data[i];
+        const soId = r.getValue({ name: 'internalid' });
+        if (!soId) continue;
+
+        let name = r.getText({ name: 'item' }) || '';
+        if (!name) {
+          name =
+            r.getValue({ name: 'displayname', join: 'item' }) ||
+            r.getValue({ name: 'itemid', join: 'item' }) ||
+            r.getValue({ name: 'item' }) ||
+            '';
+        }
+
+        const lineMemo = r.getValue({ name: 'memo' }) || '';
+        const salesDesc = r.getValue({ name: 'salesdescription', join: 'item' }) || '';
+        const desc = lineMemo || salesDesc;
+
+        if (desc && name && !norm(name).includes(norm(desc))) {
+          name = `${name} ${desc}`.trim();
+        }
+
+        if (!m[soId]) m[soId] = [];
+        if (name) m[soId].push(name);
+      }
+    }
+
+    const out = {};
+    Object.keys(m).forEach((k) => {
+      const seen = {};
+      const unique = [];
+      for (const it of m[k]) {
+        const key = String(it || '').trim();
+        if (!key) continue;
+        if (seen[key]) continue;
+        seen[key] = true;
+        unique.push(key);
+      }
+      const joined = unique.join(' | ');
+      out[k] = joined.length > 4000 ? joined.substring(0, 4000) : joined;
+    });
+
+    return out;
+  };
+
+  // === Bien (customrecord_ht_record_bienes) ===
+  const getBienMap = (bienIds) => {
+    const ids = uniq(bienIds);
+    if (!ids.length) return {};
+
+    const out = {};
+
+    const bienSearch = search.create({
+      type: 'customrecord_ht_record_bienes',
+      filters: [['internalid', 'anyof', ids]],
+      columns: [
+        search.createColumn({ name: 'internalid' }),
+        search.createColumn({ name: 'custrecord_ht_bien_marca' }),
+        search.createColumn({ name: 'custrecord_ht_bien_modelo' }),
+        search.createColumn({ name: 'custrecord_ht_bien_tipo' }),
+        search.createColumn({ name: 'custrecord_ht_bien_ano' }),
+        search.createColumn({ name: 'custrecord_ht_pe_sucursal' }),
+
+        search.createColumn({ name: 'custrecord_ht_bien_motor' }),
+        search.createColumn({ name: 'custrecord_ht_bien_placa' }),
+        search.createColumn({ name: 'custrecord_ht_bien_chasis' })
+      ]
+    });
+
+    const paged = bienSearch.runPaged({ pageSize: 1000 });
+    for (let p = 0; p < paged.pageRanges.length; p++) {
+      const page = paged.fetch({ index: p });
+      for (let i = 0; i < page.data.length; i++) {
+        const r = page.data[i];
+        const id = r.getValue({ name: 'internalid' });
+        if (!id) continue;
+
+        out[String(id)] = {
+          marca: r.getText({ name: 'custrecord_ht_bien_marca' }) || r.getValue({ name: 'custrecord_ht_bien_marca' }) || '',
+          modelo: r.getText({ name: 'custrecord_ht_bien_modelo' }) || r.getValue({ name: 'custrecord_ht_bien_modelo' }) || '',
+          tipo: r.getText({ name: 'custrecord_ht_bien_tipo' }) || r.getValue({ name: 'custrecord_ht_bien_tipo' }) || '',
+          ano: r.getValue({ name: 'custrecord_ht_bien_ano' }) || '',
+          sucursal: r.getText({ name: 'custrecord_ht_pe_sucursal' }) || r.getValue({ name: 'custrecord_ht_pe_sucursal' }) || '',
+          motor: r.getValue({ name: 'custrecord_ht_bien_motor' }) || '',
+          placa: r.getValue({ name: 'custrecord_ht_bien_placa' }) || '',
+          chasis: r.getValue({ name: 'custrecord_ht_bien_chasis' }) || ''
+        };
+      }
+    }
+
+    return out;
+  };
+
+  // === Coberturas (customrecord_ht_co_cobertura) por bien ===
+  const getCoberturaMap = (bienIds) => {
+    const ids = uniq(bienIds);
+    if (!ids.length) return {};
+
+    const byBien = {};
+
+    const cobSearch = search.create({
+      type: 'customrecord_ht_co_cobertura',
+      filters: [['custrecord_ht_co_bien', 'anyof', ids]],
+      columns: [
+        search.createColumn({ name: 'custrecord_ht_co_bien' }),
+        search.createColumn({ name: 'name' }),
+        search.createColumn({ name: 'custrecord_ht_co_coberturainicial' }),
+        search.createColumn({ name: 'custrecord_ht_co_plazo' }),
+        search.createColumn({ name: 'custrecord_ht_co_coberturafinal' })
+      ]
+    });
+
+    const paged = cobSearch.runPaged({ pageSize: 1000 });
+    for (let p = 0; p < paged.pageRanges.length; p++) {
+      const page = paged.fetch({ index: p });
+      for (let i = 0; i < page.data.length; i++) {
+        const r = page.data[i];
+        const bienId = r.getValue({ name: 'custrecord_ht_co_bien' });
+        if (!bienId) continue;
+
+        if (!byBien[bienId]) byBien[bienId] = [];
+        byBien[bienId].push({
+          name: r.getValue({ name: 'name' }) || '',
+          ini: r.getValue({ name: 'custrecord_ht_co_coberturainicial' }) || '',
+          plazo: r.getValue({ name: 'custrecord_ht_co_plazo' }) || '',
+          fin: r.getValue({ name: 'custrecord_ht_co_coberturafinal' }) || ''
+        });
+      }
+    }
+
+    // si hay varias, las concatenamos
+    const out = {};
+    Object.keys(byBien).forEach((k) => {
+      const arr = byBien[k] || [];
+      out[k] = {
+        name: arr.map(x => x.name).filter(Boolean).join(' | '),
+        ini: arr.map(x => x.ini).filter(Boolean).join(' | '),
+        plazo: arr.map(x => x.plazo).filter(Boolean).join(' | '),
+        fin: arr.map(x => x.fin).filter(Boolean).join(' | ')
+      };
+    });
+
+    return out;
+  };
+
+  // === Factura por createdfrom ===
+  const getInvoiceMap = (soInternalIds) => {
+    const ids = uniq(soInternalIds);
+    if (!ids.length) return {};
+
+    const map = {};
+
+    const invSearch = search.create({
+      type: search.Type.INVOICE,
+      filters: [['createdfrom', 'anyof', ids]],
+      columns: [
+        search.createColumn({ name: 'createdfrom' }),
+        search.createColumn({ name: 'tranid' })
+      ]
+    });
+
+    const paged = invSearch.runPaged({ pageSize: 1000 });
+    for (let p = 0; p < paged.pageRanges.length; p++) {
+      const page = paged.fetch({ index: p });
+      for (let i = 0; i < page.data.length; i++) {
+        const r = page.data[i];
+        const soId = r.getValue({ name: 'createdfrom' });
+        const invTranId = r.getValue({ name: 'tranid' }) || '';
+        if (!soId || !invTranId) continue;
+
+        // si hay varias facturas, concatena
+        if (!map[soId]) map[soId] = [];
+        map[soId].push(invTranId);
+      }
+    }
+
+    const out = {};
+    Object.keys(map).forEach((k) => {
+      out[k] = uniq(map[k]).join(' | ');
+    });
+
+    return out;
+  };
+
+  const runSearchAndFill = (params, sublist) => {
+    const pageSize = Math.min(Math.max(toInt(params.custpage_pagesize, 50), 1), 1000);
+    let pageIndex = Math.max(toInt(params.custpage_page, 0), 0);
+
+    const soSearch = createSearch(params);
+    const paged = soSearch.runPaged({ pageSize });
+
+    const total = paged.count;
+    const totalPages = paged.pageRanges.length;
+
+    if (totalPages === 0) {
+      return { total, pageIndex: 0, pageSize, totalPages: 0, shown: 0 };
+    }
+
+    if (pageIndex > totalPages - 1) pageIndex = totalPages - 1;
+
+    const page = paged.fetch({ index: pageIndex });
+
+    const soIds = [];
+    const bienIds = [];
+
+    for (let i = 0; i < page.data.length; i++) {
+      const soId = page.data[i].getValue({ name: 'internalid' });
+      if (soId) soIds.push(soId);
+
+      const bienId = page.data[i].getValue({ name: 'custbody_ht_so_bien' });
+      if (bienId) bienIds.push(bienId);
+    }
+
+    const itemsMap = getItemsMap(soIds);
+    const bienMap = getBienMap(bienIds);
+    const cobMap = getCoberturaMap(bienIds);
+    const invMap = getInvoiceMap(soIds);
+
+    let line = 0;
+    for (let i = 0; i < page.data.length; i++) {
+      const r = page.data[i];
+
+      const internalId = r.getValue({ name: 'internalid' });
+      const tranId = r.getValue({ name: 'tranid' });
+      const tranDate = r.getValue({ name: 'trandate' });
+
+      const itemsText = internalId ? (itemsMap[String(internalId)] || '') : '';
+
+      const statusText = r.getText({ name: 'statusref' }) || r.getValue({ name: 'statusref' });
+      const currencyText = r.getText({ name: 'currency' }) || r.getValue({ name: 'currency' });
+      const totalVal = r.getValue({ name: 'total' });
+      const deptText = r.getText({ name: 'department' }) || r.getValue({ name: 'department' });
+
+      const vendedorText = r.getText({ name: 'custbody_ht_pe_os_vendedor' }) || r.getValue({ name: 'custbody_ht_pe_os_vendedor' });
+      const createdByText = r.getText({ name: 'createdby' }) || r.getValue({ name: 'createdby' });
+
+      const estadoFactIntText = r.getText({ name: 'custbody_ec_estado_factura_interna' }) || r.getValue({ name: 'custbody_ec_estado_factura_interna' });
+      const estadoFactOSText = r.getText({ name: 'custbody_estado_facturacion_os' }) || r.getValue({ name: 'custbody_estado_facturacion_os' });
+
+      const memoOS = r.getValue({ name: 'memo' }) || '';
+      const salesrepText = r.getText({ name: 'salesrep' }) || r.getValue({ name: 'salesrep' }) || '';
+
+      const htConcesionario = r.getText({ name: 'custbody_ht_os_concesionario' }) || r.getValue({ name: 'custbody_ht_os_concesionario' });
+      const htAseguradora = r.getText({ name: 'custbody_ht_os_companiaseguros' }) || r.getValue({ name: 'custbody_ht_os_companiaseguros' });
+      const htFinanciera = r.getText({ name: 'custbody_ht_os_bancofinanciera' }) || r.getValue({ name: 'custbody_ht_os_bancofinanciera' });
+      const htBroker = r.getText({ name: 'custbody_ht_os_broker' }) || r.getValue({ name: 'custbody_ht_os_broker' });
+
+      const facturarAText = r.getText({ name: 'custbody_ht_facturar_a' }) || ''; // entitytitle
+
+      const bienId = r.getValue({ name: 'custbody_ht_so_bien' });
+      const bien = bienId ? (bienMap[String(bienId)] || {}) : {};
+      const cob = bienId ? (cobMap[String(bienId)] || {}) : {};
+
+      const clienteNombre = r.getValue({ name: 'altname', join: 'customerMain' }) || '';
+      const clienteDoc = r.getValue({ name: 'custentity_pe_document_number', join: 'customerMain' }) || '';
+
+      const invTranId = internalId ? (invMap[String(internalId)] || '') : '';
+
+      let recUrl = '';
+      if (internalId) recUrl = url.resolveRecord({ recordType: 'salesorder', recordId: internalId, isEditMode: false });
+
+      // ===== Set en el orden exacto =====
+      setLineValue(sublist, 'custpage_view', line, recUrl, 4000);
+      setLineValue(sublist, 'custpage_tranid', line, tranId);
+      setLineValue(sublist, 'custpage_memo_os', line, memoOS);
+      setLineValue(sublist, 'custpage_trandate', line, tranDate);
+
+      setLineValue(sublist, 'custpage_items', line, itemsText, 4000);
+
+      setLineValue(sublist, 'custpage_status', line, statusText);
+      setLineValue(sublist, 'custpage_currency', line, currencyText);
+      setLineValue(sublist, 'custpage_total', line, totalVal);
+      setLineValue(sublist, 'custpage_department_txt', line, deptText);
+
+      setLineValue(sublist, 'custpage_vendedor', line, vendedorText);
+      setLineValue(sublist, 'custpage_createdby_txt', line, createdByText);
+
+      setLineValue(sublist, 'custpage_estado_fact_int', line, estadoFactIntText);
+      setLineValue(sublist, 'custpage_estado_fact_os', line, estadoFactOSText);
+
+      setLineValue(sublist, 'custpage_salesrep', line, salesrepText);
+
+      setLineValue(sublist, 'custpage_ht_concesionario', line, htConcesionario);
+      setLineValue(sublist, 'custpage_ht_sucursal_conces', line, bien.sucursal || '');
+      setLineValue(sublist, 'custpage_ht_aseguradora', line, htAseguradora);
+      setLineValue(sublist, 'custpage_ht_financiera', line, htFinanciera);
+      setLineValue(sublist, 'custpage_ht_broker', line, htBroker);
+
+      setLineValue(sublist, 'custpage_facturar_a', line, facturarAText);
+
+      setLineValue(sublist, 'custpage_bien_marca', line, bien.marca || '');
+      setLineValue(sublist, 'custpage_bien_modelo', line, bien.modelo || '');
+      setLineValue(sublist, 'custpage_bien_tipo', line, bien.tipo || '');
+      setLineValue(sublist, 'custpage_bien_ano', line, bien.ano || '');
+
+      setLineValue(sublist, 'custpage_bien_motor', line, bien.motor || '');
+      setLineValue(sublist, 'custpage_bien_placa', line, bien.placa || '');
+      setLineValue(sublist, 'custpage_bien_chasis', line, bien.chasis || '');
+
+      setLineValue(sublist, 'custpage_cliente_nombre', line, clienteNombre);
+      setLineValue(sublist, 'custpage_cliente_doc', line, clienteDoc);
+
+      setLineValue(sublist, 'custpage_cob_name', line, cob.name || '');
+      setLineValue(sublist, 'custpage_cob_ini', line, cob.ini || '');
+      setLineValue(sublist, 'custpage_cob_plazo', line, cob.plazo || '');
+      setLineValue(sublist, 'custpage_cob_fin', line, cob.fin || '');
+
+      setLineValue(sublist, 'custpage_invoice_tranid', line, invTranId);
+
+      line++;
+    }
+
+    return { total, pageIndex, pageSize, totalPages, shown: line };
+  };
+
+  const exportCsv = (context, params) => {
+    const soSearch = createSearch(params);
+    const paged = soSearch.runPaged({ pageSize: 1000 });
+
+    const headers = [
+      'Orden de servicio',
+      'OS Syshunter',
+      'Fecha',
+      'Items (producto)',
+      'Estado',
+      'Moneda',
+      'Total',
+      'Departamento',
+      'Vendedor',
+      'Creado por',
+      'Estado Factura Interna',
+      'Estado Facturación OS',
+      'Ejecutivo de ventas',
+      'HT Concesionario',
+      'HT Sucursal Concesionario',
+      'HT Aseguradora',
+      'HT Financiera',
+      'HT Broker',
+      'Facturar a',
+      'Marca',
+      'Modelo',
+      'Tipo',
+      'Año',
+      'Motor',
+      'Placa',
+      'Chasis',
+      'Cliente:Nombre',
+      'Cliente:Nro Documento',
+      'Cobertura (ID/Name)',
+      'Cobertura inicial',
+      'Plazo',
+      'Cobertura final',
+      'Factura de venta'
+    ];
+
+    let csv = '\ufeff' + headers.map(csvCell).join(',') + '\n';
+
+    for (let p = 0; p < paged.pageRanges.length; p++) {
+      const page = paged.fetch({ index: p });
+
+      const soIds = [];
+      const bienIds = [];
+
+      for (let i = 0; i < page.data.length; i++) {
+        const soId = page.data[i].getValue({ name: 'internalid' });
+        if (soId) soIds.push(soId);
+
+        const bienId = page.data[i].getValue({ name: 'custbody_ht_so_bien' });
+        if (bienId) bienIds.push(bienId);
+      }
+
+      const itemsMap = getItemsMap(soIds);
+      const bienMap = getBienMap(bienIds);
+      const cobMap = getCoberturaMap(bienIds);
+      const invMap = getInvoiceMap(soIds);
+
+      for (let i = 0; i < page.data.length; i++) {
+        const r = page.data[i];
+
+        const soId = r.getValue({ name: 'internalid' });
+
+        const tranId = r.getValue({ name: 'tranid' });
+        const tranDate = r.getValue({ name: 'trandate' });
+        const itemsText = soId ? (itemsMap[String(soId)] || '') : '';
+
+        const statusText = r.getText({ name: 'statusref' }) || r.getValue({ name: 'statusref' });
+        const currencyText = r.getText({ name: 'currency' }) || r.getValue({ name: 'currency' });
+        const totalVal = r.getValue({ name: 'total' });
+        const deptText = r.getText({ name: 'department' }) || r.getValue({ name: 'department' });
+
+        const vendedorText = r.getText({ name: 'custbody_ht_pe_os_vendedor' }) || r.getValue({ name: 'custbody_ht_pe_os_vendedor' });
+        const createdByText = r.getText({ name: 'createdby' }) || r.getValue({ name: 'createdby' });
+
+        const estadoFactIntText = r.getText({ name: 'custbody_ec_estado_factura_interna' }) || r.getValue({ name: 'custbody_ec_estado_factura_interna' });
+        const estadoFactOSText = r.getText({ name: 'custbody_estado_facturacion_os' }) || r.getValue({ name: 'custbody_estado_facturacion_os' });
+
+        const memoOS = r.getValue({ name: 'memo' }) || '';
+        const salesrepText = r.getText({ name: 'salesrep' }) || r.getValue({ name: 'salesrep' }) || '';
+
+        const htConcesionario = r.getText({ name: 'custbody_ht_os_concesionario' }) || r.getValue({ name: 'custbody_ht_os_concesionario' });
+        const htAseguradora = r.getText({ name: 'custbody_ht_os_companiaseguros' }) || r.getValue({ name: 'custbody_ht_os_companiaseguros' });
+        const htFinanciera = r.getText({ name: 'custbody_ht_os_bancofinanciera' }) || r.getValue({ name: 'custbody_ht_os_bancofinanciera' });
+        const htBroker = r.getText({ name: 'custbody_ht_os_broker' }) || r.getValue({ name: 'custbody_ht_os_broker' });
+
+        const facturarAText = r.getText({ name: 'custbody_ht_facturar_a' }) || '';
+
+        const bienId = r.getValue({ name: 'custbody_ht_so_bien' });
+        const bien = bienId ? (bienMap[String(bienId)] || {}) : {};
+        const cob = bienId ? (cobMap[String(bienId)] || {}) : {};
+
+        const clienteNombre = r.getValue({ name: 'altname', join: 'customerMain' }) || '';
+        const clienteDoc = r.getValue({ name: 'custentity_pe_document_number', join: 'customerMain' }) || '';
+
+        const invTranId = soId ? (invMap[String(soId)] || '') : '';
+
+        const row = [
+          tranId,
+          memoOS,
+          tranDate,
+          itemsText,
+          statusText,
+          currencyText,
+          totalVal,
+          deptText,
+          vendedorText,
+          createdByText,
+          estadoFactIntText,
+          estadoFactOSText,
+          salesrepText,
+          htConcesionario,
+          bien.sucursal || '',
+          htAseguradora,
+          htFinanciera,
+          htBroker,
+          facturarAText,
+          bien.marca || '',
+          bien.modelo || '',
+          bien.tipo || '',
+          bien.ano || '',
+          bien.motor || '',
+          bien.placa || '',
+          bien.chasis || '',
+          clienteNombre,
+          clienteDoc,
+          cob.name || '',
+          cob.ini || '',
+          cob.plazo || '',
+          cob.fin || '',
+          invTranId
+        ];
+
+        csv += row.map(csvCell).join(',') + '\n';
+      }
+    }
+
+    const fileName = `reporte_os_${fmtDate(new Date()).replace(/\//g, '-')}.csv`;
+
+    context.response.addHeader({ name: 'Content-Type', value: 'text/csv; charset=UTF-8' });
+    context.response.addHeader({ name: 'Content-Disposition', value: `attachment; filename="${fileName}"` });
+    context.response.write(csv);
+  };
+
+  const onRequest = (context) => {
+    const params = context.request.parameters || {};
+    const action = trim(params.custpage_action);
+
+    if (action === 'export') {
+      exportCsv(context, params);
+      return;
+    }
+
+    const { form, sublist, fldCount, fldWarn, fldPaging } = buildForm(params);
+
+    try {
+      const result = runSearchAndFill(params, sublist);
+      fldCount.defaultValue = String(result.total);
+      fldPaging.defaultValue = buildPagingHtml({
+        params,
+        total: result.total,
+        pageIndex: result.pageIndex,
+        pageSize: result.pageSize,
+        totalPages: result.totalPages,
+        shown: result.shown
+      });
+      fldWarn.defaultValue = '';
+    } catch (e) {
+      fldCount.defaultValue = '0';
+      fldPaging.defaultValue = '';
+      fldWarn.defaultValue = `<div style="margin-top:8px;padding:8px;border:1px solid #b00;border-radius:6px;">
+        Error al generar el reporte: ${String(e.message || e)}
+      </div>`;
+    }
+
+    context.response.writePage(form);
+  };
+
+  return { onRequest };
+});

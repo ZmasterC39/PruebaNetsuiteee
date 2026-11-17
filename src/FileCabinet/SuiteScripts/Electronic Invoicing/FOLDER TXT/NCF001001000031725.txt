@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|001|001|000031725|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|facturas.compras@tpg.com.ec|
+IC|07/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||INARPI S.A.|0992247932001|DOLAR||01|001-001-000449451|20/11/2025|57.50|FACT DE 2 UNID|||||||||||
+T|50.00|0.00|0|50.00|0.00|0|7.50|57.50|0|57.50|
+TI|2|4|15|50.00|7.50|IVA|
+DE|8925|8925|VENT HM CORPORATIVO SERVICIO DE INSTALACIÓN|2|25|0|50.00|
+IM|2|4|15|50.00|7.50|IVA|
+IA|DIRECCION|ISLA TRINITARIA CALLE 51 AVA. SUR OESTE S/N Y CALLE 4TA JUNTO AL TRINIPUERTO|
+IA|TELEFONO|+593992217200|
+IA|EMISION|Guayaquil|
+IA|CORREO|melany.iturralde@tpg.com.ec,facturas.compras@tpg.com.ec,melany.iturralde@tpg.com.ec,melany.iturralde@tpg.com.ec,facturas.compras@tpg.com.ec,aalvaradom@saamtowage.com,luis.piguave@tpg.com.ec,raviles@ecuaestibas.com,priscila.alban@tpg.com.ec,joshua.mendieta@tpg.com.ec|

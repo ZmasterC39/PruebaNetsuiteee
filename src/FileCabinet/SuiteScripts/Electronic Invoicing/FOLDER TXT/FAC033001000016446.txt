@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000016446|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|jimmy.castillo@ambiente.gob.ec|
+IC|17/12/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Ministerio del Ambiente Agua y Transición Ecológica|1768192860001|DOLAR|||||0||||||||||||Madrid E12-102 y Andalucía|
+T|267.00|0.00|0|267.00|0.00|0|40.05|307.05|0|307.05|
+TI|2|4|267.00|15|40.05|IVA|
+DE|15002|15002|SERVICIO MONITOREO GPS (AS) RENOVACION|3|89|0|267.00|
+IM|2|4|15|267.00|40.05|IVA|
+IA|DIRECCION|Madrid E12-102 y Andalucía|
+IA|TELEFONO|+59323987600|
+IA|OBSERVACION|PEI-4871/PEI-7580/PEA-7222|
+IA|VENCIMIENTO|16/01/2026|
+IA|EMISION|Quito|
+IA|CORREO|jimmy.castillo@ambiente.gob.ec,jimmy.castillo@ambiente.gob.ec,a@gmail.com,jimmy.castillo@ambiente.gob.ec,jimmy.castillo@ambiente.gob.ec|
+IA|PLAZO|30 días|
+PA|20|307.05|30|días|

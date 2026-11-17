@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000001833|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|gabriela.granizo@inmobiliar.gob.ec|
+IC|21/03/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||SECRETARÍA TÉCNICA DE GESTIÓN INMOBILIARIA DEL SECTOR PÚBLICO|1768146750001|DOLAR|||||0||||||||||||Av. Amazonas y José Villalengua, Plataforma Gubernamental Financiera Norte|
+T|148.77|0.00|0|148.77|0.00|0|22.32|171.09|0|171.09|
+TI|2|4|148.77|15|22.32|IVA|
+DE|11399|11399|SERVICIO MONITOREO GPS (AS)|29|5.13|0|148.77|
+IM|2|4|15|148.77|22.32|IVA|
+IA|DIRECCION|Av. Amazonas y José Villalengua, Plataforma Gubernamental Financiera Norte|
+IA|CIUDAD|QUITO|
+IA|TELEFONO|+593999384401|
+IA|OBSERVACION|Del 13 al 31 de diciembre de 2024|
+IA|VENCIMIENTO|20/04/2025|
+IA|EMISION|Quito|
+IA|CORREO|gabriela.granizo@inmobiliar.gob.ec,gabriela.granizo@inmobiliar.gob.ec,gabriela.granizo@inmobiliar.gob.ec|
+IA|PLAZO|30 días|
+PA|20|171.09|30|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000022004|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|alejandra.zapata@caves.com.ec|
+IC|07/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||COMPAÑIA ANDINA DE ALIMENTOS VINOS Y ESPIRITOSOS CAVES S.A.E.M.A.|1791137728001|DOLAR|||||0||||||||||||Tumbaco, N6C Toribio Ortega E5221 y Rosa Robalino|
+T|180.00|0.00|0|180.00|0.00|0|27.00|207.00|0|207.00|
+TI|2|4|180.00|15|27.00|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|9|20|0|180.00|
+IM|2|4|15|180.00|27.00|IVA|
+IA|DIRECCION|Tumbaco, N6C Toribio Ortega E5221 y Rosa Robalino|
+IA|TELEFONO|+593997530833|
+IA|OBSERVACION|MARZO /PDH-8520/PDH-8523/ABM-7130/PFI-1524/PDZ-9497/PDZ-9495/PFE-3976/PDR-6523/PDR-6529|
+IA|VENCIMIENTO|07/05/2026|
+IA|EMISION|Quito|
+IA|CORREO|eduardo.elizalde@caves.com.ec,eduardo.elizalde@caves.com.ec,eduardo.elizalde@caves.com.ec,administracion@caves.com.ec,administracion@caves.com.ec,administracion@caves.com.ec,alejandra.zapata@caves.com.ec,alejandra.zapata@caves.com.ec,alejandra.zapata@caves.com.ec|
+IA|PLAZO|30 días|
+PA|20|207.00|30|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000473217|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|rosimorales13@hotmail.com|
+IC|05/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||IVONNE DEL ROCIO MORALES MORA|0951011824|DOLAR|||||0||||||||||||urb ciudad celeste etapa estribor mz 2 v 22|
+T|10.00|0.00|0|10.00|0.00|0|1.50|11.50|0|11.50|
+TI|2|4|10.00|15|1.50|IVA|
+DE|15448|15448|CHEQ LADER LINK BY HUNTER CHEQUEO|1|10|0|10.00|
+IM|2|4|15|10.00|1.50|IVA|
+IA|DIRECCION|urb ciudad celeste etapa estribor mz 2 v 22|
+IA|CIUDAD|GUAYAQUIL|
+IA|TELEFONO|+593968429140|
+IA|VENCIMIENTO|05/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|rosimorales13@hotmail.com,rosimorales13@hotmail.com,rosimorales13@hotmail.com,rosimorales13@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|11.50|0|días|

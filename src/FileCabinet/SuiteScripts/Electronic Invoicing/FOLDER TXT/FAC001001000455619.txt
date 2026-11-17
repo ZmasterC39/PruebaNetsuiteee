@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000455619|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|eyanez@fundametz.com|
+IC|30/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||FUNDAMETZ S.A.|0992369825001|DOLAR|||||0||||||||||||Km 30 Va a Daule  Nobol  Sector Petrillo|
+T|30.00|0.00|0|30.00|0.00|0|4.50|34.50|0|34.50|
+TI|2|4|30.00|15|4.50|IVA|
+DE|4491|4491|HUNTER MONITOREO BOTON DE PANICO|1|30|0|30.00|
+IM|2|4|15|30.00|4.50|IVA|
+IA|DIRECCION|Km 30 Va a Daule  Nobol  Sector Petrillo|
+IA|TELEFONO|+59345012095|
+IA|VENCIMIENTO|01/03/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|tesoreria@fundametz.com,tesoreria@fundametz.com,eyanez@fundametz.com,tesoreria@fundametz.com,cdanin@fundametz.com|
+IA|PLAZO|30 días|
+PA|20|34.50|30|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000465426|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|secdes@descalzi.com.ec|
+IC|15/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||DISTRIBUIDORA DESCALZI S.A.|0990336792001|DOLAR|||||0||||||||||||Direccin: km 11.5 va a Daule, Parque California 1 Edif. Com. 4 B#1|
+T|263.39|0.00|0|263.39|0.00|0|39.51|302.90|0|302.90|
+TI|2|4|263.39|15|39.51|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|263.39|0|263.39|
+IM|2|4|15|263.39|39.51|IVA|
+IA|DIRECCION|Direccin: km 11.5 va a Daule, Parque California 1 Edif. Com. 4 B#1|
+IA|TELEFONO|+593993888227|
+IA|OBSERVACION|GTN-2300|
+IA|VENCIMIENTO|14/06/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|disdesa@descalzi.com.ec,descalzi@descalzi.com.ec,secdes@descalzi.com.ec,secdes@descalzi.com.ec|
+IA|PLAZO|30 días|
+PA|20|302.90|30|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000029670|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|alexis.arteaga@asambleanacional.gob.ec|
+IC|11/09/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ASAMBLEA NACIONAL|1760000150001|DOLAR|||||0||||||||||||PIEDRAHITA 212 Y AV. 6 DE DICIEMBRE.|
+T|117.00|0.00|0|117.00|0.00|0|17.55|134.55|0|134.55|
+TI|2|4|117.00|15|17.55|IVA|
+DE|11399|11399|SERVICIO MONITOREO GPS (AS)|26|4.5|0|117.00|
+IM|2|4|15|117.00|17.55|IVA|
+IA|DIRECCION|PIEDRAHITA 212 Y AV. 6 DE DICIEMBRE.|
+IA|TELEFONO|+59322900208|
+IA|OBSERVACION|SERVICIO DEL 11 AL 30 DE SEPTIEMBRE 2025|
+IA|VENCIMIENTO|11/10/2026|
+IA|EMISION|Quito|
+IA|CORREO|alexis.arteaga@asambleanacional.gob.ec,alexis.arteaga@asambleanacional.gob.ec,alexis.arteaga@asambleanacional.gob.ec,alexis.arteaga@asambleanacional.gob.ec,alexis.arteaga@asambleanacional.gob.ec,alexis.arteaga@asambleanacional.gob.ec|
+IA|PLAZO|30 días|
+PA|20|134.55|30|días|

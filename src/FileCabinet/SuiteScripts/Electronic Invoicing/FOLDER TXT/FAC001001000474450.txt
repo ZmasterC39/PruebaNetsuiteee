@@ -1,0 +1,20 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000474450|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|servicios@adsdelecuador.ec|
+IC|27/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ASFALTOS DISEÑOS Y SERVICIOS A.D.S DEL ECUADOR S.A|0991453180001|DOLAR|||||0||||||||||||Brisas de Santay Via Duran - Tambo km 6.5 parque industrial de Duran mz 4 a lado de emulpac Interseccion 1A2|
+T|912.00|0.00|0|912.00|0.00|0|136.80|1048.80|0|1048.80|
+TI|2|4|912.00|15|136.80|IVA|
+DE|13292|13292|ACC VARILLA DE COMBUSTIBLE 1 MT ACCESORIO|1|380|0|380.00|
+IM|2|4|15|380.00|57.00|IVA|
+DE|8003|8003|VENT HCAM EQUIPO|1|252|0|252.00|
+IM|2|4|15|252.00|37.80|IVA|
+DE|8014|8014|VENT HCAM TRANSMISIÓN|1|280|0|280.00|
+IM|2|4|15|280.00|42.00|IVA|
+IA|DIRECCION|Brisas de Santay Via Duran - Tambo km 6.5 parque industrial de Duran mz 4 a lado de emulpac Interseccion 1A2|
+IA|CIUDAD|GUAYAQUIL|
+IA|TELEFONO|+593998897880|
+IA|OBSERVACION|GNO-0468|
+IA|VENCIMIENTO|26/09/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|luis.caputi@ads-ecuador.com,servicios@adsdelecuador.ec,luis.caputi@ads-ecuador.com,contabilidad@adsdelecuador.ec,luis.caputi@ads-ecuador.com,info@ads-ecuador.com,f.caputi@ads-ecuador.com|
+IA|PLAZO|30 días|
+PA|20|1048.80|30|días|

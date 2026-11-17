@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|003|001|000003636|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|maquinarias_jchevez@hotmail.com|
+IC|05/02/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||JOFFRE JAVIER CHEVEZ CHACON|0908193790001|DOLAR||01|003-001-000059166|19/06/2025|71.52|JOFFRE CHEVEZ ABH8284|||||||||||
+T|62.19|0.00|0|62.19|0.00|0|9.33|71.52|0|71.52|
+TI|2|4|15|62.19|9.33|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|62.19|0|62.19|
+IM|2|4|15|62.19|9.33|IVA|
+IA|DIRECCION|CC UNIORO LOCAL 46|
+IA|TELEFONO|+593968644702|
+IA|EMISION|Machala|
+IA|CORREO|maquinarias_jchevez@hotmail.com,maquinarias_jchevez@hotmail.com,maquinarias_jchevez@hotmail.com,maquinarias_jchevez@hotmail.com,maquinarias_jchevez@hotmail.com,martha_chavezcastillo@hotmail.com|

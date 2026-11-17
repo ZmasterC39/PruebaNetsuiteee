@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000448986|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|GABRIELSAMANNIEGO@HOTMAIL.COM|
+IC|11/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||NELSON GABRIEL SAMANIEGO ASTUDILLO|0923907315|DOLAR|||||0||||||||||||Recinto Zhucay (va a zhucay junto al balneario Zhucay City) Parroquia San Antonio Cantn y Provincia del Caar|
+T|10.00|0.00|0|10.00|0.00|0|1.50|11.50|0|11.50|
+TI|2|4|10.00|15|1.50|IVA|
+DE|2360|2360|CHEQ HMONITOREO CHEQUEO|1|10|0|10.00|
+IM|2|4|15|10.00|1.50|IVA|
+IA|DIRECCION|Recinto Zhucay (va a zhucay junto al balneario Zhucay City) Parroquia San Antonio Cantn y Provincia del Caar|
+IA|TELEFONO|+593989869210|
+IA|OBSERVACION|UBA-3118|
+IA|VENCIMIENTO|11/11/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|GABRIELSAMANNIEGO@HOTMAIL.COM,gabrielsamanniego@hotmail.com,gabrielsamanniego@hotmail.com,gabrielsamanniego@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|11.50|0|días|

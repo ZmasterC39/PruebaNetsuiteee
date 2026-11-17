@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000441932|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@comdego.com.ec|
+IC|04/09/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CASERSA S.A.|0992357215001|DOLAR|||||0||||||||||||Cdla Terranostra Mz 1510|
+T|13.39|0.00|0|13.39|0.00|0|2.01|15.40|0|15.40|
+TI|2|4|13.39|15|2.01|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|1|13.39|0|13.39|
+IM|2|4|15|13.39|2.01|IVA|
+IA|DIRECCION|Cdla Terranostra Mz 1510|
+IA|TELEFONO|+593999480850|
+IA|OBSERVACION|GTB-8274 / SEPTIEMBRE 2025|
+IA|VENCIMIENTO|04/10/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@comdego.com.ec,contabilidad@comdego.com.ec,administracion@casersa.com.ec,contabilidad@comdego.com.ec,dguerraorlando@hotmail.com|
+IA|PLAZO|30 días|
+PA|20|15.40|30|días|

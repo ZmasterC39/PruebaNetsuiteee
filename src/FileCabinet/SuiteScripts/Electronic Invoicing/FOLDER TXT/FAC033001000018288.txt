@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000018288|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|moises111@hotmail.com|
+IC|28/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||JUAN ARTURO CRESPO VEGA|1706378591|DOLAR|||||0||||||||||||Calle Arturo Crespo Oe2-134 y Tobar Donoso. Barrio La Gruta. Mangahuantag, Puembo|
+T|50.00|0.00|0|50.00|0.00|0|7.50|57.50|0|57.50|
+TI|2|4|50.00|15|7.50|IVA|
+DE|8874|8874|DESI HMONITOREO ENTREGA DIRECTA DESINSTALACION|1|50|0|50.00|
+IM|2|4|15|50.00|7.50|IVA|
+IA|DIRECCION|Calle Arturo Crespo Oe2-134 y Tobar Donoso. Barrio La Gruta. Mangahuantag, Puembo|
+IA|TELEFONO|+593984514424|
+IA|VENCIMIENTO|28/01/2026|
+IA|EMISION|Quito|
+IA|CORREO|moises111@hotmail.com,moises111@hotmail.com,moises111@hotmail.com,moises111@hotmail.com,moises111@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|57.50|0|días|

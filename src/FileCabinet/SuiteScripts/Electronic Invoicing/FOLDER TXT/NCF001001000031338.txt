@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|001|001|000031338|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|marjorieamador@agrofarm.com.ec|
+IC|12/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Comercial Agro Farm Cia. Ltda|0990319014001|DOLAR||01|001-001-000449665|24/11/2025|230.00|GQG-0269|||||||||||
+T|200.00|0.00|0|200.00|0.00|0|30.00|230.00|0|230.00|
+TI|2|4|15|200.00|30.00|IVA|
+DE|12887|12887|VENT HCAM REPUESTO|1|200|0|200.00|
+IM|2|4|15|200.00|30.00|IVA|
+IA|DIRECCION|Km 1.5 via a Naranjito|
+IA|TELEFONO|+593986920998|
+IA|EMISION|Guayaquil|
+IA|CORREO|marjorieamador@agrofarm.com.ec,Lindasamaniego@agrofarm.com.ec,marjorieamador@agrofarm.com.ec,lindasamaniego@agrofarm.com.ec,agrofarm@agrofarm.com.ec|

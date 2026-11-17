@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000465173|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|carolinavalenzuelacorrea@hotmail.com|
+IC|11/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||ANDREA CAROLINA VALENZUELA CORREA|0923352280|DOLAR|||||0||||||||||||VILLA ESPAA MALAGA MZ 72 VILLA 2|
+T|20.00|0.00|0|20.00|0.00|0|3.00|23.00|0|23.00|
+TI|2|4|20.00|15|3.00|IVA|
+DE|2279|2279|CONTROL REMOTO - ALARMAS|1|20|0|20.00|
+IM|2|4|15|20.00|3.00|IVA|
+IA|DIRECCION|VILLA ESPAA MALAGA MZ 72 VILLA 2|
+IA|TELEFONO|+593993035395|
+IA|VENCIMIENTO|11/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|carolinavalenzuelacorrea@hotmail.com,carolinavalenzuelacorrea@hotmail.com,carolinavalenzuelacorrea@hotmail.com,carolinavalenzuelacorrea@hotmail.com,carolinavalenzuelacorrea@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|23.00|0|días|

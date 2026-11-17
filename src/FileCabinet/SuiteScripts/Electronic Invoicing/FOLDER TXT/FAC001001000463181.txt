@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000463181|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|denis.obando@starkist.com|
+IC|23/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||GALAPESCA S.A.|0992132078001|DOLAR|||||0||||||||||||KM 12.5 VIA A DAULE DETRAS DE ECUASAL -GALAPESCA S.A.|
+T|319.00|0.00|0|319.00|0.00|0|47.85|366.85|0|366.85|
+TI|2|4|319.00|15|47.85|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|319|0|319.00|
+IM|2|4|15|319.00|47.85|IVA|
+IA|DIRECCION|KM 12.5 VIA A DAULE DETRAS DE ECUASAL -GALAPESCA S.A.|
+IA|TELEFONO|+593967281158|
+IA|OBSERVACION|GSV-4332|
+IA|VENCIMIENTO|22/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|Mercedes.Alcivar@StarKist.com,denis.obando@starkist.com,Jose.Cedeno@starkist.com,facturas.galapesca@starkist.com,arturo.rios@starkist.com,Mercedes.Alcivar@StarKist.com,Diana.Pazan@StarKist.com,Ericka.Teresaca@StarKist.com,Katherine.Sanchez@StarKist.com,Electronica.Seguridad@StarKist.com|
+IA|PLAZO|30 días|
+PA|20|366.85|30|días|

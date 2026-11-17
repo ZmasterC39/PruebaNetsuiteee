@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000471116|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|eguzman@femar.com.ec|
+IC|17/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||FEMAR S.A.|0992364866001|DOLAR|||||0||||||||||||Km 1.5 Vía a Samborondón, Edificio Xima Centro de Negocios, piso 5 oficina 504|
+T|821.44|0.00|0|821.44|0.00|0|123.22|944.66|0|944.66|
+TI|2|4|821.44|15|123.22|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|4|205.36|0|821.44|
+IM|2|4|15|821.44|123.22|IVA|
+IA|DIRECCION|Km 1.5 Vía a Samborondón, Edificio Xima Centro de Negocios, piso 5 oficina 504|
+IA|TELEFONO|+59343951774|
+IA|VENCIMIENTO|16/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|eguzman@femar.com.ec,eguzman@femar.com.ec,kmoreno@femar.com.ec,jchasi@femar.com.ec,eguzman@femar.com.ec|
+IA|PLAZO|30 días|
+PA|20|944.66|30|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000024449|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|pilicitagruasistenciaSVA@outlook.com|
+IC|29/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Pilicita Gruas Auto Asistencia GruasPilicita S.A.|1792996651001|DOLAR|||||0||||||||||||QUITO|
+T|144.00|0.00|0|144.00|0.00|0|21.60|165.60|0|165.60|
+TI|2|4|144.00|15|21.60|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|144|0|144.00|
+IM|2|4|15|144.00|21.60|IVA|
+IA|DIRECCION|PasajeMaria Gamarra S4-178 y Carmen Sorroza|
+IA|TELEFONO|+593983951728|
+IA|OBSERVACION|RENOVACION SERVICIO 1 AO DE COBERTURA VEH. HYUNDAI GSC-6612|
+IA|VENCIMIENTO|05/06/2026|
+IA|EMISION|Quito|
+IA|CORREO|pilicitagruasistenciaSVA@outlook.com,pilicitagruasistenciasva@outlook.com,pilicitagruasistenciasva@outlook.com,pilicitagruasistenciasva@outlook.com|
+IA|PLAZO|7 días|
+PA|20|165.60|7|días|

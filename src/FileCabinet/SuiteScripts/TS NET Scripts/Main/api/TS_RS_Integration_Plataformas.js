@@ -95,6 +95,8 @@ define([
                     if (scriptContext.esCambioSimCard == true) { objRecord.setValue({ fieldId: 'custrecord_ht_co_impulso_plataforma', value: PX_MODIFICACION_DATOS_DISPOSITIVOS }); }
                     if (scriptContext.esItemRepuesto == true) { objRecord.setValue({ fieldId: 'custrecord_ht_co_impulso_plataforma', value: PX_MODIFICACION_DATOS_DISPOSITIVOS }); }
                     if (scriptContext.esGarantia == false) { objRecord.setValue({ fieldId: 'custrecord_ht_co_producto', value: scriptContext.producto }) }
+                    if (scriptContext?.adp == 317) { objRecord.setValue({ fieldId: 'custrecord_ht_co_producto', value: scriptContext.producto }) }
+  
                     objRecord.setValue({ fieldId: 'custrecord_ht_co_numeroserieproducto', value: scriptContext.serieproducto });
                     //objRecord.setValue({ fieldId: 'custrecord_ht_co_clientemonitoreo', value: scriptContext.monitoreo });
                     objRecord.setValue({ fieldId: 'custrecord_ht_co_estado', value: scriptContext.estado });

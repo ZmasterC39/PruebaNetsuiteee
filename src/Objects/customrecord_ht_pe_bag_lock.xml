@@ -1,0 +1,70 @@
+<customrecordtype scriptid="customrecord_ht_pe_bag_lock">
+    <accesstype>NONENEEDED</accesstype>
+    <allowinlineediting>F</allowinlineediting>
+    <allowuiaccess>F</allowuiaccess>
+    <description>Lock con vencimiento para serializar la sincronizacion de una orden de fabricacion.</description>
+    <enableoptimisticlocking>T</enableoptimisticlocking>
+    <enablesystemnotes>F</enablesystemnotes>
+    <includeinsearchmenu>F</includeinsearchmenu>
+    <includename>T</includename>
+    <isinactive>F</isinactive>
+    <recordname>HT PE BAG - Lock de orden</recordname>
+    <customrecordcustomfields>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_lk_workorder">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>ID Orden de fabricacion</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_lk_target_type">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Tipo de objetivo</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_lk_target_id">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>INTEGER</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>ID de objetivo</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_lk_token">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Token</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_lk_owner">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Propietario logico</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_lk_expires">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>DATETIMETZ</fieldtype>
+            <ismandatory>T</ismandatory>
+            <label>Vence</label>
+            <showinlist>T</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+        <customrecordcustomfield scriptid="custrecord_ht_pe_bag_lk_request_id">
+            <displaytype>NORMAL</displaytype>
+            <fieldtype>TEXT</fieldtype>
+            <ismandatory>F</ismandatory>
+            <label>ID de solicitud</label>
+            <showinlist>F</showinlist>
+            <storevalue>T</storevalue>
+        </customrecordcustomfield>
+    </customrecordcustomfields>
+</customrecordtype>

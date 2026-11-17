@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000022893|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|vasquezlemajorge@gmail.com|
+IC|28/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||JORGE ESTUARDO VASQUEZ LEMA|1703177970|DOLAR|||||0||||||||||||Cooperativa Iess Fut Smz 7 Mz G Casa 6 Calle 7 C Casa S15-49 De Color Cafe De 3 Pisos Ref. Cerca A Las Canchas Deportivas|
+T|50.00|0.00|0|50.00|0.00|0|7.50|57.50|0|57.50|
+TI|2|4|50.00|15|7.50|IVA|
+DE|8924|8924|VENT HMONITOREO SERVICIO DE INSTALACIÓN|1|50|0|50.00|
+IM|2|4|15|50.00|7.50|IVA|
+IA|DIRECCION|Cooperativa Iess Fut Smz 7 Mz G Casa 6 Calle 7 C Casa S15-49 De Color Cafe De 3 Pisos Ref. Cerca A Las Canchas Deportivas|
+IA|TELEFONO|+593987964392|
+IA|VENCIMIENTO|28/04/2026|
+IA|EMISION|Quito|
+IA|CORREO|vasquezlemajorge@gmail.com,vasquezlemajorge@gmail.com,vasquezlemajorge@gmail.com,vasquezlemajorge@gmail.com,vasquezlemajorge@gmail.com|
+IA|PLAZO|0 días|
+PA|20|57.50|0|días|

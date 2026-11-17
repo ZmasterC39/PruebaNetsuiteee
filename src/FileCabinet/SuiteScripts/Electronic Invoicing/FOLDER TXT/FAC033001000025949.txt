@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000025949|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|yandry.chamba@gmail.com|
+IC|29/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||YANDRY EDGAR CHAMBA ROSILLO|1103859706|DOLAR|||||0||||||||||||Jose Tobar, E1-379 ,luis Godin|
+T|256.52|0.00|0|256.52|0.00|0|38.48|295.00|0|295.00|
+TI|2|4|256.52|15|38.48|IVA|
+DE|11257|11257|RENO HM AMI RENOVACION|1|256.52|0|256.52|
+IM|2|4|15|256.52|38.48|IVA|
+IA|DIRECCION|Jose Tobar, E1-379 ,luis Godin|
+IA|TELEFONO|+593987850008|
+IA|VENCIMIENTO|04/07/2026|
+IA|EMISION|Quito|
+IA|CORREO|yandry.chamba@gmail.com,yandry.chamba@gmail.com,yandry.chamba@gmail.com,yandry.chamba@gmail.com,yandry.chamba@gmail.com,yandry.chamba@gmail.com|
+IA|PLAZO|5 días|
+PA|20|295.00|5|días|

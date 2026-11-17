@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000010286|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|alberto.velasteguia@hotmail.com|
+IC|22/08/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||SEGUNDO ALBERTO VELASTEGUI AYALA|0601919962|DOLAR|||||0||||||||||||Calle Rio Pastaza Oe13-91 Sector San Gabriel, Ref Junto Al Colegio Leon Coper, Valle De Los Chillos|
+T|200.00|0.00|0|200.00|0.00|0|30.00|230.00|0|230.00|
+TI|2|4|200.00|15|30.00|IVA|
+DE|5058|5058|RENO HUNTER RASTREO RENOVACION 3ER AÑO|1|100|0|100.00|
+IM|2|4|15|100.00|15.00|IVA|
+DE|7668|7668|RENO HMONITOREO RENOVACION 3ER AÑO|1|100|0|100.00|
+IM|2|4|15|100.00|15.00|IVA|
+IA|DIRECCION|Calle Rio Pastaza Oe13-91 Sector San Gabriel, Ref Junto Al Colegio Leon Coper, Valle De Los Chillos|
+IA|TELEFONO|+593999905655|
+IA|VENCIMIENTO|22/08/2025|
+IA|EMISION|Quito|
+IA|CORREO|alberto.velasteguia@hotmail.com,alberto.velasteguia@hotmail.com,alberto.velasteguia@hotmail.com,alberto.velasteguia@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|230.00|0|días|

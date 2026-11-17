@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000473280|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|docs@torvi-ca.com|
+IC|07/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||TORVI C.A.|0990001952001|DOLAR|||||0||||||||||||KmVa a Daule km 7,5 Cdla. Prosperina calle segunda s/n y tercer callejn, Av. 11|
+T|120.00|0.00|0|120.00|0.00|0|18.00|138.00|0|138.00|
+TI|2|4|120.00|15|18.00|IVA|
+DE|11706|11706|ALQU HM CORPORATIVO REPUESTO|1|120|0|120.00|
+IM|2|4|15|120.00|18.00|IVA|
+IA|DIRECCION|KmVa a Daule km 7,5 Cdla. Prosperina calle segunda s/n y tercer callejn, Av. 11|
+IA|TELEFONO|+593999421996|
+IA|OBSERVACION|GLO-0127|
+IA|VENCIMIENTO|06/09/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|docs@torvi-ca.com,ventas@torvi-ca.com,docs@torvi-ca.com,docs@torvi-ca.com,docs@torvi-ca.com|
+IA|PLAZO|30 días|
+PA|20|138.00|30|días|

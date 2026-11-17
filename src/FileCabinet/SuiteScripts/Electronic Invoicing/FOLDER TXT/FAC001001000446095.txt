@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000446095|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|operaciones@pct.com.ec|
+IC|13/10/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PACIFIC TRUCKS PACITRUCKS S.A.|0992731389001|DOLAR|||||0||||||||||||Cdla Lote Industrial Inmaconsa Sl 4 Mz106 . via perimetral km 23, frente al hospital Universitario|
+T|408.00|0.00|0|408.00|0.00|0|61.20|469.20|0|469.20|
+TI|2|4|408.00|15|61.20|IVA|
+DE|2320|2320|RENO HM CORPORATIVO RENOVACION|23|17|0|391.00|
+IM|2|4|15|391.00|58.65|IVA|
+DE|8240|8240|RENO HUNTER FULL CORPORATIVO RENOVACIÓN|1|17|0|17.00|
+IM|2|4|15|17.00|2.55|IVA|
+IA|DIRECCION|Cdla Lote Industrial Inmaconsa Sl 4 Mz106 . via perimetral km 23, frente al hospital Universitario|
+IA|TELEFONO|+593952634111|
+IA|OBSERVACION|MES OCTUBRE 2025|
+IA|VENCIMIENTO|12/12/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|operaciones@pct.com.ec,maria.jose.pincay@pct.com.ec,operaciones@pct.com.ec,fernando.salas@pct.com.ec,operaciones@pct.com.ec|
+IA|PLAZO|60 días|
+PA|20|469.20|60|días|

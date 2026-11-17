@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|001|001|000028752|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|jmagallanes@magictrucksa.com|
+IC|28/08/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MAGICTRUCKSA S.A.|0992935596001|DOLAR||01|001-001-000407169|03/09/2024|262.20|FACT. CON O/F NRO. 1001601751 O/S NRO. 1001593267 (RENO HM CORPORATIVO RENOVACION )|||||||||||
+T|228.00|0.00|0|228.00|0.00|0|34.20|262.20|0|262.20|
+TI|2|4|15|228.00|34.20|IVA|
+DE|2320|2320|RENO HM CORPORATIVO RENOVACION|1|228|0|228.00|
+IM|2|4|15|228.00|34.20|IVA|
+IA|DIRECCION|PRADERA 1 MZ E-18A SL 14|
+IA|TELEFONO|+593967035675|
+IA|EMISION|Guayaquil|
+IA|CORREO|jmagallanes@magictrucksa.com,control.contable@magictrucksa.com,asistente.gerencia@magictrucksa.com,magictrucksa@gmail.com,asistente.gerencia@magictrucksa.com,jmagallanes@jokaoffice.com,control.contable@magictrucksa.com,magictrucksa@gmail.com|

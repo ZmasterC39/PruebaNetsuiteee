@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000458674|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|facturas@wyndhamguayaquil.com|
+IC|04/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||FIDECOMISO HOTEL CIUDAD DEL RIO|0992646411001|DOLAR|||||0||||||||||||Calle Numa Pompilio Llona S-N, Ciudad del Ro  Puerto Santa Ana|
+T|22.78|0.00|0|22.78|0.00|0|3.42|26.20|0|26.20|
+TI|2|4|22.78|15|3.42|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|22.78|0|22.78|
+IM|2|4|15|22.78|3.42|IVA|
+IA|DIRECCION|Calle Numa Pompilio Llona S-N, Ciudad del Ro  Puerto Santa Ana|
+IA|TELEFONO|+593986607242|
+IA|OBSERVACION|MES MARZO 2026 GTM-6457|
+IA|VENCIMIENTO|03/04/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|facturas@wyndhamguayaquil.com,seguridad@wyndhamguayaquil.com,seguridad@wyndhamguayaquil.com|
+IA|PLAZO|30 días|
+PA|20|26.20|30|días|

@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|033|001|000002766|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|andres.tulcanaza@finanzaspopulares.gob.ec|
+IC|13/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CORPORACIÓN NACIONAL DE FINANZAS POPULARES Y SOLIDARIAS|1768168480001|DOLAR||01|033-001-000020642|12/03/2026|492.50|C-EC-1768168480001 CORPORACIÓN NACIONAL DE FINANZAS POPULARES Y SOLIDARIAS FA033001000020642|||||||||||
+T|428.26|0.00|0|428.26|0.00|0|64.24|492.50|0|492.50|
+TI|2|4|15|428.26|64.24|IVA|
+DE|15002|15002|SERVICIO MONITOREO GPS (AS) RENOVACION|7|61.18|0|428.26|
+IM|2|4|15|428.26|64.24|IVA|
+IA|DIRECCION|Av. Amazonas y Juan Jose Villalengua. Plataforma Gubernamental de Gestión Financiera – 4to. piso|
+IA|TELEFONO|+59323801910|
+IA|EMISION|Quito|
+IA|CORREO|andres.tulcanaza@finanzaspopulares.gob.ec,andres.tulcanaza@finanzaspopulares.gob.ec,andres.tulcanaza@finanzaspopulares.gob.ec,ronald.jumbo@finanzaspopulares.gob.ec,ronald.jumbo@finanzaspopulares.gob.ec|

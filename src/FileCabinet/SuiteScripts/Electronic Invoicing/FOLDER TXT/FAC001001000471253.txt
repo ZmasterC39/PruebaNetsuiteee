@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000471253|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|xgandara@grupo-ecuarad.com|
+IC|20/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ECUATORIANA DE RADIADORES ECUARAD S.A.|0990136866001|DOLAR|||||0||||||||||||Km. 16 1/2 Via Daule Alado De Ferre Mundo Entre Las 2 Entradas De Cerveceria Nacional|
+T|1316.95|0.00|0|1316.95|0.00|0|197.54|1514.49|0|1514.49|
+TI|2|4|1316.95|15|197.54|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|5|263.39|0|1316.95|
+IM|2|4|15|1316.95|197.54|IVA|
+IA|DIRECCION|Km. 16 1/2 Via Daule Alado De Ferre Mundo Entre Las 2 Entradas De Cerveceria Nacional|
+IA|TELEFONO|+593994022688|
+IA|OBSERVACION|GTG-9668 / GTO-5019 / PFH-9948 / GSM-4459 / GTU-7769|
+IA|VENCIMIENTO|20/07/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|xgandara@grupo-ecuarad.com,xgandara@grupo-ecuarad.com,ventas@grupo-ecuarad.com,xgandara@grupo-ecuarad.com,jovhanka.maldonado@gmail.com|
+IA|PLAZO| días|
+PA|20|1514.49|0|días|

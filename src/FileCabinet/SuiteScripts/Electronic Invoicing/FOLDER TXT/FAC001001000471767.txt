@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000471767|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|agordillo@galaxycruises.com|
+IC|29/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||GALAXY EXPEDITIONS GALAXYEXP S.A.S.|2091767777001|DOLAR|||||0||||||||||||Piquero S/N y San Cristóbal, Barrio Matazarlo, Puerto Ayora, Isla Santa Cruz - Galápagos|
+T|1400.00|0.00|0|1400.00|0.00|0|210.00|1610.00|0|1610.00|
+TI|2|4|1400.00|15|210.00|IVA|
+DE|6220|6220|VENT HUNTER SATELITAL DIRNEA|1|1400|0|1400.00|
+IM|2|4|15|1400.00|210.00|IVA|
+IA|DIRECCION|Piquero S/N y San Cristóbal, Barrio Matazarlo, Puerto Ayora, Isla Santa Cruz - Galápagos|
+IA|CIUDAD|QUITO|
+IA|TELEFONO|+59323947240|
+IA|OBSERVACION|1274827 GALAXY SKAPE|
+IA|VENCIMIENTO|28/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|agordillo@galaxycruises.com,agordillo@galaxycruises.com,agordillo@galaxycruises.com|
+IA|PLAZO|30 días|
+PA|20|1610.00|30|días|

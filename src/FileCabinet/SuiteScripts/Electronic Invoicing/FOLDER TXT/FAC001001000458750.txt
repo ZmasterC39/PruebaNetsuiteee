@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000458750|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|gerencia@incuseg.com|
+IC|04/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||INCUSEG CIA. LTDA.|0992797630001|DOLAR|||||0||||||||||||Km. 13.5 Avenida Len Febres Cordero - Edificio River Plaza 3er. Piso, oficina #314 - Cantn Daule, parroquia la Aurora.|
+T|150.00|0.00|0|150.00|0.00|0|22.50|172.50|0|172.50|
+TI|2|4|150.00|15|22.50|IVA|
+DE|10324|10324|ALQU HUNTER PORTATIL TRANSMISION ALQUILER|5|20|0|100.00|
+IM|2|4|15|100.00|15.00|IVA|
+DE|13087|13087|VENT HUNTER SOLARLOCK TRANSMISION|2|25|0|50.00|
+IM|2|4|15|50.00|7.50|IVA|
+IA|DIRECCION|Km. 13.5 Avenida Len Febres Cordero - Edificio River Plaza 3er. Piso, oficina #314 - Cantn Daule, parroquia la Aurora.|
+IA|TELEFONO|+593993230628|
+IA|OBSERVACION|MES MARZO 2026 1-PRO PORTATIL / 2-PRO PORTATIL / 3-PRO PORTATIL / 4-PRO PORTATIL / 5-PRO PORTATIL / SOLARLOCK / SOLARLOCK CANE012|
+IA|VENCIMIENTO|03/04/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|marielac@incuseg.com,gerencia@incuseg.com,gerencia@incuseg.com,incuseg@outlook.com,gerencia@incuseg.com,gerencia@incuseg.com|
+IA|PLAZO|30 días|
+PA|20|172.50|30|días|

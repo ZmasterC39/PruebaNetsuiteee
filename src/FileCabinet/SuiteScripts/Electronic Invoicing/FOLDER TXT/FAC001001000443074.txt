@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000443074|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|karina_mendoza@unicomer.com|
+IC|05/09/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||UNICOMER DE ECUADOR S.A.|1790895548001|DOLAR|||||0||||||||||||CIUDAD COLON 3era. ETAPA Mz. 275 SOLAR 6 y 7 Edif. Pacfica Center, Piso 5, 6 y 7, Av. Rodrigo Chvez, CORPORATIVO 4 PB, Av. Rodrigo|
+T|13.95|0.00|0|13.95|0.00|0|2.09|16.04|0|16.04|
+TI|2|4|13.95|15|2.09|IVA|
+DE|10485|10485|ALQU HM CORPORATIVO SERVICIO ALQUILER|1|13.95|0|13.95|
+IM|2|4|15|13.95|2.09|IVA|
+IA|DIRECCION|CIUDAD COLON 3era. ETAPA Mz. 275 SOLAR 6 y 7 Edif. Pacfica Center, Piso 5, 6 y 7, Av. Rodrigo Chvez, CORPORATIVO 4 PB, Av. Rodrigo|
+IA|TELEFONO|+593984867354|
+IA|OBSERVACION|GSU-8715 / MESSEPTIEMBRE 2025|
+IA|VENCIMIENTO|05/10/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|karina_mendoza@unicomer.com,karina_mendoza@unicomer.com,karina_mendoza@unicomer.com,karina_mendoza@unicomer.com,karina_mendoza@unicomer.com,karina_mendoza@unicomer.com|
+IA|PLAZO|30 días|
+PA|20|16.04|30|días|

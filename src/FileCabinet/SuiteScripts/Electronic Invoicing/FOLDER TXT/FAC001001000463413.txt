@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000463413|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@corpelsa.com|
+IC|25/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Restaurant Zeru Gourmet .|0992946792001|DOLAR|||||0||||||||||||Km 1 va Samborondon paseo comercial Bocca, piso 1, ofic. 106|
+T|19.48|0.00|0|19.48|0.00|0|2.92|22.40|0|22.40|
+TI|2|4|19.48|15|2.92|IVA|
+DE|9500|9500|VENT APERTURA DE SEGURO|1|19.48|0|19.48|
+IM|2|4|15|19.48|2.92|IVA|
+IA|DIRECCION|Km 1 va Samborondon paseo comercial Bocca, piso 1, ofic. 106|
+IA|TELEFONO|+593963101377|
+IA|OBSERVACION|GTR-4951|
+IA|VENCIMIENTO|25/04/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@corpelsa.com,contabilidad@corpelsa.com,pvillacis@corpelsa.com,contabilidad@corpelsa.com|
+IA|PLAZO| días|
+PA|20|22.40|0|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000446663|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@jzconstructores.com|
+IC|20/10/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||JAIME ARTURO ZAMBRANO GARCIA|0903366086001|DOLAR|||||0||||||||||||URB MILAN ETAPA TURIN MZ 7 VILLA 7|
+T|233.93|0.00|0|233.93|0.00|0|35.09|269.02|0|269.02|
+TI|2|4|233.93|15|35.09|IVA|
+DE|9621|9621|RENO GPS HMT RENOVACION|1|233.93|0|233.93|
+IM|2|4|15|233.93|35.09|IVA|
+IA|DIRECCION|URB MILAN ETAPA TURIN MZ 7 VILLA 7|
+IA|TELEFONO|+593994987389|
+IA|OBSERVACION|GSP-9493|
+IA|VENCIMIENTO|22/10/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@jzconstructores.com,jzambrano@jzconstructores.com,cbuestan@jzconstructores.com,contabilidad@jzconstructores.com,jzambrano@jzconstructores.com,contabilidad@jzconstructores.com,contabilidad@jzconstructores.com|
+IA|PLAZO|2 días|
+PA|20|269.02|2|días|

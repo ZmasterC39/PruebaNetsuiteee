@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|033|001|000004057|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|alexis.arteaga@asambleanacional.gob.ec|
+IC|11/09/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ASAMBLEA NACIONAL|1760000150001|DOLAR||01|033-001-000024667|02/06/2026|129.26|C-EC-1760000150001 ASAMBLEA NACIONAL FA033001000024667|||||||||||
+T|112.40|0.00|0|112.40|0.00|0|16.86|129.26|0|129.26|
+TI|2|4|15|112.40|16.86|IVA|
+DE|11399|11399|SERVICIO MONITOREO GPS (AS)|24|4.68|0|112.40|
+IM|2|4|15|112.40|16.86|IVA|
+IA|DIRECCION|PIEDRAHITA 212 Y AV. 6 DE DICIEMBRE.|
+IA|TELEFONO|+59322900208|
+IA|EMISION|Quito|
+IA|CORREO|alexis.arteaga@asambleanacional.gob.ec,alexis.arteaga@asambleanacional.gob.ec,alexis.arteaga@asambleanacional.gob.ec,alexis.arteaga@asambleanacional.gob.ec,alexis.arteaga@asambleanacional.gob.ec,alexis.arteaga@asambleanacional.gob.ec|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000013276|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|salome.egas@megamicro-ec.com|
+IC|18/10/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MEGAMICRO S.A.|1791353897001|DOLAR|||||0||||||||||||De Las Anonas E9-119 y de Los Jazmines|
+T|145.00|0.00|0|145.00|0.00|0|21.75|166.75|0|166.75|
+TI|2|4|145.00|15|21.75|IVA|
+DE|9748|9748|ALQU HUNTER CANDADO RUTA 1 ALQUILER|1|145|0|145.00|
+IM|2|4|15|145.00|21.75|IVA|
+IA|DIRECCION|De Las Anonas E9-119 y de Los Jazmines|
+IA|TELEFONO|+593992889439|
+IA|OBSERVACION|RUTA PARA EL VH PLACA PFC-9881|
+IA|VENCIMIENTO|17/11/2025|
+IA|EMISION|Quito|
+IA|CORREO|maritza.villegas@megamicro-ec.com,salome.egas@megamicro-ec.com,maritza.villegas@megamicro-ec.com,salome.egas@megamicro-ec.com,salome.egas@megamicro-ec.com|
+IA|PLAZO|30 días|
+PA|20|166.75|30|días|

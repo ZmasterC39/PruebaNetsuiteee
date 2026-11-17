@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000015544|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Cvcarlosvega93@gmail.com|
+IC|29/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||CARLOS XAVIER VEGA OYOLA|0705667509|DOLAR|||||0||||||||||||Machala, Puerto Bolvar - Av. Madero Vargas Y 9na.norte / 3ra.sur|
+T|200.00|0.00|0|200.00|0.00|0|30.00|230.00|0|230.00|
+TI|2|4|200.00|15|30.00|IVA|
+DE|7667|7667|RENO HMONITOREO RENOVACION 2DO AÑO|1|200|0|200.00|
+IM|2|4|15|200.00|30.00|IVA|
+IA|DIRECCION|Machala, Puerto Bolvar - Av. Madero Vargas Y 9na.norte / 3ra.sur|
+IA|TELEFONO|+593998417489|
+IA|VENCIMIENTO|29/11/2025|
+IA|EMISION|Quito|
+IA|CORREO|Cvcarlosvega93@gmail.com,cvcarlosvega93@gmail.com,cvcarlosvega93@gmail.com,cvcarlosvega93@gmail.com|
+IA|PLAZO|0 días|
+PA|20|230.00|0|días|

@@ -1,0 +1,18 @@
+<mapreducescript scriptid="customscript_ht_pe_mr_bag_worker">
+    <description>Procesa en paralelo la cola de sincronizacion masiva de ordenes de fabricacion.</description>
+    <isinactive>F</isinactive>
+    <name>HT PE BAG - Worker masivo</name>
+    <notifyowner>F</notifyowner>
+    <scriptfile>[/SuiteScripts/Desarrollo_Hunter/Hunter_Peru/appHunter/modules/BOM Assembly Assurance/HT_PE_MR_BAG_WORKER.js]</scriptfile>
+    <scriptdeployments>
+        <scriptdeployment scriptid="customdeploy_ht_pe_mr_bag_worker">
+            <buffersize>1</buffersize>
+            <concurrencylimit>2</concurrencylimit>
+            <isdeployed>T</isdeployed>
+            <loglevel>AUDIT</loglevel>
+            <status>NOTSCHEDULED</status>
+            <title>HT PE BAG - Worker masivo</title>
+            <yieldaftermins>60</yieldaftermins>
+        </scriptdeployment>
+    </scriptdeployments>
+</mapreducescript>

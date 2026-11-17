@@ -1,0 +1,11 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|003|001|000003688|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidadinesarpe@gmail.com|
+IC|17/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||INSUMOS ESQUINEROS ARTEAGA & PERALTA INESARPE S.A|0791771285001|DOLAR||01|003-001-000060224|17/10/2025|156.18|INESARPE OBC3861|||||||||||
+T|135.81|0.00|0|135.81|0.00|0|20.37|156.18|0|156.18|
+TI|2|4|15|135.81|20.37|IVA|
+DE|9621|9621|RENO GPS HMT RENOVACION|1|135.81|0|135.81|
+IM|2|4|15|135.81|20.37|IVA|
+IA|DIRECCION|LA PEAÑA VIA PASAJE MACHALA KM 3 LAS MERCEDES|
+IA|TELEFONO|+593999559450|
+IA|EMISION|Machala|
+IA|CORREO|contabilidadinesarpe@gmail.com,contabilidadinesarpe@gmail.com,contabilidadinesarpe@gmail.com,contabilidadinesarpe@gmail.com,contabilidadinesarpe@gmail.com,contabilidadinesarpe@gmail.com,contabilidadinesarpe@gmail.com|

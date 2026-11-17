@@ -1,4 +1,13 @@
 <manifest projecttype="ACCOUNTCUSTOMIZATION">
   <projectname>Netsuite Sandbox 2.0</projectname>
   <frameworkversion>1.0</frameworkversion>
+  <dependencies>
+    <features>
+      <feature required="true">SERVERSIDESCRIPTING</feature>
+      <feature required="true">CUSTOMRECORDS</feature>
+      <feature required="true">ASSEMBLIES</feature>
+      <feature required="true">WORKORDERS</feature>
+      <feature required="true">ADVANCEDBILLOFMATERIALS</feature>
+    </features>
+  </dependencies>
 </manifest>

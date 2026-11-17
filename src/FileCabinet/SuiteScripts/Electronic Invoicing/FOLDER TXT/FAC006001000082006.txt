@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|006|001|000082006|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|gisella_giler@hotmail.es|
+IC|26/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||GISELLA FERNANDA GILER COBEÑA|1205373366|DOLAR|||||0||||||||||||San Camilo Coop. Los Chapulos Entrada Karina Por La Farmacia Xxi 4 Cuadras Al Fondo En Tienda Dos Hermanos|
+T|221.74|0.00|0|221.74|0.00|0|33.26|255.00|0|255.00|
+TI|2|4|221.74|15|33.26|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|132.74|0|132.74|
+IM|2|4|15|132.74|19.91|IVA|
+DE|5274|5274|RENO GARANTIA EXTENDIDA RENOVACION|1|89|0|89.00|
+IM|2|4|15|89.00|13.35|IVA|
+IA|DIRECCION|San Camilo Coop. Los Chapulos Entrada Karina Por La Farmacia Xxi 4 Cuadras Al Fondo En Tienda Dos Hermanos|
+IA|TELEFONO|+593979786717|
+IA|VENCIMIENTO|26/05/2026|
+IA|EMISION|Manta|
+IA|CORREO|gisella_giler@hotmail.es,gisella_giler@hotmail.es,gisella_giler@hotmail.es,gisella_giler@hotmail.es|
+IA|PLAZO| días|
+PA|20|255.00|0|días|

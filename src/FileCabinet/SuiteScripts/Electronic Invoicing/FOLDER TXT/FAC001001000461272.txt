@@ -1,0 +1,19 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000461272|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@transcaba.com|
+IC|02/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||TRANSCABA S.A|1791731395001|DOLAR|||||0||||||||||||Km. 7 1/2 Via a Daule - Lotizacion El Prado Mz1 Solar 2 , Frente a la parada de la Metro Via Juan Tanca Marengo, 30 metros del viaducto de la Perimetr|
+T|470.00|0.00|0|470.00|0.00|0|70.50|540.50|0|540.50|
+TI|2|4|470.00|15|70.50|IVA|
+DE|10485|10485|ALQU HM CORPORATIVO SERVICIO ALQUILER|5|18|0|90.00|
+IM|2|4|15|90.00|13.50|IVA|
+DE|9439|9439|SERV.MONITOREO DE EVENTOS EN RUTA|8|25|0|200.00|
+IM|2|4|15|200.00|30.00|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|10|18|0|180.00|
+IM|2|4|15|180.00|27.00|IVA|
+IA|DIRECCION|Km. 7 1/2 Via a Daule - Lotizacion El Prado Mz1 Solar 2 , Frente a la parada de la Metro Via Juan Tanca Marengo, 30 metros del viaducto de la Perimetr|
+IA|TELEFONO|+593989983199|
+IA|OBSERVACION|GBP-9778 / GBQ-3127 / PAC-4190 / PAC-4189 / PYW-0618 / PAB-5591 / PAC-9459 / PAB-9442 / GTP-8451 / PFP-5987 / PDQ-8599 / PAB-7311 / GTT-5404 / MES ABRIL 2026|
+IA|VENCIMIENTO|02/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@transcaba.com,contabilidad@transcaba.com,contabilidad@transcaba.com|
+IA|PLAZO|30 días|
+PA|20|540.50|30|días|

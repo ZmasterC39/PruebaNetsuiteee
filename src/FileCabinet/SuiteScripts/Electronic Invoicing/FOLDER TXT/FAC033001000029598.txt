@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000029598|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|paulettemaciasmoreno@gmail.com|
+IC|10/09/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Yalile Paulette Macías Moreno|0924845324001|DOLAR|||||0||||||||||||Gonzlez Surez Y Av Corua Edificio Terrazas Del Valle|
+T|50.00|0.00|0|50.00|0.00|0|7.50|57.50|0|57.50|
+TI|2|4|50.00|15|7.50|IVA|
+DE|8924|8924|VENT HMONITOREO SERVICIO DE INSTALACIÓN|1|40|0|40.00|
+IM|2|4|15|40.00|6.00|IVA|
+DE|5129|5129|SERV ATENCION EN SITIO|1|10|0|10.00|
+IM|2|4|15|10.00|1.50|IVA|
+IA|DIRECCION|Gonzlez Surez Y Av Corua Edificio Terrazas Del Valle|
+IA|TELEFONO|+593994300636|
+IA|VENCIMIENTO|10/09/2026|
+IA|EMISION|Quito|
+IA|CORREO|paulettemaciasmoreno@gmail.com,paulettemaciasmoreno@gmail.com,paulettemaciasmoreno@gmail.com,paulettemaciasmoreno@gmail.com,paulettemaciasmoreno@gmail.com|
+IA|PLAZO| días|
+PA|20|57.50|0|días|

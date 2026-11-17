@@ -1,0 +1,17 @@
+<usereventscript scriptid="customscript_ht_pe_ue_bag_bomrev">
+    <description>Encola la sincronizacion masiva cuando cambia una revision de lista de materiales.</description>
+    <isinactive>F</isinactive>
+    <name>HT PE BAG - Detector de Revision BOM</name>
+    <notifyowner>F</notifyowner>
+    <scriptfile>[/SuiteScripts/Desarrollo_Hunter/Hunter_Peru/appHunter/modules/BOM Assembly Assurance/HT_PE_UE_BAG_BOMREV.js]</scriptfile>
+    <scriptdeployments>
+        <scriptdeployment scriptid="customdeploy_ht_pe_ue_bag_bomrev">
+            <allroles>T</allroles>
+            <isdeployed>T</isdeployed>
+            <loglevel>AUDIT</loglevel>
+            <recordtype>BOMREVISION</recordtype>
+            <status>RELEASED</status>
+            <title>HT PE BAG - Revision BOM</title>
+        </scriptdeployment>
+    </scriptdeployments>
+</usereventscript>

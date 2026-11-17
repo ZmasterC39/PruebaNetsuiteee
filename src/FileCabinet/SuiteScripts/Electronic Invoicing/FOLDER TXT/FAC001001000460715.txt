@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000460715|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|omar.erazo@veolia.com|
+IC|27/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||INTERAGUA C. LTDA.|0992153563001|DOLAR|||||0|||||||||||||
+T|22.50|0.00|0|22.50|0.00|0|3.38|25.88|0|25.88|
+TI|2|4|22.50|15|3.38|IVA|
+DE|5129|5129|SERV ATENCION EN SITIO|3|7.5|0|22.50|
+IM|2|4|15|22.50|3.38|IVA|
+IA|TELEFONO|+593982747896|
+IA|OBSERVACION|SEDE PROGRESO INTERAGUA SEDE ATARAZANA GRA-0206 / GMD-0929 / GRA-0153|
+IA|VENCIMIENTO|26/04/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|mbcalderon@interagua.com.ec,EC.VEOLIA.FACTURACION.ALL.GROUPS@VEOLIA.COM,omar.erazo@veolia.com,facturas_electronicas@interagua.com,mbcalderon@interagua.com.ec,facturas_electronicas@interagua.com.ec,facturas_electronicas@interagua.com.ec,facturas_electronicas@interagua.com.ec,dcruz@interagua.com.ec|
+IA|PLAZO|30 días|
+PA|20|25.88|30|días|

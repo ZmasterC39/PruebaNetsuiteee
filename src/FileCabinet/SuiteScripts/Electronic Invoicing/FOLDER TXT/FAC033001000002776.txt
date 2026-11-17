@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000002776|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@paniju.com.ec|
+IC|04/04/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PANIJU S.A.|1791994531001|DOLAR|||||0||||||||||||Centro Comercial Paseo San Francisco (Av. Interocenica E28C y Francisco de Orellana - Cumbay), N26-63|
+T|300.00|0.00|0|300.00|0.00|0|45.00|345.00|0|345.00|
+TI|2|4|300.00|15|45.00|IVA|
+DE|10485|10485|ALQU HM CORPORATIVO SERVICIO ALQUILER|1|300|0|300.00|
+IM|2|4|15|300.00|45.00|IVA|
+IA|DIRECCION|Centro Comercial Paseo San Francisco (Av. Interocenica E28C y Francisco de Orellana - Cumbay), N26-63|
+IA|TELEFONO|+593980547982|
+IA|OBSERVACION|PFF-2941|
+IA|VENCIMIENTO|04/05/2025|
+IA|EMISION|Quito|
+IA|CORREO|contabilidad@paniju.com.ec,contabilidad@paniju.com.ec|
+IA|PLAZO|30 días|
+PA|20|345.00|30|días|

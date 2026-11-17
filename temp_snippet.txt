@@ -1,0 +1,19 @@
+                                            newFulfill.selectLine({ sublistId: 'item', line: i })
+                                            let idArticulo = newFulfill.getCurrentSublistValue({ sublistId: 'item', fieldId: 'item' })
+                                            if (idArticulo == idItemRelacionadoOT) {
+                                                log.debug('DetalledeInventario', {
+                                                    ubicacion: ubicacion.location,
+                                                    idItemRelacionadoOT: idItemRelacionadoOT,
+                                                    idDispositivo: idDispositivo
+                                                })
+                                                // newFulfill.setCurrentSublistValue({ sublistId: 'item', fieldId: 'location', value: ubicacion.location }); //cambio JMON 14/12/2025 - antiguo, se deja comentado
+                                                newFulfill.setCurrentSublistValue({ sublistId: 'item', fieldId: 'itemreceive', value: true });
+                                                //cambio JMON 14/12/2025 - alineado a genérico: usar locationValue
+                                                newFulfill.setCurrentSublistValue({ sublistId: 'item', fieldId: 'location', value: locationValue });
+                                                //cambio JMON 14/12/2025 - si se requiere, setear subsidiaria en la línea (similar genérico)
+                                                // newFulfill.setCurrentSublistValue({ sublistId: 'item', fieldId: 'subsidiary', value: subsidiary });
+                                                newFulfill.setCurrentSublistValue({ sublistId: 'item', fieldId: 'quantity', value: 1 });
+                                                newFulfill.setCurrentSublistValue({ sublistId: 'item', fieldId: 'item', value: idItemRelacionadoOT });
+
+                                            let objSubRecord = newFulfill.getCurrentSublistSubrecord({ sublistId: 'item', fieldId: 'inventorydetail' });
+                                                objSubRecord.selectNewLine({ sublistId: 'inventoryassignment' });

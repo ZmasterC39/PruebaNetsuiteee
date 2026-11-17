@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000452648|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|servicios@adsdelecuador.ec|
+IC|22/12/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ASFALTOS DISEÑOS Y SERVICIOS A.D.S DEL ECUADOR S.A|0991453180001|DOLAR|||||0||||||||||||Brisas de Santay Via Duran - Tambo km 6.5 parque industrial de Duran mz 4 a lado de emulpac Interseccion 1A2|
+T|300.00|0.00|0|300.00|0.00|0|45.00|345.00|0|345.00|
+TI|2|4|300.00|15|45.00|IVA|
+DE|2320|2320|RENO HM CORPORATIVO RENOVACION|1|300|0|300.00|
+IM|2|4|15|300.00|45.00|IVA|
+IA|DIRECCION|Brisas de Santay Via Duran - Tambo km 6.5 parque industrial de Duran mz 4 a lado de emulpac Interseccion 1A2|
+IA|CIUDAD|GUAYAQUIL|
+IA|TELEFONO|+593998897880|
+IA|OBSERVACION|GTA-2109|
+IA|VENCIMIENTO|21/01/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|luis.caputi@ads-ecuador.com,servicios@adsdelecuador.ec,luis.caputi@ads-ecuador.com,contabilidad@adsdelecuador.ec,luis.caputi@ads-ecuador.com|
+IA|PLAZO|0 días|
+PA|20|345.00|0|días|

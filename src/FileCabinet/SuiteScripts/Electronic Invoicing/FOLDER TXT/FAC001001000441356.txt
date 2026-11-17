@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000441356|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|jmagallanes@magictrucksa.com|
+IC|28/08/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MAGICTRUCKSA S.A.|0992935596001|DOLAR|||||0||||||||||||PRADERA 1 MZ E-18A SL 14|
+T|456.00|0.00|0|456.00|0.00|0|68.40|524.40|0|524.40|
+TI|2|4|456.00|15|68.40|IVA|
+DE|10485|10485|ALQU HM CORPORATIVO SERVICIO ALQUILER|2|228|0|456.00|
+IM|2|4|15|456.00|68.40|IVA|
+IA|DIRECCION|PRADERA 1 MZ E-18A SL 14|
+IA|TELEFONO|+593967035675|
+IA|OBSERVACION|GSR-1209|
+IA|VENCIMIENTO|27/09/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|jmagallanes@magictrucksa.com,control.contable@magictrucksa.com,asistente.gerencia@magictrucksa.com,magictrucksa@gmail.com,asistente.gerencia@magictrucksa.com,jmagallanes@jokaoffice.com,control.contable@magictrucksa.com,magictrucksa@gmail.com|
+IA|PLAZO|30 días|
+PA|20|524.40|30|días|

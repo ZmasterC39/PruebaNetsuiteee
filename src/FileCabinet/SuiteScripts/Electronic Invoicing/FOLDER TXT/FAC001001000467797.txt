@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000467797|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|edocumentos@perfectech.com.ec|
+IC|09/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PERFECTECH S.A.|0992283343001|DOLAR|||||0||||||||||||Urbanizacion Santa Leonor mz 5 solar28|
+T|300.00|0.00|0|300.00|0.00|0|45.00|345.00|0|345.00|
+TI|2|4|300.00|15|45.00|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|1|300|0|300.00|
+IM|2|4|15|300.00|45.00|IVA|
+IA|DIRECCION|Urbanizacion Santa Leonor mz 5 solar28|
+IA|TELEFONO|+593997142128|
+IA|OBSERVACION|GTC-7503|
+IA|VENCIMIENTO|09/07/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|edocumentos@perfectech.com.ec,edocumentos@perfectech.com.ec,edocumentos@perfectech.com.ec,katerineleon@perfectech.com.ec,katherineleon@perfectech.com.ec,wendyolaya@perfectech.com.ec,leonelbastidas@perfectech.com.ec|
+IA|PLAZO|30 días|
+PA|20|345.00|30|días|

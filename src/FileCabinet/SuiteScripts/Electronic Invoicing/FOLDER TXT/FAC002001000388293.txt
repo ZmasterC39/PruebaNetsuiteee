@@ -1,0 +1,13 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|002|001|000388293|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|kkhamis@technofilmsa.com|
+IC|23/12/2024|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||TECHNOFILM S.A|1792701317001|DOLAR|||||0||||||||||||Pasaje El Recuerdo S/N y Calle Ignacio Fernndez Salvador, Barrio Chaupimolino, a 200mts del Cuerpo de Bomberos #18 de Pifo (Va antigua a Puembo) Pifo|
+T|300.00|0.00|0|300.00|0.00|0|45.00|345.00|0|345.00|
+TI|2|4|300.00|15|45.00|IVA|
+DE|11623|11623|RENO MARESA BY HUNTER (CINASCAR) RENOVACION|1|300|0|300.00|
+IM|2|4|15|300.00|45.00|IVA|
+IA|DIRECCION|Pasaje El Recuerdo S/N y Calle Ignacio Fernndez Salvador, Barrio Chaupimolino, a 200mts del Cuerpo de Bomberos #18 de Pifo (Va antigua a Puembo) Pifo|
+IA|TELEFONO|+593999510845|
+IA|VENCIMIENTO|22/01/2025|
+IA|EMISION|Quito|
+IA|PLAZO|30 días|
+PA|20|345.00|30|días|

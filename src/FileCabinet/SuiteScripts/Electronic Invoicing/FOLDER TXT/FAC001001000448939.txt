@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000448939|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|marcos.tapia@amagua-cem.com|
+IC|10/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||AGUAS DE SAMBORONDON AMAGUA C.E.M.|0991450009001|DOLAR|||||0||||||||||||km 10 Via Samborondon|
+T|330.00|0.00|0|330.00|0.00|0|49.50|379.50|0|379.50|
+TI|2|4|330.00|15|49.50|IVA|
+DE|11623|11623|RENO MARESA BY HUNTER (CINASCAR) RENOVACION|1|330|0|330.00|
+IM|2|4|15|330.00|49.50|IVA|
+IA|DIRECCION|km 10 Via Samborondon|
+IA|TELEFONO|+593983370141|
+IA|OBSERVACION|GTQ-8639|
+IA|VENCIMIENTO|18/11/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|marcos.tapia@amagua-cem.com,marcos.tapia@amagua-cem.com,abarroso@amagua-cem.com,fvalenzuela@amagua-cem.com,aalcivar@amagua-cem.com,marcos.tapia@amagua-cem.com|
+IA|PLAZO|8 días|
+PA|20|379.50|8|días|

@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000454203|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Facturacion@cartimex.com|
+IC|06/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CARTIMEX S.A.|0991400427001|DOLAR|||||0||||||||||||Cdla. Los Alamos, Calle Blanca Muoz, Solar 4 y Av. Elas Muoz|
+T|33.75|0.00|0|33.75|0.00|0|5.07|38.82|0|38.82|
+TI|2|4|33.75|15|5.07|IVA|
+DE|2320|2320|RENO HM CORPORATIVO RENOVACION|1|20.25|0|20.25|
+IM|2|4|15|20.25|3.04|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|13.5|0|13.50|
+IM|2|4|15|13.50|2.03|IVA|
+IA|DIRECCION|Cdla. Los Alamos, Calle Blanca Muoz, Solar 4 y Av. Elas Muoz|
+IA|TELEFONO|+593968858690|
+IA|OBSERVACION|GSP-3276|
+IA|VENCIMIENTO|05/02/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|Facturacion@cartimex.com,xrichards@cartimex.com,xrichards@cartimex.com,xrichards@cartimex.com,bzambrano@cartimex.com|
+IA|PLAZO|0 días|
+PA|20|38.82|0|días|

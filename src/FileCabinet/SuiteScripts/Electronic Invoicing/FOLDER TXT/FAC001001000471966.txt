@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000471966|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|alejandra.carrera@jocotoco.org.ec|
+IC|31/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||FUNDACION DE CONSERVACION JOCOTOCO|1791422678001|DOLAR|||||0||||||||||||Av. Amazonas y UNP Edificio Puertas del Sol, Piso 7|
+T|120.00|0.00|0|120.00|0.00|0|18.00|138.00|0|138.00|
+TI|2|4|120.00|15|18.00|IVA|
+DE|12576|12576|VENT CLARO FLOTAS FULL POWERED BY HUNTER REPUESTO|1|120|0|120.00|
+IM|2|4|15|120.00|18.00|IVA|
+IA|DIRECCION|Av. Amazonas y UNP Edificio Puertas del Sol, Piso 7|
+IA|TELEFONO|+59322020220|
+IA|OBSERVACION|PFJ-9543|
+IA|VENCIMIENTO|30/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|alejandra.carrera@jocotoco.org.ec,gpsvehiculos@jocotoco.org.ec,victor.carrion@jocotoco.org.ec,victor.carrion@jocotoco.org.ec|
+IA|PLAZO|30 días|
+PA|20|138.00|30|días|

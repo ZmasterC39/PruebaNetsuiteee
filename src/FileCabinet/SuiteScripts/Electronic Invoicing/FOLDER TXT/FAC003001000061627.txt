@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|003|001|000061627|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|gabys_matius@hotmail.com|
+IC|28/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||GABRIELA PATRICIA PERALTA VANEGAS|0105256184|DOLAR|||||0||||||||||||Baños calle Alfonso Carrion Heredia y Av Ricardo Durán|
+T|100.00|0.00|0|100.00|0.00|0|15.00|115.00|0|115.00|
+TI|2|4|100.00|15|15.00|IVA|
+DE|7667|7667|RENO HMONITOREO RENOVACION 2DO AÑO|1|100|0|100.00|
+IM|2|4|15|100.00|15.00|IVA|
+IA|DIRECCION|Baños calle Alfonso Carrion Heredia y Av Ricardo Durán|
+IA|CIUDAD|CUENCA|
+IA|TELEFONO|+593983687814|
+IA|OBSERVACION|ABR-1147|
+IA|VENCIMIENTO|28/03/2026|
+IA|EMISION|Machala|
+IA|CORREO|gabys_matius@hotmail.com,gabys_matius@hotmail.com,gabys_matius@hotmail.com,gabys_matius@hotmail.com,gabys_matius@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|115.00|0|días|

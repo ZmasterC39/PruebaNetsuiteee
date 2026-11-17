@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000471453|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|mecheverria@fondosgenesis.com|
+IC|22/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||AFP GENESIS ADMIN. DE FONDOS Y FIDEICOMISOS S. A.|0991307605001|DOLAR|||||0||||||||||||Parque Empresarial Av. Rodrigo Chávez, Parque Empresarial Colón Edif. Pacific Plaza, PB. Oficinas 3|
+T|287.39|0.00|0|287.39|0.00|0|43.11|330.50|0|330.50|
+TI|2|4|287.39|15|43.11|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|287.39|0|287.39|
+IM|2|4|15|287.39|43.11|IVA|
+IA|DIRECCION|Parque Empresarial Av. Rodrigo Chávez, Parque Empresarial Colón Edif. Pacific Plaza, PB. Oficinas 3|
+IA|TELEFONO|+593994564925|
+IA|OBSERVACION|GSU-4835|
+IA|VENCIMIENTO|21/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|mecheverria@fondosgenesis.com,mecheverria@fondosgenesis.com,mecheverria@fondosgenesis.com,mecheverria@fondosgenesis.com|
+IA|PLAZO|30 días|
+PA|20|330.50|30|días|

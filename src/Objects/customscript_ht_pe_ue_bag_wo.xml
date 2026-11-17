@@ -1,0 +1,17 @@
+<usereventscript scriptid="customscript_ht_pe_ue_bag_wo">
+    <description>Serializa ediciones de la Orden de Fabricacion con la sincronizacion y el Assembly Build.</description>
+    <isinactive>F</isinactive>
+    <name>HT PE BAG - Guard de mutacion OF</name>
+    <notifyowner>F</notifyowner>
+    <scriptfile>[/SuiteScripts/Desarrollo_Hunter/Hunter_Peru/appHunter/modules/BOM Assembly Assurance/HT_PE_UE_BAG_WO_MUTATION.js]</scriptfile>
+    <scriptdeployments>
+        <scriptdeployment scriptid="customdeploy_ht_pe_ue_bag_wo">
+            <allroles>T</allroles>
+            <isdeployed>T</isdeployed>
+            <loglevel>AUDIT</loglevel>
+            <recordtype>WORKORDER</recordtype>
+            <status>RELEASED</status>
+            <title>HT PE BAG - Guard de mutacion OF</title>
+        </scriptdeployment>
+    </scriptdeployments>
+</usereventscript>

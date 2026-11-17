@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000472218|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|facturas.compras@tpg.com.ec|
+IC|04/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||INARPI S.A.|0992247932001|DOLAR|||||0||||||||||||ISLA TRINITARIA CALLE 51 AVA. SUR OESTE S/N Y CALLE 4TA JUNTO AL TRINIPUERTO|
+T|25.00|0.00|0|25.00|0.00|0|3.75|28.75|0|28.75|
+TI|2|4|25.00|15|3.75|IVA|
+DE|8875|8875|DESI HM CORPORATIVO ENTREGA DIRECTA DESINSTALACIÓN|1|25|0|25.00|
+IM|2|4|15|25.00|3.75|IVA|
+IA|DIRECCION|ISLA TRINITARIA CALLE 51 AVA. SUR OESTE S/N Y CALLE 4TA JUNTO AL TRINIPUERTO|
+IA|TELEFONO|+593992217200|
+IA|OBSERVACION|PLC.:GSY-3783|
+IA|VENCIMIENTO|04/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|melany.iturralde@tpg.com.ec,facturas.compras@tpg.com.ec,melany.iturralde@tpg.com.ec,melany.iturralde@tpg.com.ec,facturas.compras@tpg.com.ec,aalvaradom@saamtowage.com,luis.piguave@tpg.com.ec,raviles@ecuaestibas.com,priscila.alban@tpg.com.ec,joshua.mendieta@tpg.com.ec|
+IA|PLAZO|0 días|
+PA|20|28.75|0|días|

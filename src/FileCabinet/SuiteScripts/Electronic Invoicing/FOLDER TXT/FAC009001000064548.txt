@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|009|001|000064548|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|qupl.administration@3acomposites.com|
+IC|09/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PLANTACIONES DE BALSA. PLANTABAL S.A.|0990533105001|DOLAR|||||0||||||||||||Quevedo, km 4  via a Valencia|
+T|500.00|0.00|0|500.00|0.00|0|75.00|575.00|0|575.00|
+TI|2|4|500.00|15|75.00|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|250|0|250.00|
+IM|2|4|15|250.00|37.50|IVA|
+DE|7667|7667|RENO HMONITOREO RENOVACION 2DO AÑO|1|250|0|250.00|
+IM|2|4|15|250.00|37.50|IVA|
+IA|DIRECCION|Quevedo, km 4  via a Valencia|
+IA|TELEFONO|+593959606446|
+IA|OBSERVACION|GTL-8073|
+IA|VENCIMIENTO|08/02/2026|
+IA|EMISION|Santo Domingo|
+IA|CORREO|esteban.alarcon@3acomposites.com,qupl.administration@3acomposites.com,qupl.administration@3acomposites.com,surinka.villavicencio@3acomposites.com,surinka.villavicencio@3acomposites.com,surinka.villavicencio@3acomposites.com|
+IA|PLAZO|30 días|
+PA|20|575.00|30|días|

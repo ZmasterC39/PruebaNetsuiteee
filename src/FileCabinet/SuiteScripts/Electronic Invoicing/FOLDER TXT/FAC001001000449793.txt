@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000449793|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@corpmaster.com.ec|
+IC|25/11/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CORPMASTER S.A.|0992317272001|DOLAR|||||0||||||||||||Av. de las Américas, Edificio Sky Building oficina 506|
+T|550.00|0.00|0|550.00|0.00|0|82.50|632.50|0|632.50|
+TI|2|4|550.00|15|82.50|IVA|
+DE|2359|2359|VENT HM CORPORATIVO EQUIPO|1|250|0|250.00|
+IM|2|4|15|250.00|37.50|IVA|
+DE|4203|4203|VENT HM CORPORATIVO TRANSMISION ANUAL|1|300|0|300.00|
+IM|2|4|15|300.00|45.00|IVA|
+IA|DIRECCION|Av. de las Américas, Edificio Sky Building oficina 506|
+IA|TELEFONO|+593995585630|
+IA|OBSERVACION|GTW-3279|
+IA|VENCIMIENTO|25/12/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@corpmaster.com.ec,contabilidad@corpmaster.com.ec,contabilidad@corpmaster.com.ec,contabilidad1@corpmaster.com.ec|
+IA|PLAZO|30 días|
+PA|20|632.50|30|días|

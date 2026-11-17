@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000463514|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|YNAVARRETE@arthroscorp.com|
+IC|27/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ARTHROSCORP S.A.|0992443375001|DOLAR|||||0||||||||||||URDENOR II Av. Rodrigo Chvez Parque Empresarial Coln Edif. Pacfic Plaza Oficinas 4-5 Mezzanine a una cuadra de la Iglesia de los Mormones|
+T|25.00|0.00|0|25.00|0.00|0|3.75|28.75|0|28.75|
+TI|2|4|25.00|15|3.75|IVA|
+DE|10703|10703|VENT HM MOTO CORPORATIVO SERVICIO DE INSTALACION|1|25|0|25.00|
+IM|2|4|15|25.00|3.75|IVA|
+IA|DIRECCION|URDENOR II Av. Rodrigo Chvez Parque Empresarial Coln Edif. Pacfic Plaza Oficinas 4-5 Mezzanine a una cuadra de la Iglesia de los Mormones|
+IA|TELEFONO|+593991165495|
+IA|OBSERVACION|IL880W|
+IA|VENCIMIENTO|27/05/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|YNAVARRETE@arthroscorp.com,YNAVARRETE@arthroscorp.com,administrativo@arthroscorp.com,ynavarrete@arthroscorp.com|
+IA|PLAZO|30 días|
+PA|20|28.75|30|días|

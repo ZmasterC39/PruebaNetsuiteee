@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000019099|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|a@sri.gob.ec|
+IC|09/02/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||SERVICIO DE RENTAS INTERNAS|1760013210001|DOLAR|||||0||||||||||||Av. Del Pacífico 001 y Puerto Rico en la ciudad de Esmeraldas|
+T|25.50|0.00|0|25.50|0.00|0|3.83|29.33|0|29.33|
+TI|2|4|25.50|15|3.83|IVA|
+DE|13174|13174|ALQU HM MOTO CORPORATIVO RENOVACION|3|8.5|0|25.50|
+IM|2|4|15|25.50|3.83|IVA|
+IA|DIRECCION|Av. Del Pacífico 001 y Puerto Rico en la ciudad de Esmeraldas|
+IA|CIUDAD|ESMERALDAS|
+IA|TELEFONO|+59302908578|
+IA|OBSERVACION|DZ1 ESMERALDAS SERVICIO DE MONITOREO Y RASTREO CON DISPOSITIVO GPS PARA LAS MOTOCICLETAS INSTITUCIONALES, durante el perodo del 01 al 31 de diciembre de 2025, adquirido segn la Orden de Servicio Nro. IC-SRI-2025-10010.|
+IA|VENCIMIENTO|11/03/2026|
+IA|EMISION|Quito|
+IA|CORREO|proveedores@sri.gob.ec,a@sri.gob.ec,a@sri.gob.ec,proveedores@sri.gob.ec,crcisneros@sri.gob.ec,joseluis.rovi@hotmail.com|
+IA|PLAZO|30 días|
+PA|20|29.33|30|días|

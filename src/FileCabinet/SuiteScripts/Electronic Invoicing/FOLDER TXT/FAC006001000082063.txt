@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|006|001|000082063|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|rmoreira@freshfishecuador.com.ec|
+IC|29/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||FRESH FISH DEL ECUADOR CIA LTDA.|1391746830001|DOLAR|||||0||||||||||||MYKONOS- MANTA|
+T|302.30|0.00|0|302.30|0.00|0|45.34|347.64|0|347.64|
+TI|2|4|302.30|15|45.34|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|151.15|0|151.15|
+IM|2|4|15|151.15|22.67|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|151.15|0|151.15|
+IM|2|4|15|151.15|22.67|IVA|
+IA|DIRECCION|KM 4 1/2 VIA MANTA - SAN MATEO|
+IA|TELEFONO|+593995255986|
+IA|VENCIMIENTO|29/05/2026|
+IA|EMISION|Manta|
+IA|CORREO|rmoreira@freshfishecuador.com.ec,rmoreira@freshfishecuador.com.ec,rmoreira@freshfishecuador.com.ec,rmoreira@freshfishecuador.com.ec,rmoreira@freshfishecuador.com.ec,bbuehs@freshfishecuador.com.ec,rmoreira@freshfishecuador.com.ec,info@freshfishecuador.com.ec|
+IA|PLAZO| días|
+PA|20|347.64|0|días|

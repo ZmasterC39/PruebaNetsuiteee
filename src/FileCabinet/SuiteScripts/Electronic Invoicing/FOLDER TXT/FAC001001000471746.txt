@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000471746|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|gcosta@beralsa.com|
+IC|28/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||BERALSA S.A. .|0992149698001|DOLAR|||||0||||||||||||km. 1.5 Via Samborondon Edificio Samborondon Business Center Torre B piso 1 oficina 114|
+T|296.52|0.00|0|296.52|0.00|0|44.48|341.00|0|341.00|
+TI|2|4|296.52|15|44.48|IVA|
+DE|11257|11257|RENO HM AMI RENOVACION|1|296.52|0|296.52|
+IM|2|4|15|296.52|44.48|IVA|
+IA|DIRECCION|km. 1.5 Via Samborondon Edificio Samborondon Business Center Torre B piso 1 oficina 114|
+IA|TELEFONO|+593994590814|
+IA|VENCIMIENTO|27/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|gcosta@beralsa.com,jorgecostam@hotmail.com,malbarracin@beralsa.com,jorgecostam@hotmail.com|
+IA|PLAZO|30 días|
+PA|20|341.00|30|días|

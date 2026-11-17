@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|009|001|000065645|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|nmaribel83@hotmail.com|
+IC|27/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||NANCY MARIBEL CAMPANA CHIRIBOGA|1718768656|DOLAR|||||0||||||||||||Calle Huancavilcas Sn Calle Otavalo|
+T|12.00|0.00|0|12.00|0.00|0|1.80|13.80|0|13.80|
+TI|2|4|12.00|15|1.80|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|12|0|12.00|
+IM|2|4|15|12.00|1.80|IVA|
+IA|DIRECCION|Calle Huancavilcas Sn Calle Otavalo|
+IA|TELEFONO|+593994581886|
+IA|VENCIMIENTO|27/04/2026|
+IA|EMISION|Santo Domingo|
+IA|CORREO|nmaribel83@hotmail.com,nmaribel83@hotmail.com,nmaribel83@hotmail.com,nmaribel83@hotmail.com,nmaribel83@hotmail.com,nmaribel83@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|13.80|0|días|

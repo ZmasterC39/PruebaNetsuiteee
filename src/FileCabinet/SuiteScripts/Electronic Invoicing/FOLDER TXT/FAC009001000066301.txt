@@ -1,0 +1,18 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|009|001|000066301|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|byronmanobanda1991@outlook.es|
+IC|29/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||BYRON EULOGIO MANOBANDA CUASPUD|1311247272001|DOLAR|||||0||||||||||||Via Valencia Km #1 atrás del Grupo Manobanda, calle Enrique Manobanda, junto a la sede de la cooperativa de taxis Nicolas Infante Diaz|
+T|200.00|0.00|0|200.00|0.00|0|30.00|230.00|0|230.00|
+TI|2|4|200.00|15|30.00|IVA|
+DE|8210|8210|VENT HMONITOREO MOTO DISPOSITIVO|1|110|0|110.00|
+IM|2|4|15|110.00|16.50|IVA|
+DE|10115|10115|VENT HMONITOREO MOTO TRANSMISION|1|90|0|90.00|
+IM|2|4|15|90.00|13.50|IVA|
+IA|DIRECCION|Via Valencia Km #1 atrás del Grupo Manobanda, calle Enrique Manobanda, junto a la sede de la cooperativa de taxis Nicolas Infante Diaz|
+IA|CIUDAD|SANTO DOMINGO|
+IA|TELEFONO|+593979061677|
+IA|OBSERVACION|KM823E|
+IA|VENCIMIENTO|09/07/2026|
+IA|EMISION|Santo Domingo|
+IA|CORREO|byronmanobanda1991@outlook.es,byronmanobanda1991@outlook.es|
+IA|PLAZO|10 días|
+PA|20|230.00|10|días|

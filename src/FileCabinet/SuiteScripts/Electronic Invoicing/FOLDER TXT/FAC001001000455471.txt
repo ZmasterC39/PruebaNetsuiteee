@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000455471|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|isaac_carrera@hotmail.com|
+IC|28/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PLUPROXSA S.A|0992813814001|DOLAR|||||0||||||||||||Av 8va 1 y calle 3era hasta la 4ta|
+T|263.39|0.00|0|263.39|0.00|0|39.51|302.90|0|302.90|
+TI|2|4|263.39|15|39.51|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|263.39|0|263.39|
+IM|2|4|15|263.39|39.51|IVA|
+IA|DIRECCION|Av 8va 1 y calle 3era hasta la 4ta|
+IA|TELEFONO|+593986018486|
+IA|OBSERVACION|ABL-5583|
+IA|VENCIMIENTO|27/02/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|isaac_carrera@hotmail.com,isaac_carrera@hotmail.com,pluproxsa@hotmail.com,produdis_comer@hotmail.com,leonjose_96@hotmail.com|
+IA|PLAZO|30 días|
+PA|20|302.90|30|días|

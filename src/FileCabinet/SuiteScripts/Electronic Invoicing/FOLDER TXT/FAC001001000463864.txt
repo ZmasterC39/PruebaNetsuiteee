@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000463864|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|alertasgps@prolado.com.ec|
+IC|04/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||CORPROLADO S.A.|0992981539001|DOLAR|||||0||||||||||||Km 23.5 Via Perimetral Mz 71 Sl 1, Parque Ind Inmaconsa|
+T|2610.00|0.00|0|2610.00|0.00|0|391.50|3001.50|0|3001.50|
+TI|2|4|2610.00|15|391.50|IVA|
+DE|13156|13156|ALQU HUNTER BLOCK S RENOVACION|58|45|0|2610.00|
+IM|2|4|15|2610.00|391.50|IVA|
+IA|DIRECCION|Km 23.5 Via Perimetral Mz 71 Sl 1, Parque Ind Inmaconsa|
+IA|TELEFONO|+593995496049|
+IA|OBSERVACION|MAYO 2026|
+IA|VENCIMIENTO|02/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|contabilidad@prolado.com.ec,alertasgps@prolado.com.ec,alertasgps@prolado.com.ec,kandrade@prolado.com.ec,monitoreo@prolado.com.ec|
+IA|PLAZO|90 días|
+PA|20|3001.50|90|días|

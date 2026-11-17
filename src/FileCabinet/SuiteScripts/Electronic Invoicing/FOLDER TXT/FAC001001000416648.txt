@@ -1,0 +1,16 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000416648|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|contabilidad@transcaba.com|
+IC|06/12/2024|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||TRANSCABA S.A|1791731395001|DOLAR|||||0||||||||||||Km. 7 1/2 Via a Daule - Lotizacion El Prado Mz1 Solar 2 , Frente a la parada de la Metro Via Juan Tanca Marengo, 30 metros del viaducto de la Perimetr|
+T|373.00|0.00|0|373.00|0.00|0|55.95|428.95|0|428.95|
+TI|2|4|373.00|15|55.95|IVA|
+DE|10485|10485|ALQU HM CORPORATIVO SERVICIO ALQUILER|11|18|0|198.00|
+IM|2|4|15|198.00|29.70|IVA|
+DE|9439|9439|SERV.MONITOREO DE EVENTOS EN RUTA|7|25|0|175.00|
+IM|2|4|15|175.00|26.25|IVA|
+IA|DIRECCION|Km. 7 1/2 Via a Daule - Lotizacion El Prado Mz1 Solar 2 , Frente a la parada de la Metro Via Juan Tanca Marengo, 30 metros del viaducto de la Perimetr|
+IA|TELEFONO|+593989983199|
+IA|OBSERVACION|MES DICIEMBRE 2024|
+IA|VENCIMIENTO|05/01/2025|
+IA|EMISION|Guayaquil|
+IA|PLAZO|30 días|
+PA|20|428.95|30|días|

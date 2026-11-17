@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|006|001|000082359|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|asistenteadministrativo@nautical.ec|
+IC|08/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||NAUTICAL DEL ECUADOR S.A. NAUTECSA|1390146678001|DOLAR|||||0||||||||||||Ave. 24 y Calle M3 Edif. Manta Business Center Torre B, Piso #9, Oficina 904, 403|
+T|263.39|0.00|0|263.39|0.00|0|39.51|302.90|0|302.90|
+TI|2|4|263.39|15|39.51|IVA|
+DE|11257|11257|RENO HM AMI RENOVACION|1|263.39|0|263.39|
+IM|2|4|15|263.39|39.51|IVA|
+IA|DIRECCION|Ave. 24 y Calle M3 Edif. Manta Business Center Torre B, Piso #9, Oficina 904, 403|
+IA|TELEFONO|+593983949522|
+IA|OBSERVACION|GTI-3892|
+IA|VENCIMIENTO|08/07/2026|
+IA|EMISION|Manta|
+IA|CORREO|mzambrano@nautical.ec,mzambrano@nautical.ec,asistenteadministrativo@nautical.ec,asistenteadministrativo@nautical.ec,asistenteadministrativo@nautical.ec,mzambrano@nautical.ec|
+IA|PLAZO|30 días|
+PA|20|302.90|30|días|

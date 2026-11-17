@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000016457|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|mariagusta.gallo@ecua-wagen.com|
+IC|17/12/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ECUAWAGEN S.A.|1791765842001|DOLAR|||||0||||||||||||Av. de los Granados E14-70 e Isla Marchena|
+T|263.39|0.00|0|263.39|0.00|0|39.51|302.90|0|302.90|
+TI|2|4|263.39|15|39.51|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|263.39|0|263.39|
+IM|2|4|15|263.39|39.51|IVA|
+IA|DIRECCION|Av. de los Granados E14-70 e Isla Marchena|
+IA|TELEFONO|+593998132323|
+IA|OBSERVACION|PFM-3806|
+IA|VENCIMIENTO|16/01/2026|
+IA|EMISION|Quito|
+IA|CORREO|mariagusta.gallo@ecua-wagen.com,angel.escorza@ecua-wagen.com,angel.escorza@ecua-wagen.com,angel.escorza@ecua-wagen.com|
+IA|PLAZO|30 días|
+PA|20|302.90|30|días|

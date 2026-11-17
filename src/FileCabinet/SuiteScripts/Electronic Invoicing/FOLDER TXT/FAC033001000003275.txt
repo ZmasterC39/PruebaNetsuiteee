@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000003275|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Ventas@rastreoweb.com|
+IC|10/04/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||Telecomunicaciones Quiroga y Asociados Quality Fast SA|1891767559001|DOLAR|||||0||||||||||||Miraflores y Margaritas condominio villa hilda casa 9|
+T|312.00|0.00|0|312.00|0.00|0|46.80|358.80|0|358.80|
+TI|2|4|312.00|15|46.80|IVA|
+DE|13454|13454|ALQU MONITOREO GPS (AS) RENOVACION|1|312|0|312.00|
+IM|2|4|15|312.00|46.80|IVA|
+IA|DIRECCION|Miraflores y Margaritas condominio villa hilda casa 9|
+IA|CIUDAD|AMBATO|
+IA|TELEFONO|+5939999999999|
+IA|VENCIMIENTO|10/05/2025|
+IA|EMISION|Quito|
+IA|CORREO|Ventas@rastreoweb.com,Ventas@rastreoweb.com,Ventas@rastreoweb.com|
+IA|PLAZO|30 días|
+PA|20|358.80|30|días|

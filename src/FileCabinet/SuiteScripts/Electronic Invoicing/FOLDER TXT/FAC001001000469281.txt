@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000469281|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|lilibeth.falcones@deprati.com.ec|
+IC|02/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ALMACENES DE PRATI S.A.|0990011214001|DOLAR|||||0||||||||||||Luque, 502 Y BOYACA|
+T|200.00|0.00|0|200.00|0.00|0|30.00|230.00|0|230.00|
+TI|2|4|200.00|15|30.00|IVA|
+DE|12887|12887|VENT HCAM REPUESTO|1|200|0|200.00|
+IM|2|4|15|200.00|30.00|IVA|
+IA|DIRECCION|Luque, 502 Y BOYACA|
+IA|TELEFONO|+593980600223|
+IA|OBSERVACION|PLC.:GTN-6228  OC.# 4501213675|
+IA|VENCIMIENTO|01/08/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|lilibeth.falcones@deprati.com.ec,lilibeth.falcones@deprati.com.ec,gabriela.osorio@deprati.com.ec,patricio.torres@deprati.com.ec,jose.solorzano@deprati.com.ec,dennis.palacios@deprati.com.ec,facturas.servicios@deprati.com.ec,violeta.rodriguez@deprati.com.ec,kary.balladares@deprati.com.ec|
+IA|PLAZO|30 días|
+PA|20|230.00|30|días|

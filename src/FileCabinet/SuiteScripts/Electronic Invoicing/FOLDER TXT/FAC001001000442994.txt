@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000442994|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|angel.sanchez@ferremundo.com.ec|
+IC|05/09/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||FERREMUNDO S.A.S.|0992256230001|DOLAR|||||0||||||||||||KM 16.5 VIA A DAULE PASCUALES MZ C 3|
+T|19.00|0.00|0|19.00|0.00|0|2.85|21.85|0|21.85|
+TI|2|4|19.00|15|2.85|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|1|19|0|19.00|
+IM|2|4|15|19.00|2.85|IVA|
+IA|DIRECCION|KM 16.5 VIA A DAULE PASCUALES MZ C 3|
+IA|TELEFONO|+593992269909|
+IA|OBSERVACION|SEPTIEMBRE 2025 GSV-1949|
+IA|VENCIMIENTO|05/10/2025|
+IA|EMISION|Guayaquil|
+IA|CORREO|angel.sanchez@ferremundo.com.ec,viviana.vera@ferremundo.com.ec,facturacion.contabilidad@ferremundo.com.ec,esthela.grunauer@ferremundo.com.ec,irving.tayupanta@ferremundo.com.ec,viviana.vera@ferremundo.com.ec,facturacion.contabilidad@ferremundo.com.ec,esthela.grunauer@ferremundo.com.ec,viviana.vera@ferremundo.com.ec|
+IA|PLAZO|30 días|
+PA|20|21.85|30|días|

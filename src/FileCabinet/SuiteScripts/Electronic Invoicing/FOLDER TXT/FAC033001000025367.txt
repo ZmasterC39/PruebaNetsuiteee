@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000025367|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|David.sola.narvaez@gmail.com|
+IC|16/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||MARIO DAVID SOLA NARVAEZ|1713813457|DOLAR|||||0||||||||||||Miguel Angel 71 St Marcus 604B|
+T|177.76|0.00|0|177.76|0.00|0|26.66|204.42|0|204.42|
+TI|2|4|177.76|15|26.66|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|177.76|0|177.76|
+IM|2|4|15|177.76|26.66|IVA|
+IA|DIRECCION|Miguel Angel 71 St Marcus 604B|
+IA|TELEFONO|+593998836387|
+IA|VENCIMIENTO|18/06/2026|
+IA|EMISION|Quito|
+IA|CORREO|David.sola.narvaez@gmail.com,david.sola.narvaez@gmail.com,david.sola.narvaez@gmail.com,david.sola.narvaez@gmail.com,david.sola.narvaez@gmail.com|
+IA|PLAZO|2 días|
+PA|20|204.42|2|días|

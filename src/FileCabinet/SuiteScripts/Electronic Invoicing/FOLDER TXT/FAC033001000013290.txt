@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000013290|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|fventas@bioamecsa.com|
+IC|20/10/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||BIOQUIMICOS DE AMERICA BIOAMECSA S.A.|1791772822001|DOLAR|||||0||||||||||||Barrio El Progreso pasaje Guarderas interseccion Ignacio Fernandez Salvador|
+T|150.00|0.00|0|150.00|0.00|0|22.50|172.50|0|172.50|
+TI|2|4|150.00|15|22.50|IVA|
+DE|7781|7781|ALQU HUNTER RASTREO TRANSMISION ALQUILER|1|150|0|150.00|
+IM|2|4|15|150.00|22.50|IVA|
+IA|DIRECCION|Barrio El Progreso pasaje Guarderas interseccion Ignacio Fernandez Salvador|
+IA|TELEFONO|+593998716175|
+IA|OBSERVACION|PDE-3888|
+IA|VENCIMIENTO|19/11/2025|
+IA|EMISION|Quito|
+IA|CORREO|fventas@bioamecsa.com,fventas@bioamecsa.com,jvicuna@bioamecsa.com,fcompras@bioamecsa.com|
+IA|PLAZO|30 días|
+PA|20|172.50|30|días|

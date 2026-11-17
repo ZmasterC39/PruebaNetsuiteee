@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000026539|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|amojeda42@hotmail.com|
+IC|06/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||ALBERTO MANUEL OJEDA ESPINOZA|1700910076|DOLAR|||||0||||||||||||Agustn Guerrero N39B y Julio Alarcn Ayala (entre Ayora y Japn)|
+T|50.00|0.00|0|50.00|0.00|0|7.50|57.50|0|57.50|
+TI|2|4|50.00|15|7.50|IVA|
+DE|8924|8924|VENT HMONITOREO SERVICIO DE INSTALACIÓN|1|50|0|50.00|
+IM|2|4|15|50.00|7.50|IVA|
+IA|DIRECCION|Agustn Guerrero N39B y Julio Alarcn Ayala (entre Ayora y Japn)|
+IA|TELEFONO|+593997979725|
+IA|VENCIMIENTO|06/07/2026|
+IA|EMISION|Quito|
+IA|CORREO|amojeda42@hotmail.com,amojeda42@hotmail.com,amojeda42@hotmail.com,amojeda42@hotmail.com,amojeda42@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|57.50|0|días|

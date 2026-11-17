@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|006|001|000080597|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|thayron_thays@hotmail.com|
+IC|20/02/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||TYRONE VINICIO SORNOZA FLORES|1312412644|DOLAR|||||0||||||||||||Calle 15 de septiembre entre 26 de septiembre y 15 de abril|
+T|120.00|0.00|0|120.00|0.00|0|18.00|138.00|0|138.00|
+TI|2|4|120.00|15|18.00|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|120|0|120.00|
+IM|2|4|15|120.00|18.00|IVA|
+IA|DIRECCION|Calle 15 de septiembre entre 26 de septiembre y 15 de abril|
+IA|TELEFONO|+593985517432|
+IA|OBSERVACION|PLC.:MBF-9807|
+IA|VENCIMIENTO|20/02/2026|
+IA|EMISION|Manta|
+IA|CORREO|thayron_thays@hotmail.com,thayron_thays@hotmail.com,thayron_thays@hotmail.com,thayron_thays@hotmail.com|
+IA|PLAZO|0 días|
+PA|20|138.00|0|días|

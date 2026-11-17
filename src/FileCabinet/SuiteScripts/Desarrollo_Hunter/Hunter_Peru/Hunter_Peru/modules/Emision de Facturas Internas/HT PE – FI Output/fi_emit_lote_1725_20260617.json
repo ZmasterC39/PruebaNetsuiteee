@@ -1,0 +1,1 @@
+{"ok":[{"sourceTranId":"OS-PE-S001-1102321166","targetTranId":"FIN-PE-0000200761","cuota":1,"cuotasTotal":1,"mes":"2026-06","itemLine":1,"itemId":"47270","codAgruIdx":null,"msg":"OK"}],"err":[{"sourceTranId":"OS-PE-S001-1102321164","cuota":null,"cuotasTotal":null,"code":"NO_BILLABLE_LINES","msg":"Sin líneas > 0."}],"total":2,"finishedAt":"2026-06-17T22:33:43.962Z"}

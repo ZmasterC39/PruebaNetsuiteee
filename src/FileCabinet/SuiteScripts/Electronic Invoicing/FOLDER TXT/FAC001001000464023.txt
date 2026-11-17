@@ -1,0 +1,14 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000464023|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|info@minutocorp.com|
+IC|04/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MINUTOCORP S.A.|0992472731001|DOLAR|||||0||||||||||||Av. Miguel Ynez S. Km. 14.5 va a Samborondn - Almax 2 Mz. 2 Ofibodega 6|
+T|300.00|0.00|0|300.00|0.00|0|45.00|345.00|0|345.00|
+TI|2|4|300.00|15|45.00|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|300|0|300.00|
+IM|2|4|15|300.00|45.00|IVA|
+IA|DIRECCION|Av. Miguel Ynez S. Km. 14.5 va a Samborondn - Almax 2 Mz. 2 Ofibodega 6|
+IA|TELEFONO|+593994086195|
+IA|VENCIMIENTO|03/06/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|documentoselectronicos@minutocorp.com,info@minutocorp.com,myance@minutocorp.com,myance@minutocorp.com|
+IA|PLAZO|30 días|
+PA|20|345.00|30|días|

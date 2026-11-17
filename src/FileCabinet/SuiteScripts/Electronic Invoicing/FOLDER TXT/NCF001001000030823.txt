@@ -1,0 +1,12 @@
+VE|04|notaCredito|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||04|001|001|000030823|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|facturacion@agroifabril.com|
+IC|02/04/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||LA FABRIL S.A.|1390012949001|DOLAR||01|001-001-000443418|10/09/2025|655.50|C-EC-1390012949001 LA FABRIL S.A.  MBC-1017  error ejecutiva.  falta actualizar orden de compra|||||||||||
+T|570.00|0.00|0|570.00|0.00|0|85.50|655.50|0|655.50|
+TI|2|4|15|570.00|85.50|IVA|
+DE|12476|12476|VENT ARCA NIVEL 3 VER 1|1|570|0|570.00|
+IM|2|4|15|570.00|85.50|IVA|
+IA|DIRECCION|Km 5 ½ Via Manta-Montecristi|
+IA|CIUDAD|MONTECRISTI|
+IA|TELEFONO|+593994216180|
+IA|EMISION|Guayaquil|
+IA|CORREO|facturacion@agroifabril.com,facturacion@agroifabril.com,jterreros@agroifabril.com,bchiquito@lafabril.com,cecedeno@lafabril.com.ec,mfigueroa@lafabril.com.ec,EMEDRANDA@LAFABRIL.COM.EC|

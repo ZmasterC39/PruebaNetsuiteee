@@ -1,0 +1,18 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000023412|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|asestrella@royalflowersecuador.com|
+IC|06/05/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||ROYALFLOWERS S.A.S.|1791221761001|DOLAR|||||0||||||||||||Panamericana Norte S/N A media cuadra de la Y de Tabacundo|
+T|2688.00|0.00|0|2688.00|0.00|0|403.20|3091.20|0|3091.20|
+TI|2|4|2688.00|15|403.20|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|8|168|0|1344.00|
+IM|2|4|15|1344.00|201.60|IVA|
+DE|13162|13162|ALQU HUNTER RASTREO RENOVACION|8|168|0|1344.00|
+IM|2|4|15|1344.00|201.60|IVA|
+IA|DIRECCION|Panamericana Norte S/N A media cuadra de la Y de Tabacundo|
+IA|CIUDAD|TABACUNDO|
+IA|TELEFONO|+59323996670|
+IA|OBSERVACION|PCG-2888/PDR-7816/PDT-2638/PDU-3564/PQE-0958/PVT-0507/PWH-0374/PFK-9786|
+IA|VENCIMIENTO|05/06/2026|
+IA|EMISION|Quito|
+IA|CORREO|documentos.electronicos@royalflowersecuador.com,asestrella@royalflowersecuador.com,asestrella@royalflowersecuador.com,kyanacallo@royalflowersecuador.com,kyanacallo@royalflowersecuador.com,kyanacallo@royalflowersecuador.com|
+IA|PLAZO|30 días|
+PA|20|3091.20|30|días|

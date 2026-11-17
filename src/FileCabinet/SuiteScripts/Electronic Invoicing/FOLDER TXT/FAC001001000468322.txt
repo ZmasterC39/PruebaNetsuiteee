@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000468322|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|Roberto_correa@hotmail.com|
+IC|16/06/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|05||ROBERTO BOLIVAR CORREA AGUAYO|1709937682|DOLAR|||||0||||||||||||Ciudad Celeste Mz 11 Solar 5 La Estela|
+T|86.95|0.00|0|86.95|0.00|0|13.04|99.99|0|99.99|
+TI|2|4|86.95|15|13.04|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|86.95|0|86.95|
+IM|2|4|15|86.95|13.04|IVA|
+IA|DIRECCION|Ciudad Celeste Mz 11 Solar 5 La Estela|
+IA|TELEFONO|+593987233831|
+IA|OBSERVACION|PLACAS: GTI-4370|
+IA|VENCIMIENTO|16/06/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|Roberto_correa@hotmail.com,roberto_correa@hotmail.com,roberto_correa@hotmail.com,roberto_correa@hotmail.com,roberto_correa@hotmail.com|
+IA|PLAZO| días|
+PA|20|99.99|0|días|

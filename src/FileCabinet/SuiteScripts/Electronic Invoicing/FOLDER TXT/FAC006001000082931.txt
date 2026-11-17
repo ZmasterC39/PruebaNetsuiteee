@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|006|001|000082931|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|seg_fisica@propemar.com.ec|
+IC|21/07/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||PRODUCTOS PERECIBLES Y MARISCOS PROPEMAR S.A.|1391730845001|DOLAR|||||0||||||||||||Km 8 1/2 Via Manta Montecristi|
+T|12.00|0.00|0|12.00|0.00|0|1.80|13.80|0|13.80|
+TI|2|4|12.00|15|1.80|IVA|
+DE|2277|2277|MODULO - ALARMAS|1|12|0|12.00|
+IM|2|4|15|12.00|1.80|IVA|
+IA|DIRECCION|Km 8 1/2 Via Manta Montecristi|
+IA|TELEFONO|+593984890965|
+IA|OBSERVACION|CANLIV688|
+IA|VENCIMIENTO|20/08/2026|
+IA|EMISION|Manta|
+IA|CORREO|seg_fisica@propemar.com.ec,vivibonilla@propemar.com.ec,seg_fisica@propemar.com.ec,everamarchan@gmail.com,seg_fisica@propemar.com.ec,logistica@propemar.com.ec,eduardovera@propemar.com.ec|
+IA|PLAZO|30 días|
+PA|20|13.80|30|días|

@@ -1,0 +1,17 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000472209|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|facturacionelectronica@generatrust.com|
+IC|04/08/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||GENERATRUST ADMINISTRADORA DE FONDOS Y FIDEICOMISOS S.A.|0992293586001|DOLAR|||||0||||||||||||Av. Francisco de Orellana, Centro Empresarial Las Cmaras, Torre Institucional, Piso 6|
+T|324.00|0.00|0|324.00|0.00|0|48.60|372.60|0|372.60|
+TI|2|4|324.00|15|48.60|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|200|0|200.00|
+IM|2|4|15|200.00|30.00|IVA|
+DE|47|47|RENO HUNTER RASTREO RENOVACION|1|124|0|124.00|
+IM|2|4|15|124.00|18.60|IVA|
+IA|DIRECCION|Av. Francisco de Orellana, Centro Empresarial Las Cmaras, Torre Institucional, Piso 6|
+IA|TELEFONO|+593988380644|
+IA|OBSERVACION|GTK-9649|
+IA|VENCIMIENTO|03/09/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|facturacionelectronica@generatrust.com,facturacionelectronica@generatrust.com,fnugue@generatrust.com,luisvasquez@generatrust.com,facturacionelectronica@generatrust.com|
+IA|PLAZO|30 días|
+PA|20|372.60|30|días|

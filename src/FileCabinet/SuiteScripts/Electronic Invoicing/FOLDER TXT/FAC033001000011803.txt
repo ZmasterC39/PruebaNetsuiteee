@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000011803|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|rvega@grupoenlasa.net|
+IC|19/09/2025|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MAZACANE S.A.|0992562285001|DOLAR|||||0||||||||||||CALLE JUAN MONTALVO NISA, Y VACAS GALINO|
+T|25.00|0.00|0|25.00|0.00|0|3.75|28.75|0|28.75|
+TI|2|4|25.00|15|3.75|IVA|
+DE|2302|2302|Informe de rastreo de tres días antes y tres días después del siniestro|1|25|0|25.00|
+IM|2|4|15|25.00|3.75|IVA|
+IA|DIRECCION|CALLE JUAN MONTALVO NISA, Y VACAS GALINO|
+IA|TELEFONO|+593980836007|
+IA|OBSERVACION|PFE-1862 Informe de rastreo de tres das antes y tres das despus del siniestro|
+IA|VENCIMIENTO|19/10/2025|
+IA|EMISION|Quito|
+IA|CORREO|rvega@grupoenlasa.net,rvega@grupoenlasa.net,rvega@grupoenlasa.net,rvega@grupoenlasa.net|
+IA|PLAZO|30 días|
+PA|20|28.75|30|días|

@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|001|001|000461020|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|control-gestion@servientrega.com.ec|
+IC|31/03/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||SERVIENTREGA ECUADOR S.A.|0991285679001|DOLAR|||||0||||||||||||Av. Juan Tanca Marengo y Dr. Camilo Ponce Enrique |
+T|145.00|0.00|0|145.00|0.00|0|21.75|166.75|0|166.75|
+TI|2|4|145.00|15|21.75|IVA|
+DE|13159|13159|ALQU HM CORPORATIVO RENOVACION|1|145|0|145.00|
+IM|2|4|15|145.00|21.75|IVA|
+IA|DIRECCION|Av. Juan Tanca Marengo y Dr. Camilo Ponce Enrique |
+IA|TELEFONO|+593991355841|
+IA|OBSERVACION|GTN-4986|
+IA|VENCIMIENTO|31/03/2026|
+IA|EMISION|Guayaquil|
+IA|CORREO|vicente.arbaiza@servientrega.com.ec,control-gestion@servientrega.com.ec,ingrid.coello@servientrega.com.ec,control-gestion@servientrega.com.ec,maria.ibarra@servientrega.com.ec,credito@servientrega.com.ec,jhon.guerra@servientrega.com.ec|
+IA|PLAZO|0 días|
+PA|20|166.75|0|días|

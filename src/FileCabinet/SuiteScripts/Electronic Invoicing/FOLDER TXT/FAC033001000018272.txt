@@ -1,0 +1,15 @@
+VE|01|FACTURA|1.0.0|
+IT|2|1|Carro Seguro CARSEG S.A.|CARSEG S.A|0991259546001||01|033|001|000018272|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|m.collahuazo@medilaborsa.com|
+IC|28/01/2026|CDLA.VERNAZA NORTE MZ.10 SOLAR 19|05505|SI|04||MEDILABOR S.A.|1791412559001|DOLAR|||||0||||||||||||Calle Paraso OE5-468 y el Eden sector Pusuqu|
+T|240.00|0.00|0|240.00|0.00|0|36.00|276.00|0|276.00|
+TI|2|4|240.00|15|36.00|IVA|
+DE|7371|7371|RENO HMONITOREO RENOVACION|1|240|0|240.00|
+IM|2|4|15|240.00|36.00|IVA|
+IA|DIRECCION|Calle Paraso OE5-468 y el Eden sector Pusuqu|
+IA|TELEFONO|+593996023552|
+IA|OBSERVACION|PDQ-7500|
+IA|VENCIMIENTO|27/02/2026|
+IA|EMISION|Quito|
+IA|CORREO|m.collahuazo@medilaborsa.com,m.collahuazo@medilaborsa.com,m.collahuazo@medilaborsa.com,m.collahuazo@medilaborsa.com|
+IA|PLAZO|30 días|
+PA|20|276.00|30|días|
